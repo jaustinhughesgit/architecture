@@ -17,6 +17,9 @@ Before making architectural or behavioral changes, read:
 - Search the capability catalog and code before proposing a new subsystem. A capability may already exist under a different name or may need to be generalized.
 - Treat `map`, `extend`, `link`, `use`, and `substitute` as general composition primitives. Never reduce them to one example use.
 - Preserve local-first and zero-trust boundaries. A server feature must not silently gain access to plaintext protected data.
+- Local-first does not mean local-only: when a user permits publication, ordinary ContextDB facts become durable, authorized server entities without delaying local execution.
+- Entities include stored hard assets and interaction assets as well as compute. Mindsets, thoughts, and moods remain first-class primitives.
+- Zero-trust sharing requires recipient/device key wraps and matching server grants. An executor/KMS wrap is a separate trusted-server mode.
 - Do not claim an architectural capability is implemented merely because it is documented as product intent. Use the status vocabulary in `architecture/docs/capability-catalog.md`.
 
 ## Change discipline
@@ -25,4 +28,3 @@ Before making architectural or behavioral changes, read:
 - Add or update tests at the lowest layer that can prove the reusable behavior. Add cross-layer contract tests when boundaries change.
 - Record consequential architectural decisions in `architecture/decisions/`.
 - If implementation contradicts these documents, inspect the history and intended behavior. Correct the documentation, implementation, or both; do not conceal the mismatch.
-

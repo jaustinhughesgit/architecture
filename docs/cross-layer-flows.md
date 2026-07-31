@@ -15,6 +15,22 @@ Message or voice input
 
 No `aws-api`, compute Lambda, provider, or OpenAI call belongs on this path. Refresh must reload persisted facts and installed Paths before the input is evaluated.
 
+When policy permits sharing, the committed graph delta also enters a durable asynchronous publication outbox. That publication never delays the local answer.
+
+## Local entity publication and shared retrieval
+
+```text
+Local Essence mutation commits entities and relations
+  → durable sync outbox records typed graph delta and policy
+  → server idempotently creates/resolves entities and relations
+  → server returns stable IDs, versions, and acknowledgements
+  → browser persists local ↔ server identity mappings
+  → authorized user/device queries or hydrates the shared graph
+  → retrieved server entities become local queryable context
+```
+
+The current browser synchronization libraries are disconnected from the active runtime, so this is a repair target rather than a completion claim. See [distributed entities](capabilities/distributed-entities.md).
+
 ## New local semantic operation
 
 ```text
@@ -71,6 +87,10 @@ The user deliberately permits a server-side broker to resolve and use a protecte
 The browser asks a local companion runtime to execute an approved provider protocol. The companion decrypts the protected asset locally, performs the network request, filters or encrypts the result according to user policy, and returns only the permitted result. Platform servers never receive plaintext secrets.
 
 The local companion is managed through the web experience; it need not expose a separate everyday UI. Sensitive approvals and terms are presented in the browser, while cryptographic use remains local.
+
+### Recipient-specific local sharing
+
+The creator encrypts one content payload and creates a separately salted key wrap for each authorized recipient/device. The server stores opaque material and access grants. A recipient authenticates, downloads the permitted envelope, and decrypts locally. A server executor wrap is optional and changes the trust mode. See [recipient-specific zero-trust sharing](capabilities/recipient-protected-sharing.md).
 
 ## Background work
 

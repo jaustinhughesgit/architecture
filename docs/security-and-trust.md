@@ -32,6 +32,17 @@
 - Revocation must prevent future use without requiring the entity or Path to be deleted.
 - Reset and deletion operations must cover primary records, audit retention policy, cached grants, and derived references deliberately.
 
+## Recipient-specific sharing
+
+Zero-trust sharing requires both a cryptographic recipient wrap and an authorization grant. The creator's device may encrypt the payload once and create an independent ECDH/HKDF wrap for each recipient's public-key version. Salts and ephemeral public keys may be stored with ciphertext; recipient private keys and plaintext may not.
+
+- Recipients may retrieve envelopes, but do not automatically receive owner powers such as edit, rotate, delete, delegate, or view the owner's full audit trail.
+- Adding an executor/KMS wrap makes server decryption technically possible and must be labeled trusted-server mode.
+- Removing a recipient cannot revoke ciphertext they already downloaded; future confidentiality requires a new content key and version.
+- Organization membership is resolved to explicit recipient/device grants and key versions rather than treated as a decryption key itself.
+
+See [recipient-specific zero-trust sharing](capabilities/recipient-protected-sharing.md).
+
 ## Local companion direction
 
 **Product intent:** a background local application can hold protected personal data and provider credentials, navigate approved headless protocols, and execute provider APIs without revealing secrets to 1var servers. The browser remains the user's control and conversation surface.

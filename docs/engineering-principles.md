@@ -17,6 +17,8 @@ When a scenario fails, first identify the reusable mechanism responsible:
 
 Repair the narrowest reusable layer that fully owns the problem. A provider-specific endpoint belongs in a provider entity or protocol template; a general city/state normalization rule belongs in typed input handling; a missing modifier slot belongs in Path/Essence behavior.
 
+An entity is not synonymous with compute. Before building a function, determine whether the requested result is a stored hard asset, graph traversal, interaction asset, composed entity, or genuine computation. Permitted local facts should publish through the general entity synchronization contract so they can be shared and governed without turning retrieval into compute.
+
 ## Do not confuse generality with vagueness
 
 A scalable system still needs precise contracts. “Let the LLM fix it” is not a contract. Inputs, outputs, schemas, execution permissions, lineage order, retries, diagnostics, and tests must be explicit enough to validate without trusting prose.
@@ -43,6 +45,8 @@ Model calls are for discovery, learning, diagnosis, or sanctioned compute—not 
 ## Cross-layer durability
 
 Long model or entity operations must not depend on one synchronous Lambda lifetime. Background operations need a job record, idempotency key, durable queue or continuation mechanism, state transitions, sanitized progress, retry policy, and front-end polling or subscription. A timeout is an execution state, not a reason to lose the original request.
+
+Local-to-server entity publication is background work too. It needs a durable local outbox, idempotent server operation, acknowledgement, retry, and conflict state while leaving the local ContextDB mutation immediately usable.
 
 ## Security by technical boundary
 
@@ -82,4 +86,3 @@ Before implementing a new subsystem or exception, answer:
 6. Can the result run locally after learning?
 7. How is it versioned, shared, authorized, tested, and diagnosed?
 8. What documentation or contract must change?
-

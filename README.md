@@ -34,6 +34,8 @@ The architecture should therefore improve the general system when a new scenario
    - [Sound module](docs/capabilities/sound.md)
    - [Real-time audio and video streaming](docs/capabilities/realtime-streaming.md)
    - [Email platform](docs/capabilities/email-platform.md)
+   - [Distributed entities and Context publication](docs/capabilities/distributed-entities.md)
+   - [Recipient-specific zero-trust sharing](docs/capabilities/recipient-protected-sharing.md)
 7. [Shared contracts](contracts/README.md)
 8. [Architecture decisions](decisions/README.md)
 

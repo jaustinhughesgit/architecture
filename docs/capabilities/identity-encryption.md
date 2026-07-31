@@ -31,6 +31,7 @@ The intended ceremony is:
 - An entity may request a capability without receiving the secret itself. Local execution is the zero-knowledge option; server-side brokerage is an explicitly trusted-server option.
 - `use` and `set` authorization govern who may reference or alter a protected asset, while action permissions govern execution.
 - Public templates may describe required assets, but must never contain a user's private value.
+- A protected asset may be shared through independently salted recipient/device key wraps. This is distinct from adding a server-executor wrap; see [recipient-specific zero-trust sharing](recipient-protected-sharing.md).
 
 ## Required work
 

@@ -15,6 +15,9 @@ This catalog prevents future work from assuming a capability is absent merely be
 | Command registry, menus, and calls | Implemented foundation | `aws` + entity JPL | Declarative commands and state transitions exist; target/permission schemas need formalization. |
 | Entity automation and sequences | Implemented foundation | `aws` + entity JPL | Interaction queues and equation composition exist; distinct from external scheduling. |
 | Local ContextDB | Partial | `aws` | Graph storage and retrieval exist; persistence and refresh behavior require an explicit storage specification. |
+| Local entity → server entity publication | Disconnected foundation | `aws` + `compute` | Two browser sync libraries and server entity/link/export storage exist, but active ContextDB does not invoke them. Durable outbox, ID mapping, versioning, and authorization are missing. |
+| Shared hard-data entities | Partial / product intent | Cross-layer | Ordinary facts should publish as stored entities/relations, not only executable compute opportunities; authorized cross-user retrieval is not end-to-end tested. |
+| Server entity hydration | Disconnected foundation | `aws` + `compute` | Export/hydration helpers exist but are not wired to active ContextDB startup or scoped shared queries. |
 | Automatic Path learning | Partial | `aws` + model services | Candidate generation, testing, promotion, and evidence exist; reliable reusable-family repair is incomplete. |
 | Entity parent/child lineage | Product intent / partial | `compute` + portal | Portal exposes lineage. Execution-order and contract semantics need direct code mapping and tests. |
 | `map` | Implemented primitive | `compute` | Do not define by one use case; document mechanical graph effects and permission behavior. |
@@ -35,12 +38,14 @@ This catalog prevents future work from assuming a capability is absent merely be
 | Background OpenAI jobs | Partial | `compute` + `aws` | Durable response/job mechanisms exist in code; comprehensive idempotency and lifecycle contract needed. |
 | Scheduled entity tasks | Partial | Portal + `compute` + EventBridge Scheduler | Recurrence persistence and invocation exist; authorization recheck, idempotency, retry/DLQ, and result lifecycle need hardening. |
 | Protected-asset storage and audit | Implemented trusted-server foundation | `compute` | DynamoDB resources and broker exist. Do not characterize server use as zero-knowledge. |
+| Recipient-specific protected sharing | Partial / disconnected | `aws` + `compute` | Browser creates salted ECDH key wraps per recipient, but owner-only envelope retrieval currently prevents recipients from using them. |
+| Organization-managed zero-trust keys | Product intent / foundation | `aws` + `compute` | Recipient key wrapping can support company-managed sharing; grant, rewrap, removal, rotation, and device lifecycle are incomplete. |
 | Local protected-asset companion | Product intent | Future local runtime + `aws` | Browser-managed, locally executed zero-knowledge option; architecture not yet implemented. |
 | `fileWorker` operational isolation | Implemented foundation | `aws` | Keeps entity execution off the main UI thread; same-origin dynamic execution is not yet a hardened sandbox. |
 | Sound module | Implemented foundation | `aws` | Web Audio lifecycle, tone/media playback, stop, analyzer, and bus integration exist. |
 | Reusable API/provider protocols | Product intent / emerging | Entities + Paths + JPL | Must use core 1var primitives rather than a disconnected provider subsystem. |
 | Headless website protocol capture | Product intent | Entities, moods, Paths, local runtime | Model-assisted builder with approval; resulting protocol should be reusable and versioned. |
-| Mindsets, thoughts, moods | Implemented primitives / partial spec | Entity/front-end modules | Runtime representation exists; composition and authoring semantics need dedicated documentation. |
+| Mindsets, thoughts, moods | Implemented first-class primitives / partial spec | Entity/front-end modules | Not architectural legacy. Runtime representation exists; publication, composition, and authoring semantics need dedicated documentation. |
 | Streaming/WebRTC | Implemented foundation | `aws` + `compute` + Kinesis Video Streams | Presence, invites, media capture, signaling, and scoped credentials exist; authorization, recording, moderation, and E2EE options need hardening. |
 | Email entity addresses | Partial | `aws` + `compute` + SES | Entity-addressed outbound behavior exists; inbound ownership/routing contract needs verification and specification. |
 | Email consent/reputation controls | Partial | `compute` + SES | Opt-in, unsubscribe, rate, block, bounce, and suppression controls exist; complaint handling and deployment configuration verification remain gaps. |

@@ -17,6 +17,8 @@ Candidates include:
 - Sound source/control and streaming presence/invitation/session contracts
 - Email entity address, consent, delivery, bounce, complaint, suppression, and unsubscribe events
 - Account verification, device enrollment, WebAuthn assertion, key rotation, and recovery states
+- Local graph-delta outbox, server entity publication acknowledgement, ID mapping, version, tombstone, and hydration contracts
+- Recipient/device grants, public-key versions, salted key wraps, envelope retrieval, rewrap, re-encryption, and revocation contracts
 
 Do not copy an evolving schema independently into all three repositories without a compatibility strategy. When a contract becomes executable, give it a schema version, fixtures, producer tests, consumer tests, and a migration policy. Record compatible repository versions or commits until releases share a unified versioning mechanism.
 

@@ -28,6 +28,8 @@ The long-term value is not any single answer. It is the reusable graph of capabi
 
 Entities are reusable units of information, behavior, presentation, or interaction. They can represent provider protocols, business processes, content, automation, UI behavior, organizational knowledge, or other capabilities.
 
+An entity may be a hard stored asset, an executable asset, an interaction asset, a structural graph node, or a compute capability. Compute is one entity behavior, not the definition of an entity. Browser and server entities share this platform identity because permitted local entities are intended to publish into durable, addressable, governable server records. See [distributed entities and Context publication](capabilities/distributed-entities.md).
+
 Entities can have parent/child lineage. **Product intent:** invoking a child can execute the relevant parent lineage from the top parent through the selected child. This makes a lineage comparable to a composable headless experience rather than an isolated function call. Lineage order, parameter flow, failure behavior, and permission checks must remain explicit contracts as implementation matures.
 
 ### Entity relationships
@@ -42,7 +44,7 @@ ContextDB holds the user's contextual graph: facts, relationships, properties, a
 
 Data should preserve distinct subjects and properties. For example, an address may have street, unit, city, state, and postal-code facts connected to the correct person; it should not become one opaque value when the intent requires its parts. Queries must retain explicit referents such as “my” versus “my mom's.”
 
-**Product intent:** ordinary personal context and the Paths that use it should be local-first so known questions can be answered immediately without a server or model call. Persistence, synchronization, backup, and multi-device behavior require explicit trust decisions.
+**Product intent:** ordinary personal context and the Paths that use it should be local-first so known questions can be answered immediately without a server or model call. Local-first does not mean local-only: permitted facts publish asynchronously as server entities and links so other authorized users and devices can retrieve them. Persistence, synchronization, backup, multi-device behavior, and cross-user authorization require explicit contracts and trust decisions.
 
 ### Essences
 
@@ -85,6 +87,8 @@ Account bootstrap, email verification, device-key enrollment, WebAuthn, protecte
 
 These are interaction-building primitives exposed through the front-end module system. **Product intent:** they can package reusable ways to interpret, navigate, extract, present, or act—for example, a mood that helps a builder capture a provider website's operational protocol. Their use is broader than provider integration and must remain composable with entities, Paths, data, and permissions.
 
+Mindsets, thoughts, and moods are not architectural legacy. Individual implementations may require modernization, but these remain first-class entity authoring and interaction capabilities.
+
 ### Public/private and authorization
 
 Visibility controls whether work is available publicly or remains private to a user, group, team, or sandbox. Authorization is more granular: execute, use, set, edit, delete, permit, and other actions may have different grants.
@@ -97,8 +101,9 @@ Protected assets include API keys, financial details, personal identification, a
 
 - A server-managed option may be offered with clear user consent and auditable controls.
 - A true zero-knowledge option keeps decryption and use on a user-controlled device so platform servers cannot technically access plaintext.
+- Recipient-specific zero-trust sharing encrypts locally and gives each authorized user/device an independent salted key wrap. An optional server-executor wrap is a different, explicitly trusted-server mode.
 
-Entities should reference protected-asset requirements, not embed secrets. See `security-and-trust.md`.
+Entities should reference protected-asset requirements, not embed secrets. See `security-and-trust.md` and [recipient-specific zero-trust sharing](capabilities/recipient-protected-sharing.md).
 
 ## 3. Builder and end-user layers
 
@@ -131,3 +136,5 @@ A provider protocol can be represented using entities and lineage for workflow, 
 8. Examples must test generalized mechanics; passing one literal phrase is not proof of a scalable fix.
 9. A scheduled, emailed, streamed, automated, or worker-executed entity must retain ordinary entity lineage, authorization, protected-asset, and audit rules.
 10. Operational isolation, encryption at rest, authenticator enrollment, and zero-knowledge are distinct claims and must not be presented as interchangeable.
+11. A local entity and its server representation must be connected by durable identity, version, provenance, authorization, and synchronization state; a label is not an identity.
+12. A recipient key wrap grants cryptographic potential, while a server grant authorizes retrieval. Both must agree before sharing works.
