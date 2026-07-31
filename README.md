@@ -26,8 +26,16 @@ The architecture should therefore improve the general system when a new scenario
 3. [Cross-layer flows](docs/cross-layer-flows.md)
 4. [Security and trust](docs/security-and-trust.md)
 5. [Capability catalog](docs/capability-catalog.md)
-6. [Shared contracts](contracts/README.md)
-7. [Architecture decisions](decisions/README.md)
+6. Capability specifications:
+   - [Scheduled entity tasks](docs/capabilities/scheduled-tasks.md)
+   - [Account, device identity, and protected assets](docs/capabilities/identity-encryption.md)
+   - [Sentence, Essence, Path, command, menu, and automation runtime](docs/capabilities/interaction-runtime.md)
+   - [File Worker isolation](docs/capabilities/worker-isolation.md)
+   - [Sound module](docs/capabilities/sound.md)
+   - [Real-time audio and video streaming](docs/capabilities/realtime-streaming.md)
+   - [Email platform](docs/capabilities/email-platform.md)
+7. [Shared contracts](contracts/README.md)
+8. [Architecture decisions](decisions/README.md)
 
 ## How this stays useful
 

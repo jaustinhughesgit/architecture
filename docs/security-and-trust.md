@@ -40,7 +40,16 @@ The companion will need authenticated browser-to-local communication, origin bin
 
 Automating account creation or terms acceptance requires explicit user approval and evidence of the terms shown. Voice confirmation can be an input mechanism; it must not weaken the consent record or allow silent acceptance.
 
+## Device and runtime distinctions
+
+- Creating a WebAuthn credential enrolls an authenticator; a protected operation is hardware-authorized only when policy verifies a fresh assertion for that operation.
+- A non-exportable IndexedDB `CryptoKey` reduces accidental extraction but does not prove that application code cannot request its use.
+- `fileWorker` separates entity work from the main UI thread, but a same-origin Web Worker is not a malicious-code sandbox.
+- WebRTC encrypts transport between peers; application-level end-to-end encryption and recording policy are separate guarantees.
+- Email reputation and consent controls require both code and verified SES/domain deployment state.
+
+See [identity and encryption](capabilities/identity-encryption.md), [worker isolation](capabilities/worker-isolation.md), [streaming](capabilities/realtime-streaming.md), and [email](capabilities/email-platform.md).
+
 ## Authorization and visibility
 
 Public/private determines discoverability or audience, not every permitted action. Authorization should independently govern actions such as execute, use, set, edit, delete, delegate, and permit. Parent/child execution and relationship traversal must evaluate authorization at each relevant boundary rather than inherit unlimited access accidentally.
-

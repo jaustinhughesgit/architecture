@@ -69,6 +69,18 @@ JPL is 1var's JSON representation for executable entities. Current entity bundle
 
 These fields provide a vocabulary for reusable execution and interaction. Their definitive runtime semantics belong in a future versioned JPL specification and schema; until that is complete, generators must use validated examples, strict structured output, schema validation, isolated execution, and semantic contract tests rather than guessing JSON shape.
 
+### Interaction runtime
+
+Commands, menus, calls, automations, and sequences turn Path results and entity definitions into navigable experiences. They share a declarative command registry rather than forming separate one-off systems. A scheduled task controls when an entity begins; an entity automation controls ordered behavior within an interaction. See [the interaction runtime specification](capabilities/interaction-runtime.md) and [scheduled entity tasks](capabilities/scheduled-tasks.md).
+
+### Browser capability modules
+
+The browser includes operationally isolated entity execution through `fileWorker`, sound production and analysis, and real-time audio/video streaming. These capabilities should be exposed to entities through scoped, versioned operations. A Web Worker protects main-page responsiveness but is not, by itself, a hardened sandbox. See [File Worker isolation](capabilities/worker-isolation.md), [sound](capabilities/sound.md), and [streaming](capabilities/realtime-streaming.md).
+
+### Identity and communication
+
+Account bootstrap, email verification, device-key enrollment, WebAuthn, protected assets, and email entity addresses connect identity to governed interaction. Enrollment is not the same as assertion-time hardware authorization, and anti-spam code is not by itself proof of deployed email compliance. See [identity and encryption](capabilities/identity-encryption.md) and [the email platform](capabilities/email-platform.md).
+
 ### Mindsets, thoughts, and moods
 
 These are interaction-building primitives exposed through the front-end module system. **Product intent:** they can package reusable ways to interpret, navigate, extract, present, or act—for example, a mood that helps a builder capture a provider website's operational protocol. Their use is broader than provider integration and must remain composable with entities, Paths, data, and permissions.
@@ -117,4 +129,5 @@ A provider protocol can be represented using entities and lineage for workflow, 
 6. Failed learning should not prevent safe execution or storage when an existing deterministic interpretation can do so.
 7. Diagnostics should expose sanitized stage, contract, provider status, and observed data needed to distinguish Path, entity, provider, and platform faults.
 8. Examples must test generalized mechanics; passing one literal phrase is not proof of a scalable fix.
-
+9. A scheduled, emailed, streamed, automated, or worker-executed entity must retain ordinary entity lineage, authorization, protected-asset, and audit rules.
+10. Operational isolation, encryption at rest, authenticator enrollment, and zero-knowledge are distinct claims and must not be presented as interchangeable.

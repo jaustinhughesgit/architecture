@@ -11,8 +11,13 @@ Candidates include:
 - JPL document schemas and version migration rules
 - Protected-asset references, consent scopes, and sanitized diagnostics
 - Entity lineage and relationship-operation contracts
+- Scheduled task, occurrence, retry, and result contracts
+- Command registry, menu transition, automation event, and sequence schemas
+- Main-page-to-worker request, result, heartbeat, cancellation, and capability-grant messages
+- Sound source/control and streaming presence/invitation/session contracts
+- Email entity address, consent, delivery, bounce, complaint, suppression, and unsubscribe events
+- Account verification, device enrollment, WebAuthn assertion, key rotation, and recovery states
 
 Do not copy an evolving schema independently into all three repositories without a compatibility strategy. When a contract becomes executable, give it a schema version, fixtures, producer tests, consumer tests, and a migration policy. Record compatible repository versions or commits until releases share a unified versioning mechanism.
 
 This directory currently documents the contract program; it does not claim these schemas are already centralized.
-

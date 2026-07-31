@@ -85,3 +85,36 @@ Browser submits idempotent operation
 
 Retries must not create duplicate entities, Paths, facts, provider charges, or protected-asset actions.
 
+## Scheduled entity execution
+
+```text
+Portal creates an entity-targeted recurrence in the user's time zone
+  → compute persists the task and occurrences
+  → EventBridge Scheduler wakes compute
+  → worker selects the due occurrence and re-checks authority
+  → normal parent/child entity execution runs once
+  → result, retry, and audit state attach to the occurrence id
+```
+
+See [scheduled entity tasks](capabilities/scheduled-tasks.md).
+
+## Account and protected-device enrollment
+
+```text
+Create account/group
+  → verify email channel
+  → enroll WebAuthn authenticator
+  → generate device-held encryption/signing keys
+  → register public material and key version
+  → require a fresh assertion when protected-use policy demands it
+```
+
+The last step is an intended guarantee that is not yet complete in the current implementation. See [identity and encryption](capabilities/identity-encryption.md).
+
+## Commanded interaction and media
+
+An utterance becomes an Essence and Path transform; that transform may read or write ContextDB, invoke a registered command, change a menu state, enqueue an automation, schedule an entity, play sound, or begin a governed streaming session. All branches retain the same entity and authorization model. See [the interaction runtime](capabilities/interaction-runtime.md), [sound](capabilities/sound.md), and [streaming](capabilities/realtime-streaming.md).
+
+## Entity email
+
+Inbound or outbound email targets an entity identity, enters a channel-specific safety boundary, and then invokes ordinary entity/Path behavior. Consent, unsubscribe, suppression, rate, reputation, attachment, and retry rules are transport requirements around—not replacements for—the entity runtime. See [the email platform](capabilities/email-platform.md).
