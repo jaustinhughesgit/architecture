@@ -1,0 +1,120 @@
+# Platform Model
+
+## 1. System objective
+
+1var turns human intent and protected or ordinary data into governed, reusable interactions. It is intended to let builders create the structured foundation once and let other users invoke it naturally through messages, voice, or other interfaces.
+
+The platform is layered, but the layers are not isolated:
+
+```text
+User interaction
+    ↓
+Browser interpretation and local execution (`aws`)
+    ↓ only when local knowledge cannot complete the work
+Controlled API boundary (`aws-api`)
+    ↓
+Entity, JPL, provider, and persistence execution (`compute`)
+    ↓
+Validated result, reusable learning, or actionable diagnosis
+    ↓
+Browser rendering and future local reuse
+```
+
+The long-term value is not any single answer. It is the reusable graph of capabilities, data, relationships, permissions, and interaction Paths that makes future answers immediate, composable, governable, and shareable.
+
+## 2. Core primitives
+
+### Entities
+
+Entities are reusable units of information, behavior, presentation, or interaction. They can represent provider protocols, business processes, content, automation, UI behavior, organizational knowledge, or other capabilities.
+
+Entities can have parent/child lineage. **Product intent:** invoking a child can execute the relevant parent lineage from the top parent through the selected child. This makes a lineage comparable to a composable headless experience rather than an isolated function call. Lineage order, parameter flow, failure behavior, and permission checks must remain explicit contracts as implementation matures.
+
+### Entity relationships
+
+`map`, `extend`, `link`, `use`, and `substitute` are general-purpose composition and control primitives. They are not assigned one permanent business meaning.
+
+They may support many patterns, including provider protocol composition, onboarding experiences, education relationships, product catalogs, governed transactions, content reuse, or future patterns not yet known. Documentation and implementations should describe their mechanical semantics and constraints separately from example use cases.
+
+### ContextDB
+
+ContextDB holds the user's contextual graph: facts, relationships, properties, and referents used to interpret and answer requests. Its value is structured retrieval and composition, not merely storing message strings.
+
+Data should preserve distinct subjects and properties. For example, an address may have street, unit, city, state, and postal-code facts connected to the correct person; it should not become one opaque value when the intent requires its parts. Queries must retain explicit referents such as “my” versus “my mom's.”
+
+**Product intent:** ordinary personal context and the Paths that use it should be local-first so known questions can be answered immediately without a server or model call. Persistence, synchronization, backup, and multi-device behavior require explicit trust decisions.
+
+### Essences
+
+Essences are structured semantic operations derived from utterances. They separate what the user means from the exact words used. Statement Essences can mutate ContextDB; question Essences can query it; other operations can invoke commands or compute capabilities.
+
+Essence generation must retain required semantic distinctions: subject, property, quantity, location, time reference, ownership, negation, and other modifiers. Losing “tomorrow,” “my mom,” or a supplied location is a platform interpretation failure, not an acceptable simplification.
+
+### Paths and signatures
+
+Paths connect recognizable input structures to deterministic transforms. Signatures let wording that has already been understood run locally and quickly. Reusable Paths use typed slots and semantic families rather than memorizing only one literal utterance.
+
+Paths serve at least four roles:
+
+1. Convert statements into structured Essence mutations.
+2. Convert questions into structured Essence queries.
+3. Bind natural-language values to entity or compute inputs.
+4. Route commands and interaction behaviors.
+
+Path building, editing, and repair must be able to consider the linked entity, relevant ContextDB structure, original and resulting Essence, observed captures, related Path family, and test result. Editing only an entity or only a literal signature often fixes half the system.
+
+### JPL and compute entities
+
+JPL is 1var's JSON representation for executable entities. Current entity bundles contain structures such as blocks, modules, actions, functions, automations, menus, commands, calls, templates, assignments, mindsets, thoughts, moods, data, and compute-capability metadata.
+
+These fields provide a vocabulary for reusable execution and interaction. Their definitive runtime semantics belong in a future versioned JPL specification and schema; until that is complete, generators must use validated examples, strict structured output, schema validation, isolated execution, and semantic contract tests rather than guessing JSON shape.
+
+### Mindsets, thoughts, and moods
+
+These are interaction-building primitives exposed through the front-end module system. **Product intent:** they can package reusable ways to interpret, navigate, extract, present, or act—for example, a mood that helps a builder capture a provider website's operational protocol. Their use is broader than provider integration and must remain composable with entities, Paths, data, and permissions.
+
+### Public/private and authorization
+
+Visibility controls whether work is available publicly or remains private to a user, group, team, or sandbox. Authorization is more granular: execute, use, set, edit, delete, permit, and other actions may have different grants.
+
+Public work can become reusable infrastructure or marketable templates. Private work supports sensitive and collaborative uses. Visibility must never be treated as a replacement for action-level authorization or protected-asset controls.
+
+### Protected assets
+
+Protected assets include API keys, financial details, personal identification, and other sensitive values. The architecture supports different trust modes rather than falsely labeling all server-side use zero-trust.
+
+- A server-managed option may be offered with clear user consent and auditable controls.
+- A true zero-knowledge option keeps decryption and use on a user-controlled device so platform servers cannot technically access plaintext.
+
+Entities should reference protected-asset requirements, not embed secrets. See `security-and-trust.md`.
+
+## 3. Builder and end-user layers
+
+1var serves multiple layers of participation:
+
+- **Platform builders** improve reusable primitives, runtimes, contracts, governance, and creation tools.
+- **Capability builders** compose entities, Paths, provider protocols, data contracts, moods, and permissions.
+- **Organizations and teams** connect public and private work to their own data and processes.
+- **End users** interact naturally without needing to understand the graph underneath.
+
+The end-user simplicity is produced by structured work at the other layers. It should not be simulated by hiding unexplained failures or by repeatedly asking the model to rediscover known protocols.
+
+## 4. Provider and headless interaction direction
+
+Provider APIs and websites are an important proof of the general architecture, not a separate product bolted beside it.
+
+A provider protocol can be represented using entities and lineage for workflow, Paths for natural interaction and binding, ContextDB for ordinary structured context, protected assets for credentials, JPL for controlled execution, public/private visibility for distribution, and authorization for governance.
+
+**Product intent:** a builder may initially use a model-assisted, approval-driven process to understand a provider's forms, terms, endpoints, and outputs. The result should be a reusable, versioned protocol expressed through 1var primitives. Later users invoke the protocol without repeating discovery, while sensitive inputs remain subject to their selected trust mode.
+
+## 5. Architectural invariants
+
+1. A successful local Path should not require OpenAI, API Gateway, or compute.
+2. A Path match must not discard captured ordinary inputs before entity execution.
+3. An entity must not silently reinterpret missing inputs as supplied inputs.
+4. Protected values must not appear in logs, prompts, diagnostics, Path signatures, or ordinary ContextDB facts.
+5. Background work must have durable identity, idempotency, observable state, and bounded retry behavior.
+6. Failed learning should not prevent safe execution or storage when an existing deterministic interpretation can do so.
+7. Diagnostics should expose sanitized stage, contract, provider status, and observed data needed to distinguish Path, entity, provider, and platform faults.
+8. Examples must test generalized mechanics; passing one literal phrase is not proof of a scalable fix.
+
