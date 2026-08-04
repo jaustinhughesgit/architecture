@@ -105,6 +105,18 @@ Browser submits idempotent operation
 
 Retries must not create duplicate entities, Paths, facts, provider charges, or protected-asset actions.
 
+## Per-request model cost inspection
+
+```text
+Browser assigns requestId and a locally displayable label
+  → every model response emits model-cost-trace v1 usage metadata
+  → browser correlates classification, Essence, Path, and compute attempts
+  → dated browser price catalog estimates input and output cost
+  → expandable request row exposes every retry and the estimated total
+```
+
+The server is authoritative for sanitized token usage, model identity, and service tier. The browser is authoritative for correlation and presentation; it keeps this ledger in memory for the current session. Protected request labels are replaced locally with `[protected request]`. Neither the trace nor diagnostics may contain prompts, model content, hidden reasoning, protected data, credentials, or headers. The displayed amount is an estimate, not an invoice: regional uplifts, provider charges, and non-token tools require separate typed usage contracts.
+
 ## Scheduled entity execution
 
 ```text

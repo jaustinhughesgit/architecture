@@ -19,6 +19,9 @@ Candidates include:
 - Account verification, device enrollment, WebAuthn assertion, key rotation, and recovery states
 - Local graph-delta outbox, server entity publication acknowledgement, ID mapping, version, tombstone, and hydration contracts
 - Recipient/device grants, public-key versions, salted key wraps, envelope retrieval, rewrap, re-encryption, and revocation contracts
+- Sanitized model usage traces used for browser-local request cost estimates
+
+`model-cost-trace.v1.schema.json` is the first executable observability contract. Producers may expose only provider/model identifiers, service tier, response identity, stage name, and aggregate token counts. Prompt text, generated content, hidden reasoning, credentials, protected values, and request headers are forbidden from this trace.
 
 Do not copy an evolving schema independently into all three repositories without a compatibility strategy. When a contract becomes executable, give it a schema version, fixtures, producer tests, consumer tests, and a migration policy. Record compatible repository versions or commits until releases share a unified versioning mechanism.
 

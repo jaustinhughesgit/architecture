@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://1var.com/contracts/model-cost-trace.v1.schema.json",
+  "title": "1var Model Cost Trace v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "provider", "step", "model", "responseId", "serviceTier", "usage"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "provider": { "type": "string", "enum": ["openai"] },
+    "step": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "model": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "responseId": { "type": "string", "maxLength": 200 },
+    "serviceTier": { "type": "string", "maxLength": 40 },
+    "usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["inputTokens", "cachedInputTokens", "cacheWriteTokens", "outputTokens", "reasoningTokens", "totalTokens"],
+      "properties": {
+        "inputTokens": { "type": "number", "minimum": 0 },
+        "cachedInputTokens": { "type": "number", "minimum": 0 },
+        "cacheWriteTokens": { "type": "number", "minimum": 0 },
+        "outputTokens": { "type": "number", "minimum": 0 },
+        "reasoningTokens": { "type": "number", "minimum": 0 },
+        "totalTokens": { "type": "number", "minimum": 0 }
+      }
+    }
+  }
+}
