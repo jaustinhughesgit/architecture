@@ -117,6 +117,20 @@ Browser assigns requestId and a locally displayable label
 
 The server is authoritative for sanitized token usage, model identity, and service tier. The browser is authoritative for correlation and presentation; it keeps this ledger in memory for the current session. Protected request labels are replaced locally with `[protected request]`. Neither the trace nor diagnostics may contain prompts, model content, hidden reasoning, protected data, credentials, or headers. The displayed amount is an estimate, not an invoice: regional uplifts, provider charges, and non-token tools require separate typed usage contracts.
 
+## Versioned LLM request selection
+
+```text
+Message chooses original-v1 or new-v1
+  → browser persists the preference and assigns it to the request
+  → worker carries the same ID through classification and Essence
+  → Path repair and compute requests forward the ID unchanged
+  → each trusted server registry maps the ID to models and reasoning
+  → background polling, retries, and replays retain the treatment
+  → Cost labels the request and displays the actual returned models
+```
+
+The selector is not a raw model picker. Unknown or missing values resolve to Original. A template change affects only later requests; an in-flight request does not switch treatment. See [LLM request templates](capabilities/llm-templates.md) and [decision 0004](../decisions/0004-versioned-llm-request-templates.md).
+
 ## Scheduled entity execution
 
 ```text

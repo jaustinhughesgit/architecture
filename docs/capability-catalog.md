@@ -36,6 +36,7 @@ This catalog prevents future work from assuming a capability is absent merely be
 | Compute answer verification | Implemented opt-in / partial | `aws` + `compute` | Verification toggle exists; history scope, cost policy, and durable behavior should be specified. |
 | Failure diagnosis | Partial | `aws` + `compute` | Entity/Path/provider/platform diagnosis exists; should become contract-driven and observable. |
 | Per-request model cost inspection | Implemented foundation | `aws` + `compute` | Browser session ledger expands each request into sanitized model attempts and dated USD estimates; broader non-token provider/tool charges and billing reconciliation remain future work. |
+| Versioned LLM request templates | Implemented foundation | `aws` + `compute` | Message dropdown selects Original or New; trusted registries preserve one template through the request lineage and Cost labels the treatment. Representative quality/cost evals remain ongoing. |
 | Background OpenAI jobs | Partial | `compute` + `aws` | Durable response/job mechanisms exist in code; comprehensive idempotency and lifecycle contract needed. |
 | Scheduled entity tasks | Partial | Portal + `compute` + EventBridge Scheduler | Recurrence persistence and invocation exist; authorization recheck, idempotency, retry/DLQ, and result lifecycle need hardening. |
 | Protected-asset storage and audit | Implemented trusted-server foundation | `compute` | DynamoDB resources and broker exist. Do not characterize server use as zero-knowledge. |
