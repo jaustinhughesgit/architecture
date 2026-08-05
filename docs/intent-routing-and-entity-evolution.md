@@ -111,6 +111,8 @@ The system must not invent a unique boat identity. If the user later needs maint
 | “I just purchased one more boat.” | `write.fact` | This records an event/delta and updates ownership. |
 | “How many boats do I own?” | `read.graph` | The answer is stored or derived from authorized ownership facts. |
 | “Actually, that purchase was two boats.” | `write.correction` | Revise the identified event with provenance; do not silently add another event. |
+
+When a change statement supplies one explicit numeric quantity, that value is the event delta. Context may identify the owner, item, or prior state, but must not reinterpret “sold 3 more” as a cumulative seven-unit event because a previous event recorded four. Aggregation belongs to the query or projection that consumes distinct events.
 | “Add one to every dealer's available-boat count.” | Clarify or governed bulk mutation | The target set and authority must be explicit; use a general set-based mutation if one exists. |
 | “Whenever a paid boat invoice arrives, add the boat to inventory.” | Reuse or `define.capability` | This asks for recurring event-driven behavior, not one fact mutation. |
 | “Give me a button that adds a boat to inventory.” | Reuse, compose, or fork a UI capability | This explicitly requests reusable interaction behavior. |
