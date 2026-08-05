@@ -55,7 +55,7 @@ Reset is intended for isolated or ephemeral test stacks. Per-run namespaces or d
 
 ## Scenario contract
 
-A scenario is declarative JSON with ordered public actions or message inputs and stable expected outcomes. API scenarios assert public response subsets. Message scenarios preserve a local graph across turns and may assert speech-act kind, final `{ask}` values, and required deterministic operations. They must load the graph runtime from the deployment under test rather than reimplementing Essence or ContextDB semantics. Exact ordering is appropriate when it is part of the public contract; volatile trace data and generated identifiers should not be copied into expected output.
+A scenario is declarative JSON with ordered public actions or message inputs and stable expected outcomes. API scenarios assert public response subsets. Message scenarios preserve a local graph across turns, apply graph mutations before fact ingestion in browser transaction order, and may assert speech-act kind, final `{ask}` values, and required deterministic operations. They must load the graph runtime from the deployment under test rather than reimplementing Essence or ContextDB semantics. Exact ordering is appropriate when it is part of the public contract; volatile trace data and generated identifiers should not be copied into expected output.
 
 ## Capability status
 
