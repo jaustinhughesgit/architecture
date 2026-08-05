@@ -57,6 +57,8 @@ Reset is intended for isolated or ephemeral test stacks. Per-run namespaces or d
 
 A scenario is declarative JSON with ordered public actions or message inputs and stable expected outcomes. API scenarios assert public response subsets. Message scenarios preserve a local graph across turns, apply graph mutations before fact ingestion in browser transaction order, and may assert speech-act kind, final `{ask}` values, required deterministic operations, and an explicit local execution mode. Local replay must load the browser primitive from the deployment under test and make no classification or Essence request for that step; it must not reimplement product semantics in `testing`. Exact ordering is appropriate when it is part of the public contract; volatile trace data and generated identifiers should not be copied into expected output.
 
+The published Essence endpoint should also prefer a valid deterministic quantity-ledger plan over model interpretation for a recognized remainder query. This keeps direct contract tests and clients that have not yet adopted worker-local replay consistent with the browser primitive.
+
 ## Capability status
 
 - Headless API transport, local session capture, test-device keys, mailbox parsing, API scenarios, published-runtime message scenarios, and client reset guards: **implemented foundation** in `testing`.
