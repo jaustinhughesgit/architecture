@@ -31,6 +31,23 @@ Local Essence mutation commits entities and relations
 
 The current browser synchronization libraries are disconnected from the active runtime, so this is a repair target rather than a completion claim. See [distributed entities](capabilities/distributed-entities.md).
 
+## Request jurisdiction
+
+```text
+Utterance becomes a typed semantic intent
+  → classify speech act and requested effect
+  → bind target identity, scope, and authority
+  → fact/query/correction: local Essence + ContextDB
+  → exact behavior: reuse installed compatible capability
+  → compound behavior: compose exact capabilities
+  → broken declared behavior: repair owning Path/entity/platform layer
+  → added behavior: fork or create child capability
+  → no behavior owner: build a new root capability
+  → material ambiguity: clarify
+```
+
+The classifier must emit a stable reason and effect class. A model may propose the route, but deterministic policy must reject authority escalation—for example, turning a local quantity delta into executable application creation. See [intent routing and entity evolution](intent-routing-and-entity-evolution.md).
+
 ## New local semantic operation
 
 ```text
@@ -75,6 +92,19 @@ User selects an entity, data item, or previous message
 ```
 
 The model should receive the relevant entity/JPL, manifest, original message, Essence, ContextDB bindings, captures, linked Path family, and failure trace. ContextDB facts are not rewritten merely because entity code needs correction; data changes require explicit scope and authorization.
+
+## Capability reuse, repair, and fork
+
+```text
+Requested behavior is compared with permitted active contracts
+  → exact contract: reuse definition with caller-scoped bindings
+  → unchanged contracts needed together: compose
+  → observed behavior violates an existing promise: diagnose and repair
+  → requested behavior changes the promise: fork with explicit lineage
+  → no contract owns the behavior: build a new root capability
+```
+
+A published repair creates an immutable compatible implementation release associated with unchanged contract semantics and passes linked Path and consumer tests before promotion. A fork leaves the source stable and receives separate Paths or routing. User-specific data, credentials, settings, and permissions attach through an installation or binding; they do not create a capability clone.
 
 ## Protected provider execution
 

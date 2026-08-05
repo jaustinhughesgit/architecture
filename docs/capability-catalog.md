@@ -11,6 +11,7 @@ This catalog prevents future work from assuming a capability is absent merely be
 | WebAuthn enrollment | Implemented foundation | `aws` + `compute` | Credential creation exists. Fresh assertion-gated protected-asset use is incomplete. |
 | Local Path signature matching | Implemented | `aws` | Structural and exact matching exist; generalization, conflict resolution, and persistence remain active work. |
 | Essence query and mutation | Partial | `aws` | Statement/query flows exist; modifiers, referents, and repair reliability need formal schemas. |
+| Browser-local derived arithmetic | Implemented foundation | `aws` | Read-only Essence rows support deterministic add/subtract/multiply/divide over bound ContextDB values; unit algebra, ambiguity clarification, and a fully versioned schema remain incomplete. |
 | Sentence/Essence/signature/Path runtime | Implemented foundation / partial spec | `aws` | End-to-end interaction chain exists; versioned schemas and generalized repair remain active work. |
 | Command registry, menus, and calls | Implemented foundation | `aws` + entity JPL | Declarative commands and state transitions exist; target/permission schemas need formalization. |
 | Entity automation and sequences | Implemented foundation | `aws` + entity JPL | Interaction queues and equation composition exist; distinct from external scheduling. |
@@ -19,6 +20,7 @@ This catalog prevents future work from assuming a capability is absent merely be
 | Shared hard-data entities | Partial / product intent | Cross-layer | Ordinary facts should publish as stored entities/relations, not only executable compute opportunities; authorized cross-user retrieval is not end-to-end tested. |
 | Server entity hydration | Disconnected foundation | `aws` + `compute` | Export/hydration helpers exist but are not wired to active ContextDB startup or scoped shared queries. |
 | Automatic Path learning | Partial | `aws` + model services | Candidate generation, testing, promotion, and evidence exist; reliable reusable-family repair is incomplete. |
+| Intent jurisdiction: data, invocation, composition, or capability creation | Partial / product intent | `aws` + `compute` | Local graph-versus-compute routing foundations exist; typed effect classes, deterministic authority checks, delta/event semantics, and stable reason codes are incomplete. See [intent routing and entity evolution](intent-routing-and-entity-evolution.md). |
 | Entity parent/child lineage | Product intent / partial | `compute` + portal | Portal exposes lineage. Execution-order and contract semantics need direct code mapping and tests. |
 | `map` | Implemented primitive | `compute` | Do not define by one use case; document mechanical graph effects and permission behavior. |
 | `extend` | Implemented primitive | `compute` | Mechanical specification and tests need cataloging. |
@@ -29,9 +31,12 @@ This catalog prevents future work from assuming a capability is absent merely be
 | Use/set and action authorization | Partial / unknown | Cross-layer | Product direction is established; inspect authenticator and permission paths before relying on completeness. |
 | Search and reuse of others' work | Partial | `compute` + portal | Search exists; packaging, trust, compatibility, and marketplace behavior remain incomplete. |
 | Payments/marketplace | Product intent | Cross-layer | Future capability; no completion claim. |
-| JPL entity execution | Implemented / partial spec | `compute` | Runtime exists; canonical versioned JPL schema and semantics are incomplete. |
+| JPL entity execution | Implemented / partial spec | `compute` | `published.actions` executes sequentially using the entity context and declared modules; the complete versioned schema and semantics are incomplete. See [execution representations](execution-representations.md). |
+| Shorthand matrix execution and entity composition | Implemented / partial spec | `compute` | Active runtime executes row references, transforms, physical/virtual segments, and route calls; canonical keyword contracts, side-effect rules, and versioning are incomplete. See [execution representations](execution-representations.md). |
+| ArrayLogic conversion/build plans | Implemented / partial spec | `compute` | Convert accepts or generates higher-level ordered plans and compiles them into Shorthand; one canonical schema and a pure plan/apply boundary are incomplete. See [execution representations](execution-representations.md). |
 | Entity creation with structured model output | Partial | `compute` | Schema/validation paths exist; generation and repair reliability remain active work. |
 | Entity + Path + context-aware editing | Partial | `aws` + `compute` | Semantic bundles and repair targets exist; transactional correction and replay require continued hardening. |
+| Capability reuse, repair, fork, installation, and promotion | Partial / product intent | Cross-layer | Reuse/extend/build discovery and version fields exist; immutable compatible repair, deterministic contract diff, fork lineage, user-scoped installation, promotion, and dependency compatibility are incomplete. See [intent routing and entity evolution](intent-routing-and-entity-evolution.md). |
 | Compute capability discovery/build/install | Partial | `aws` + `compute` | Background discovery and generation exist; classification and input binding remain active work. |
 | Compute answer verification | Implemented opt-in / partial | `aws` + `compute` | Verification toggle exists; history scope, cost policy, and durable behavior should be specified. |
 | Failure diagnosis | Partial | `aws` + `compute` | Entity/Path/provider/platform diagnosis exists; should become contract-driven and observable. |

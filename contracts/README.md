@@ -11,6 +11,8 @@ Candidates include:
 - JPL document schemas and version migration rules
 - Protected-asset references, consent scopes, and sanitized diagnostics
 - Entity lineage and relationship-operation contracts
+- Intent-jurisdiction decisions for data mutation, query, invocation, composition, clarification, and capability work
+- Capability contract identity, compatible implementation releases, user-scoped installations, fork lineage, promotion, deprecation, and dependency ranges
 - Scheduled task, occurrence, retry, and result contracts
 - Command registry, menu transition, automation event, and sequence schemas
 - Main-page-to-worker request, result, heartbeat, cancellation, and capability-grant messages

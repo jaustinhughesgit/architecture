@@ -19,6 +19,8 @@ Repair the narrowest reusable layer that fully owns the problem. A provider-spec
 
 An entity is not synonymous with compute. Before building a function, determine whether the requested result is a stored hard asset, graph traversal, interaction asset, composed entity, or genuine computation. Permitted local facts should publish through the general entity synchronization contract so they can be shared and governed without turning retrieval into compute.
 
+Choose the smallest existing authorized artifact that can satisfy the intent without changing its contract. A Path-routed graph mutation is preferable to generating an increment application; an exact capability is preferable to a clone; a composition is preferable to expanding unrelated contracts; a contract-preserving defect is repaired; and a true feature addition is forked. See [intent routing and entity evolution](intent-routing-and-entity-evolution.md).
+
 ## Do not confuse generality with vagueness
 
 A scalable system still needs precise contracts. “Let the LLM fix it” is not a contract. Inputs, outputs, schemas, execution permissions, lineage order, retries, diagnostics, and tests must be explicit enough to validate without trusting prose.
@@ -86,3 +88,5 @@ Before implementing a new subsystem or exception, answer:
 6. Can the result run locally after learning?
 7. How is it versioned, shared, authorized, tested, and diagnosed?
 8. What documentation or contract must change?
+9. Is this a fact/query, an invocation, a composition, a repair, or a contract-changing feature?
+10. If an entity changes, which declared input, output, effect, guarantee, or trust requirement proves repair versus fork?

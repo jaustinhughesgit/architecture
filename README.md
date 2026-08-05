@@ -6,7 +6,9 @@ The purpose of this documentation is not to freeze the design. It preserves the 
 
 ## Product direction
 
-1var is a general interaction and variable platform. It lets people and organizations describe, connect, govern, execute, share, and eventually transact around reusable work. The visible interaction may be as simple as “What is the weather today in New York?”, but the platform beneath it is intended to support reusable provider protocols, enterprise workflows, private knowledge, education, commerce, governance, automation, and other domains without rebuilding a bespoke application for each one.
+1var makes data usable the moment it is created and software adaptable the moment a need appears. It is a general interaction and variable platform that lets people and organizations describe, connect, govern, execute, share, and eventually transact around reusable work. See [Product purpose](docs/product-purpose.md) for the user problem, differentiating outcomes, representative scenarios, and the architectural consequences of that direction.
+
+The visible interaction may be as simple as “What is the weather today in New York?”, but the platform beneath it is intended to support reusable provider protocols, enterprise workflows, private knowledge, education, commerce, governance, automation, and other domains without rebuilding a bespoke application for each one.
 
 The architecture should therefore improve the general system when a new scenario exposes a weakness. A weather failure should lead us to repair reusable input binding, provider contracts, entity execution, Paths, diagnostics, or protected-asset handling—not add a weather-only bypass. Domain-specific entities and public templates are expected; domain-specific exceptions inside the platform core are not.
 
@@ -21,12 +23,15 @@ The architecture should therefore improve the general system when a new scenario
 
 ## Reading order
 
-1. [Platform model](docs/platform-model.md)
-2. [Engineering principles](docs/engineering-principles.md)
-3. [Cross-layer flows](docs/cross-layer-flows.md)
-4. [Security and trust](docs/security-and-trust.md)
-5. [Capability catalog](docs/capability-catalog.md)
-6. Capability specifications:
+1. [Product purpose](docs/product-purpose.md)
+2. [Platform model](docs/platform-model.md)
+3. [Engineering principles](docs/engineering-principles.md)
+4. [JPL, Shorthand, and ArrayLogic](docs/execution-representations.md)
+5. [Intent routing and entity evolution](docs/intent-routing-and-entity-evolution.md)
+6. [Cross-layer flows](docs/cross-layer-flows.md)
+7. [Security and trust](docs/security-and-trust.md)
+8. [Capability catalog](docs/capability-catalog.md)
+9. Capability specifications:
    - [Scheduled entity tasks](docs/capabilities/scheduled-tasks.md)
    - [Account, device identity, and protected assets](docs/capabilities/identity-encryption.md)
    - [Sentence, Essence, Path, command, menu, and automation runtime](docs/capabilities/interaction-runtime.md)
@@ -36,11 +41,12 @@ The architecture should therefore improve the general system when a new scenario
    - [Email platform](docs/capabilities/email-platform.md)
    - [Distributed entities and Context publication](docs/capabilities/distributed-entities.md)
    - [Recipient-specific zero-trust sharing](docs/capabilities/recipient-protected-sharing.md)
-7. [Shared contracts](contracts/README.md)
-8. [Architecture decisions](decisions/README.md)
+10. [Shared contracts](contracts/README.md)
+11. [Architecture decisions](decisions/README.md)
 
 ## How this stays useful
 
+- Update the product-purpose document when the core problem, differentiating outcomes, or architectural consequences change; do not use product intent as evidence of implementation.
 - Update the capability catalog whenever an existing capability is discovered, its maturity changes, or a missing capability is identified.
 - Update the platform model when the meaning or relationship of core primitives changes.
 - Add an architecture decision record when choosing a durable cross-layer approach.

@@ -65,11 +65,21 @@ Paths serve at least four roles:
 
 Path building, editing, and repair must be able to consider the linked entity, relevant ContextDB structure, original and resulting Essence, observed captures, related Path family, and test result. Editing only an entity or only a literal signature often fixes half the system.
 
+Paths route intent to the primitive that owns the effect; they do not turn every statement into an executable application. An ordinary fact, event, quantity delta, relationship, or correction should remain a typed graph mutation. A new executable entity is appropriate only when the user needs reusable behavior that no existing contract supplies. See [intent routing and entity evolution](intent-routing-and-entity-evolution.md).
+
+### Capability reuse and evolution
+
+Different users should normally reuse one compatible capability definition while retaining separate data, bindings, configuration, permissions, and protected assets. A capability is repaired within its lineage when its implementation violates an unchanged declared contract. A request that expands inputs, outputs, operations, effects, semantic guarantees, or trust requirements creates a fork or explicit child composition so the source and its Path expectations remain stable.
+
+Compound solutions may compose small purpose-driven capabilities without requiring one remote invocation per semantic unit. Execution planning may batch or fuse compatible pure work, but it must preserve component identity, provenance, authorization, protected-asset boundaries, and externally visible effect order.
+
 ### JPL and compute entities
 
-JPL is 1var's JSON representation for executable entities. Current entity bundles contain structures such as blocks, modules, actions, functions, automations, menus, commands, calls, templates, assignments, mindsets, thoughts, moods, data, and compute-capability metadata.
+JPL is 1var's sequential JSON action program for executable entities. The program is stored at `published.actions` and uses dependencies declared by `published.modules`. The surrounding entity bundle is not itself JPL; it can also contain structures such as blocks, functions, automations, menus, commands, calls, templates, assignments, mindsets, thoughts, moods, data, and compute-capability metadata.
 
-These fields provide a vocabulary for reusable execution and interaction. Their definitive runtime semantics belong in a future versioned JPL specification and schema; until that is complete, generators must use validated examples, strict structured output, schema validation, isolated execution, and semantic contract tests rather than guessing JSON shape.
+JPL, Shorthand, and ArrayLogic occupy different levels of the creation and execution flow. ArrayLogic describes higher-level requested work, Shorthand composes or transforms entities through row-addressed operations, and JPL defines what an executable entity does when invoked. See [JPL, Shorthand, and ArrayLogic](execution-representations.md) for their definitions, examples, boundaries, and current implementation status.
+
+Their definitive runtime semantics belong in future versioned specifications and schemas; until those are complete, generators must use validated examples, strict structured output, schema validation, isolated execution, and semantic contract tests rather than guessing JSON shape.
 
 ### Interaction runtime
 
@@ -138,3 +148,6 @@ A provider protocol can be represented using entities and lineage for workflow, 
 10. Operational isolation, encryption at rest, authenticator enrollment, and zero-knowledge are distinct claims and must not be presented as interchangeable.
 11. A local entity and its server representation must be connected by durable identity, version, provenance, authorization, and synchronization state; a label is not an identity.
 12. A recipient key wrap grants cryptographic potential, while a server grant authorizes retrieval. Both must agree before sharing works.
+13. An ordinary data assertion or correction must not be promoted into executable entity creation when a typed graph transaction fully represents the intent.
+14. A capability repair must preserve its declared semantic contract; a contract addition or change requires an explicit fork, child, or successor rather than silent mutation.
+15. Reusing a capability definition must not merge users' data, configuration, permissions, or protected assets.
