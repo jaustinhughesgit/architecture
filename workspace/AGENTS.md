@@ -1,6 +1,6 @@
 # 1var Workspace Instructions
 
-This workspace contains several repositories that together implement one 1var platform. Do not treat `aws`, `aws-api`, or `compute` as independent products.
+This workspace contains several repositories that together implement one 1var platform. Do not treat `aws`, `aws-api`, `compute`, or `testing` as independent products.
 
 Before making architectural or behavioral changes, read:
 

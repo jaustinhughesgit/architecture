@@ -74,6 +74,8 @@ Every generalized fix should include:
 - A refresh/reload test for persistent local behavior when applicable
 - A cross-layer contract test when transport or durable jobs are involved
 
+For cross-layer features, express the externally visible result as a failing scenario in `testing`, prove the reusable behavior at its lowest owning layer, then pass the headless API/Compute scenario before wiring the website. Finish with a thin browser test only for behavior that actually depends on the DOM, browser storage, workers, permissions, authenticators, or rendering. See [headless acceptance testing](headless-acceptance-testing.md).
+
 Weather is useful because it exercises time, location, credentials, providers, Paths, entities, and failure diagnosis. Inventory, addresses, and family facts exercise different graph and referent boundaries. None should be hard-coded as privileged domains.
 
 ## Architecture review questions

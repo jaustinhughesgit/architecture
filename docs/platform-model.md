@@ -20,6 +20,8 @@ Validated result, reusable learning, or actionable diagnosis
 Browser rendering and future local reuse
 ```
 
+The headless acceptance client (`testing`) enters at the controlled API boundary and exercises the same public API and Compute contracts without becoming part of product execution. It proves cross-layer behavior before the browser binds that behavior to presentation. See [headless acceptance testing](headless-acceptance-testing.md).
+
 The long-term value is not any single answer. It is the reusable graph of capabilities, data, relationships, permissions, and interaction Paths that makes future answers immediate, composable, governable, and shareable.
 
 ## 2. Core primitives
@@ -151,3 +153,4 @@ A provider protocol can be represented using entities and lineage for workflow, 
 13. An ordinary data assertion or correction must not be promoted into executable entity creation when a typed graph transaction fully represents the intent.
 14. A capability repair must preserve its declared semantic contract; a contract addition or change requires an explicit fork, child, or successor rather than silent mutation.
 15. Reusing a capability definition must not merge users' data, configuration, permissions, or protected assets.
+16. A destructive test operation must be authorized by the target server and scoped to an explicitly identified non-production environment; client confirmation alone is never authority.

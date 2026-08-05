@@ -1,6 +1,6 @@
 # 1var Architecture
 
-This repository is the canonical, living description of how the 1var platform fits together. It exists because the browser application (`aws`), API boundary (`aws-api`), and execution layer (`compute`) are separate repositories but form one system.
+This repository is the canonical, living description of how the 1var platform fits together. It exists because the browser application (`aws`), API boundary (`aws-api`), execution layer (`compute`), and headless acceptance client (`testing`) are separate repositories but form one system.
 
 The purpose of this documentation is not to freeze the design. It preserves the big picture while leaving room to discover, document, and implement capabilities that have not yet been discussed.
 
@@ -19,6 +19,7 @@ The architecture should therefore improve the general system when a new scenario
 | `aws` | Browser experience, local runtime, Path/Essence processing, ContextDB interaction, and user-facing controls | `../aws/docs/layer.md` |
 | `aws-api` | Browser-facing API boundary and controlled transport to compute | `../aws-api/docs/layer.md` |
 | `compute` | Entity/JPL execution, server persistence, capability lifecycle, protected assets, and provider interaction | `../compute/docs/layer.md` |
+| `testing` | Command-based cross-layer acceptance, test-device setup, mailbox verification, and guarded test-environment reset | `../testing/docs/layer.md` |
 | `architecture` | Cross-layer model, vocabulary, contracts, decisions, and capability status | This repository |
 
 ## Reading order
@@ -29,9 +30,10 @@ The architecture should therefore improve the general system when a new scenario
 4. [JPL, Shorthand, and ArrayLogic](docs/execution-representations.md)
 5. [Intent routing and entity evolution](docs/intent-routing-and-entity-evolution.md)
 6. [Cross-layer flows](docs/cross-layer-flows.md)
-7. [Security and trust](docs/security-and-trust.md)
-8. [Capability catalog](docs/capability-catalog.md)
-9. Capability specifications:
+7. [Headless acceptance testing](docs/headless-acceptance-testing.md)
+8. [Security and trust](docs/security-and-trust.md)
+9. [Capability catalog](docs/capability-catalog.md)
+10. Capability specifications:
    - [Scheduled entity tasks](docs/capabilities/scheduled-tasks.md)
    - [Account, device identity, and protected assets](docs/capabilities/identity-encryption.md)
    - [Sentence, Essence, Path, command, menu, and automation runtime](docs/capabilities/interaction-runtime.md)
@@ -41,8 +43,8 @@ The architecture should therefore improve the general system when a new scenario
    - [Email platform](docs/capabilities/email-platform.md)
    - [Distributed entities and Context publication](docs/capabilities/distributed-entities.md)
    - [Recipient-specific zero-trust sharing](docs/capabilities/recipient-protected-sharing.md)
-10. [Shared contracts](contracts/README.md)
-11. [Architecture decisions](decisions/README.md)
+11. [Shared contracts](contracts/README.md)
+12. [Architecture decisions](decisions/README.md)
 
 ## How this stays useful
 

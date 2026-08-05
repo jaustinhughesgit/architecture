@@ -17,3 +17,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0003: Recipient-wrapped zero-trust sharing](0003-recipient-wrapped-zero-trust-sharing.md)
 - [0004: Versioned LLM request templates](0004-versioned-llm-request-templates.md)
 - [0005: Route to the smallest sufficient artifact and fork contract additions](0005-intent-routing-and-entity-evolution.md)
+- [0006: Headless acceptance before website integration](0006-headless-acceptance-before-website-integration.md)
