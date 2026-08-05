@@ -54,6 +54,8 @@ Essences are structured semantic operations derived from utterances. They separa
 
 Essence generation must retain required semantic distinctions: subject, property, quantity, location, time reference, ownership, negation, and other modifiers. Losing “tomorrow,” “my mom,” or a supplied location is a platform interpretation failure, not an acceptable simplification.
 
+An explicit qualified owner must bind every ownership or change edge produced from that statement. A model-generated generic intermediate label must not detach the data from “North Store,” “Amy's team,” or another supplied identity.
+
 ### Paths and signatures
 
 Paths connect recognizable input structures to deterministic transforms. Signatures let wording that has already been understood run locally and quickly. Reusable Paths use typed slots and semantic families rather than memorizing only one literal utterance.
