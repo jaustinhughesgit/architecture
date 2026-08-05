@@ -15,7 +15,7 @@ This repository is a platform client for verification, not a fourth runtime with
 | Receive and open verification email | `email request` plus `email verify` through a test mailbox | Visual email-client behavior |
 | Generate and register device keys | `encryption setup` with Node WebCrypto | Real WebAuthn user activation and authenticator assertions |
 | Repeat a feature flow | `scenario run <file>` with stable subset assertions | Thin end-to-end UI wiring |
-| Submit statements and questions | `message run <file>` calls the published classifier/Essence routes and published local graph runtime | Worker lifecycle, encrypted IndexedDB persistence, Path learning, and rendering |
+| Submit statements and questions | `message run <file>` calls published interpretation routes and can replay supported questions through published local graph primitives | Worker lifecycle, encrypted IndexedDB persistence, automatic Path installation, and rendering |
 | Clear a test database | `db reset --confirm reset:<environment>` | None; the destructive authority remains on the server |
 
 ## Verification flow
@@ -55,7 +55,7 @@ Reset is intended for isolated or ephemeral test stacks. Per-run namespaces or d
 
 ## Scenario contract
 
-A scenario is declarative JSON with ordered public actions or message inputs and stable expected outcomes. API scenarios assert public response subsets. Message scenarios preserve a local graph across turns, apply graph mutations before fact ingestion in browser transaction order, and may assert speech-act kind, final `{ask}` values, and required deterministic operations. They must load the graph runtime from the deployment under test rather than reimplementing Essence or ContextDB semantics. Exact ordering is appropriate when it is part of the public contract; volatile trace data and generated identifiers should not be copied into expected output.
+A scenario is declarative JSON with ordered public actions or message inputs and stable expected outcomes. API scenarios assert public response subsets. Message scenarios preserve a local graph across turns, apply graph mutations before fact ingestion in browser transaction order, and may assert speech-act kind, final `{ask}` values, required deterministic operations, and an explicit local execution mode. Local replay must load the browser primitive from the deployment under test and make no classification or Essence request for that step; it must not reimplement product semantics in `testing`. Exact ordering is appropriate when it is part of the public contract; volatile trace data and generated identifiers should not be copied into expected output.
 
 ## Capability status
 
