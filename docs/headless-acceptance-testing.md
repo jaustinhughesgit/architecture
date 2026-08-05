@@ -15,6 +15,7 @@ This repository is a platform client for verification, not a fourth runtime with
 | Receive and open verification email | `email request` plus `email verify` through a test mailbox | Visual email-client behavior |
 | Generate and register device keys | `encryption setup` with Node WebCrypto | Real WebAuthn user activation and authenticator assertions |
 | Repeat a feature flow | `scenario run <file>` with stable subset assertions | Thin end-to-end UI wiring |
+| Submit statements and questions | `message run <file>` calls the published classifier/Essence routes and published local graph runtime | Worker lifecycle, encrypted IndexedDB persistence, Path learning, and rendering |
 | Clear a test database | `db reset --confirm reset:<environment>` | None; the destructive authority remains on the server |
 
 ## Verification flow
@@ -33,7 +34,7 @@ Website binds the proven contract to interaction and rendering
 Thin browser test proves browser-only seams
 ```
 
-Headless acceptance reduces browser work; it does not eliminate browser testing. WebAuthn activation, IndexedDB integration, worker boundaries, DOM rendering, accessibility, camera/microphone permissions, and browser cookie behavior require browser evidence.
+Headless acceptance reduces browser work; it does not eliminate browser testing. A worker-safe library can be executed in Node when the test loads the exact published asset instead of copying its semantics. WebAuthn activation, IndexedDB integration, worker lifecycle boundaries, DOM rendering, accessibility, camera/microphone permissions, and browser cookie behavior still require browser evidence.
 
 ## Identity, email, and encryption
 
@@ -54,11 +55,11 @@ Reset is intended for isolated or ephemeral test stacks. Per-run namespaces or d
 
 ## Scenario contract
 
-A scenario is declarative JSON with ordered public actions, paths, request bodies, and stable response subsets. Scenarios must assert outcomes rather than internal tables or private helper calls. Exact ordering is appropriate when it is part of the public contract; volatile trace data and generated identifiers should not be copied into expected output.
+A scenario is declarative JSON with ordered public actions or message inputs and stable expected outcomes. API scenarios assert public response subsets. Message scenarios preserve a local graph across turns and may assert speech-act kind, final `{ask}` values, and required deterministic operations. They must load the graph runtime from the deployment under test rather than reimplementing Essence or ContextDB semantics. Exact ordering is appropriate when it is part of the public contract; volatile trace data and generated identifiers should not be copied into expected output.
 
 ## Capability status
 
-- Headless API transport, local session capture, test-device keys, mailbox parsing, scenarios, and client reset guards: **implemented foundation** in `testing`.
+- Headless API transport, local session capture, test-device keys, mailbox parsing, API scenarios, published-runtime message scenarios, and client reset guards: **implemented foundation** in `testing`.
 - Compute reset authorization: **implemented foundation**; deployment must explicitly provide an isolated environment ID and allowed test users.
 - A provisioned test stack and mailbox sink: **deployment work required**.
 - Full automated account/encryption acceptance against a live isolated stack: **partial** until those resources are configured.
