@@ -63,6 +63,7 @@ The published Essence endpoint should also prefer a valid deterministic quantity
 
 - Headless API transport, local session capture, test-device keys, mailbox parsing, API scenarios, published-runtime message scenarios, and client reset guards: **implemented foundation** in `testing`.
 - Compute reset authorization: **implemented foundation**; deployment must explicitly provide an isolated environment ID and allowed test users.
+- Authorized portal clients discover reset availability and the non-secret environment identity from Compute, so routine manual resets require confirmation but no configuration knowledge. Unauthorized clients receive neither reset authority nor the environment identity.
 - A provisioned test stack and mailbox sink: **deployment work required**.
 - Full automated account/encryption acceptance against a live isolated stack: **partial** until those resources are configured.
 - Browser automation for browser-only seams: **proposed**.
