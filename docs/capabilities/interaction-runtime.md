@@ -37,6 +37,7 @@ A correct Essence with a bad signature will not match later wording. A correct s
 
 ## Builder behavior
 
+- Startup hydration is a versioned handoff: cached Paths may provide an immediate fallback, the authoritative identity-scoped result must supersede them, and stale responses for a prior identity must be ignored. Worker readiness requires the installed Path identities—not merely a nonzero count—to match the latest published set.
 - A successful model fallback is evidence, not automatically a safe reusable Path.
 - Candidate Paths must be tested in the same local runtime that will execute them.
 - Typed captures must preserve distinct inputs such as actor, location, time reference, quantity, and projection.
