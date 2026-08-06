@@ -9,23 +9,25 @@ If a browser can silently replace a local Path miss with a model-generated Essen
 
 ## Decision
 
-The browser generates the canonical Essence for every interactive request by materializing an installed local Path. A local classifier or processing-Path miss does not call a remote classifier or Essence interpreter.
+The browser generates the canonical Essence for every interactive request. An installed local Path materializes its validated transform. On a safe cold signature miss, a structural local compiler creates and executes the current Essence without a remote Essence interpreter.
 
-The **Auto-build Path signatures with OpenAI** setting authorizes model-assisted Path discovery only. OpenAI may propose additional signatures or Path candidates intended to cover wording found in other browsers. The browser must compile, validate, test, and install a candidate before locally materializing its Essence. Model output never directly becomes the current request's canonical Essence and never directly mutates ContextDB.
+After a cold miss, the system always asks the model to build the required Path for the actual current wording from the canonical local Essence, then compiles, validates, saves, and installs it. This required-Path lifecycle is not controlled by a checkbox.
+
+The **Auto-build Path signatures with OpenAI** setting controls only expansion. When enabled, OpenAI may additionally propose other explicit phrasings of the same canonical interaction, together with equivalent Essence transforms and signatures. Model output never directly becomes the current request's canonical Essence and never directly mutates ContextDB.
 
 ## Alternatives
 
 - Continue using a remote Essence fallback on every local miss. Rejected because it changes semantics and cost across sessions and cannot satisfy local zero-trust execution.
-- Allow model-generated Essence only when Auto-build is checked. Rejected because checking a learning control must not create a second semantic authority.
+- Make required cold-miss Path construction depend on Auto-build. Rejected because the actual user input must work and become reusable independently of optional coverage expansion.
 - Disable model-assisted learning entirely. Rejected because optional proposals can improve reusable wording coverage when locally validated.
 
 ## Consequences
 
-Known Paths are deterministic, local, repeatable, and cost-free at execution. Uncovered wording cannot be silently interpreted: with Auto-build off it fails locally or asks for clarification; with Auto-build on it enters candidate Path learning and executes only after local validation. This makes Path coverage more visible and places more importance on robust local classifiers, reusable structural Paths, and actionable miss diagnostics.
+Known Paths are deterministic, local, repeatable, and cost-free at execution. Safe uncovered wording is compiled locally, used immediately, and then gains a required saved Path. Auto-build increases the number of locally validated paraphrase Paths but does not change current-input correctness. Inputs outside safe local compiler coverage fail or ask for clarification rather than receiving a model-generated Essence.
 
 ## Security and trust
 
-Unchecked requests and their ContextDB data do not cross a model boundary for classification or Essence generation. Enabling Auto-build explicitly permits the sanitized learning package to cross that boundary, subject to existing protected-data restrictions. ContextDB mutation remains browser-local in both modes.
+Requests do not cross a model boundary for canonical classification or Essence generation. A sanitized local-Essence learning package may cross the boundary to construct the required Path; Auto-build permits additional paraphrase proposals. Protected plaintext remains excluded, and ContextDB mutation remains browser-local in both modes.
 
 ## Migration and compatibility
 
@@ -34,8 +36,8 @@ The server `/essence` endpoint may remain for non-browser compatibility and boun
 ## Verification
 
 - A local Path hit materializes Essence and makes no classification or Essence request.
-- A local miss with Auto-build disabled returns a local miss code and makes no model request.
-- A local miss with Auto-build enabled may request Path proposals, but does not mutate ContextDB until a candidate passes browser-local compilation, validation, installation, and replay.
+- A safe local miss executes its local Essence and saves one required current Path with Auto-build disabled.
+- The same miss with Auto-build enabled may save additional locally validated paraphrase Paths without changing the current Essence.
 - Diagnostics identify `browser-local` as the canonical Essence source.
 
 ## Affected repositories

@@ -9,9 +9,10 @@ These components form one interaction runtime. They let natural input become reu
 ```text
 sentence or voice
   -> token and linguistic analysis
+  -> browser-local canonical Essence
   -> exact or structural signature
   -> Path match
-  -> browser-local Path transform into canonical Essence operation(s)
+  -> installed Path transform, or required Path build/save on a cold miss
   -> ContextDB read/write, command, menu transition, automation, or entity call
   -> response and reusable learning evidence
 ```
@@ -36,9 +37,10 @@ A correct Essence with a bad signature will not match later wording. A correct s
 
 ## Builder behavior
 
-- Canonical Essence is generated in the browser from the installed local Path. The browser does not use a server or model-generated Essence as the interpretation of the current request.
-- **Auto-build Path signatures with OpenAI** is an explicit learning control, not an execution-mode control. When disabled, an uncovered local signature fails or asks for clarification without a model call. When enabled, OpenAI may propose additional signatures or Path candidates; the browser must compile, validate, install, and then locally materialize the Essence before the request can execute.
-- A model proposal may broaden cross-browser wording coverage, but it cannot replace, amend, or become the canonical Essence for the current request. This keeps identical installed Path versions semantically consistent across browsers and preserves the zero-trust execution boundary.
+- Canonical Essence is generated in the browser. An installed Path may materialize its already-validated local transform; on a cold signature miss, the structural local compiler produces the current Essence before any model-assisted Path construction. A server or model-generated Essence is never the semantic authority for the request.
+- Missing required Path coverage and optional coverage expansion are separate lifecycles. A safe local Essence may execute immediately; the current wording's required Path is then built, validated, saved, and installed even when **Auto-build Path signatures with OpenAI** is disabled.
+- **Auto-build Path signatures with OpenAI** controls only additional ways the same canonical interaction could have been expressed. When enabled, OpenAI may propose extra paraphrase Paths with their own explicit source text, local Essence equivalence, signatures, and tests. When disabled, only the required current Path is requested.
+- A model proposal may broaden cross-browser wording coverage, but it cannot replace or amend the canonical local Essence. This keeps identical installed Path versions semantically consistent across browsers and preserves the zero-trust execution boundary.
 - Startup hydration is a versioned handoff: cached Paths may provide an immediate fallback, the authoritative identity-scoped result must supersede them, and stale responses for a prior identity must be ignored. Worker readiness requires the installed Path identities—not merely a nonzero count—to match the latest published set.
 - Every browser-local semantic artifact is identity-scoped, including graph snapshots, ContextDB state, word maps, transcription history, translations, and their local encryption keys. Navigating to another primary identity must start from that identity's state and cannot inherit graph identifiers from the previous account.
 - A linguistic signature match is not sufficient for question success. The materialized Path must resolve a non-empty answer against the current identity's graph; an empty projection is rejected as a stale or incomplete Path and becomes repair evidence.

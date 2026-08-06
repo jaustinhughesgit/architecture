@@ -44,7 +44,7 @@ utterance → local signature → deterministic Essence → local ContextDB → 
 
 Model calls are for discovery, learning, diagnosis, or sanctioned compute—not for repeating a known local interpretation. Learning should promote generalized, tested transforms so later compatible utterances are immediate.
 
-Canonical Essence is always materialized by the browser-local runtime. Enabling **Auto-build Path signatures with OpenAI** permits model-assisted discovery of additional Path signatures; it does not authorize a remote Essence fallback or let a model redefine the current request. A candidate must be compiled, validated, installed, and executed locally before it can affect ContextDB.
+Canonical Essence is always materialized by the browser-local runtime. A cold miss uses that local Essence to build and save the required current Path. Enabling **Auto-build Path signatures with OpenAI** additionally permits discovery of paraphrase Paths for other ways the same interaction could have been expressed; it does not authorize a remote Essence fallback or let a model redefine the request. Every candidate must compile and validate locally.
 
 ## Cross-layer durability
 
