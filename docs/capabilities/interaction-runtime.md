@@ -9,10 +9,9 @@ These components form one interaction runtime. They let natural input become reu
 ```text
 sentence or voice
   -> token and linguistic analysis
-  -> Essence operation(s)
   -> exact or structural signature
   -> Path match
-  -> Path transform
+  -> browser-local Path transform into canonical Essence operation(s)
   -> ContextDB read/write, command, menu transition, automation, or entity call
   -> response and reusable learning evidence
 ```
@@ -37,10 +36,13 @@ A correct Essence with a bad signature will not match later wording. A correct s
 
 ## Builder behavior
 
+- Canonical Essence is generated in the browser from the installed local Path. The browser does not use a server or model-generated Essence as the interpretation of the current request.
+- **Auto-build Path signatures with OpenAI** is an explicit learning control, not an execution-mode control. When disabled, an uncovered local signature fails or asks for clarification without a model call. When enabled, OpenAI may propose additional signatures or Path candidates; the browser must compile, validate, install, and then locally materialize the Essence before the request can execute.
+- A model proposal may broaden cross-browser wording coverage, but it cannot replace, amend, or become the canonical Essence for the current request. This keeps identical installed Path versions semantically consistent across browsers and preserves the zero-trust execution boundary.
 - Startup hydration is a versioned handoff: cached Paths may provide an immediate fallback, the authoritative identity-scoped result must supersede them, and stale responses for a prior identity must be ignored. Worker readiness requires the installed Path identities—not merely a nonzero count—to match the latest published set.
 - Every browser-local semantic artifact is identity-scoped, including graph snapshots, ContextDB state, word maps, transcription history, translations, and their local encryption keys. Navigating to another primary identity must start from that identity's state and cannot inherit graph identifiers from the previous account.
 - A linguistic signature match is not sufficient for question success. The materialized Path must resolve a non-empty answer against the current identity's graph; an empty projection is rejected as a stale or incomplete Path and becomes repair evidence.
-- A successful model fallback is evidence, not automatically a safe reusable Path.
+- Model output is candidate Path-learning evidence, never a successful Essence fallback for browser execution.
 - Candidate Paths must be tested in the same local runtime that will execute them.
 - Typed captures must preserve distinct inputs such as actor, location, time reference, quantity, and projection.
 - Statement Paths and question Paths have different safety rules: mutations require replay/idempotency controls; read-only queries can be tested without changing ContextDB.

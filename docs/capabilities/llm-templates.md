@@ -2,7 +2,7 @@
 
 ## Status
 
-**Implemented foundation.** Message requests can select one of two trusted, versioned model-routing templates. The browser preserves the selection through classification, Essence fallback, Path repair, compute discovery/build, ordinary-input interpretation, failure diagnosis, answer verification, and background polling. The Cost module labels the request with the selected template and shows the actual returned models and token costs.
+**Implemented foundation.** Message requests can select one of two trusted, versioned model-routing templates. The browser preserves the selection through explicitly enabled Path learning, compute discovery/build, ordinary-input interpretation inside sanctioned server capabilities, failure diagnosis, answer verification, and background polling. Browser-local canonical Essence generation does not use either template. The Cost module labels the request with the selected template and shows the actual returned models and token costs.
 
 This capability is an experiment and rollback control. It does not make a model name or prompt supplied by the browser authoritative.
 

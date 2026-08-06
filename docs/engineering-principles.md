@@ -44,6 +44,8 @@ utterance → local signature → deterministic Essence → local ContextDB → 
 
 Model calls are for discovery, learning, diagnosis, or sanctioned compute—not for repeating a known local interpretation. Learning should promote generalized, tested transforms so later compatible utterances are immediate.
 
+Canonical Essence is always materialized by the browser-local runtime. Enabling **Auto-build Path signatures with OpenAI** permits model-assisted discovery of additional Path signatures; it does not authorize a remote Essence fallback or let a model redefine the current request. A candidate must be compiled, validated, installed, and executed locally before it can affect ContextDB.
+
 ## Cross-layer durability
 
 Long model or entity operations must not depend on one synchronous Lambda lifetime. Background operations need a job record, idempotency key, durable queue or continuation mechanism, state transitions, sanitized progress, retry policy, and front-end polling or subscription. A timeout is an execution state, not a reason to lose the original request.
