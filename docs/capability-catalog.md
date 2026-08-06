@@ -13,7 +13,7 @@ This catalog prevents future work from assuming a capability is absent merely be
 | WebAuthn enrollment | Implemented foundation | `aws` + `compute` | Credential creation exists. Fresh assertion-gated protected-asset use is incomplete. |
 | Local Path signature matching | Implemented | `aws` | Structural and exact matching exist; generalization, conflict resolution, and persistence remain active work. |
 | Essence query and mutation | Partial | `aws` | Statement/query flows exist; modifiers, referents, and repair reliability need formal schemas. |
-| Browser-local derived arithmetic | Implemented foundation | `aws` | Read-only Essence rows support deterministic add/subtract/multiply/divide over bound ContextDB values; unit algebra, ambiguity clarification, and a fully versioned schema remain incomplete. |
+| Browser-local derived arithmetic and counting | Implemented foundation | `aws` | Read-only Essence rows support deterministic add/subtract/multiply/divide over bound values and count distinct bound entity identities; unit algebra, ambiguity clarification, and a fully versioned schema remain incomplete. |
 | Sentence/Essence/signature/Path runtime | Implemented foundation / partial spec | `aws` | End-to-end interaction chain exists; versioned schemas and generalized repair remain active work. |
 | Command registry, menus, and calls | Implemented foundation | `aws` + entity JPL | Declarative commands and state transitions exist; target/permission schemas need formalization. |
 | Entity automation and sequences | Implemented foundation | `aws` + entity JPL | Interaction queues and equation composition exist; distinct from external scheduling. |

@@ -21,7 +21,7 @@ sentence or voice
 
 - **Sentence:** The user's original utterance. It remains evidence and repair context; it is not the durable executable representation by itself.
 - **Essence:** A compact semantic operation over actors, relations, values, properties, modifiers, and questions. It is the bridge between language and ContextDB behavior.
-- **Derived operation:** A read-only Essence row that combines values already bound by graph-query rows. The implemented arithmetic form uses `{op:add}`, `{op:subtract}`, `{op:multiply}`, or `{op:divide}` with a result variable and two operands; it does not mutate ContextDB.
+- **Derived operation:** A read-only Essence row that combines values already bound by graph-query rows. Arithmetic uses `{op:add}`, `{op:subtract}`, `{op:multiply}`, or `{op:divide}` with a result variable and two operands. Identity aggregation uses `{op:count}` with one bound set operand. Neither form mutates ContextDB.
 - **Signature:** The reusable match shape computed from an utterance, such as token lemmas/tags or a typed structural pattern with captures.
 - **Path:** A tested mapping from a signature or semantic family to an executable transform. Its left side recognizes language; its right side performs a query, mutation, command, or capability invocation.
 - **Command:** A named, declarative action and target published into the browser command registry. Commands provide safe entry points to entities, functions, routes, UI actions, or other registered behavior.

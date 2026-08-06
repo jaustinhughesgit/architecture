@@ -46,6 +46,8 @@ ContextDB holds the user's contextual graph: facts, relationships, properties, a
 
 Data should preserve distinct subjects and properties. For example, an address may have street, unit, city, state, and postal-code facts connected to the correct person; it should not become one opaque value when the intent requires its parts. Queries must retain explicit referents such as “my” versus “my mom's.”
 
+Repeated observations are distinct event identities even when their type and properties match. Aggregation counts or combines those event identities; it must not overwrite one event node or project a descriptive property as the count. A referential correction rewires the identified relationship with provenance rather than adding contradictory correction prose.
+
 **Product intent:** ordinary personal context and the Paths that use it should be local-first so known questions can be answered immediately without a server or model call. Local-first does not mean local-only: permitted facts publish asynchronously as server entities and links so other authorized users and devices can retrieve them. Persistence, synchronization, backup, multi-device behavior, and cross-user authorization require explicit contracts and trust decisions.
 
 ### Essences
