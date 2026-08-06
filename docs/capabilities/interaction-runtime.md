@@ -46,6 +46,7 @@ A correct Essence with a bad signature will not match later wording. A correct s
 - A rate, ratio, or “per” question must preserve both operands and its arithmetic operation. A candidate that merely projects one stored operand is semantically incomplete and must not be promoted.
 - Wording aliases should share a canonical semantic transform when they truly mean the same thing.
 - Conflicting canonical transforms must enter explicit repair/versioning rather than silently blocking the user's input or overwriting unrelated behavior.
+- Corrections that refer to a recent role, event, or value are evaluated against the complete authorized browser-local graph. A bounded language-model context is not sufficient evidence for repair when it omits the relation being replaced.
 
 ## Commands, menus, and automations
 
