@@ -60,7 +60,7 @@ An explicit qualified owner must bind every ownership or change edge produced fr
 
 ### Paths and signatures
 
-Paths connect recognizable input structures to deterministic transforms. Signatures let wording that has already been understood run locally and quickly. Reusable Paths use typed slots and semantic families rather than memorizing only one literal utterance.
+Paths connect recognizable input structures to deterministic transforms. Signatures let wording that has already been understood run locally and quickly. Reusable Paths use typed slots and semantic families rather than memorizing only one literal utterance. Slot constraints are declarative grammar data: for example, a Path may exclude a leading modifier lemma from an item slot so a more-specific sibling Path can own that syntax without teaching application code the modifier or domain.
 
 Paths serve at least four roles:
 

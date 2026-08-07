@@ -24,6 +24,7 @@ Semantic behavior is versioned data:
 - when a learned exact Path declares typed token bindings, the browser promotes those bound ranges into structural quantity/entity slots before validation and installation while retaining literal operation words as Path data;
 - replay of a held cold-miss input replaces its prior sentence-aggregation context so the installed Path executes one copy of the utterance rather than appending the utterance to itself;
 - Path signatures declare vocabulary and syntax, then bind captures to one declared operation;
+- typed slot constraints may declare excluded leading lemmas to keep overlapping syntax in the correct sibling Path; the matcher enforces this reusable constraint without knowing the domain or item vocabulary;
 - the local compiler combines those two records into an ordinary deterministic Path;
 - ContextDB stores distinct observations, relationships, provenance, and revisions;
 - generic graph operations perform joins, distinct counts, signed sums, and selected relation rewires for declared correction transactions.
