@@ -14,6 +14,7 @@ The browser runtime owns only generic mechanics: tokenize, match, bind, compile 
 Semantic behavior is versioned data:
 
 - a local semantic entity declares operations, required bindings, effects, and row templates;
+- grammatical surface forms such as possessives are normalized by generic Path binding before ContextDB entity resolution;
 - Path signatures declare vocabulary and syntax, then bind captures to one declared operation;
 - the local compiler combines those two records into an ordinary deterministic Path;
 - ContextDB stores distinct observations, relationships, provenance, and revisions;
