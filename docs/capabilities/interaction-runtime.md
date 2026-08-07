@@ -53,6 +53,11 @@ A correct Essence with a bad signature will not match later wording. A correct s
 - A linguistic signature match is not sufficient for question success. The materialized Path must resolve a non-empty answer against the current identity's graph; an empty projection is rejected as a stale or incomplete Path and becomes repair evidence.
 - Model output is candidate Path-learning evidence, never a successful Essence fallback for browser execution.
 - Candidate Paths must be tested in the same local runtime that will execute them, against the worker-authoritative current ContextDB rather than a graph copy captured before a resumable model round trip.
+- Candidate validation includes semantic coverage as well as token coverage. An explicit typed source value cannot be accepted merely because its token was frozen into the signature: a cardinal in a statement must survive local compilation as a numeric binding owned by the selected semantic operation. The same invariant is available to future typed-role contracts.
+- A question can expose a defect in the Path that stored its supporting fact. The repair planner ranks relevant history by typed linguistic anchors and graph provenance, names the historical source block and missing semantic requirement, and requires a paired historical-statement/current-query proposal instead of retrying the query alone.
+- Coordinated repair is one local proof transaction. The worker removes the selected block's prior graph effects in an isolated snapshot, materializes and replays the repaired statement, executes the current query against the resulting graph, and permits persistence only when every required Path passes. Persistence and live replay are rolled back as a unit on failure.
+- Auto-build controls extra paraphrases only. Disabling it must not discard a replayable historical proposal required by a current repair transaction.
+- Repeating the same typed semantic failure does not authorize blind model retries. After one corrected proposal repeats the same failed invariant, the runtime stops with a missing/insufficient semantic-capability diagnosis.
 - Required Path generation and every correction round use resumable background model jobs. The browser polls with the complete opaque job descriptor and carries locally observed candidate failures into the next proposal; an API timeout must not decide whether an input can be learned.
 - A locally validated learned Path may activate while retryable server replication is unavailable. It remains marked pending and is retried separately. Durable Path persistence stores bounded validation summaries; full graph and candidate diagnostics remain in the browser review bundle rather than being duplicated into every Path record.
 - Typed captures must preserve distinct inputs such as actor, location, time reference, quantity, and projection.
@@ -62,6 +67,8 @@ A correct Essence with a bad signature will not match later wording. A correct s
 - Wording aliases should share a canonical semantic transform when they truly mean the same thing.
 - Conflicting canonical transforms must enter explicit repair/versioning rather than silently blocking the user's input or overwriting unrelated behavior.
 - Corrections that refer to a recent role, event, or value are evaluated against the complete authorized browser-local graph. A bounded language-model context is not sufficient evidence for repair when it omits the relation being replaced.
+
+The implemented semantic-coverage proof currently detects explicit numeric/cardinal loss and executes paired historical/current repair transactions. General ontology inference, model-proposed implied support facts, and complete typed-role coverage beyond numeric values remain partial; inferred support must eventually carry machine-inference provenance and must not be presented as a user assertion.
 
 ## Commands, menus, and automations
 

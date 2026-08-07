@@ -81,6 +81,21 @@ Discovery should happen once per missing reusable capability, not once per wordi
 ## Entity and Path repair
 
 ```text
+current Path miss or empty-answer contract failure
+  -> derive current answer and explicit typed-source requirements
+  -> select relevant supporting history by linguistic anchors + graph provenance
+  -> identify the owning statement Path when stored evidence is incomplete
+  -> model proposes repaired statement Path + current query Path
+  -> browser recompiles both from installed semantic entities
+  -> isolated transaction removes old source effects and replays repaired statement
+  -> current query executes against the repaired isolated graph
+  -> all required checks pass: persist/install both, retire superseded exact alias, replay live
+  -> any required check fails: commit neither and return the failed layer/requirement
+```
+
+The model proposes semantic operations and bindings; it does not execute graph rows. Token coverage cannot substitute for semantic coverage. Optional paraphrase expansion never removes a required historical repair from this transaction.
+
+```text
 User selects an entity, data item, or previous message
   → browser gathers the selected target plus related Paths and graph evidence
   → compute diagnoses entity, Path, context binding, or combined fault
