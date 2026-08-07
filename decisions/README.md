@@ -19,3 +19,6 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0005: Route to the smallest sufficient artifact and fork contract additions](0005-intent-routing-and-entity-evolution.md)
 - [0006: Headless acceptance before website integration](0006-headless-acceptance-before-website-integration.md)
 - [0007: Browser-local Essence is canonical](0007-browser-local-essence-is-canonical.md)
+- [0008: Semantic operations and vocabulary are data-defined](0008-semantic-operations-are-data-defined.md)
+- [0009: Proof-directed Path repair transactions](0009-proof-directed-path-repair-transactions.md)
+- [0010: Confirmed Path foundation promotion](0010-confirmed-path-foundation-promotion.md)

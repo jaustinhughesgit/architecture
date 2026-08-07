@@ -63,6 +63,20 @@ Input misses local Paths
 
 Path-learning conflicts should be resolved at the family/alias/transform level. They should not automatically discard a valid deterministic mutation or route an ordinary graph query into external compute.
 
+## Confirmed Path promotion
+
+```text
+locally tested exact Path or family alias
+  → Path Builder displays the originating sentence and proof state
+  → authorized user explicitly confirms that exact equation
+  → server revalidates the Path, origin, and local proof summary
+  → retained shared foundation store records the exact artifact and provenance
+  → every identity merges it during initial Path hydration
+  → hard test reset clears identity data/Paths but preserves the confirmed foundation
+```
+
+Confirmation promotes wording coverage, not semantic authority. A confirmed alias keeps its own grammar and bindings and reuses the versioned semantic operation already compiled by the browser. Model output cannot confirm itself or supply a replacement executable transform.
+
 ## External compute capability
 
 ```text
