@@ -9,10 +9,9 @@ These components form one interaction runtime. They let natural input become reu
 ```text
 sentence or voice
   -> token and linguistic analysis
-  -> browser-local canonical Essence
   -> exact or structural signature
-  -> Path match
-  -> installed Path transform, or required Path build/save on a cold miss
+  -> installed Path match, or required Path proposal/validation on a cold miss
+  -> browser-local canonical Essence materialized from the installed Path
   -> ContextDB read/write, command, menu transition, automation, or entity call
   -> response and reusable learning evidence
 ```
@@ -37,9 +36,9 @@ A correct Essence with a bad signature will not match later wording. A correct s
 
 ## Builder behavior
 
-- Canonical Essence is generated in the browser. An installed Path may materialize its already-validated local transform; on a cold signature miss, the structural local compiler produces the current Essence before any model-assisted Path construction. A server or model-generated Essence is never the semantic authority for the request.
-- Missing required Path coverage and optional coverage expansion are separate lifecycles. A safe local Essence may execute immediately; the current wording's required Path is then built, validated, saved, and installed even when **Auto-build Path signatures with OpenAI** is disabled.
-- Safe structural cold-miss coverage includes reusable event relationships and quantified state/change records. Deterministic browser-local graph planners answer event-count, current-quantity, change-total, and remaining-quantity questions without domain-specific examples or model interpretation.
+- Canonical Essence is materialized in the browser from an installed, validated Path. A cold miss has no executable Essence: a model may propose a Path, but that proposal must be compiled, tested, installed, and replayed locally before ContextDB is touched. A server or model-generated Essence is never the semantic authority for the request.
+- Missing required Path coverage and optional coverage expansion are separate lifecycles. The current wording's required Path is built, validated, saved, installed, and replayed even when **Auto-build Path signatures with OpenAI** is disabled.
+- Reusable semantic operations such as event observation, signed quantity observation, distinct counting, and summation are declared as versioned data. Language such as “sold,” “restocked,” or “received” belongs to Path definitions that bind those operations; it is not procedural vocabulary in the browser runtime.
 - **Auto-build Path signatures with OpenAI** controls only additional ways the same canonical interaction could have been expressed. When enabled, OpenAI may propose extra paraphrase Paths with their own explicit source text, local Essence equivalence, signatures, and tests. When disabled, only the required current Path is requested.
 - A model proposal may broaden cross-browser wording coverage, but it cannot replace or amend the canonical local Essence. This keeps identical installed Path versions semantically consistent across browsers and preserves the zero-trust execution boundary.
 - Startup hydration is a versioned handoff: cached Paths may provide an immediate fallback, the authoritative identity-scoped result must supersede them, and stale responses for a prior identity must be ignored. Worker readiness requires the installed Path identities—not merely a nonzero count—to match the latest published set.

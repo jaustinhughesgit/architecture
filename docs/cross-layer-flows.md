@@ -53,10 +53,10 @@ The classifier must emit a stable reason and effect class. A model may propose t
 ```text
 Input misses local Paths
   → gather bounded relevant history and graph evidence
-  → model proposes generalized candidates
+  → model proposes a binding to a compatible semantic operation or a generalized Path candidate
   → isolated local validation tournament
-  → execute/store the current input safely
-  → install a tested Path or retain inactive evidence
+  → install the tested required Path or retain inactive evidence
+  → replay through the installed Path and only then execute/store safely
   → later compatible inputs run locally
 ```
 
