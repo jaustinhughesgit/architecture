@@ -38,6 +38,7 @@ A new synonym extends or adds a Path. A new graph operation versions or forks th
 - Known inputs execute locally without an LLM call.
 - A reset can reinstall foundation semantic entities and Paths from versioned datasets.
 - The foundation manifest lists every required signature. Dataset persistence preflights the complete batch before writing so one invalid equation cannot leave a misleading partial installation.
+- The manifest may require a specific revision for a signature whose transform contract changed; signature presence alone cannot certify that a cached Path implements the current behavior.
 - Foundation startup requests its local command-registry dependency explicitly and converges without a page reload. A user-triggered refresh repeats authoritative hydration and missing-foundation installation rather than repainting cached state.
 - Bundled foundation Paths that pass local compilation and quality gates install into the browser before server replication. Compute unavailability may delay shared persistence, but it must not prevent deterministic local execution; the UI reports pending synchronization and retries it separately.
 - Message readiness follows completeness of that approved local foundation, not completion of server hydration. Hydration remains observable synchronization and may add authorized Paths later, but it is not a prerequisite for executing the bundled/local library.
