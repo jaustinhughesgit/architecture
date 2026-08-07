@@ -22,6 +22,7 @@ When a current query reveals that a supporting historical statement failed seman
 - relevant history is selected using typed linguistic anchors and graph/source provenance, not an arbitrary last-message assumption;
 - the request identifies the owning source block, superseded Path signature, and missing typed requirement;
 - a selected query operation's declarative `repairSupport` contract may additionally identify missing supporting graph roles, including directly entailed relationships that are not reducible to token-type coverage;
+- the support contract may name older compatible source operations that require migration. A unique provenance- and anchor-matched historical Path can therefore be replaced with the declared supporting operation instead of retrying a query against its incomplete graph shape;
 - the model must propose the repaired historical statement and current query together;
 - the browser recompiles both from installed semantic entities;
 - the worker removes the historical block's recorded relations in an isolated snapshot, replays the repaired statement, and tests the query against that repaired graph;
@@ -39,6 +40,7 @@ The implemented semantic-coverage invariants cover explicit numeric/cardinal val
 - Query repair addresses the layer that lost the data instead of repeatedly changing a read Path.
 - New vocabulary can reuse versioned occurrence, quantity, event, and other semantic entities without adding word-specific application code.
 - A semantic entity that cannot represent required roles produces a precise capability limitation instead of an unbounded retry loop.
+- A strict semantic entity cannot silently discard model-proposed object or relationship roles; the candidate must select or create a compatible declarative capability.
 - Review bundles can attribute failure to recognition, semantic binding, historical replay, query outcome, persistence, or installation.
 
 ## Verification

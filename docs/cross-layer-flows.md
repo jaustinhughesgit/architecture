@@ -98,6 +98,7 @@ Discovery should happen once per missing reusable capability, not once per wordi
 current Path miss or empty-answer contract failure
   -> derive current answer and explicit typed-source requirements
   -> inspect catalog-declared query support contracts and surface incomplete matching Paths
+  -> when declared, migrate a uniquely matched older supporting operation to the required graph contract
   -> select relevant supporting history by linguistic anchors + graph provenance
   -> identify the owning statement Path when stored evidence is incomplete
   -> model proposes repaired statement Path + current query Path
@@ -109,6 +110,8 @@ current Path miss or empty-answer contract failure
 ```
 
 The model proposes semantic operations and bindings; it does not execute graph rows. A selected query's data-defined support contract can require a prior statement repair even when literal predicate comparison is impossible because predicates are runtime bindings. Token coverage cannot substitute for semantic coverage. Optional paraphrase expansion never removes a required historical repair from this transaction.
+
+Cross-predicate meaning is not supplied by a Path signature alone. A relationship-transition Path declares the observed transition plus the resulting state and reference predicates; the local semantic entity materializes those versioned rows, and ContextDB answers later traversals. Runtime code does not infer one verb from another.
 
 ```text
 User selects an entity, data item, or previous message
