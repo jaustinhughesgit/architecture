@@ -97,6 +97,7 @@ Discovery should happen once per missing reusable capability, not once per wordi
 ```text
 current Path miss or empty-answer contract failure
   -> derive current answer and explicit typed-source requirements
+  -> inspect catalog-declared query support contracts and surface incomplete matching Paths
   -> select relevant supporting history by linguistic anchors + graph provenance
   -> identify the owning statement Path when stored evidence is incomplete
   -> model proposes repaired statement Path + current query Path
@@ -107,7 +108,7 @@ current Path miss or empty-answer contract failure
   -> any required check fails: commit neither and return the failed layer/requirement
 ```
 
-The model proposes semantic operations and bindings; it does not execute graph rows. Token coverage cannot substitute for semantic coverage. Optional paraphrase expansion never removes a required historical repair from this transaction.
+The model proposes semantic operations and bindings; it does not execute graph rows. A selected query's data-defined support contract can require a prior statement repair even when literal predicate comparison is impossible because predicates are runtime bindings. Token coverage cannot substitute for semantic coverage. Optional paraphrase expansion never removes a required historical repair from this transaction.
 
 ```text
 User selects an entity, data item, or previous message

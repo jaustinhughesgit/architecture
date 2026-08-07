@@ -21,6 +21,7 @@ When a current query reveals that a supporting historical statement failed seman
 
 - relevant history is selected using typed linguistic anchors and graph/source provenance, not an arbitrary last-message assumption;
 - the request identifies the owning source block, superseded Path signature, and missing typed requirement;
+- a selected query operation's declarative `repairSupport` contract may additionally identify missing supporting graph roles, including directly entailed relationships that are not reducible to token-type coverage;
 - the model must propose the repaired historical statement and current query together;
 - the browser recompiles both from installed semantic entities;
 - the worker removes the historical block's recorded relations in an isolated snapshot, replays the repaired statement, and tests the query against that repaired graph;
@@ -30,7 +31,7 @@ When a current query reveals that a supporting historical statement failed seman
 
 Auto-build authorizes additional paraphrase proposals only. It does not control or truncate required repair proposals.
 
-The initial implemented semantic-coverage invariant covers explicit numeric/cardinal values. Additional typed-role invariants must be added as declarative contracts, not domain vocabulary branches. Implied support facts remain partial: future implementation must distinguish model inference from user assertion, record provenance and confidence, and obtain any policy-required confirmation.
+The implemented semantic-coverage invariants cover explicit numeric/cardinal values, supplied people/proper nouns and descriptors, plus query-selected supporting roles declared by semantic-operation graph contracts. Additional invariants must be added as declarative contracts, not domain vocabulary branches. Inferred support beyond a directly entailed relationship remains partial: future implementation must distinguish model inference from user assertion, record provenance and confidence, and obtain any policy-required confirmation.
 
 ## Consequences
 
@@ -45,6 +46,8 @@ The initial implemented semantic-coverage invariant covers explicit numeric/card
 - Reject a statement candidate whose explicit cardinal is not retained by a `number` token binding after local semantic compilation.
 - Accept the same syntax with different nouns, people, activities, and numeric surfaces when the declared roles remain compatible.
 - Detect a relevant historical statement that discarded a typed value and require its `sourceSeq` in the proposal set.
+- Select a query whose catalog operation declares `repairSupport`, identify the unique related historical statement through semantic provenance and structural anchors, and reject a query-only proposal when required supporting bindings are absent.
+- Ignore runtime predicate-binding objects during literal predicate compatibility checks; they must never become the text `[object object]`.
 - Remove the old statement's graph relations, replay the repaired Path, and answer the current query in one isolated test.
 
 Semantic coverage is not limited to numbers. Supplied people/proper nouns and descriptors are typed evidence too. If a learned occurrence Path omitted a participant or adjective, the repair transaction must bind and materialize those roles before the current query can pass. Directly entailed result relationships use the vocabulary-neutral activity contract; no action verb or example domain is dispatched in runtime code.
