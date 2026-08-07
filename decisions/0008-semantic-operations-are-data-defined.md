@@ -16,6 +16,7 @@ Semantic behavior is versioned data:
 - a local semantic entity declares operations, required bindings, effects, and row templates;
 - each query operation declares its projected `answerRole` so Path learning selects actor, object, descriptor, participant, count, or quantity by semantic role and binds only the known constraints;
 - query selection must also preserve graph compatibility with supporting evidence: the operation's declared predicates must traverse the same stored relation family rather than substituting a prose-similar activity, event, or quantity model;
+- on a cold query miss, the validator may identify a unique supporting statement by structural token overlap and compare declared relation predicates; ties remain unresolved rather than authorizing a guessed traversal;
 - a vocabulary-neutral activity-observation entity supplies reusable actor, activity, object, descriptor, modifier, measurement, and observation-time roles for model-built Paths without turning those roles into a universal parser;
 - grammatical surface forms such as possessives are normalized by generic Path binding before ContextDB entity resolution;
 - identity hydration, worker-bridge readiness handshakes, and complete foundation readiness gate input execution so module ordering or a partial library cannot manufacture an unnecessary exact Path;
