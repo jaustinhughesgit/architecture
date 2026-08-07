@@ -62,6 +62,8 @@ An explicit qualified owner must bind every ownership or change edge produced fr
 
 Paths connect recognizable input structures to deterministic transforms. Signatures let wording that has already been understood run locally and quickly. Reusable Paths use typed slots and semantic families rather than memorizing only one literal utterance. Slot constraints are declarative grammar data: for example, a Path may exclude a leading modifier lemma from an item slot so a more-specific sibling Path can own that syntax without teaching application code the modifier or domain.
 
+Typed bindings also own representation normalization. A numeric slot converts digits or written-number words to the same local numeric value before its Path materializes an Essence. A Path may explicitly map one capture to multiple semantic bindings, such as a stated quantity and its baseline delta, without encoding inventory or another domain in the runtime.
+
 Paths serve at least four roles:
 
 1. Convert statements into structured Essence mutations.
