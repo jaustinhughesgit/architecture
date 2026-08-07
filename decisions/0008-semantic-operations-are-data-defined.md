@@ -34,7 +34,7 @@ Compute entities remain the correct artifact for reusable executable behavior, p
 
 A new synonym extends or adds a Path. A new graph operation versions or forks the semantic entity contract. Neither change adds domain vocabulary to `app.js`, a worker, or a compiler.
 
-Model assistance selects a declared operation or proposes a new declarative row contract. The browser still resolves local-only bindings such as the current speaker and request time, compiles the canonical Path, runs an isolated graph test, installs it, and replays the input. Model retries receive the browser's actual failed checks through a resumable background job; they do not gain authority to execute an Essence directly.
+Model assistance selects a declared operation and proposes its typed bindings, or proposes a new declarative operation for explicit review. When an installed semantic operation is selected, its versioned local entity—not model-authored rows—is the executable contract. The browser replaces proposed rows, conditions, transactions, and answer templates with a fresh local compilation of that operation, resolves local-only bindings such as the current speaker and request time, runs an isolated graph test against the current local ContextDB, installs the compiled Path, and replays the input. Model retries receive the browser's actual failed checks through a resumable background job; they do not gain authority to execute an Essence directly.
 
 ## Consequences
 
@@ -51,6 +51,7 @@ Model assistance selects a declared operation or proposes a new declarative row 
 - Message readiness follows completeness of that approved local foundation, not completion of server hydration. Hydration remains observable synchronization and may add authorized Paths later, but it is not a prerequisite for executing the bundled/local library.
 - Multiple validated input structures may be foundation Paths in one semantic family. They bind the same entity operation instead of adding syntax or domain branches to application code.
 - A model proposal is not considered reusable merely because it joined an existing family. Its dynamic values must be represented as typed slots, and the promoted structural Path must pass the ordinary local tournament before persistence.
+- A model proposal that selects a versioned semantic operation cannot amend that operation by supplying extra executable rows. The browser recompiles the operation locally before both testing and persistence.
 - Simple user-declared trigger/effect policies are typed local graph operations over a generic policy entity. They become Compute entities only when their contract requires reusable executable work or external effects.
 - The browser owns bounded Path-repair round state and advances it monotonically; model-returned project metadata cannot reset a correction loop.
 - A cold miss can learn a Path without allowing model output to mutate ContextDB directly.

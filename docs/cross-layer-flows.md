@@ -54,7 +54,8 @@ The classifier must emit a stable reason and effect class. A model may propose t
 Input misses local Paths
   → gather bounded relevant history and graph evidence
   → model proposes a binding to a compatible semantic operation or a generalized Path candidate
-  → isolated local validation tournament
+  → browser recompiles any selected semantic operation from its installed versioned entity
+  → isolated local validation tournament against current local ContextDB
   → install the tested required Path or retain inactive evidence
   → replay through the installed Path and only then execute/store safely
   → later compatible inputs run locally
