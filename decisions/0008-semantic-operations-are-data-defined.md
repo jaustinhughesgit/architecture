@@ -16,7 +16,7 @@ Semantic behavior is versioned data:
 - a local semantic entity declares operations, required bindings, effects, and row templates;
 - grammatical surface forms such as possessives are normalized by generic Path binding before ContextDB entity resolution;
 - identity hydration, worker-bridge readiness handshakes, and complete foundation readiness gate input execution so module ordering or a partial library cannot manufacture an unnecessary exact Path;
-- primary identity is retrieved through a request/response handshake as well as the initial event, preventing late-loaded Path Builder instances from hydrating or persisting against an empty owner;
+- primary ownership identity is available separately from full entity-payload readiness and is retrieved through a request/response handshake as well as the initial event, preventing late-loaded Path Builder instances from hydrating or persisting against an empty owner;
 - same-operation vocabulary equivalences are explicit, tested Path-family aliases whose bindings target the existing semantic operation;
 - conditional graph constraints are ordered before generic aggregate operators during materialization;
 - numeric answer validation checks the typed result contract and does not override the Path/entity's declared operation based on question wording;
