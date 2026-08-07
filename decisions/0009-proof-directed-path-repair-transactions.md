@@ -46,5 +46,7 @@ The initial implemented semantic-coverage invariant covers explicit numeric/card
 - Accept the same syntax with different nouns, people, activities, and numeric surfaces when the declared roles remain compatible.
 - Detect a relevant historical statement that discarded a typed value and require its `sourceSeq` in the proposal set.
 - Remove the old statement's graph relations, replay the repaired Path, and answer the current query in one isolated test.
+
+Semantic coverage is not limited to numbers. Supplied people/proper nouns and descriptors are typed evidence too. If a learned occurrence Path omitted a participant or adjective, the repair transaction must bind and materialize those roles before the current query can pass. Directly entailed result relationships use the vocabulary-neutral activity contract; no action verb or example domain is dispatched in runtime code.
 - Commit neither Path when either proposal, persistence step, worker installation, or live replay fails.
 - With Auto-build disabled, retain both required transaction proposals while generating no optional paraphrases.
