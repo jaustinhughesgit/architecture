@@ -19,6 +19,9 @@ Semantic behavior is versioned data:
 - same-operation vocabulary equivalences are explicit, tested Path-family aliases whose bindings target the existing semantic operation;
 - conditional graph constraints are ordered before generic aggregate operators during materialization;
 - numeric answer validation checks the typed result contract and does not override the Path/entity's declared operation based on question wording;
+- personal possession and qualified-owner inventory quantities use the same signed quantity-observation entity; pronoun versus named-owner grammar changes the Path binding, not the ContextDB operation or storage model;
+- when a learned exact Path declares typed token bindings, the browser promotes those bound ranges into structural quantity/entity slots before validation and installation while retaining literal operation words as Path data;
+- replay of a held cold-miss input replaces its prior sentence-aggregation context so the installed Path executes one copy of the utterance rather than appending the utterance to itself;
 - Path signatures declare vocabulary and syntax, then bind captures to one declared operation;
 - the local compiler combines those two records into an ordinary deterministic Path;
 - ContextDB stores distinct observations, relationships, provenance, and revisions;
@@ -35,6 +38,7 @@ A new synonym extends or adds a Path. A new graph operation versions or forks th
 - The foundation manifest lists every required signature. Dataset persistence preflights the complete batch before writing so one invalid equation cannot leave a misleading partial installation.
 - Foundation startup requests its local command-registry dependency explicitly and converges without a page reload. A user-triggered refresh repeats authoritative hydration and missing-foundation installation rather than repainting cached state.
 - Multiple validated input structures may be foundation Paths in one semantic family. They bind the same entity operation instead of adding syntax or domain branches to application code.
+- A model proposal is not considered reusable merely because it joined an existing family. Its dynamic values must be represented as typed slots, and the promoted structural Path must pass the ordinary local tournament before persistence.
 - Simple user-declared trigger/effect policies are typed local graph operations over a generic policy entity. They become Compute entities only when their contract requires reusable executable work or external effects.
 - The browser owns bounded Path-repair round state and advances it monotonically; model-returned project metadata cannot reset a correction loop.
 - A cold miss can learn a Path without allowing model output to mutate ContextDB directly.
