@@ -53,6 +53,7 @@ Model assistance selects a declared operation and proposes its typed bindings, o
 - A model proposal is not considered reusable merely because it joined an existing family. Its dynamic values must be represented as typed slots, and the promoted structural Path must pass the ordinary local tournament before persistence.
 - A model proposal that selects a versioned semantic operation cannot amend that operation by supplying extra executable rows. The browser recompiles the operation locally before both testing and persistence.
 - Bindings not declared by that operation are discarded. Their source tokens remain fixed Path grammar unless another retained binding consumes them; they do not survive as unconstrained structural slots.
+- Family compatibility compares conditional rows, transactions, and relational operation as well as base rows. A candidate with different optional constraints or repair semantics forks to a revision family instead of being aligned into a misleading alias.
 - Simple user-declared trigger/effect policies are typed local graph operations over a generic policy entity. They become Compute entities only when their contract requires reusable executable work or external effects.
 - The browser owns bounded Path-repair round state and advances it monotonically; model-returned project metadata cannot reset a correction loop.
 - A cold miss can learn a Path without allowing model output to mutate ContextDB directly.
