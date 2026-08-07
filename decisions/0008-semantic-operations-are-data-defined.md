@@ -29,6 +29,9 @@ A new synonym extends or adds a Path. A new graph operation versions or forks th
 - A reset can reinstall foundation semantic entities and Paths from versioned datasets.
 - The foundation manifest lists every required signature. Dataset persistence preflights the complete batch before writing so one invalid equation cannot leave a misleading partial installation.
 - Foundation startup requests its local command-registry dependency explicitly and converges without a page reload. A user-triggered refresh repeats authoritative hydration and missing-foundation installation rather than repainting cached state.
+- Multiple validated input structures may be foundation Paths in one semantic family. They bind the same entity operation instead of adding syntax or domain branches to application code.
+- Simple user-declared trigger/effect policies are typed local graph operations over a generic policy entity. They become Compute entities only when their contract requires reusable executable work or external effects.
+- The browser owns bounded Path-repair round state and advances it monotonically; model-returned project metadata cannot reset a correction loop.
 - A cold miss can learn a Path without allowing model output to mutate ContextDB directly.
 - The same signed-observation operation can support inventory, attendance, budgets, scores, and other quantities without knowing those nouns.
 - Path and entity defects can be repaired and versioned independently of user data.
