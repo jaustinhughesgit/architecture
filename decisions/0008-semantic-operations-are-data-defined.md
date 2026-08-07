@@ -14,6 +14,7 @@ The browser runtime owns only generic mechanics: tokenize, match, bind, compile 
 Semantic behavior is versioned data:
 
 - a local semantic entity declares operations, required bindings, effects, and row templates;
+- a vocabulary-neutral activity-observation entity supplies reusable actor, activity, object, descriptor, modifier, measurement, and observation-time roles for model-built Paths without turning those roles into a universal parser;
 - grammatical surface forms such as possessives are normalized by generic Path binding before ContextDB entity resolution;
 - identity hydration, worker-bridge readiness handshakes, and complete foundation readiness gate input execution so module ordering or a partial library cannot manufacture an unnecessary exact Path;
 - primary ownership identity is available separately from full entity-payload readiness and is retrieved through a request/response handshake as well as the initial event, preventing late-loaded Path Builder instances from hydrating or persisting against an empty owner;
@@ -32,6 +33,8 @@ Semantic behavior is versioned data:
 Compute entities remain the correct artifact for reusable executable behavior, provider calls, compound workflows, or external effects. Ordinary facts, events, deltas, corrections, and queries remain local semantic operations and do not become remote Compute applications.
 
 A new synonym extends or adds a Path. A new graph operation versions or forks the semantic entity contract. Neither change adds domain vocabulary to `app.js`, a worker, or a compiler.
+
+Model assistance selects a declared operation or proposes a new declarative row contract. The browser still resolves local-only bindings such as the current speaker and request time, compiles the canonical Path, runs an isolated graph test, installs it, and replays the input. Model retries receive the browser's actual failed checks through a resumable background job; they do not gain authority to execute an Essence directly.
 
 ## Consequences
 
