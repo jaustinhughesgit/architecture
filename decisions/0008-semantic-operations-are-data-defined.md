@@ -28,6 +28,7 @@ A new synonym extends or adds a Path. A new graph operation versions or forks th
 - Known inputs execute locally without an LLM call.
 - A reset can reinstall foundation semantic entities and Paths from versioned datasets.
 - The foundation manifest lists every required signature. Dataset persistence preflights the complete batch before writing so one invalid equation cannot leave a misleading partial installation.
+- Foundation startup requests its local command-registry dependency explicitly and converges without a page reload. A user-triggered refresh repeats authoritative hydration and missing-foundation installation rather than repainting cached state.
 - A cold miss can learn a Path without allowing model output to mutate ContextDB directly.
 - The same signed-observation operation can support inventory, attendance, budgets, scores, and other quantities without knowing those nouns.
 - Path and entity defects can be repaired and versioned independently of user data.
