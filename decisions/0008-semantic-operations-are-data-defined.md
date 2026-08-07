@@ -18,6 +18,7 @@ Semantic behavior is versioned data:
 - identity hydration, worker-bridge readiness handshakes, and complete foundation readiness gate input execution so module ordering or a partial library cannot manufacture an unnecessary exact Path;
 - same-operation vocabulary equivalences are explicit, tested Path-family aliases whose bindings target the existing semantic operation;
 - conditional graph constraints are ordered before generic aggregate operators during materialization;
+- numeric answer validation checks the typed result contract and does not override the Path/entity's declared operation based on question wording;
 - Path signatures declare vocabulary and syntax, then bind captures to one declared operation;
 - the local compiler combines those two records into an ordinary deterministic Path;
 - ContextDB stores distinct observations, relationships, provenance, and revisions;
