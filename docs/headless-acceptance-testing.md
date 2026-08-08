@@ -49,7 +49,7 @@ Node WebCrypto can reproduce P-256 ECDH and ECDSA key generation and public-key 
 A database-reset switch in a client is convenience, not authorization. Reset therefore requires both layers:
 
 1. The client rejects empty or production-like environments, requires an exact host allow-list, requires `allowDatabaseReset`, requires the reset environment ID to match the profile, and requires the exact confirmation `reset:<environment>`.
-2. Compute fails closed unless `TEST_RESET_ENABLED=true`, the configured environment ID is non-production and exactly matches the request, and the caller is authenticated. Authorization then requires either `TEST_RESET_ALLOW_ANY_AUTHENTICATED_USER=true` or membership in `TEST_RESET_ALLOWED_USER_IDS`.
+2. Compute fails closed unless `TEST_RESET_ENABLED=true` and the configured environment ID is non-production and exactly matches the request. Normal authorization requires an authenticated member of `TEST_RESET_ALLOWED_USER_IDS`. During the current disposable-stack testing phase, `TEST_RESET_ALLOW_ANY_AUTHENTICATED_USER=true` is a compatibility-named temporary any-caller mode that also permits an anonymous portal session.
 
 Reset is intended for isolated or ephemeral test stacks. Per-run namespaces or disposable stacks are preferable when parallel tests become common because a global reset creates interference even when it is authorized.
 
@@ -62,8 +62,8 @@ The published Essence endpoint should also prefer a valid deterministic quantity
 ## Capability status
 
 - Headless API transport, local session capture, test-device keys, mailbox parsing, API scenarios, published-runtime message scenarios, and client reset guards: **implemented foundation** in `testing`.
-- Compute reset authorization: **implemented foundation**; deployment must explicitly provide an isolated environment ID and choose allow-listed users or any authenticated test user.
-- Authorized portal clients discover reset availability and the non-secret environment identity from Compute, so routine manual resets require confirmation but no configuration knowledge. An authenticated unauthorized client receives its own account ID for explicit allow-listing, but neither reset authority nor the environment identity.
+- Compute reset authorization: **implemented foundation**; deployment must explicitly provide an isolated environment ID and choose normal allow-list mode or the temporary disposable-stack any-caller mode.
+- Portal clients discover reset availability and the non-secret environment identity from Compute, so routine manual resets require confirmation but no configuration knowledge. Temporary any-caller mode permits this discovery and reset without an account; normal allow-list mode still withholds both from anonymous or unauthorized callers.
 - A provisioned test stack and mailbox sink: **deployment work required**.
 - Full automated account/encryption acceptance against a live isolated stack: **partial** until those resources are configured.
 - Browser automation for browser-only seams: **proposed**.

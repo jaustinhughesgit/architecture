@@ -13,7 +13,7 @@ Create a separate `testing` repository that behaves as a deterministic headless 
 
 New cross-layer behavior follows this order: acceptance scenario, owning-layer tests and implementation, headless API/Compute verification, website integration, then a thin browser-only check.
 
-Database reset is authorized by Compute, not by possession of the testing client. Compute requires an explicit test-stack enable flag, exact environment identity, and an authenticated user. Deployments default to an explicit user allow-list, but a shared disposable test stack may deliberately enable any authenticated test user. Client checks add protection against mistakes but are not a security boundary.
+Database reset is authorized by Compute, not by possession of the testing client. Compute requires an explicit test-stack enable flag and exact non-production environment identity. Deployments normally require an authenticated user from an explicit allow-list. During the current disposable-stack testing phase, the existing any-user compatibility switch may deliberately admit anonymous portal callers; this temporary exception remains subordinate to enablement and exact-environment checks. Client checks add protection against mistakes but are not a security boundary.
 
 ## Consequences
 
