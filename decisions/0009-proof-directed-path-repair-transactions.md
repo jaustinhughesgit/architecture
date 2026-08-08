@@ -39,6 +39,8 @@ Auto-build authorizes additional paraphrase proposals only. It does not control 
 
 The implemented semantic-coverage invariants cover explicit numeric/cardinal values, supplied people/proper nouns and descriptors, plus query-selected supporting roles declared by semantic-operation graph contracts. Additional invariants must be added as declarative contracts, not domain vocabulary branches. Inferred support beyond a directly entailed relationship remains partial: future implementation must distinguish model inference from user assertion, record provenance and confidence, and obtain any policy-required confirmation.
 
+Query operations can also declare source-predicate grounding bindings. A candidate is rejected when such a binding is imported from earlier context rather than grounded in the current question's typed predicate. The resulting failure carries the preferred graph-support contract into correction, so a retry repairs the coordinated statement/query transaction instead of escaping through any unrelated nonempty traversal.
+
 ## Consequences
 
 - A candidate cannot hide a discarded value in its grammar and still score as semantically complete.
