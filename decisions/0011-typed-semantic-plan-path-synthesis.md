@@ -28,6 +28,8 @@ The deterministic Path Synthesis Compiler owns:
 
 Supporting repairs use catalog data, not application vocabulary. A `repairSupport.bindingDerivations` mapping declares how target roles come from a historical Path binding, the current query binding, or a literal contract value. The compiler may replace a model-authored supporting proposal with this deterministic derivation. Missing required derivations produce an exact compiler constraint; they do not trigger blind rewriting of executable JSON.
 
+An operation may also declare a `bindingDependencies` invariant. For example, a kind role may be declared to use the same token as its object role. The compiler reapplies that invariant during candidate compilation and normal Path materialization, preventing a learned structural slot from varying while a dependent role remains frozen to the original example.
+
 The browser remains the execution authority. It recompiles the selected semantic operation from its installed catalog, materializes bindings, removes prior graph effects in an isolated graph when required, replays the supporting statement, runs the current query, and persists nothing unless the complete transaction passes.
 
 The first implementation adapts the existing structured model response into Semantic Plan v1 before validation. A future API schema may expose Semantic Plan directly without changing the ownership boundary.
@@ -36,6 +38,7 @@ The first implementation adapts the existing structured model response into Sema
 
 - A valid semantic choice no longer fails because the model invented rows or malformed the left matcher.
 - One declarative graph-contract mapping can repair every compatible vocabulary instance; runtime code contains no lending, inventory, soccer, or other scenario dispatch.
+- Catalog-declared binding dependencies keep coupled roles generalized together, including already-saved Paths compiled before the invariant was added.
 - Candidate generation is deterministic and byte-stable for the same plan, catalog, and token evidence.
 - Model retries are reserved for semantic ambiguity or a true capability/catalog gap.
 - The compiler does not make ontology implications automatically. The model or an installed semantic capability must still select relationships that are directly entailed by the input.
