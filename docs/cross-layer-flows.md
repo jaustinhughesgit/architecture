@@ -113,6 +113,8 @@ The model proposes semantic operations and bindings; it does not execute graph r
 
 Cross-predicate meaning is not supplied by a Path signature alone. A relationship-transition Path declares the observed transition plus the resulting state and reference predicates; the local semantic entity materializes those versioned rows, and ContextDB answers later traversals. Runtime code does not infer one verb from another.
 
+Property questions can traverse a predicate variable: known subject -> any directly stored relationship -> kind-constrained object -> requested property. The Path fixes the requested property and object meaning while ContextDB binds the actual association. Answer-role grouping prevents unrelated repair candidates from redirecting this query.
+
 ```text
 User selects an entity, data item, or previous message
   → browser gathers the selected target plus related Paths and graph evidence

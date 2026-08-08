@@ -23,6 +23,8 @@ Semantic behavior is versioned data:
 - owner-qualified result-subject questions traverse the stored owner/object/result graph through a declared query operation; the model selects predicates and bindings from meaning, while the installed operation supplies the executable traversal;
 - a query operation may declare a `repairSupport` graph contract naming the supporting semantic entity operation and bindings that must have been materialized; this dependency is versioned catalog data, not a verb, noun, or scenario branch in runtime code;
 - overlapping repair-support contracts declare a numeric catalog priority. For the same uniquely matched evidence, validation requires the highest-priority graph contract and reports its exact semantic operation instead of repeatedly accepting a legacy but less complete traversal;
+- repair precedence is scoped to a declared answer-role group. A subject-projection repair cannot outrank an object-property query merely because both touch the same historical evidence;
+- ContextDB query templates may bind a predicate as a join variable. This lets one property projection traverse whichever direct relationship is actually stored between a known subject and constrained object without runtime code guessing ownership, custody, assignment, or another relation;
 - grammatical surface forms such as possessives are normalized by generic Path binding before ContextDB entity resolution;
 - identity hydration, worker-bridge readiness handshakes, and complete foundation readiness gate input execution so module ordering or a partial library cannot manufacture an unnecessary exact Path;
 - primary ownership identity is available separately from full entity-payload readiness and is retrieved through a request/response handshake as well as the initial event, preventing late-loaded Path Builder instances from hydrating or persisting against an empty owner;
@@ -37,6 +39,7 @@ Semantic behavior is versioned data:
 - the local compiler combines those two records into an ordinary deterministic Path;
 - ContextDB stores distinct observations, relationships, provenance, and revisions;
 - generic graph operations perform joins, distinct counts, signed sums, and selected relation rewires for declared correction transactions.
+- historical replay replaces Path provenance together with graph effects: semantic entity reference, bindings, materialized values, mode, and repair marker must describe the repaired Path rather than the superseded one.
 
 Compute entities remain the correct artifact for reusable executable behavior, provider calls, compound workflows, or external effects. Ordinary facts, events, deltas, corrections, and queries remain local semantic operations and do not become remote Compute applications.
 

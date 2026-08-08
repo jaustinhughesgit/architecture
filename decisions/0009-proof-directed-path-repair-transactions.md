@@ -24,6 +24,7 @@ When a current query reveals that a supporting historical statement failed seman
 - a selected query operation's declarative `repairSupport` contract may additionally identify missing supporting graph roles, including directly entailed relationships that are not reducible to token-type coverage;
 - the support contract may name older compatible source operations that require migration. A unique provenance- and anchor-matched historical Path can therefore be replaced with the declared supporting operation instead of retrying a query against its incomplete graph shape;
 - when multiple contracts match that evidence, versioned `repairPriority` selects the preferred migration. A lower-priority query proposal fails operation selection before its supporting repair is requested, preventing correction rounds from repeating the obsolete route;
+- priority comparison occurs only within the same declared answer-role group. Repair evidence for “who?” cannot redirect “what property?” into a subject query;
 - the model must propose the repaired historical statement and current query together;
 - the browser recompiles both from installed semantic entities;
 - the worker removes the historical block's recorded relations in an isolated snapshot, replays the repaired statement, and tests the query against that repaired graph;
@@ -43,6 +44,7 @@ The implemented semantic-coverage invariants cover explicit numeric/cardinal val
 - A semantic entity that cannot represent required roles produces a precise capability limitation instead of an unbounded retry loop.
 - A strict semantic entity cannot silently discard model-proposed object or relationship roles; the candidate must select or create a compatible declarative capability.
 - Review bundles can attribute failure to recognition, semantic binding, historical replay, query outcome, persistence, or installation.
+- Replayed history reports the new semantic operation and bindings, preventing later planners from repairing against stale provenance even when the graph rows were already replaced correctly.
 
 ## Verification
 
