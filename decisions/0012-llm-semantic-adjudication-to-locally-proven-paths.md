@@ -27,6 +27,8 @@ A cold Path miss uses a semantic-adjudication transaction:
 7. A catalog operation may declare a local-syntax binding plan. The deterministic compiler can use that plan to add a typed candidate from the browser's structural evidence while retaining the model's candidate as an alternative interpretation.
 8. The browser validates the entire transaction in an isolated local ContextDB. A statement candidate must materialize every adjudicated graph row. Each historical repair must materialize its declared relationships. A question candidate must reproduce the adjudicated answer after all supporting repairs replay.
 9. All required Paths pass and commit together, or none commit. The user sees the answer only after local reproduction succeeds.
+
+Syntactic evidence names such as `descriptor` are not presumed to be final semantic properties. The model may select a precise property through ordinary grounded reasoning. If a later question resolves an earlier generic role, a catalog-owned support contract may derive a historical repair from the query's typed property binding; the browser accepts it only when replay plus query reproduces the adjudicated answer.
 10. Later compatible inputs use the installed local Paths without another model call. Auto-build remains limited to generating extra equivalent wordings; it is not required for a cold miss.
 
 The LLM therefore owns semantic adjudication during discovery, while the browser owns executable Essence, proof, mutation, and reuse.
