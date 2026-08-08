@@ -29,6 +29,8 @@ A cold Path miss uses a semantic-adjudication transaction:
 9. All required Paths pass and commit together, or none commit. The user sees the answer only after local reproduction succeeds.
 
 Syntactic evidence names such as `descriptor` are not presumed to be final semantic properties. The model may select a precise property through ordinary grounded reasoning. If a later question resolves an earlier generic role, a catalog-owned support contract may derive a historical repair from the query's typed property binding; the browser accepts it only when replay plus query reproduces the adjudicated answer.
+
+The support contract may also list compatible source operations and alternate typed source bindings. This lets a general observation be deterministically re-expressed through a richer relationship operation without teaching core code any verb or domain vocabulary. An optional `answerSourceBinding` is a narrow resilience rule: if the model omits the question answer, the compiler may use the uniquely matched typed source value as the local proof target. It cannot select among multiple values, cross answer-role groups, or infer an undeclared property.
 10. Later compatible inputs use the installed local Paths without another model call. Auto-build remains limited to generating extra equivalent wordings; it is not required for a cold miss.
 
 The LLM therefore owns semantic adjudication during discovery, while the browser owns executable Essence, proof, mutation, and reuse.
