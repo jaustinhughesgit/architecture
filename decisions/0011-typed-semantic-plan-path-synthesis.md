@@ -26,6 +26,8 @@ The deterministic Path Synthesis Compiler owns:
 - dependency expansion for a query's declared `repairSupport`; and
 - a complete candidate transaction for browser-local isolated proof.
 
+For a catalog-backed statement, the compiler also owns the enforceable graph-row contract. Model-adjudicated rows remain semantic evidence and diagnostics, but their model-chosen binding or instance names are not executable identifiers. The compiler derives required rows from the selected installed operation and its typed bindings, and the browser materializes those references before comparing them with candidate output. A model synonym such as `requester` cannot invalidate an otherwise identical catalog role such as `actor`, nor can it bypass the catalog's declared graph effects.
+
 Supporting repairs use catalog data, not application vocabulary. A `repairSupport.bindingDerivations` mapping declares how target roles come from a historical Path binding, the current query binding, or a literal contract value. The compiler may replace a model-authored supporting proposal with this deterministic derivation. Missing required derivations produce an exact compiler constraint; they do not trigger blind rewriting of executable JSON.
 
 The compact server transport is part of that compiler contract. It retains binding-to-binding references, token spans, value modes, scales, literals, and bounded executed scalar values for recent Path evidence. Compaction may bound evidence size but may not sever the typed dependency graph the deterministic derivation consumes.
@@ -52,6 +54,7 @@ The first implementation adapts the existing structured model response into Sema
 - Candidate generation is deterministic and byte-stable for the same plan, catalog, and token evidence.
 - Model retries are reserved for semantic ambiguity or a true capability/catalog gap.
 - A familiar grammatical shape can reuse a catalog operation without requiring the model to reproduce fragile token-span plumbing on every cold input.
+- Model-authored graph-row variable names cannot create false runtime failures after the operation and typed bindings have already been accepted.
 - The compiler does not make ontology implications automatically. The model or an installed semantic capability must still select relationships that are directly entailed by the input.
 
 ## Alternatives considered

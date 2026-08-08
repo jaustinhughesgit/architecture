@@ -23,7 +23,7 @@ A cold Path miss uses a semantic-adjudication transaction:
    - current and historical Path proposals
 4. The model may use ordinary general knowledge to connect entities explicitly grounded in the supplied material. It may not invent user events, quantities, permissions, protected values, or unobserved facts.
 5. A deterministic compiler replaces any selected catalog operation with its installed executable definition. If no catalog operation faithfully expresses the meaning, a declarative four-cell Essence transform may be proposed.
-6. The server returns the complete adjudication unchanged with the compiled proposals. It may not discard the answer, intended graph rows, or grounded repair requirements at the browser boundary.
+6. The server returns the complete adjudication with the compiled proposals. It may not discard the answer, intended graph rows, or grounded repair requirements at the browser boundary. For catalog-backed statements, raw adjudicated rows are retained as diagnostic intent while the deterministic compiler derives the enforceable required rows from the selected operation and typed bindings.
 7. A catalog operation may declare a local-syntax binding plan. The deterministic compiler can use that plan to add a typed candidate from the browser's structural evidence while retaining the model's candidate as an alternative interpretation.
 8. The browser validates the entire transaction in an isolated local ContextDB. A statement candidate must materialize every adjudicated graph row. Each historical repair must materialize its declared relationships. A question candidate must reproduce the adjudicated answer after all supporting repairs replay.
 9. All required Paths pass and commit together, or none commit. The user sees the answer only after local reproduction succeeds.
@@ -56,6 +56,7 @@ The server receives only context already authorized for the model request. Prote
 - Local syntax extraction handles classification, possession/description, property projection, and unrelated vocabulary without domain word lists.
 - Structured model output includes adjudication, graph writes, repairs, and Path candidates.
 - The complete adjudication crosses the server/browser boundary and supplies the browser candidate contracts.
+- Catalog-backed statement contracts use compiler-canonical graph rows; raw model binding and instance names remain visible diagnostics but are not runtime identifiers.
 - Possessive property questions separate owner, owned-object kind, and requested property locally; unrelated vocabulary uses the same catalog-declared syntax plan.
 - Adjudicated answers override untrusted candidate answer fields and become the browser runtime test target.
 - Adjudicated statement/repair rows must be materialized by their candidate Paths.
