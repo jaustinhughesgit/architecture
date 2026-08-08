@@ -23,6 +23,7 @@ When a current query reveals that a supporting historical statement failed seman
 - the request identifies the owning source block, superseded Path signature, and missing typed requirement;
 - a selected query operation's declarative `repairSupport` contract may additionally identify missing supporting graph roles, including directly entailed relationships that are not reducible to token-type coverage;
 - the support contract may name older compatible source operations that require migration. A unique provenance- and anchor-matched historical Path can therefore be replaced with the declared supporting operation instead of retrying a query against its incomplete graph shape;
+- when multiple contracts match that evidence, versioned `repairPriority` selects the preferred migration. A lower-priority query proposal fails operation selection before its supporting repair is requested, preventing correction rounds from repeating the obsolete route;
 - the model must propose the repaired historical statement and current query together;
 - the browser recompiles both from installed semantic entities;
 - the worker removes the historical block's recorded relations in an isolated snapshot, replays the repaired statement, and tests the query against that repaired graph;
