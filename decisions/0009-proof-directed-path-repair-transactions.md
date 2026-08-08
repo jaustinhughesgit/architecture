@@ -41,6 +41,8 @@ The implemented semantic-coverage invariants cover explicit numeric/cardinal val
 
 Query operations can also declare source-predicate grounding bindings. A candidate is rejected when such a binding is imported from earlier context rather than grounded in the current question's typed predicate. The resulting failure carries the preferred graph-support contract into correction, so a retry repairs the coordinated statement/query transaction instead of escaping through any unrelated nonempty traversal.
 
+Answer-role compatibility is likewise declared by semantic-operation interrogative metadata. The validator applies it before selecting or locking a support repair, preventing a subject traversal from being retained for a property question (or the reverse) without introducing domain-specific runtime branches.
+
 ## Consequences
 
 - A candidate cannot hide a discarded value in its grammar and still score as semantically complete.
