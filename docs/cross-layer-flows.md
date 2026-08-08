@@ -115,6 +115,20 @@ Cross-predicate meaning is not supplied by a Path signature alone. A relationshi
 
 Property questions can traverse a predicate variable: known subject -> any directly stored relationship -> kind-constrained object -> requested property. The Path fixes the requested property and object meaning while ContextDB binds the actual association. Answer-role grouping prevents unrelated repair candidates from redirecting this query.
 
+When a question names a broader type than the supporting statement's specific object kind, a catalog-declared prerequisite may extend that atomic transaction:
+
+```text
+specific object statement + broader-type property question
+  -> select one supporting Path from typed binding evidence
+  -> derive object_supertype from the question's object_type binding
+  -> recompile the supporting statement Path with an additional kind relation
+  -> compile the type-constrained property query Path
+  -> prove replay + query together in isolated local ContextDB
+  -> commit both or neither
+```
+
+An explicit `specific entity is a general type` sentence uses `contextdb.entity-classification` and writes the same additional kind relationship. The compiler and runtime contain no domain vocabulary. This bounded prerequisite is not general ontology inference: it cannot invent arbitrary facts, select among tied supporting entities, or bypass local proof.
+
 ```text
 User selects an entity, data item, or previous message
   → browser gathers the selected target plus related Paths and graph evidence
