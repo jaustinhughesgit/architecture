@@ -52,6 +52,7 @@ The first implementation adapts the existing structured model response into Sema
 - One declarative graph-contract mapping can repair every compatible vocabulary instance; runtime code contains no lending, inventory, soccer, or other scenario dispatch.
 - Catalog-declared binding dependencies keep coupled roles generalized together, including already-saved Paths compiled before the invariant was added.
 - Catalog-declared binding policies promote only authorized, uniquely grounded example values into reusable matcher slots. They may replace a model schema placeholder with one unambiguous typed predicate token, or with a catalog-declared relationship when the required structural evidence (such as a possessive) is present; ambiguous evidence fails closed.
+- Self-referential optional bindings cannot satisfy an operation and are discarded. If a question adjudication omits its answer while every current proposal supplies the same nonempty proof target, the compiler treats that one value as the adjudicated answer; the browser must still reproduce it from ContextDB before installation.
 - Replication cannot discard a browser-proven active alias between validation and worker installation.
 - Candidate generation is deterministic and byte-stable for the same plan, catalog, and token evidence.
 - Model retries are reserved for semantic ambiguity or a true capability/catalog gap.
