@@ -26,6 +26,8 @@ When a current query reveals that a supporting historical statement failed seman
 - when multiple contracts match that evidence, versioned `repairPriority` selects the preferred migration. A lower-priority query proposal fails operation selection before its supporting repair is requested, preventing correction rounds from repeating the obsolete route;
 - priority comparison occurs only within the same declared answer-role group. Repair evidence for “who?” cannot redirect “what property?” into a subject query;
 - a historical Path with every required binding name but an empty materialized value is still incomplete and must participate in the coordinated repair transaction;
+- an unambiguous reference to an earlier semantic role is encoded as a binding-to-binding source so a pronoun is not persisted as a new entity; ambiguous antecedents are never guessed;
+- a correction round retains the graph contract diagnosed by the preceding failure. The model cannot avoid the required historical repair by switching to an unrelated query operation that merely returns a nonempty value;
 - the model must propose the repaired historical statement and current query together;
 - the browser recompiles both from installed semantic entities;
 - the worker removes the historical block's recorded relations in an isolated snapshot, replays the repaired statement, and tests the query against that repaired graph;
