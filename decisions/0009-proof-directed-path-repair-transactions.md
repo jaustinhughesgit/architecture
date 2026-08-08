@@ -43,6 +43,8 @@ Query operations can also declare source-predicate grounding bindings. A candida
 
 Answer-role compatibility is likewise declared by semantic-operation interrogative metadata. The validator applies it before selecting or locking a support repair, preventing a subject traversal from being retained for a property question (or the reverse) without introducing domain-specific runtime branches.
 
+Optional semantic bindings are normalized at the catalog boundary. An empty optional binding can inherit the same role's concrete value from executed supporting-Path evidence; otherwise it is removed before conditional rows are activated. Required bindings remain non-negotiable. This distinguishes incomplete optional model syntax from a broken semantic contract and avoids repeated cold-start retries.
+
 ## Consequences
 
 - A candidate cannot hide a discarded value in its grammar and still score as semantically complete.
