@@ -28,6 +28,8 @@ The deterministic Path Synthesis Compiler owns:
 
 Supporting repairs use catalog data, not application vocabulary. A `repairSupport.bindingDerivations` mapping declares how target roles come from a historical Path binding, the current query binding, or a literal contract value. The compiler may replace a model-authored supporting proposal with this deterministic derivation. Missing required derivations produce an exact compiler constraint; they do not trigger blind rewriting of executable JSON.
 
+The compact server transport is part of that compiler contract. It retains binding-to-binding references, token spans, value modes, scales, literals, and bounded executed scalar values for recent Path evidence. Compaction may bound evidence size but may not sever the typed dependency graph the deterministic derivation consumes.
+
 An operation may also declare a `bindingDependencies` invariant. For example, a kind role may be declared to use the same token as its object role. The compiler reapplies that invariant during candidate compilation and normal Path materialization, preventing a learned structural slot from varying while a dependent role remains frozen to the original example.
 
 An operation may declare a `bindingPolicies` acquisition rule when a role must generalize from source evidence even if the model proposed an example literal. The initial `unique_matching_token` strategy converts that literal to the only source span that materializes the same typed value. No match or multiple matches is a compile failure; core code does not choose among them or infer which semantic roles should be generalized.
