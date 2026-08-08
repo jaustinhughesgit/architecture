@@ -44,7 +44,7 @@ utterance → local signature → deterministic Essence → local ContextDB → 
 
 Model calls are for discovery, learning, diagnosis, or sanctioned compute—not for repeating a known local interpretation. Learning should promote generalized, tested transforms so later compatible utterances are immediate.
 
-Canonical Essence is always materialized by the browser-local runtime. A cold miss uses that local Essence to build and save the required current Path. Enabling **Auto-build Path signatures with OpenAI** additionally permits discovery of paraphrase Paths for other ways the same interaction could have been expressed; it does not authorize a remote Essence fallback or let a model redefine the request. Every candidate must compile and validate locally.
+Canonical executable Essence is always materialized by the browser-local runtime. On a cold miss, local tokens and syntax triplets, bounded recent results, and permitted ContextDB evidence may be sent to a model for semantic adjudication. The model returns a speech act, answer or intended graph writes, grounded ContextDB repairs, and Path plans. Those results are proposals: the browser must compile and prove every current and historical Path together before showing an answer or mutating ContextDB. Enabling **Auto-build Path signatures with OpenAI** additionally permits discovery of paraphrase Paths; it does not change this acceptance boundary.
 
 ## Cross-layer durability
 

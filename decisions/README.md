@@ -23,4 +23,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0009: Proof-directed Path repair transactions](0009-proof-directed-path-repair-transactions.md)
 - [0010: Confirmed Path foundation promotion](0010-confirmed-path-foundation-promotion.md)
 - [0011: Typed Semantic Plans compile into deterministic Paths](0011-typed-semantic-plan-path-synthesis.md)
-- [0012: Bounded semantic prerequisites expand through typed Paths](0012-bounded-semantic-prerequisite-expansion.md)
+- [0012: LLM semantic adjudication produces locally proven Paths](0012-llm-semantic-adjudication-to-locally-proven-paths.md)

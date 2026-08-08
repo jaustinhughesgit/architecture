@@ -52,16 +52,18 @@ The classifier must emit a stable reason and effect class. A model may propose t
 
 ```text
 Input misses local Paths
-  → gather bounded relevant history and graph evidence
-  → model proposes a binding to a compatible semantic operation or a generalized Path candidate
-  → browser recompiles any selected semantic operation from its installed versioned entity
-  → isolated local validation tournament against current local ContextDB
-  → install the tested required Path or retain inactive evidence
-  → replay through the installed Path and only then execute/store safely
+  → browser extracts vocabulary-neutral token/syntax triplet evidence
+  → gather bounded recent inputs/results, installed Path evidence, and relevant ContextDB
+  → model independently adjudicates statement/question/command
+  → model returns answer or intended graph writes, grounded historical repairs, and Path plans
+  → browser recompiles selected versioned operations or validates declarative Essence transforms
+  → isolated transaction replays every required historical repair and current Path
+  → require graph rows to materialize and any question to reproduce the adjudicated answer
+  → install and execute all passing Paths together, or commit none
   → later compatible inputs run locally
 ```
 
-Path-learning conflicts should be resolved at the family/alias/transform level. They should not automatically discard a valid deterministic mutation or route an ordinary graph query into external compute.
+The model supplies general semantic reasoning during discovery, including grounded corrections to an incomplete graph. It does not directly write ContextDB and its answer is not shown until the local Path transaction reproduces it. Path-learning conflicts should be resolved at the family/alias/transform level. They should not automatically discard a valid deterministic mutation or route an ordinary graph query into external compute. See [decision 0012](../decisions/0012-llm-semantic-adjudication-to-locally-proven-paths.md).
 
 ## Confirmed Path promotion
 
@@ -96,38 +98,38 @@ Discovery should happen once per missing reusable capability, not once per wordi
 
 ```text
 current Path miss or empty-answer contract failure
-  -> derive current answer and explicit typed-source requirements
-  -> inspect catalog-declared query support contracts and surface incomplete matching Paths
-  -> when declared, migrate a uniquely matched older supporting operation to the required graph contract
-  -> select relevant supporting history by linguistic anchors + graph provenance
-  -> identify the owning statement Path when stored evidence is incomplete
-  -> model proposes repaired statement Path + current query Path
-  -> browser recompiles both from installed semantic entities
-  -> isolated transaction removes old source effects and replays repaired statement
-  -> current query executes against the repaired isolated graph
+  -> collect local syntax, recent inputs/results, Path bindings, and graph provenance
+  -> model adjudicates the intended answer or graph mutation
+  -> model identifies every grounded incomplete historical source and required relationship
+  -> model proposes repaired historical Paths plus the current Path
+  -> browser recompiles catalog operations and validates declarative transforms
+  -> isolated transaction removes old source effects and replays all repaired statements
+  -> current Path executes against the repaired isolated graph
+  -> require each declared graph row and the adjudicated answer to be reproduced
   -> all required checks pass: persist/install both, retire superseded exact alias, replay live
   -> any required check fails: commit neither and return the failed layer/requirement
 ```
 
-The model proposes semantic operations and bindings; it does not execute graph rows. A selected query's data-defined support contract can require a prior statement repair even when literal predicate comparison is impossible because predicates are runtime bindings. Token coverage cannot substitute for semantic coverage. Optional paraphrase expansion never removes a required historical repair from this transaction.
+The model proposes semantic operations, bindings, intended graph rows, and grounded repairs; it does not execute graph rows. A selected query's data-defined support contract may still identify a prior statement candidate, but it is not the only source of semantic stitching. Token coverage cannot substitute for semantic coverage. Optional paraphrase expansion never removes a required historical repair from this transaction.
 
 Cross-predicate meaning is not supplied by a Path signature alone. A relationship-transition Path declares the observed transition plus the resulting state and reference predicates; the local semantic entity materializes those versioned rows, and ContextDB answers later traversals. Runtime code does not infer one verb from another.
 
 Property questions can traverse a predicate variable: known subject -> any directly stored relationship -> kind-constrained object -> requested property. The Path fixes the requested property and object meaning while ContextDB binds the actual association. Answer-role grouping prevents unrelated repair candidates from redirecting this query.
 
-When a question names a broader type than the supporting statement's specific object kind, a catalog-declared prerequisite may extend that atomic transaction:
+Classification is one ordinary example of adjudication and replay:
 
 ```text
-specific object statement + broader-type property question
-  -> select one supporting Path from typed binding evidence
-  -> derive object_supertype from the question's object_type binding
-  -> recompile the supporting statement Path with an additional kind relation
-  -> compile the type-constrained property query Path
-  -> prove replay + query together in isolated local ContextDB
-  -> commit both or neither
+Honda Civic is a car
+  -> local syntax evidence: Honda Civic / is / car
+  -> model adjudicates a grounded classification graph write
+I have a red Honda Civic
+  -> model adjudicates ownership, object identity, and color rows
+What color is my car?
+  -> model sees the classification and ownership graph, returns red as the proof target
+  -> browser proves the query Path returns red locally
 ```
 
-An explicit `specific entity is a general type` sentence uses `contextdb.entity-classification` and writes the same additional kind relationship. The compiler and runtime contain no domain vocabulary. This bounded prerequisite is not general ontology inference: it cannot invent arbitrary facts, select among tied supporting entities, or bypass local proof.
+The vocabulary-neutral `contextdb.entity-classification` operation can implement the explicit classification, but no Honda, Civic, car, vehicle, or color branch exists in runtime code. If the supplied graph omitted a grounded relationship, adjudication may require a corrected historical Path. It cannot invent arbitrary user events, select among unresolved referents, or bypass local proof.
 
 ```text
 User selects an entity, data item, or previous message
