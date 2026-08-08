@@ -30,6 +30,10 @@ Supporting repairs use catalog data, not application vocabulary. A `repairSuppor
 
 An operation may also declare a `bindingDependencies` invariant. For example, a kind role may be declared to use the same token as its object role. The compiler reapplies that invariant during candidate compilation and normal Path materialization, preventing a learned structural slot from varying while a dependent role remains frozen to the original example.
 
+An operation may declare a `bindingPolicies` acquisition rule when a role must generalize from source evidence even if the model proposed an example literal. The initial `unique_matching_token` strategy converts that literal to the only source span that materializes the same typed value. No match or multiple matches is a compile failure; core code does not choose among them or infer which semantic roles should be generalized.
+
+After isolated proof, browser-local family state is durable authority for the pending installation transaction. A server save response is merged with that state and may not erase the exact active alias just validated. A returned family-identity mismatch or missing expected alias stops installation rather than allowing the worker acknowledgement to fail after an apparently successful save.
+
 The browser remains the execution authority. It recompiles the selected semantic operation from its installed catalog, materializes bindings, removes prior graph effects in an isolated graph when required, replays the supporting statement, runs the current query, and persists nothing unless the complete transaction passes.
 
 The first implementation adapts the existing structured model response into Semantic Plan v1 before validation. A future API schema may expose Semantic Plan directly without changing the ownership boundary.
@@ -39,6 +43,8 @@ The first implementation adapts the existing structured model response into Sema
 - A valid semantic choice no longer fails because the model invented rows or malformed the left matcher.
 - One declarative graph-contract mapping can repair every compatible vocabulary instance; runtime code contains no lending, inventory, soccer, or other scenario dispatch.
 - Catalog-declared binding dependencies keep coupled roles generalized together, including already-saved Paths compiled before the invariant was added.
+- Catalog-declared binding policies promote only authorized, uniquely grounded example values into reusable matcher slots.
+- Replication cannot discard a browser-proven active alias between validation and worker installation.
 - Candidate generation is deterministic and byte-stable for the same plan, catalog, and token evidence.
 - Model retries are reserved for semantic ambiguity or a true capability/catalog gap.
 - The compiler does not make ontology implications automatically. The model or an installed semantic capability must still select relationships that are directly entailed by the input.
