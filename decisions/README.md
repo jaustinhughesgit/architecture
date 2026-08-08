@@ -22,3 +22,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0008: Semantic operations and vocabulary are data-defined](0008-semantic-operations-are-data-defined.md)
 - [0009: Proof-directed Path repair transactions](0009-proof-directed-path-repair-transactions.md)
 - [0010: Confirmed Path foundation promotion](0010-confirmed-path-foundation-promotion.md)
+- [0011: Typed Semantic Plans compile into deterministic Paths](0011-typed-semantic-plan-path-synthesis.md)
