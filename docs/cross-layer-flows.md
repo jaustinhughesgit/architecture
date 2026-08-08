@@ -102,7 +102,9 @@ current Path miss or empty-answer contract failure
   -> model adjudicates the intended answer or graph mutation
   -> model identifies every grounded incomplete historical source and required relationship
   -> model proposes repaired historical Paths plus the current Path
-  -> browser recompiles catalog operations and validates declarative transforms
+  -> server preserves the complete adjudication and compiles catalog operations
+  -> catalog-declared local-syntax plans may add typed alternative candidates
+  -> browser recompiles catalog operations and validates every alternative
   -> isolated transaction removes old source effects and replays all repaired statements
   -> current Path executes against the repaired isolated graph
   -> require each declared graph row and the adjudicated answer to be reproduced
@@ -115,6 +117,8 @@ The model proposes semantic operations, bindings, intended graph rows, and groun
 Cross-predicate meaning is not supplied by a Path signature alone. A relationship-transition Path declares the observed transition plus the resulting state and reference predicates; the local semantic entity materializes those versioned rows, and ContextDB answers later traversals. Runtime code does not infer one verb from another.
 
 Property questions can traverse a predicate variable: known subject -> any directly stored relationship -> kind-constrained object -> requested property. The Path fixes the requested property and object meaning while ContextDB binds the actual association. Answer-role grouping prevents unrelated repair candidates from redirecting this query.
+
+Possessive syntax evidence separates the reference subject from the owned object's noun head. A semantic operation may declaratively bind those cells and the question projection to roles such as reference subject, object kind, and requested property. This produces a reusable capability shape; instance values such as a particular owner, object, classification, or color remain ContextDB data.
 
 Classification is one ordinary example of adjudication and replay:
 

@@ -34,6 +34,8 @@ An operation may also declare a `bindingDependencies` invariant. For example, a 
 
 An operation may declare a `bindingPolicies` acquisition rule when a role must generalize from source evidence even if the model proposed an example literal. The initial `unique_matching_token` strategy converts that literal to the only source span that materializes the same typed value. No match or multiple matches is a compile failure; core code does not choose among them or infer which semantic roles should be generalized.
 
+An operation may also declare `localSyntaxPlans`. Each plan maps named, vocabulary-neutral syntax evidence—such as question projection and possessive reference cells—to the operation's typed roles. When the declared evidence is present, the compiler may construct a catalog-owned candidate alongside the model's Semantic Plan. These are alternative implementations of the model's adjudicated meaning, not paraphrase expansion: the browser tests them against current ContextDB and the adjudicated answer and selects the highest-scoring passing candidate. The mapping is semantic-operation data; core code contains no object, property, industry, or example vocabulary.
+
 After isolated proof, browser-local family state is durable authority for the pending installation transaction. A server save response is merged with that state and may not erase the exact active alias just validated. A returned family-identity mismatch or missing expected alias stops installation rather than allowing the worker acknowledgement to fail after an apparently successful save.
 
 The browser remains the execution authority. It recompiles the selected semantic operation from its installed catalog, materializes bindings, removes prior graph effects in an isolated graph when required, replays the supporting statement, runs the current query, and persists nothing unless the complete transaction passes.
@@ -49,6 +51,7 @@ The first implementation adapts the existing structured model response into Sema
 - Replication cannot discard a browser-proven active alias between validation and worker installation.
 - Candidate generation is deterministic and byte-stable for the same plan, catalog, and token evidence.
 - Model retries are reserved for semantic ambiguity or a true capability/catalog gap.
+- A familiar grammatical shape can reuse a catalog operation without requiring the model to reproduce fragile token-span plumbing on every cold input.
 - The compiler does not make ontology implications automatically. The model or an installed semantic capability must still select relationships that are directly entailed by the input.
 
 ## Alternatives considered
