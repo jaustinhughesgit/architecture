@@ -206,6 +206,8 @@ The server is authoritative for sanitized token usage, model identity, and servi
 
 Remote speech transcription is part of the same user request, not an untracked preflight. The browser allocates the request identity before posting audio, the transcription endpoint returns only sanitized model usage alongside the transcript, and the worker carries both into the final local Path result. A local Path hit can therefore have a non-zero transcription cost while correctly reporting no additional interpretation-model call.
 
+Message normally renders only the Essence interaction. As a bounded recovery rule, it also mirrors a completed voice result that is explicitly classified as a question and contains a non-empty answer even when a mid-press slider transition labeled the result Convert. This exception does not admit Convert statements, drafts, or app-authoring output into Message.
+
 ## Versioned LLM request selection
 
 ```text
