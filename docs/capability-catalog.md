@@ -5,6 +5,7 @@ This catalog prevents future work from assuming a capability is absent merely be
 | Capability | Status | Current or intended ownership | Notes / next documentation work |
 | --- | --- | --- | --- |
 | Browser message and voice interaction | Partial | `aws` | User-facing interaction exists; complete modality and accessibility contracts are not yet cataloged. |
+| Browser-local input rollback | Implemented foundation | `aws` | Message Back restores a bounded, identity-scoped pre-input checkpoint across graph/ContextDB, history, local translations, word map, and learned Path library. Server Path reconciliation is asynchronous. External effects and protected-asset use are not reversible. See [decision 0014](../decisions/0014-browser-local-input-rollback.md). |
 | Account/group bootstrap (`/newUser`) | Partial | `aws` + `compute` | Initial records are created; it is not yet one versioned lifecycle with verification, recovery, and device enrollment. |
 | Email verification | Implemented foundation | `aws` + `compute` | Separate request/poll/verification flow exists; integration with account state requires formalization. |
 | Headless API/Compute acceptance | Implemented foundation | `testing` + `aws-api` + `compute` | Command transport, session capture, test-device keys, mailbox parsing, declarative scenarios, and reset guards exist. Provisioned isolated stacks, mailbox infrastructure, and full live acceptance remain deployment work. See [headless acceptance testing](headless-acceptance-testing.md). |
