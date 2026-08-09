@@ -98,6 +98,8 @@ Discovery should happen once per missing reusable capability, not once per wordi
 
 Before requesting repair, a browser-local question match is a guarded interpretation set rather than a recency-selected winner. Every compatible installed question Path is materialized and queried read-only against the same scoped ContextDB. A unique semantically distinct candidate that satisfies the answer contract executes locally. If no candidate is valid, the request enters required repair; multiple valid semantic candidates emit an explicit ambiguity whose bounded signatures, typed bindings, rows, and answers travel with the repair payload so the model can adjudicate and the browser can prove the resulting stitch. Syntactic specificity orders candidates but cannot make a learned role interpretation semantically authoritative.
 
+A structurally matched Path that returns no answer contributes a separate failed-match record containing its request-time typed bindings. This record is repair evidence, not successful Path coverage. It crosses Transcribe, the worker repair bundle, API compaction, semantic routing, and the candidate tournament so a catalog route can compare the failed question role with exact executed roles in prior statements. The routed candidate still has no authority until browser-local ContextDB validation succeeds.
+
 ```text
 current Path miss or empty-answer contract failure
   -> collect local syntax, recent inputs/results, Path bindings, and graph provenance
