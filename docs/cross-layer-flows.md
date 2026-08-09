@@ -107,12 +107,16 @@ current Path miss or empty-answer contract failure
   -> browser recompiles catalog operations and validates every alternative
   -> isolated transaction removes old source effects and replays all repaired statements
   -> current Path executes against the repaired isolated graph
-  -> require each declared graph row and the adjudicated answer to be reproduced
+  -> require each declared graph row and the proof answer to be reproduced
   -> all required checks pass: persist/install both, retire superseded exact alias, replay live
-  -> any required check fails: commit neither and return the failed layer/requirement
+  -> bounded automatic correction exhausts: commit neither and ask permission to open the failed message in Edit
 ```
 
 The model proposes semantic operations, bindings, intended graph rows, and grounded repairs; it does not execute graph rows. A selected query's data-defined support contract may still identify a prior statement candidate, but it is not the only source of semantic stitching. Token coverage cannot substitute for semantic coverage. Optional paraphrase expansion never removes a required historical repair from this transaction.
+
+The ordinary proof target is the independently adjudicated answer. When a catalog-declared supporting-graph route replaces a query role using exact executed binding equality—for example, the questioned actor binding equals the supporting statement's typed participant binding—the live browser-owned ContextDB answer is authoritative for that routed candidate. A model answer inferred from the superseded role must not poison its local proof.
+
+An exhausted local graph repair is still a Path repair, not evidence that a new external compute app is needed. Message asks for repair consent. Approval selects the failed message in Edit with its Path signature, scoped ContextDB evidence, rejected candidates, and diagnosis, then prepares an LLM repair instruction for user review. Declining changes nothing.
 
 Cross-predicate meaning is not supplied by a Path signature alone. A relationship-transition Path declares the observed transition plus the resulting state and reference predicates; the local semantic entity materializes those versioned rows, and ContextDB answers later traversals. Runtime code does not infer one verb from another.
 
