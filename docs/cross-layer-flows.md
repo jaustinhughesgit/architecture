@@ -196,12 +196,15 @@ Retries must not create duplicate entities, Paths, facts, provider charges, or p
 ```text
 Browser assigns requestId and a locally displayable label
   → every model response emits model-cost-trace v1 usage metadata
-  → browser correlates classification, Essence, Path, and compute attempts
+  → held speech preserves that identity through transcription and local Path execution
+  → browser correlates transcription, classification, Essence, Path, and compute attempts
   → dated browser price catalog estimates input and output cost
   → expandable request row exposes every retry and the estimated total
 ```
 
 The server is authoritative for sanitized token usage, model identity, and service tier. The browser is authoritative for correlation and presentation; it keeps this ledger in memory for the current session. Protected request labels are replaced locally with `[protected request]`. Neither the trace nor diagnostics may contain prompts, model content, hidden reasoning, protected data, credentials, or headers. The displayed amount is an estimate, not an invoice: regional uplifts, provider charges, and non-token tools require separate typed usage contracts.
+
+Remote speech transcription is part of the same user request, not an untracked preflight. The browser allocates the request identity before posting audio, the transcription endpoint returns only sanitized model usage alongside the transcript, and the worker carries both into the final local Path result. A local Path hit can therefore have a non-zero transcription cost while correctly reporting no additional interpretation-model call.
 
 ## Versioned LLM request selection
 
