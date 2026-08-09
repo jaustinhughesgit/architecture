@@ -133,6 +133,14 @@ The browser-local query runtime supports deterministic binary arithmetic after o
 
 The operation is read-only, rejects unresolved or non-finite operands, and produces no result for division by zero. `{ask}` is used as the result variable when the derived value is the requested answer. Correlation remains an identity concern: operands should come from one record when possible, or from separately bound records constrained by the same owner and explicit modifiers when the stored facts are split. The runtime must not merge entities merely because their labels match.
 
+A countable observation may carry an explicit multiplicity while an ordinary single observation omits it. The generic property/default aggregate keeps both representations composable:
+
+```json
+["*", "{ask}", "{op:sum_property_or_default}", ["{record}", "{prop:quantity}", 1]]
+```
+
+For each distinct bound record, the operator contributes its one finite numeric value for the declared property or the declared numeric fallback only when that property is absent. Multiple conflicting values or an explicit nonnumeric value fail closed. The semantic entity chooses the record set, property, and fallback; the graph runtime contains no scenario vocabulary.
+
 ## Required formalization
 
 Versioned schemas are still needed for Essence operations, signature types, Path transforms, command targets, menu transitions, automation events, and sequences. The schemas must include permissions, side-effect classification, test fixtures, migration rules, and observable failure stages.
