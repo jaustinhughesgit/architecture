@@ -32,6 +32,10 @@ The AWS suite passes: **302/302 tests**.
 
 ## Live-browser status and remaining blocker
 
+### Follow-up resolution
+
+Review bundle `path-context-review-2026-08-09T18-42-19-594Z.json` identified the concrete convergence loop: the foundation contract required `event_count_query` revision `semantic-entity-dataset-v2`, while the bundled equation still declared `semantic-entity-dataset-v1`. Consequently, two required Paths always appeared missing, all 25 processing Paths were repeatedly recompiled, and hydration readiness never became usable. AWS commit `dd19efc3` aligns the bundled revision, adds a contract test covering every required foundation revision, and advances the browser/worker asset revision. The targeted suite passes 64/64. Live deployment retesting remains pending.
+
 A clean account was created at:
 
 `https://1var.com/1v4rae3df79e-64b5-4a63-85e7-d89ce2bd7bf7`
