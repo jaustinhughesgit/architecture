@@ -40,6 +40,7 @@ The LLM therefore owns semantic adjudication during discovery, while the browser
 
 - Cold interaction can use model intelligence to repair missing graph relationships before a query fails repeatedly.
 - New domains do not require vocabulary branches or one semantic operation per noun/verb combination.
+- When an adjudicator names a non-installed operation on a capability whose records are intentionally exposed through another installed capability, a versioned catalog `routingAlias` may select that target only through an unambiguous source/target family contract. The catalog also owns typed role translation, including time-window aliases; application code does not infer the route from words in the user's example.
 - Model answers are useful proof targets but never unverified runtime answers.
 - Historical corrections have explicit provenance and are replayed atomically with the current Path.
 - Explicit classifications such as `X is a Y` remain a reusable data-defined operation, but classification is no longer a special query-time hard-coded prerequisite.
