@@ -24,3 +24,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0010: Confirmed Path foundation promotion](0010-confirmed-path-foundation-promotion.md)
 - [0011: Typed Semantic Plans compile into deterministic Paths](0011-typed-semantic-plan-path-synthesis.md)
 - [0012: LLM semantic adjudication produces locally proven Paths](0012-llm-semantic-adjudication-to-locally-proven-paths.md)
+- [0013: Direct entity properties are a data-defined local primitive](0013-direct-entity-properties.md)
