@@ -26,3 +26,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0012: LLM semantic adjudication produces locally proven Paths](0012-llm-semantic-adjudication-to-locally-proven-paths.md)
 - [0013: Direct entity properties are a data-defined local primitive](0013-direct-entity-properties.md)
 - [0014: Browser-local input rollback uses exact coordinated checkpoints](0014-browser-local-input-rollback.md)
+- [0015: Show LLM interpretation without granting it local authority](0015-visible-llm-interpretation-with-local-proof.md)
