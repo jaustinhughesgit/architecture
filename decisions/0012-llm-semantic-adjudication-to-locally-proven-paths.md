@@ -28,11 +28,12 @@ A cold Path miss uses a semantic-adjudication transaction:
 8. The browser validates the entire transaction in an isolated local ContextDB. A statement candidate must materialize every adjudicated graph row. Each historical repair must materialize its declared relationships. A question candidate must reproduce the adjudicated answer after all supporting repairs replay.
 9. When a supporting statement is replayed for isolated proof or live commit, the browser preserves its recorded graph identifier only for token-sourced bindings typed as `resolvedEntity`; live cleanup also retains that node. Deterministic discourse roles resolve before historical override, so first-person, inclusive-plural, and second-person mentions remain canonical actor identities. `currentSpeaker`, binding-derived roles, and local re-tokenization remain authoritative for every other binding. This prevents a repaired statement from creating a duplicate object while also preventing stale pronoun nodes from replacing canonical identities.
 10. All required Paths pass and commit together, or none commit. The user sees the answer only after local reproduction succeeds.
+11. When an ordinary request matches multiple installed local question Paths, the browser evaluates all compatible candidates read-only against the same request-scoped ContextDB. A unique answer-bearing semantic interpretation executes locally regardless of learned-Path recency. Multiple distinct valid interpretations fail closed, and their bounded signatures, bindings, rows, and answers become model/clarification evidence; an empty set enters the same required repair transaction described above.
 
 Syntactic evidence names such as `descriptor` are not presumed to be final semantic properties. The model may select a precise property through ordinary grounded reasoning. If a later question resolves an earlier generic role, a catalog-owned support contract may derive a historical repair from the query's typed property binding; the browser accepts it only when replay plus query reproduces the adjudicated answer.
 
 The support contract may also list compatible source operations and alternate typed source bindings. This lets a general observation be deterministically re-expressed through a richer relationship operation without teaching core code any verb or domain vocabulary. An optional `answerSourceBinding` is a narrow resilience rule: if the model omits the question answer, the compiler may use the uniquely matched typed source value as the local proof target. It cannot select among multiple values, cross answer-role groups, or infer an undeclared property.
-11. Later compatible inputs use the installed local Paths without another model call. Auto-build remains limited to generating extra equivalent wordings; it is not required for a cold miss.
+12. Later compatible inputs use the installed local Paths without another model call. Auto-build remains limited to generating extra equivalent wordings; it is not required for a cold miss.
 
 The LLM therefore owns semantic adjudication during discovery, while the browser owns executable Essence, proof, mutation, and reuse.
 
@@ -45,7 +46,7 @@ The LLM therefore owns semantic adjudication during discovery, while the browser
 - Model answers are useful proof targets but never unverified runtime answers.
 - Historical corrections have explicit provenance and are replayed atomically with the current Path.
 - Explicit classifications such as `X is a Y` remain a reusable data-defined operation, but classification is no longer a special query-time hard-coded prerequisite.
-- General adjudication quality, graph-snapshot relevance, contradiction handling, and ambiguity/confirmation policy remain partial and require broader evaluation.
+- General adjudication quality, graph-snapshot relevance, contradiction handling, and user-facing ambiguity confirmation remain partial and require broader evaluation.
 
 ## Alternatives considered
 
@@ -68,6 +69,7 @@ The server receives only context already authorized for the model request. Prote
 - Adjudicated answers override untrusted candidate answer fields and become the browser runtime test target.
 - Adjudicated statement/repair rows must be materialized by their candidate Paths.
 - Missing historical repair Paths or any failed candidate aborts the full transaction.
+- Compatible installed question Paths are evaluated as a guarded local set; one answer-bearing interpretation wins, while multiple distinct valid interpretations preserve bounded evidence and fail closed.
 - The synthesis/compiler sources contain no example-specific vocabulary dispatch.
 
 ## Affected repositories
