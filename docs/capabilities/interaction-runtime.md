@@ -126,6 +126,8 @@ The implemented semantic-coverage proof detects explicit numeric/cardinal loss p
 
 Entities publish commands into a registry. Menus determine which commands are meaningful in the current state; calls move between states or execute registered behavior. Automations emit into that same interaction channel, allowing a voice/menu experience to compose ordinary entity behavior instead of maintaining a second command system.
 
+Message routes a proven answer from a voice-originated request into that same Automation queue as an ephemeral speech step. It prefers the Path's `responseSentence` and falls back to the canonical answer. Automation preserves ordering and delegates synthesis and playback to Speak and Sound. Typed requests do not unexpectedly speak, and unverified model interpretations or protected results never enter the server-backed text-to-speech channel.
+
 ## Derived arithmetic query rows
 
 The browser-local query runtime supports deterministic binary arithmetic after ordinary ContextDB rows bind numeric variables. The row shape is:

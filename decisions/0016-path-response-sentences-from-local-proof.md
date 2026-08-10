@@ -18,12 +18,14 @@ The installed semantic operation already owns the query meaning and the Path alr
 5. Message preserves and displays the raw answer, then the response sentence when the two differ. Existing programmatic consumers continue to use `answer` without parsing prose.
 6. The generated sentence is not converted back into an Essence and is not sent to a model. The Path and its local query remain the semantic authority.
 7. Presentation templates do not distinguish otherwise identical query candidates during ambiguity selection. They describe a proven result; they do not change which result is true.
+8. For a voice-originated question, Message may enqueue the proven `responseSentence` as an ephemeral Automation speech step, falling back to the canonical answer when no sentence exists. Typed requests remain silent. Unverified model interpretations and protected results are not sent to text-to-speech.
 
 ## Consequences
 
 - A count can be displayed as both `1` and “Gavin was the recipient of 1 pass.”
 - Known questions remain local, deterministic, inexpensive, and available offline.
 - The same semantic operation can provide consistent response language across every compatible learned wording Path.
+- Voice questions can complete as an audio conversation through the existing Automation, Speak, and Sound modules rather than a separate response-audio path.
 - More sophisticated language requires extending the bounded formatter or versioned template contract rather than silently adding model inference.
 
 ## Alternatives considered
@@ -34,7 +36,7 @@ The installed semantic operation already owns the query meaning and the Path alr
 
 ## Security impact
 
-Rendering occurs in the browser over values already available to the authorized local Path execution. It sends no additional ContextDB data to a server or model and grants no new read, write, or execution authority.
+Rendering occurs in the browser over values already available to the authorized local Path execution. It sends no additional ContextDB data to a model and grants no new read, write, or execution authority. When voice-answer playback is requested, the ordinary rendered sentence may use the existing server-backed text-to-speech capability. Protected results are excluded from that channel.
 
 ## Migration
 
@@ -46,6 +48,7 @@ Paths without `responseTemplate` continue to return their existing canonical ans
 - Local entity identifiers become graph display values before rendering.
 - Compiler tests prove `answerTemplate` and `responseTemplate` remain separate.
 - Message renders `responseSentence` without replacing `answer`.
+- Voice-originated proven answers enter Automation as speech steps; typed, unverified, and protected results do not.
 - Existing Path matching, local query, repair, and rollback suites continue to pass.
 
 ## Affected repositories
