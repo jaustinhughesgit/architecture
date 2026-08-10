@@ -1,6 +1,6 @@
 # Distributed Entities and Context Publication
 
-**Status:** Implemented foundations; active local-to-server synchronization is disconnected
+**Status:** Partial; ordinary ContextDB publication and participant hydration are active
 
 Durable direction: [ADR 0002](../../decisions/0002-entities-are-distributed-assets.md).
 
@@ -49,14 +49,11 @@ Local execution must not wait for publication. Publication failure must remain v
 
 ## Current implementation evidence
 
-The browser contains two synchronization foundations:
+The active transcription worker now observes committed ordinary ContextDB graph deltas, records them in an encrypted identity-scoped outbox, and publishes them asynchronously through the API boundary. Compute verifies that the requested workspace belongs to the authenticated principal, resolves the current speaker and exact unique public user handles, writes versioned nodes and relations to a retained Context graph table, and returns authoritative node/relation IDs. The browser persists those mappings and applies node IDs to ContextDB, graph mentions, histories, checkpoints, and Path translations.
 
-- a worker-side graph synchronizer that creates server entities from relation subjects, properties, and objects, receives server subdomain IDs, and publishes links;
-- a browser-side server synchronizer that can create/reuse entities, link them, export entities/links by creator, and hydrate a name-to-server-ID cache.
+Each connected relation component is visible to its publisher and any uniquely resolved user participants. Hydration reads only the authenticated principal's audience partition and merges those entities into local ContextDB; the principal's stable server entity becomes the local `speaker`. This lets one user publish a spoken fact about another known public user and lets that participant ask a first-person question after hydration.
 
-The compute layer still has durable `entities`, `subdomains`, `words`, `versions`, and `links` records, creator-stamped links, public/private state, relationship operations, and export behavior.
-
-Neither browser synchronizer is currently referenced by the active transcription/ContextDB runtime. Their maps are memory-only, there is no durable sync outbox or acknowledgement protocol, and no integration tests cover local mutation through authorized cross-user retrieval. This is a disconnected capability, not evidence that local entities and server entities should diverge.
+Publication retries preserve one idempotency key across connectivity failures. Removed relations publish tombstones to every prior audience. Protected inputs and protected graph markers do not enter this ordinary publication channel. The older entity/link/export synchronizers remain historical foundations and are not the active contract.
 
 ## Identity and data-model rules
 
@@ -66,14 +63,11 @@ Neither browser synchronizer is currently referenced by the active transcription
 - Literal values remain typed values when appropriate; they need not all become globally discoverable named entities.
 - Updates and deletions use versions/tombstones and reconcile across devices.
 - Zero-trust or local-only facts never enter the ordinary publication outbox.
-- Querying another person's graph requires an explicit public or delegated grant evaluated at read time.
+- Shared ordinary relations use participant-scoped visibility; broader querying still requires an explicit public or delegated grant evaluated at read time.
 
-## Required repair
+## Remaining work
 
-1. Define versioned entity-publication, acknowledgement, and hydration contracts.
-2. Wire ContextDB graph deltas to a durable, encrypted local outbox.
-3. Make server creation idempotent and return authoritative IDs/versions for every published node and relation.
-4. Persist the ID map and sync cursor across refreshes.
-5. Apply public/private, use/set, execute, edit, delete, and permit authorization to facts and links.
-6. Replace creator-only bulk export shortcuts with authorized, scoped graph queries.
-7. Add tests for offline creation, retry, conflict, refresh, multi-device hydration, revocation, and cross-user questions.
+1. Extend participant visibility into explicit public/delegated grants without weakening the current audience partition.
+2. Add user confirmation or trust policy for incoming facts before they influence sensitive decisions.
+3. Add conflict arbitration for concurrent multi-device edits beyond deterministic version/tombstone publication.
+4. Add production end-to-end coverage with two independently authenticated browser identities and revocation across both devices.

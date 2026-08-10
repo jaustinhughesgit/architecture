@@ -32,3 +32,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0018: Catalog-authorized structural evidence in Path repair](0018-catalog-authorized-structural-evidence-in-path-repair.md)
 - [0019: Semantic role plans use catalog-owned binding schemas](0019-semantic-role-plans-use-catalog-binding-schemas.md)
 - [0020: Compose reusable subpatterns into locally executable Paths](0020-compositional-subpattern-capability-framework.md)
+- [0021: Publish ordinary Context through participant-scoped audiences](0021-participant-scoped-context-publication.md)

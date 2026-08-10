@@ -29,7 +29,7 @@ Local Essence mutation commits entities and relations
   → retrieved server entities become local queryable context
 ```
 
-The current browser synchronization libraries are disconnected from the active runtime, so this is a repair target rather than a completion claim. See [distributed entities](capabilities/distributed-entities.md).
+The active v1 contract publishes ordinary, non-protected relation components to participant-scoped server audiences. Compute verifies workspace ownership, resolves only exact unique public user handles, and returns authoritative IDs that the browser applies across its structured local state. Hydration reads only the authenticated principal's audience and maps that principal's server entity to local `speaker`. Publication is asynchronous and retryable, so connectivity never delays the local answer. See [distributed entities](capabilities/distributed-entities.md) and [decision 0021](../decisions/0021-participant-scoped-context-publication.md).
 
 ## Request jurisdiction
 

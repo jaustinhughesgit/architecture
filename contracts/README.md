@@ -24,7 +24,9 @@ Candidates include:
 - Sanitized model usage traces used for browser-local request cost estimates
 - Trusted LLM request-template selection propagated through model-backed request stages
 
-`model-cost-trace.v1.schema.json` is the first executable observability contract. Producers may expose only provider/model identifiers, service tier, response identity, stage name, and aggregate token counts. Prompt text, generated content, hidden reasoning, credentials, protected values, and request headers are forbidden from this trace.
+`context-graph-sync.v1.schema.json` defines the active graph publication delta, acknowledgement, and hydration-page shapes. Its authorization is intentionally outside client-controlled fields: Compute authenticates the principal, verifies the workspace, and derives participant audiences from resolved server identities.
+
+`model-cost-trace.v1.schema.json` is the executable observability contract. Producers may expose only provider/model identifiers, service tier, response identity, stage name, and aggregate token counts. Prompt text, generated content, hidden reasoning, credentials, protected values, and request headers are forbidden from this trace.
 
 `llm-template-selection.v1.schema.json` validates the template ID carried as `llmTemplateId`. Unknown or omitted values fail safe to `original-v1` in each trusted server registry; clients cannot select raw models or reasoning parameters.
 

@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architecture.1var.com/contracts/context-graph-sync.v1.schema.json",
+  "title": "1var Context graph synchronization v1",
+  "oneOf": [
+    { "$ref": "#/$defs/publication" },
+    { "$ref": "#/$defs/acknowledgement" },
+    { "$ref": "#/$defs/hydrationPage" }
+  ],
+  "$defs": {
+    "identifier": { "type": "string", "minLength": 1, "maxLength": 180 },
+    "labels": {
+      "type": "array",
+      "maxItems": 12,
+      "items": { "type": "string", "minLength": 1, "maxLength": 160 },
+      "uniqueItems": true
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "requestId": { "type": ["string", "null"], "maxLength": 180 },
+        "sentence": { "type": ["string", "null"], "maxLength": 1200 },
+        "contextId": { "type": ["string", "null"], "maxLength": 120 },
+        "pathSignature": { "type": ["string", "null"], "maxLength": 300 }
+      }
+    },
+    "nodeInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["localId", "lemmas", "names"],
+      "properties": {
+        "localId": { "$ref": "#/$defs/identifier" },
+        "lemmas": { "$ref": "#/$defs/labels" },
+        "names": { "$ref": "#/$defs/labels" }
+      }
+    },
+    "relationInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["localId", "subjectLocalId", "predicateLocalId", "objectLocalId", "tombstone"],
+      "properties": {
+        "localId": { "$ref": "#/$defs/identifier" },
+        "subjectLocalId": { "$ref": "#/$defs/identifier" },
+        "predicateLocalId": { "$ref": "#/$defs/identifier" },
+        "objectLocalId": { "$ref": "#/$defs/identifier" },
+        "tombstone": { "type": "boolean" }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "idempotencyKey", "nodes", "relations"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "idempotencyKey": { "$ref": "#/$defs/identifier" },
+        "source": { "$ref": "#/$defs/source" },
+        "userReferences": {
+          "type": "array",
+          "maxItems": 24,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["localId", "label"],
+            "properties": {
+              "localId": { "$ref": "#/$defs/identifier" },
+              "label": { "type": "string", "minLength": 1, "maxLength": 160 }
+            }
+          }
+        },
+        "nodes": { "type": "array", "minItems": 1, "maxItems": 96, "items": { "$ref": "#/$defs/nodeInput" } },
+        "relations": { "type": "array", "minItems": 1, "maxItems": 192, "items": { "$ref": "#/$defs/relationInput" } }
+      }
+    },
+    "nodeAck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["localId", "serverId", "version", "resolution"],
+      "properties": {
+        "localId": { "$ref": "#/$defs/identifier" },
+        "serverId": { "$ref": "#/$defs/identifier" },
+        "version": { "type": "integer", "minimum": 1 },
+        "resolution": { "enum": ["current-user", "user-handle", "predicate-term", "publisher-entity", "ambiguous-user-handle", "previously-acknowledged"] }
+      }
+    },
+    "relationAck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["localId", "serverId", "version", "tombstone"],
+      "properties": {
+        "localId": { "$ref": "#/$defs/identifier" },
+        "serverId": { "$ref": "#/$defs/identifier" },
+        "version": { "type": "integer", "minimum": 1 },
+        "tombstone": { "type": "boolean" }
+      }
+    },
+    "acknowledgement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "kind", "idempotencyKey", "principalId", "selfServerId", "nodes", "relations", "warnings", "acknowledgedAt"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "kind": { "const": "context-publication-ack" },
+        "idempotencyKey": { "$ref": "#/$defs/identifier" },
+        "principalId": { "$ref": "#/$defs/identifier" },
+        "selfServerId": { "$ref": "#/$defs/identifier" },
+        "nodes": { "type": "array", "items": { "$ref": "#/$defs/nodeAck" } },
+        "relations": { "type": "array", "items": { "$ref": "#/$defs/relationAck" } },
+        "warnings": { "type": "array", "items": { "type": "object" } },
+        "acknowledgedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "nodeOutput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["serverId", "lemmas", "names", "version"],
+      "properties": {
+        "serverId": { "$ref": "#/$defs/identifier" },
+        "lemmas": { "$ref": "#/$defs/labels" },
+        "names": { "$ref": "#/$defs/labels" },
+        "version": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "relationOutput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["serverId", "subject", "predicate", "object", "version", "tombstone", "publisherId"],
+      "properties": {
+        "serverId": { "$ref": "#/$defs/identifier" },
+        "subject": { "$ref": "#/$defs/identifier" },
+        "predicate": { "$ref": "#/$defs/identifier" },
+        "object": { "$ref": "#/$defs/identifier" },
+        "version": { "type": "integer", "minimum": 1 },
+        "tombstone": { "type": "boolean" },
+        "publisherId": { "$ref": "#/$defs/identifier" },
+        "source": { "oneOf": [{ "$ref": "#/$defs/source" }, { "type": "null" }] }
+      }
+    },
+    "hydrationPage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "kind", "principalId", "selfServerId", "nodes", "relations", "cursor", "hydratedAt"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "kind": { "const": "context-hydration-page" },
+        "principalId": { "$ref": "#/$defs/identifier" },
+        "selfServerId": { "$ref": "#/$defs/identifier" },
+        "nodes": { "type": "array", "items": { "$ref": "#/$defs/nodeOutput" } },
+        "relations": { "type": "array", "items": { "$ref": "#/$defs/relationOutput" } },
+        "cursor": { "type": ["string", "null"] },
+        "hydratedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}
