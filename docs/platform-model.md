@@ -44,6 +44,8 @@ They may support many patterns, including provider protocol composition, onboard
 
 ContextDB holds the user's contextual graph: facts, relationships, properties, and referents used to interpret and answer requests. Its value is structured retrieval and composition, not merely storing message strings.
 
+Entity mention resolution separates canonical identity from grammatical surface form. Syntax-neutral aliases may remove a grammatical possessive or leading article when indexing and resolving a mention, while preserving every candidate for an ambiguous alias so resolution fails closed instead of selecting an identity arbitrarily. This normalization applies when new facts are stored and when an existing browser-local snapshot is loaded.
+
 Data should preserve distinct subjects and properties. For example, an address may have street, unit, city, state, and postal-code facts connected to the correct person; it should not become one opaque value when the intent requires its parts. Queries must retain explicit referents such as “my” versus “my mom's.”
 
 Repeated observations are distinct event identities even when their type and properties match. Aggregation counts or combines those event identities; it must not overwrite one event node or project a descriptive property as the count. A referential correction rewires the identified relationship with provenance rather than adding contradictory correction prose.
@@ -76,6 +78,8 @@ Paths serve at least four roles:
 4. Route commands and interaction behaviors.
 
 Path building, editing, and repair must be able to consider the linked entity, relevant ContextDB structure, original and resulting Essence, observed captures, related Path family, and test result. Editing only an entity or only a literal signature often fixes half the system.
+
+A model interpretation may supply an answer and explanation, but those fields are not a repair. Repair output must also contain a structured, replayable proposal transaction that the browser can compile and prove. When local testing finds a partial query projection with a failed join, its structured failure evidence must survive the correction round so the model can repair the current Path and any grounded historical source that produced the incompatible identity or graph shape.
 
 Paths route intent to the primitive that owns the effect; they do not turn every statement into an executable application. An ordinary fact, event, quantity delta, relationship, or correction should remain a typed graph mutation. A new executable entity is appropriate only when the user needs reusable behavior that no existing contract supplies. See [intent routing and entity evolution](intent-routing-and-entity-evolution.md).
 
