@@ -81,6 +81,8 @@ Path building, editing, and repair must be able to consider the linked entity, r
 
 A model interpretation may supply an answer and explanation, but those fields are not a repair. Repair output must also contain a structured, replayable proposal transaction that the browser can compile and prove. When local testing finds a partial query projection with a failed join, its structured failure evidence must survive the correction round so the model can repair the current Path and any grounded historical source that produced the incompatible identity or graph shape.
 
+For catalog operations with a published binding schema, the model's structured proposal is a Semantic Plan of grounded roles and source spans rather than executable binding mechanics. The catalog owns allowed sources and runtime value modes; the compiler owns dependency expansion, deterministic source policies, Essence materialization, and exact signature construction. Failures are assigned to interpretation, compiler, catalog, or local validation ownership. Only interpretation-owned failures are corrected by another model call. Essence and Path sequences remain the durable local execution and reuse boundary. See [decision 0019](../decisions/0019-semantic-role-plans-use-catalog-binding-schemas.md).
+
 Paths route intent to the primitive that owns the effect; they do not turn every statement into an executable application. An ordinary fact, event, quantity delta, relationship, or correction should remain a typed graph mutation. A new executable entity is appropriate only when the user needs reusable behavior that no existing contract supplies. See [intent routing and entity evolution](intent-routing-and-entity-evolution.md).
 
 ### Capability reuse and evolution

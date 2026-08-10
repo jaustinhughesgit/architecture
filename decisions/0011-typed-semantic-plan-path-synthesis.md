@@ -44,7 +44,7 @@ After isolated proof, browser-local family state is durable authority for the pe
 
 The browser remains the execution authority. It recompiles the selected semantic operation from its installed catalog, materializes bindings, removes prior graph effects in an isolated graph when required, replays the supporting statement, runs the current query, and persists nothing unless the complete transaction passes.
 
-The first implementation adapts the existing structured model response into Semantic Plan v1 before validation. A future API schema may expose Semantic Plan directly without changing the ownership boundary.
+The first implementation adapted the existing structured model response into Semantic Plan v1 before validation. Semantic Plan v2 now exposes a direct role-only plan for catalog operations that publish binding schemas: the model supplies grounded role sources and spans, while the catalog assigns legal runtime value modes. See [decision 0019](0019-semantic-role-plans-use-catalog-binding-schemas.md).
 
 ## Consequences
 
@@ -65,7 +65,7 @@ The first implementation adapts the existing structured model response into Sema
 - A catalog predicate policy may explicitly prefer direct local syntax over a conflicting model literal. For a direct WH question, it may use the sole eligible token immediately after the question word when the tokenizer omits a verb tag; excluded syntactic types and ambiguity continue to fail closed.
 - Replication cannot discard a browser-proven active alias between validation and worker installation.
 - Candidate generation is deterministic and byte-stable for the same plan, catalog, and token evidence.
-- Model retries are reserved for semantic ambiguity or a true capability/catalog gap.
+- Model retries are reserved for interpretation-owned failures. Compiler and catalog ownership failures are returned as visible non-retryable diagnostics rather than additional interpretation rounds.
 - A familiar grammatical shape can reuse a catalog operation without requiring the model to reproduce fragile token-span plumbing on every cold input.
 - Model-authored graph-row variable names cannot create false runtime failures after the operation and typed bindings have already been accepted.
 - The compiler does not make ontology implications automatically. The model or an installed semantic capability must still select relationships that are directly entailed by the input.
