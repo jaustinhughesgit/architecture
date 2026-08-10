@@ -1,6 +1,6 @@
 # Distributed Entities and Context Publication
 
-**Status:** Partial; ordinary ContextDB publication and participant hydration are active
+**Status:** Partial; ordinary ContextDB publication, participant hydration, and exact public-profile hydration are active
 
 Durable direction: [ADR 0002](../../decisions/0002-entities-are-distributed-assets.md).
 
@@ -53,6 +53,8 @@ The active transcription worker now observes committed ordinary ContextDB graph 
 
 Each connected relation component is visible to its publisher and any uniquely resolved user participants. Hydration reads only the authenticated principal's audience partition and merges those entities into local ContextDB; the principal's stable server entity becomes the local `speaker`. This lets one user publish a spoken fact about another known public user and lets that participant ask a first-person question after hydration.
 
+For a public workspace, a component connected to the authenticated current-speaker node also receives a public-profile audience. An executed self-property assertion such as `My name is Austin` can register the exact profile name because the server observes a resolved current-speaker → name → value relation rather than trusting transcript text. Before a later question naming Austin runs locally, the browser requests exact-name hydration; Compute resolves the unique profile and selects Austin's public audience without accepting a client-supplied target identity. The remote Austin node keeps its name but never becomes the requesting browser's `speaker`. See [decision 0022](../../decisions/0022-public-profile-named-context-hydration.md).
+
 Publication retries preserve one idempotency key across connectivity failures. Removed relations publish tombstones to every prior audience. Protected inputs and protected graph markers do not enter this ordinary publication channel. The older entity/link/export synchronizers remain historical foundations and are not the active contract.
 
 ## Identity and data-model rules
@@ -63,11 +65,11 @@ Publication retries preserve one idempotency key across connectivity failures. R
 - Literal values remain typed values when appropriate; they need not all become globally discoverable named entities.
 - Updates and deletions use versions/tombstones and reconcile across devices.
 - Zero-trust or local-only facts never enter the ordinary publication outbox.
-- Shared ordinary relations use participant-scoped visibility; broader querying still requires an explicit public or delegated grant evaluated at read time.
+- Shared ordinary relations use participant-scoped visibility. Public workspaces may additionally expose only self-connected ordinary components through their exact profile; all other broader querying requires an explicit delegated grant evaluated at read time.
 
 ## Remaining work
 
-1. Extend participant visibility into explicit public/delegated grants without weakening the current audience partition.
+1. Extend the current participant and public-self visibility into explicit delegated grants and user-facing publication policy without weakening either audience partition.
 2. Add user confirmation or trust policy for incoming facts before they influence sensitive decisions.
 3. Add conflict arbitration for concurrent multi-device edits beyond deterministic version/tombstone publication.
 4. Add production end-to-end coverage with two independently authenticated browser identities and revocation across both devices.

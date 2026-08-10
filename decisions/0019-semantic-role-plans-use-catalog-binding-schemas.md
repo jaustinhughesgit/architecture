@@ -61,7 +61,7 @@ The model's authority is reduced. Role plans remain untrusted proposals, catalog
 
 ## Migration
 
-Catalog operations opt into v2 by publishing binding schemas. The activity-observation assertion and quantity query are the first migrated operation pair and retain v1 compatibility for existing saved or in-flight responses. Other operations continue using v1 bindings until their allowed sources and value modes are declared and tested. Saved Paths remain ordinary compiled Essence transforms and require no representation migration.
+Catalog operations opt into v2 by publishing binding schemas. The activity-observation assertion and quantity query were the first migrated operation pair and retain v1 compatibility for existing saved or in-flight responses. Event counting and entity classification now also declare their role modes after diagnostics showed correct role plans arriving without `actor` and `specific_entity` runtime modes. Other operations continue using v1 bindings until their allowed sources and value modes are declared and tested. Saved Paths remain ordinary compiled Essence transforms and require no representation migration.
 
 ## Verification
 

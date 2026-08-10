@@ -21,7 +21,7 @@ The framework indexes structural candidates by speech act and mandatory routing 
 
 Server replication retains the complete Path envelope while preserving browser ownership of matching. Browser uploads are bounded by serialized UTF-8 size and count, the API boundary preserves a sanitized 413 so an idempotent batch can be split, and Compute validates and stores the v4 signature/network contract without activating its referenced subpatterns.
 
-The first migrations replace sixteen active complete quantity statement/query equations with two composed Paths and three event-count question equations with one composed Path, while retaining the old definitions as migration and regression evidence. The merged active processing foundation falls from 33 candidate equations to 14 installed Paths. Path Builder and the worker exclude superseded signatures during local cache hydration, server hydration, confirmed-foundation merge, and worker installation. Pattern Schema v3 remains accepted for capability families not yet migrated.
+The first migrations replace sixteen active complete quantity statement/query equations with two composed Paths and three event-count question equations with one composed Path, while retaining the old definitions as migration and regression evidence. A later vocabulary-neutral self-property composition adds one Path for `my <property> <copula> <value>`. The merged active processing foundation contains 15 installed Paths. Path Builder and the worker exclude superseded signatures during local cache hydration, server hydration, confirmed-foundation merge, and worker installation. Pattern Schema v3 remains accepted for capability families not yet migrated.
 
 Failures use a stable local pipeline:
 

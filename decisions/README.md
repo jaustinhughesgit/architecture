@@ -33,3 +33,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0019: Semantic role plans use catalog-owned binding schemas](0019-semantic-role-plans-use-catalog-binding-schemas.md)
 - [0020: Compose reusable subpatterns into locally executable Paths](0020-compositional-subpattern-capability-framework.md)
 - [0021: Publish ordinary Context through participant-scoped audiences](0021-participant-scoped-context-publication.md)
+- [0022: Hydrate public self-context by exact profile name](0022-public-profile-named-context-hydration.md)
