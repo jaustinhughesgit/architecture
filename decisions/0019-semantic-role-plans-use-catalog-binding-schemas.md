@@ -29,7 +29,7 @@ This is a compiler pipeline, not a replacement for Essence or Paths:
 
 The initial v2 adapter supports gradual catalog migration. Operations with binding schemas use explicit role-only plans. Legacy catalog operations may continue through Semantic Plan v1 until their binding contracts are published. Declarative non-catalog Essence, menu, and sequence proposals use no v2 role plan and retain their existing local validation boundaries.
 
-Generic source policies belong to the operation catalog. A measurement policy may bind the single typed token immediately following a quantity and require a declared following grammatical tag. The policy applies equally to durations, mass, distance, or another compatible measurement; application code may not branch on `minute`, `kilogram`, or other example vocabulary.
+Generic source policies belong to the operation catalog. A measurement assertion policy may bind the single typed token immediately following a quantity and require a declared following grammatical tag. A measurement query policy may reduce a model-supplied phrase span to its one typed unit token before matching the local graph. The policies apply equally to durations, mass, distance, or another compatible measurement; application code may not branch on `minute`, `kilogram`, or other example vocabulary.
 
 Repair rejection also carries ownership:
 
@@ -61,11 +61,12 @@ The model's authority is reduced. Role plans remain untrusted proposals, catalog
 
 ## Migration
 
-Catalog operations opt into v2 by publishing binding schemas. The activity-observation assertion is the first migrated operation and retains v1 compatibility for existing saved or in-flight responses. Other operations continue using v1 bindings until their allowed sources and value modes are declared and tested. Saved Paths remain ordinary compiled Essence transforms and require no representation migration.
+Catalog operations opt into v2 by publishing binding schemas. The activity-observation assertion and quantity query are the first migrated operation pair and retain v1 compatibility for existing saved or in-flight responses. Other operations continue using v1 bindings until their allowed sources and value modes are declared and tested. Saved Paths remain ordinary compiled Essence transforms and require no representation migration.
 
 ## Verification
 
 - A v2 role plan for `I watched thirty minutes of television` compiles quantity, unit, object, and dependent object-kind bindings without model-provided value modes.
+- Its paired quantity query compiles `object`, `object_kind`, and `unit`, reduces the proposed `minutes of` span to the `minutes` unit token, and reproduces the locally stored answer.
 - The same compiler path handles an unrelated `five kilograms of rice` measurement.
 - Compiler-owned binding-contract failures are labeled non-retryable by the model.
 - The complete AWS application suite passes.
