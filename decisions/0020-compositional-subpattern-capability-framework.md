@@ -19,6 +19,8 @@ At request time the browser activates compatible alternatives, composes them in 
 
 The framework indexes structural candidates by speech act and mandatory routing anchors before running the full matcher. Quality gates build structural and operation indexes once per import batch so collision and same-operation checks do not rescan every unrelated Path for every candidate.
 
+Server replication retains the complete Path envelope while preserving browser ownership of matching. Browser uploads are bounded by serialized UTF-8 size and count, the API boundary preserves a sanitized 413 so an idempotent batch can be split, and Compute validates and stores the v4 signature/network contract without activating its referenced subpatterns.
+
 The first migrations replace sixteen active complete quantity statement/query equations with two composed Paths and three event-count question equations with one composed Path, while retaining the old definitions as migration and regression evidence. The merged active processing foundation falls from 33 candidate equations to 14 installed Paths. Path Builder and the worker exclude superseded signatures during local cache hydration, server hydration, confirmed-foundation merge, and worker installation. Pattern Schema v3 remains accepted for capability families not yet migrated.
 
 Failures use a stable local pipeline:
@@ -64,6 +66,7 @@ The change does not expand any trust boundary. Subpatterns contain grammar, role
 - Superseded quantity Paths remain in the bundled dataset as compatibility fixtures but are not compiled into the active foundation.
 - The compact foundation manifest requires two v4 quantity Paths and one v4 event-count Path and no longer waits for their nineteen superseded predecessors.
 - Additional families should migrate only after equivalent positive, negative, collision, response, refresh, and integration tests pass.
+- Cross-layer persistence must accept each supported Pattern schema before a migrated family is released; local-only success is not sufficient migration completion.
 
 ## Verification
 
@@ -74,8 +77,11 @@ The change does not expand any trust boundary. Subpatterns contain grammar, role
 - Capability manifests account for every installed semantic operation and declare the existing interaction and trust-boundary integrations.
 - Capability Lab clusters syntax, composition, compiler, proof, lifecycle, execution, transport, and presentation failures without making deterministic defects model-retryable.
 - The complete browser application suite passes, including edit, voice, response, compute, automation, rollback, persistence, File Worker, and protected-asset tests.
+- Byte-bounded replication reaches Compute below its request limit, typed 413 responses remain splittable through the API proxy, and representative v4 Paths pass server persistence validation.
 
 ## Affected repositories
 
 - `architecture`
 - `aws`
+- `aws-api`
+- `compute`

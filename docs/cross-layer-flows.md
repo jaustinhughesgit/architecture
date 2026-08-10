@@ -79,6 +79,8 @@ locally tested exact Path or family alias
 
 Confirmation promotes wording coverage, not semantic authority. A confirmed alias keeps its own grammar and bindings and reuses the versioned semantic operation already compiled by the browser. Model output cannot confirm itself or supply a replacement executable transform.
 
+Identity-scoped and foundation Path replication uses byte- and count-bounded idempotent batches. The API boundary preserves a sanitized payload-size rejection so the browser can split and retry it, and Compute persists both supported structural namespaces without taking ownership of browser-local v4 subpattern activation.
+
 ## External compute capability
 
 ```text
