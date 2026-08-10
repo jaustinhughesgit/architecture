@@ -66,6 +66,8 @@ Typed bindings also own representation normalization. A numeric slot converts di
 
 Question Paths keep canonical answer data separate from human-readable presentation. After a local query succeeds, a catalog-owned response template may deterministically render the Path's request bindings and proven query variables as a sentence. This is a reverse presentation of the same proof, not another interpretation: the sentence is not converted back into an Essence or sent to a model, and it cannot introduce facts absent from the local result. See [decision 0016](../decisions/0016-path-response-sentences-from-local-proof.md).
 
+If that presentation template is missing, the answer remains authoritative and the model may propose only a bounded template over the browser-supplied proven variables. Server admission, browser validation, and Path Builder persistence validation must all pass before the template is installed or used. The model never supplies the answer, graph query, or effect. See [decision 0017](../decisions/0017-missing-response-templates-use-locally-validated-llm-proposals.md).
+
 Paths serve at least four roles:
 
 1. Convert statements into structured Essence mutations.

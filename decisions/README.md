@@ -28,3 +28,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0014: Browser-local input rollback uses exact coordinated checkpoints](0014-browser-local-input-rollback.md)
 - [0015: Show LLM interpretation without granting it local authority](0015-visible-llm-interpretation-with-local-proof.md)
 - [0016: Render Path response sentences from local proof](0016-path-response-sentences-from-local-proof.md)
+- [0017: Missing response templates use locally validated LLM proposals](0017-missing-response-templates-use-locally-validated-llm-proposals.md)
