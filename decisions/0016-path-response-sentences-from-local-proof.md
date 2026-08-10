@@ -14,7 +14,7 @@ The installed semantic operation already owns the query meaning and the Path alr
 1. A successful local question may return two distinct fields: `answer`, the canonical machine-oriented value, and `responseSentence`, a human-readable rendering of that same proof.
 2. A semantic operation may declare a data-defined `responseTemplate`. The deterministic compiler carries it into the installed Path alongside, but separate from, the canonical `answerTemplate`.
 3. The browser renders `responseSentence` only after the query succeeds, using the Path's materialized request bindings and proven query variables. Entity identifiers are resolved through the local graph for display.
-4. Response templates may use a small deterministic formatting vocabulary such as title casing, list joining, and count-driven pluralization. They cannot query new data, execute effects, or introduce values that are absent from the binding/query environment.
+4. Response templates may use a small deterministic formatting vocabulary such as title casing, list joining, grammatical possessives, and count-driven pluralization. Discourse identities are rendered from the conversation boundary, so a possessive `speaker` becomes `Your` rather than leaking an internal graph label. Templates cannot query new data, execute effects, or introduce values that are absent from the binding/query environment.
 5. Message preserves and displays the raw answer, then the response sentence when the two differ. Existing programmatic consumers continue to use `answer` without parsing prose.
 6. The generated sentence is not converted back into an Essence and is not sent to a model. The Path and its local query remain the semantic authority.
 7. Presentation templates do not distinguish otherwise identical query candidates during ambiguity selection. They describe a proven result; they do not change which result is true.
@@ -40,7 +40,7 @@ Rendering occurs in the browser over values already available to the authorized 
 
 ## Migration
 
-Paths without `responseTemplate` continue to return their existing canonical answer. Catalog-backed Paths are recompiled from the installed semantic-operation version during hydration, so existing saved Paths gain the current template without a vocabulary-specific runtime migration.
+Every bundled answer-producing question operation carries a response template. Catalog-backed Paths are recompiled from the installed semantic-operation version during worker hydration, and Path Builder also backfills the stored blank field by exact bundled signature or versioned semantic-operation identity. Existing nonblank learned templates are preserved. The migration is local-first and normal Path replication follows asynchronously. Non-catalog Paths without a bundled or learned `responseTemplate` continue to return their existing canonical answer until the presentation-learning lifecycle succeeds.
 
 ## Verification
 

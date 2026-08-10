@@ -41,7 +41,7 @@ Only bounded ordinary display values already available to the authorized browser
 
 ## Migration
 
-Existing Paths with response templates are unchanged. Paths without one remain executable and fall back to their canonical answer when offline or generation fails. Once a learned template is locally persisted, hydration recompilation preserves it only when the current catalog operation still has no authoritative template.
+Existing Paths with response templates are unchanged. Bundled direct question Paths and Paths carrying a versioned semantic-operation identity receive any now-declared catalog template during hydration; a nonblank learned template is not overwritten by the backfill. Paths without either source remain executable and fall back to their canonical answer when offline or generation fails. Once a learned template is locally persisted, hydration recompilation preserves it only when the current catalog operation still has no authoritative template.
 
 ## Verification
 
