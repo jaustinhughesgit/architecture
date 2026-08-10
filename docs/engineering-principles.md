@@ -44,6 +44,8 @@ utterance → local signature → deterministic Essence → local ContextDB → 
 
 Model calls are for discovery, learning, diagnosis, or sanctioned compute—not for repeating a known local interpretation. Learning should promote generalized, tested transforms so later compatible utterances are immediate.
 
+Sentence examples are coverage evidence, not the preferred runtime unit. When several successful examples differ only by compatible roles, operators, modifiers, projections, or grammatical forms, represent those differences as typed reusable subpatterns and composition constraints. Persist a complete sentence-shaped Path only when its semantics or safety boundary cannot be expressed faithfully by the installed composition primitives. See [decision 0020](../decisions/0020-compositional-subpattern-capability-framework.md).
+
 Canonical executable Essence is always materialized by the browser-local runtime. On a cold miss, local tokens and syntax triplets, bounded recent results, and permitted ContextDB evidence may be sent to a model for semantic adjudication. The model returns a speech act, answer or intended graph writes, grounded ContextDB repairs, and Path plans. Those results are proposals: the browser must compile and prove every current and historical Path together before treating an answer as local truth or mutating ContextDB. A model answer may be shown immediately only inside an explicitly labeled, unverified `interpretation` diagnostic that also exposes its explanation and correction status; it does not populate the authoritative local answer contract. Enabling **Auto-build Path signatures with OpenAI** additionally permits discovery of paraphrase Paths; it does not change this acceptance boundary.
 
 ## Cross-layer durability

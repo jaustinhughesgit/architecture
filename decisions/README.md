@@ -31,3 +31,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0017: Missing response templates use locally validated LLM proposals](0017-missing-response-templates-use-locally-validated-llm-proposals.md)
 - [0018: Catalog-authorized structural evidence in Path repair](0018-catalog-authorized-structural-evidence-in-path-repair.md)
 - [0019: Semantic role plans use catalog-owned binding schemas](0019-semantic-role-plans-use-catalog-binding-schemas.md)
+- [0020: Compose reusable subpatterns into locally executable Paths](0020-compositional-subpattern-capability-framework.md)
