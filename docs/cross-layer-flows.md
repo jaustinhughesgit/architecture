@@ -17,6 +17,19 @@ No `aws-api`, compute Lambda, provider, or OpenAI call belongs on this path. Ref
 
 When policy permits sharing, the committed graph delta also enters a durable asynchronous publication outbox. That publication never delays the local answer.
 
+## Local dynamic entity execution
+
+```text
+Path or entity middleware selects an authorized local function
+  → trusted main thread sends a bounded request to `fileWorker`
+  → worker loads the permitted entity bundle and executes dynamic script
+  → worker returns structured data, transferables, or declarative output
+  → trusted main-thread module validates schema, presentation, and effect authority
+  → result renders or continues through command, automation, or entity middleware
+```
+
+The worker has no DOM authority, and dynamic entity or user-authored script source never executes on the main thread. HTML/CSS, navigation, communication, automation, and protected-asset requests are proposals until a trusted module validates and authorizes them. The current same-origin worker provides operational isolation, not a hardened malicious-code sandbox. See [File Worker isolation](capabilities/worker-isolation.md) and [decision 0024](../decisions/0024-dynamic-local-entity-code-runs-in-fileworker.md).
+
 ## Local entity publication and shared retrieval
 
 ```text
@@ -29,7 +42,22 @@ Local Essence mutation commits entities and relations
   → retrieved server entities become local queryable context
 ```
 
-The active v1 contract publishes ordinary, non-protected relation components to participant-scoped server audiences. Compute verifies workspace ownership, resolves only exact unique public user handles, and returns authoritative IDs that the browser applies across its structured local state. Hydration reads only the authenticated principal's audience and maps that principal's server entity to local `speaker`. A public workspace also publishes current-speaker-connected components to its server-derived public profile audience. Before a named question executes locally, the browser may send the exact proper-person label for Compute to resolve and hydrate; it cannot choose the target principal or audience, and the remote user is not mapped to local `speaker`. Publication is asynchronous and retryable, so connectivity never delays a local mutation. See [distributed entities](capabilities/distributed-entities.md), [decision 0021](../decisions/0021-participant-scoped-context-publication.md), and [decision 0022](../decisions/0022-public-profile-named-context-hydration.md).
+The active v1 contract publishes ordinary, non-protected relation components to participant-scoped server audiences. Compute verifies workspace ownership, resolves only exact unique public user handles, and returns authoritative IDs that the browser applies across its structured local state. Hydration reads only the authenticated principal's audience and maps that principal's server entity to local `speaker`. A public workspace also publishes current-speaker-connected components to its server-derived public profile audience. Before a named question executes locally, the browser may send the exact proper-person label for Compute to resolve and hydrate; it cannot choose the target principal or audience, and the remote user is not mapped to local `speaker`. Publication is asynchronous and retryable, so connectivity never delays a local mutation.
+
+The retained Context graph table currently supplies those synchronization mechanics, but it is a partial sidecar rather than the canonical long-term ontology. Publication must converge on the existing word, entity/subdomain, group/link, version, and access substrate without losing outbox, stable-ID replacement, audience, tombstone, or hydration behavior. See [distributed entities](capabilities/distributed-entities.md), [decision 0021](../decisions/0021-participant-scoped-context-publication.md), and [decision 0022](../decisions/0022-public-profile-named-context-hydration.md).
+
+An authorized cross-user lexical query follows a bounded address path:
+
+```text
+spoken term such as `cats`
+  → exact word or compatible lemma candidates
+  → compact word IDs
+  → reverse word-to-entity/subdomain index
+  → owner, relationship, version, and action-level permission filters
+  → authorized traversal or aggregation
+```
+
+The word or lemma selects candidates only. It does not merge physical entities, users, meanings, or permissions. See [decision 0023](../decisions/0023-words-are-lexical-addresses.md).
 
 ## Request jurisdiction
 

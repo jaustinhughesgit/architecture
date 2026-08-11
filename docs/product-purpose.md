@@ -75,10 +75,12 @@ This loop connects the product purpose to the platform primitives:
 
 - **Essences** preserve the meaning of natural interaction.
 - **ContextDB** makes structured context locally available.
+- **Words** provide inexpensive shared lexical addresses, with future lemma and morphology links, without replacing entity identity.
 - **Entities** represent data, people, relationships, behavior, presentation, and compute.
 - **Paths and signatures** make validated behavior repeatable without repeated inference.
 - **`map`, `extend`, `link`, `use`, and `substitute`** compose general relationships and capabilities.
 - **Commands, menus, calls, and automations** expose adapted experiences.
+- **Trusted browser logic, `fileWorker`, and Compute/JPL** separate reusable local execution, dynamic local scripts, and governed server work.
 - **Publication and hydration** make permitted local work durable and available to authorized users and devices.
 - **Authorization and protected-asset boundaries** keep usability from becoming uncontrolled access.
 
@@ -168,6 +170,9 @@ The product purpose imposes requirements on the architecture:
 10. **Scale claims require evidence.** Large ingestion, matching, latency, and sharing claims must be demonstrated with benchmarks and cross-layer tests rather than inferred from the product narrative.
 11. **Artifact creation must be proportional to intent.** Facts, events, deltas, relationships, and corrections should become governed data transactions; they should not generate executable applications when existing data primitives are sufficient.
 12. **Shared capability contracts must remain stable.** Exact behavior is reused across users with separate data and bindings; defects are repaired within the same contract lineage, while genuine feature additions create explicit forks or compositions.
+13. **Lexical addressing is distinct from entity identity.** Words, aliases, and lemmas cheaply locate candidates; entity IDs, context, relationships, and permissions determine what those candidates mean and who may use them.
+14. **Dynamic local scripts stay off the main thread.** User- or entity-authored code runs through `fileWorker`; trusted browser modules validate its structured or declarative output before it can affect UI or platform state.
+15. **Permitted shared data uses the entity substrate.** Publication should preserve the established word, entity, subdomain, group, link, version, access, and protected-asset model instead of creating a permanent parallel ontology.
 
 ## What 1var is not
 

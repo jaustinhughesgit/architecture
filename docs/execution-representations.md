@@ -18,6 +18,8 @@ JPL: runs the entity's ordered executable actions when the entity is invoked
 
 This is a flow, not a claim that each representation always passes through all three stages. Existing entities can execute JPL without ArrayLogic. Shorthand can transform an entity without creating JPL. ArrayLogic can also select or invoke an existing entity rather than create one.
 
+These representations also do not collapse 1var's execution planes. JPL is the governed server program executed by Compute. A dynamic JavaScript function carried by a local entity bundle executes through `fileWorker`, not as JPL and never on the browser main thread. The main thread remains the trusted coordinator for Paths, Essences, ContextDB, commands, and validated declarative rendering. Placement never bypasses the entity's identity, lineage, permissions, provenance, or protected-asset rules. See [File Worker isolation](capabilities/worker-isolation.md).
+
 ## Terminology summary
 
 | Representation | Definition | Primary question | Typical lifetime |
@@ -263,6 +265,7 @@ The durable coaching facts should live as governed entity and ContextDB data, no
 5. Treat model output as a proposal. Validate it into an approved representation before execution or persistence.
 6. Prefer structured, versioned contracts between the representations. Preserve provenance from request to ArrayLogic element, Shorthand row, entity mutation, and JPL action so failures can be attributed and repaired.
 7. Keep domain nouns such as soccer passes out of the core language. They belong in entity data and capability contracts built from general composition and execution primitives.
+8. Keep dynamic local entity script in `fileWorker`; do not use JPL, Shorthand, or ArrayLogic terminology to imply that arbitrary generated JavaScript may execute on the main thread.
 
 ## Current implementation evidence
 

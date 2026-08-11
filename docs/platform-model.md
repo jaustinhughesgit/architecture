@@ -7,17 +7,20 @@
 The platform is layered, but the layers are not isolated:
 
 ```text
-User interaction
-    ↓
-Browser interpretation and local execution (`aws`)
-    ↓ only when local knowledge cannot complete the work
-Controlled API boundary (`aws-api`)
-    ↓
-Entity, JPL, provider, and persistence execution (`compute`)
-    ↓
-Validated result, reusable learning, or actionable diagnosis
-    ↓
-Browser rendering and future local reuse
+voice or message
+  → linguistic structure and reusable signature
+  → validated Path
+  → canonical Essence
+  → authorized execution
+      ├─ data query or mutation
+      ├─ entity middleware invocation
+      ├─ local worker execution
+      ├─ command, menu, or navigation
+      ├─ automation or communication
+      ├─ governance operation
+      └─ controlled API (`aws-api`) → entity/JPL/provider/persistence (`compute`)
+  → validated response, reusable learning, or actionable diagnosis
+  → browser rendering and future local reuse
 ```
 
 The headless acceptance client (`testing`) enters at the controlled API boundary and exercises the same public API and Compute contracts without becoming part of product execution. It proves cross-layer behavior before the browser binds that behavior to presentation. See [headless acceptance testing](headless-acceptance-testing.md).
@@ -34,11 +37,19 @@ An entity may be a hard stored asset, an executable asset, an interaction asset,
 
 Entities can have parent/child lineage. **Product intent:** invoking a child can execute the relevant parent lineage from the top parent through the selected child. This makes a lineage comparable to a composable headless experience rather than an isolated function call. Lineage order, parameter flow, failure behavior, and permission checks must remain explicit contracts as implementation matures.
 
+Current browser and Compute implementations provide foundations for this middleware behavior: an invocation can resolve a root-to-target lineage, let each authorized entity pass control or respond, and bubble a function-style response back to the caller. The complete ordering, parameter, error, per-node authorization, and observability contract remains **Partial**. An entity may also expose a materialized output for a safe fast response, but cache keys, dependencies, freshness, invalidation, and permission changes must be explicit before that output can be treated as authoritative.
+
 ### Entity relationships
 
 `map`, `extend`, `link`, `use`, and `substitute` are general-purpose composition and control primitives. They are not assigned one permanent business meaning.
 
 They may support many patterns, including provider protocol composition, onboarding experiences, education relationships, product catalogs, governed transactions, content reuse, or future patterns not yet known. Documentation and implementations should describe their mechanical semantics and constraints separately from example use cases.
+
+### Words and lexical addressing
+
+Words are inexpensive, shared lexical addresses; they are not entity identities. A word record can hold a compact word ID, its original form, and a normalized form with an exact normalized lookup index. Entities and subdomains reference that word ID while retaining independent identity, lifecycle, ownership, permissions, versions, and relationships. A reverse word-to-entity index makes a request such as “who has cats?” addressable without scanning every user's contextual graph.
+
+**Product intent:** word records can grow into a lemma-ready lexical graph containing roots, inflections, aliases, language, and morphology. “cat” and “cats,” or “add,” “adds,” and “added,” may therefore reach compatible linguistic candidates without storing every sentence combination. A shared lemma must never merge entity identities or semantic senses. Paths, Context, entity type, relationships, and authorization still disambiguate the intended entity. See [decision 0023](../decisions/0023-words-are-lexical-addresses.md).
 
 ### ContextDB
 
@@ -101,13 +112,23 @@ JPL, Shorthand, and ArrayLogic occupy different levels of the creation and execu
 
 Their definitive runtime semantics belong in future versioned specifications and schemas; until those are complete, generators must use validated examples, strict structured output, schema validation, isolated execution, and semantic contract tests rather than guessing JSON shape.
 
+### Execution planes
+
+1var has three related execution planes with different trust and scaling roles:
+
+1. The **trusted browser main thread** performs reusable 1var interpretation, Path and Essence processing, ContextDB work, commands, navigation, authorization coordination, and rendering through trusted modules.
+2. A **local `fileWorker`** executes dynamic entity or user-authored scripts away from the main thread. It has no DOM authority. It returns structured data, transferables, or validated declarative presentation and action requests for trusted main-thread modules to handle.
+3. **Compute/JPL** performs authorized server execution, provider interaction, persistence, and shared capability work when the operation cannot or should not complete locally.
+
+Dynamic entity script source must not be evaluated on the main thread. `fileWorker` currently provides operational and responsiveness isolation, not a hardened hostile-code sandbox: same-origin network access, dynamic compilation inside the worker, output validation, resource limits, cancellation, and presentation sanitization remain security concerns. See [File Worker isolation](capabilities/worker-isolation.md) and [decision 0024](../decisions/0024-dynamic-local-entity-code-runs-in-fileworker.md).
+
 ### Interaction runtime
 
 Commands, menus, calls, automations, and sequences turn Path results and entity definitions into navigable experiences. They share a declarative command registry rather than forming separate one-off systems. A scheduled task controls when an entity begins; an entity automation controls ordered behavior within an interaction. See [the interaction runtime specification](capabilities/interaction-runtime.md) and [scheduled entity tasks](capabilities/scheduled-tasks.md).
 
 ### Browser capability modules
 
-The browser includes operationally isolated entity execution through `fileWorker`, sound production and analysis, and real-time audio/video streaming. These capabilities should be exposed to entities through scoped, versioned operations. A Web Worker protects main-page responsiveness but is not, by itself, a hardened sandbox. See [File Worker isolation](capabilities/worker-isolation.md), [sound](capabilities/sound.md), and [streaming](capabilities/realtime-streaming.md).
+The browser also includes sound production and analysis and real-time audio/video streaming. These capabilities should be exposed to entities through scoped, versioned operations and must preserve the execution-plane boundaries above. See [sound](capabilities/sound.md) and [streaming](capabilities/realtime-streaming.md).
 
 ### Identity and communication
 
@@ -172,3 +193,6 @@ A provider protocol can be represented using entities and lineage for workflow, 
 14. A capability repair must preserve its declared semantic contract; a contract addition or change requires an explicit fork, child, or successor rather than silent mutation.
 15. Reusing a capability definition must not merge users' data, configuration, permissions, or protected assets.
 16. A destructive test operation must be authorized by the target server and scoped to an explicitly identified non-production environment; client confirmation alone is never authority.
+17. A word, alias, or lemma can address entity candidates but is never itself proof of entity identity, ownership, meaning, or permission.
+18. Dynamic local entity or user-authored script source executes in `fileWorker`, never on the browser main thread; worker output receives no authority until a trusted module validates and handles it.
+19. Permitted cross-user facts should converge on the canonical entity, word, relationship, version, and access substrate. A synchronization sidecar may support migration, but it must not become an undocumented parallel ontology.

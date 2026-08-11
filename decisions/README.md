@@ -34,3 +34,5 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0020: Compose reusable subpatterns into locally executable Paths](0020-compositional-subpattern-capability-framework.md)
 - [0021: Publish ordinary Context through participant-scoped audiences](0021-participant-scoped-context-publication.md)
 - [0022: Hydrate public self-context by exact profile name](0022-public-profile-named-context-hydration.md)
+- [0023: Words are lexical addresses, not entity identities](0023-words-are-lexical-addresses.md)
+- [0024: Dynamic local entity code runs in File Worker](0024-dynamic-local-entity-code-runs-in-fileworker.md)

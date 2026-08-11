@@ -12,7 +12,7 @@ sentence or voice
   -> exact, structural, or composed-subpattern signature
   -> installed Path match, or required Path proposal/validation on a cold miss
   -> browser-local canonical Essence materialized from the installed Path
-  -> ContextDB read/write, command, menu transition, automation, or entity call
+  -> ContextDB read/write, command, menu transition, automation, entity call, or authorized local-worker execution
   -> response and reusable learning evidence
 ```
 
@@ -31,7 +31,7 @@ sentence or voice
 - **Call:** A menu/state transition that can show, hide, run, go back, close, or expose options through the same command channel.
 - **Automation:** A sequenced queue of delays, speech, commands, and related interaction events. It composes registered behavior; it does not replace Paths or the external task scheduler.
 - **Sequence:** A composition of saved equations/operations into a reusable multi-step transform.
-- **Function:** Executable implementation referenced by entity actions. Functions run within the entity/runtime trust boundary and require validation and policy controls.
+- **Function:** Executable implementation referenced by entity actions. Dynamic local entity functions run in `fileWorker`, never on the browser main thread; server functions and JPL run behind the Compute boundary. Both require validation, explicit capabilities, and policy controls.
 
 ## Why the whole chain matters
 

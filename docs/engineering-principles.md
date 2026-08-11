@@ -14,6 +14,8 @@ When a scenario fails, first identify the reusable mechanism responsible:
 8. Provider protocol or response mapping
 9. Protected-asset consent, resolution, or execution
 10. Cross-layer transport, background job, or UI behavior
+11. Word, alias, lemma, or entity-address resolution
+12. Main-thread, `fileWorker`, or Compute execution-plane boundary
 
 Repair the narrowest reusable layer that fully owns the problem. A provider-specific endpoint belongs in a provider entity or protocol template; a general city/state normalization rule belongs in typed input handling; a missing modifier slot belongs in Path/Essence behavior.
 
@@ -53,6 +55,18 @@ Canonical executable Essence is always materialized by the browser-local runtime
 Long model or entity operations must not depend on one synchronous Lambda lifetime. Background operations need a job record, idempotency key, durable queue or continuation mechanism, state transitions, sanitized progress, retry policy, and front-end polling or subscription. A timeout is an execution state, not a reason to lose the original request.
 
 Local-to-server entity publication is background work too. It needs a durable local outbox, idempotent server operation, acknowledgement, retry, and conflict state while leaving the local ContextDB mutation immediately usable.
+
+## Separate lexical addresses from entity identity
+
+Use the shared Words substrate for cheap lexical lookup and reuse, then resolve the resulting candidates through entity type, Context, relationships, provenance, and authorization. A normalized word, alias, inflection, or common lemma is an address—not proof that two entities are the same.
+
+Lemma and morphology support should reduce duplicated sentence and spelling combinations while preserving distinct meanings. Never merge a person's entity, a physical object, a capability, or a semantic sense merely because they share a token or root. Apply permission filters before returning or aggregating reverse word-to-entity matches.
+
+## Keep dynamic local scripts off the main thread
+
+The browser main thread is the trusted coordinator for reusable 1var logic and validated rendering. Dynamic entity and user-authored scripts execute through `fileWorker`; Compute/JPL owns authorized server execution. Worker results are untrusted structured data or declarative requests until a trusted module validates their schema, permissions, size, destinations, and presentation safety.
+
+A same-origin worker is operational isolation, not a hardened hostile-code sandbox. Security claims require evidence for ambient network restrictions, storage and credential access, resource limits, cancellation, output sanitization, and the removal or confinement of dynamic compilation.
 
 ## Security by technical boundary
 
@@ -96,3 +110,5 @@ Before implementing a new subsystem or exception, answer:
 8. What documentation or contract must change?
 9. Is this a fact/query, an invocation, a composition, a repair, or a contract-changing feature?
 10. If an entity changes, which declared input, output, effect, guarantee, or trust requirement proves repair versus fork?
+11. Is the term being resolved a lexical address, an entity identity, or both at different stages?
+12. Which execution plane owns the work, and what validation occurs when its result crosses into another plane?

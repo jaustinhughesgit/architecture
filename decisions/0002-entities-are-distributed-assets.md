@@ -26,7 +26,8 @@ Mindsets, thoughts, and moods remain first-class entity authoring and interactio
 - The platform needs a durable local sync outbox, idempotent server publication, acknowledgements, persisted ID mappings, versions, tombstones, conflicts, and hydration.
 - Names cannot be treated as global identity.
 - Stored facts and executable entities share governance while retaining typed representations.
-- The currently orphaned sync implementations must be repaired or replaced behind the shared contract.
+- Words remain shared lexical addresses rather than entity identity; published entities retain independent lifecycle and authorization. See [decision 0023](0023-words-are-lexical-addresses.md).
+- The active Context graph sidecar and older entity/link synchronizers must converge behind the shared contract while preserving proven outbox, mapping, audience, tombstone, and hydration behavior.
 
 ## Security and trust
 
@@ -39,4 +40,3 @@ Existing local `ent_<n>` identifiers remain local. Existing server entity/subdom
 ## Verification
 
 Test local immediate execution, offline publication retry, duplicate submission, refresh-safe mappings, typed literal preservation, update/delete conflicts, multi-device hydration, public/delegated reads, denied reads, and cross-user questions over hard stored facts.
-

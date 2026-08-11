@@ -55,7 +55,8 @@ Automating account creation or terms acceptance requires explicit user approval 
 
 - Creating a WebAuthn credential enrolls an authenticator; a protected operation is hardware-authorized only when policy verifies a fresh assertion for that operation.
 - A non-exportable IndexedDB `CryptoKey` reduces accidental extraction but does not prove that application code cannot request its use.
-- `fileWorker` separates entity work from the main UI thread, but a same-origin Web Worker is not a malicious-code sandbox.
+- Dynamic local entity or user-authored script source runs in `fileWorker`, never on the browser main thread. Worker output is untrusted until a main-thread module validates and authorizes it.
+- `fileWorker` separates entity work from the main UI thread, but a same-origin Web Worker with dynamic compilation and ambient network authority is not a malicious-code sandbox.
 - WebRTC encrypts transport between peers; application-level end-to-end encryption and recording policy are separate guarantees.
 - Email reputation and consent controls require both code and verified SES/domain deployment state.
 
@@ -64,5 +65,7 @@ See [identity and encryption](capabilities/identity-encryption.md), [worker isol
 ## Authorization and visibility
 
 Public/private determines discoverability or audience, not every permitted action. Authorization should independently govern actions such as execute, use, set, edit, delete, delegate, and permit. Parent/child execution and relationship traversal must evaluate authorization at each relevant boundary rather than inherit unlimited access accidentally.
+
+A Word, alias, normalized form, or lemma is only a lexical address. Resolving it to entity candidates grants no visibility or action authority. Candidate retrieval must apply the entity, relationship, version, workspace, owner, and action-specific policy before returning or aggregating data. Protected plaintext must not become globally discoverable lexical material without explicit publication authority.
 
 Ordinary Context graph publication uses participant-scoped visibility. The browser supplies only proper-person voice references grounded in the executed Path's semantic bindings, and Compute derives the audience from the authenticated publisher plus exact unique public user identities resolved from those labels; a client-supplied recipient ID is not authority. Hydration can read only the authenticated principal's audience partition, and workspace ownership is rechecked for both publish and hydrate. Protected inputs and protected graph markers are excluded from this channel. Server records retain publisher and source provenance so later trust and moderation policy can distinguish another user's assertion from the participant's own statement.

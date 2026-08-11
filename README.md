@@ -12,11 +12,19 @@ The visible interaction may be as simple as “What is the weather today in New 
 
 The architecture should therefore improve the general system when a new scenario exposes a weakness. A weather failure should lead us to repair reusable input binding, provider contracts, entity execution, Paths, diagnostics, or protected-asset handling—not add a weather-only bypass. Domain-specific entities and public templates are expected; domain-specific exceptions inside the platform core are not.
 
+## Documentation sizes
+
+The architecture is available at three levels of detail so the same platform model can be loaded into a conversation, design review, or implementation session without changing its meaning:
+
+- [Small: 1var in fewer than 200 words](docs/onevar-small.md) is the compact memory aid.
+- [Medium: 1var in fewer than 2,000 words](docs/onevar-medium.md) preserves the major primitives, flows, trust boundaries, and scaling model.
+- **Large:** this README and the canonical documents in the reading order below are the detailed source of truth. The short forms summarize them; they do not replace contracts, status evidence, capability specifications, or decisions.
+
 ## Repository map
 
 | Repository | Primary responsibility | Detailed guide |
 | --- | --- | --- |
-| `aws` | Browser experience, local runtime, Path/Essence processing, ContextDB interaction, and user-facing controls | `../aws/docs/layer.md` |
+| `aws` | Browser experience, trusted local runtime, Path/Essence processing, ContextDB interaction, `fileWorker` execution, and user-facing controls | `../aws/docs/layer.md` |
 | `aws-api` | Browser-facing API boundary and controlled transport to compute | `../aws-api/docs/layer.md` |
 | `compute` | Entity/JPL execution, server persistence, capability lifecycle, protected assets, and provider interaction | `../compute/docs/layer.md` |
 | `testing` | Command-based cross-layer acceptance, test-device setup, mailbox verification, and guarded test-environment reset | `../testing/docs/layer.md` |
@@ -24,16 +32,18 @@ The architecture should therefore improve the general system when a new scenario
 
 ## Reading order
 
-1. [Product purpose](docs/product-purpose.md)
-2. [Platform model](docs/platform-model.md)
-3. [Engineering principles](docs/engineering-principles.md)
-4. [JPL, Shorthand, and ArrayLogic](docs/execution-representations.md)
-5. [Intent routing and entity evolution](docs/intent-routing-and-entity-evolution.md)
-6. [Cross-layer flows](docs/cross-layer-flows.md)
-7. [Headless acceptance testing](docs/headless-acceptance-testing.md)
-8. [Security and trust](docs/security-and-trust.md)
-9. [Capability catalog](docs/capability-catalog.md)
-10. Capability specifications:
+1. [Small overview](docs/onevar-small.md)
+2. [Medium overview](docs/onevar-medium.md)
+3. [Product purpose](docs/product-purpose.md)
+4. [Platform model](docs/platform-model.md)
+5. [Engineering principles](docs/engineering-principles.md)
+6. [JPL, Shorthand, and ArrayLogic](docs/execution-representations.md)
+7. [Intent routing and entity evolution](docs/intent-routing-and-entity-evolution.md)
+8. [Cross-layer flows](docs/cross-layer-flows.md)
+9. [Headless acceptance testing](docs/headless-acceptance-testing.md)
+10. [Security and trust](docs/security-and-trust.md)
+11. [Capability catalog](docs/capability-catalog.md)
+12. Capability specifications:
    - [Scheduled entity tasks](docs/capabilities/scheduled-tasks.md)
    - [Account, device identity, and protected assets](docs/capabilities/identity-encryption.md)
    - [Sentence, Essence, Path, command, menu, and automation runtime](docs/capabilities/interaction-runtime.md)
@@ -43,8 +53,8 @@ The architecture should therefore improve the general system when a new scenario
    - [Email platform](docs/capabilities/email-platform.md)
    - [Distributed entities and Context publication](docs/capabilities/distributed-entities.md)
    - [Recipient-specific zero-trust sharing](docs/capabilities/recipient-protected-sharing.md)
-11. [Shared contracts](contracts/README.md)
-12. [Architecture decisions](decisions/README.md)
+13. [Shared contracts](contracts/README.md)
+14. [Architecture decisions](decisions/README.md)
 
 ## How this stays useful
 

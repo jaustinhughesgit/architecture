@@ -18,6 +18,18 @@ The same entity model supports:
 
 Mindsets, thoughts, and moods are therefore first-class authoring and interaction primitives. A particular UI implementation may be old or incomplete, but the capability itself is not architectural legacy.
 
+## Canonical shared substrate
+
+Published context should use the platform's established entity substrate rather than remain in a permanent context-only ontology:
+
+- **Words** hold cheap shared lexical addresses and exact normalized indexes. Future root-lemma, inflection, alias, morphology, and language links can expand linguistic reach without changing entity identity.
+- **Entities and subdomains** hold independently managed data, behavior, presentation, interaction, and compute records. A subdomain can reference a word ID and participate in a reverse word-to-entity address index.
+- **Groups and links** express membership, composition, use, lineage, and other authorized graph relationships.
+- **Versions and access records** govern lifecycle, visibility, actions, provenance, revocation, and reconciliation.
+- **Entity bundles and protected-asset references** carry executable and sensitive capability material without embedding plaintext secrets in ordinary context.
+
+The exact row and index contract is still being formalized across layers. The invariant is stable: lexical identity, entity identity, relationship identity, and authorization remain separate. See [decision 0023](../../decisions/0023-words-are-lexical-addresses.md).
+
 ## Local-first and shared are complementary
 
 ContextDB creates local entities and relations immediately so a known statement or question can execute without a server round trip. When the user permits synchronization, those local graph changes must also become durable server entities so they can be governed, shared, searched, linked, and retrieved by other authorized users.
@@ -38,10 +50,10 @@ sentence
   → local Essence mutation
   → local ContextDB entities and relations commit immediately
   → durable sync outbox records the graph delta
-  → server creates or resolves addressable entities
+  → server resolves word addresses and creates or resolves canonical entities
   → server returns stable IDs and versions
   → browser persists local-ID ↔ server-ID mappings
-  → relations, ownership, visibility, permissions, and provenance publish idempotently
+  → subdomains, groups, links, ownership, visibility, permissions, and provenance publish idempotently
   → authorized devices/users can hydrate or query the shared graph
 ```
 
@@ -51,11 +63,28 @@ Local execution must not wait for publication. Publication failure must remain v
 
 The active transcription worker now observes committed ordinary ContextDB graph deltas, records them in an encrypted identity-scoped outbox, and publishes them asynchronously through the API boundary. Compute verifies that the requested workspace belongs to the authenticated principal, resolves the current speaker and exact unique public user handles, writes versioned nodes and relations to a retained Context graph table, and returns authoritative node/relation IDs. The browser persists those mappings and applies node IDs to ContextDB, graph mentions, histories, checkpoints, and Path translations.
 
+That retained Context graph table is an **active partial synchronization implementation**, not the architectural destination or a replacement for Words, entities, subdomains, groups, links, versions, and access controls. Its outbox, idempotency, stable-ID replacement, audience, tombstone, and hydration behavior should be adapted to or migrated behind the canonical entity substrate. Until that convergence is implemented and proven, cross-browser context publication is functional for its documented audiences but duplicates part of the platform ontology.
+
 Each connected relation component is visible to its publisher and any uniquely resolved user participants. Hydration reads only the authenticated principal's audience partition and merges those entities into local ContextDB; the principal's stable server entity becomes the local `speaker`. This lets one user publish a spoken fact about another known public user and lets that participant ask a first-person question after hydration.
 
 For a public workspace, a component connected to the authenticated current-speaker node also receives a public-profile audience. An executed self-property assertion such as `My name is Austin` can register the exact profile name because the server observes a resolved current-speaker → name → value relation rather than trusting transcript text. Before a later question naming Austin runs locally, the browser requests exact-name hydration; Compute resolves the unique profile and selects Austin's public audience without accepting a client-supplied target identity. The remote Austin node keeps its name but never becomes the requesting browser's `speaker`. See [decision 0022](../../decisions/0022-public-profile-named-context-hydration.md).
 
-Publication retries preserve one idempotency key across connectivity failures. Removed relations publish tombstones to every prior audience. Protected inputs and protected graph markers do not enter this ordinary publication channel. The older entity/link/export synchronizers remain historical foundations and are not the active contract.
+Publication retries preserve one idempotency key across connectivity failures. Removed relations publish tombstones to every prior audience. Protected inputs and protected graph markers do not enter this ordinary publication channel. The older entity/link/export synchronizers remain implementation foundations whose identity, indexing, composition, access, and lifecycle semantics must be reconciled with the active publication mechanics; neither implementation should be discarded without a migration plan.
+
+## Lexical retrieval and aggregation
+
+An authorized broad question should not scan every user's complete graph. A scalable retrieval path is:
+
+```text
+spoken or messaged term
+  → normalize and resolve exact word/lemma candidates
+  → obtain compact word IDs
+  → use reverse indexes to find addressable entity/subdomain candidates
+  → apply workspace, owner, relationship, version, and action-level authorization
+  → traverse or aggregate only the permitted subgraph
+```
+
+For example, `cats` may resolve through a future `cat` lemma, but the matching word ID does not prove that every connected entity represents the same physical cat, owner, or semantic sense. Entity and relationship records preserve those distinctions, and access filters run before values are returned or counted.
 
 ## Identity and data-model rules
 
@@ -73,3 +102,5 @@ Publication retries preserve one idempotency key across connectivity failures. R
 2. Add user confirmation or trust policy for incoming facts before they influence sensitive decisions.
 3. Add conflict arbitration for concurrent multi-device edits beyond deterministic version/tombstone publication.
 4. Add production end-to-end coverage with two independently authenticated browser identities and revocation across both devices.
+5. Adapt or migrate the active Context graph sidecar to canonical word, entity/subdomain, group/link, version, and access records while preserving outbox retry, stable-ID replacement, audience, tombstone, and hydration guarantees.
+6. Specify the lemma-ready word schema and reverse address indexes, including sense separation, pagination, authorization-first query plans, and hot-partition benchmarks.

@@ -16,6 +16,7 @@ ContextDB has always created useful entities immediately in the browser, while o
 - Compute returns authoritative node and relation IDs. The browser durably records the mapping and replaces entity IDs throughout the graph, mentions, ContextDB state, message history, checkpoints, and Path translation state.
 - Relations retain publisher and source provenance. Deletion or audience removal uses versioned tombstones.
 - Protected input and protected graph markers remain local and never use this ordinary publication channel.
+- The v1 Context graph store is the active synchronization sidecar, not a decision to replace the canonical Word, entity/subdomain, group/link, version, and access substrate. Its proven transport and lifecycle mechanics must converge behind that substrate. See [decision 0023](0023-words-are-lexical-addresses.md).
 
 ## Alternatives considered
 
@@ -41,7 +42,7 @@ Compute derives participant visibility from authenticated and server-resolved id
 
 ## Migration
 
-Existing local facts remain local until a new committed mutation republishes their relation component. Existing public account labels can be exact-resolved through the legacy word/subdomain indexes and are registered into the new profile index when that user next publishes or hydrates. The old browser synchronizers are not used by this contract.
+Existing local facts remain local until a new committed mutation republishes their relation component. Existing public account labels can be exact-resolved through the legacy word/subdomain indexes and are registered into the new profile index when that user next publishes or hydrates. The old browser synchronizers are not used by the v1 transport contract, but their canonical entity identity, indexing, composition, and access semantics must be retained when the sidecar is adapted or migrated.
 
 ## Verification
 
