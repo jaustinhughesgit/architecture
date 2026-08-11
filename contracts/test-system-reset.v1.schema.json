@@ -22,7 +22,8 @@
       "type": "object",
       "required": [
         "available", "reasonCode", "accountId", "environmentId", "mode",
-        "contractVersion", "legacyPurgeRequired", "legacyPurgeCompletedAt"
+        "contractVersion", "legacyPurgeRequired", "legacyPurgeCompletedAt",
+        "resetInProgress", "activePhase"
       ],
       "properties": {
         "available": { "type": "boolean" },
@@ -35,6 +36,11 @@
         "legacyPurgeCompletedAt": {
           "type": ["string", "null"],
           "format": "date-time"
+        },
+        "resetInProgress": { "type": "boolean" },
+        "activePhase": {
+          "type": ["string", "null"],
+          "enum": ["legacy", "canonical", "compatibility", "counters", "identity", null]
         }
       },
       "additionalProperties": false
@@ -70,16 +76,36 @@
       },
       "additionalProperties": false
     },
+    "progress": {
+      "type": "object",
+      "required": ["phase", "currentTable", "completedUnits", "totalUnits", "deleted"],
+      "properties": {
+        "phase": {
+          "type": ["string", "null"],
+          "enum": ["legacy", "canonical", "compatibility", "counters", "identity", null]
+        },
+        "currentTable": { "type": ["string", "null"] },
+        "completedUnits": { "type": "integer", "minimum": 0 },
+        "totalUnits": { "type": "integer", "minimum": 0 },
+        "deleted": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
     "result": {
       "type": "object",
       "required": [
-        "alert", "mode", "contractVersion", "legacyPurge", "canonicalReset",
+        "alert", "mode", "contractVersion", "jobId", "step", "progress",
+        "legacyPurge", "canonicalReset",
         "clearedTables", "skippedTables", "failures"
       ],
       "properties": {
-        "alert": { "enum": ["success", "failed"] },
+        "alert": { "enum": ["pending", "success", "failed"] },
         "mode": { "const": "canonical" },
         "contractVersion": { "const": 1 },
+        "jobId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "continuationToken": { "type": "string", "minLength": 32, "maxLength": 256 },
+        "step": { "type": "integer", "minimum": 0 },
+        "progress": { "$ref": "#/$defs/progress" },
         "legacyPurge": { "$ref": "#/$defs/phase" },
         "canonicalReset": { "$ref": "#/$defs/phase" },
         "compatibilityCleanup": { "$ref": "#/$defs/phase" },

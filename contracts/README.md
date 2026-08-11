@@ -10,7 +10,7 @@ This directory holds versioned, machine-readable contracts shared by the reposit
 - [`context-graph-sync.v1.schema.json`](context-graph-sync.v1.schema.json) remains the active browser publication, acknowledgement, and hydration transport during migration. Compute must compile it into the canonical substrate; the transport schema does not declare the sidecar canonical.
 - [`llm-template-selection.v1.schema.json`](llm-template-selection.v1.schema.json) identifies server-owned model request templates.
 - [`model-cost-trace.v1.schema.json`](model-cost-trace.v1.schema.json) carries sanitized model usage metadata.
-- [`test-system-reset.v1.schema.json`](test-system-reset.v1.schema.json) freezes the explicit canonical reset request, pending one-time legacy-purge status, and phased result inside the existing Compute envelope.
+- [`test-system-reset.v1.schema.json`](test-system-reset.v1.schema.json) freezes the explicit canonical reset request, pending one-time legacy-purge status, signed resumable progress, and phased result inside the existing Compute envelope.
 
 Position/Search/RAG records use the canonical `retrieval-posting` contract: they are derived candidates with `authorizationMode: candidate-only`, never identity, fact, or permission records.
 

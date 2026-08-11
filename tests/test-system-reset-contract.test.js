@@ -22,4 +22,7 @@ test("test reset v1 reports ordered legacy and canonical phases", () => {
   assert.equal(required.includes("canonicalReset"), true);
   assert.equal(schema.$defs.status.properties.legacyPurgeRequired.type.includes("boolean"), true);
   assert.equal(schema.$defs.result.properties.contractVersion.const, 1);
+  assert.equal(schema.$defs.result.properties.alert.enum.includes("pending"), true);
+  assert.equal(required.includes("progress"), true);
+  assert.equal(schema.$defs.progress.properties.completedUnits.minimum, 0);
 });
