@@ -32,6 +32,7 @@ sentence or voice
 - **Automation:** A sequenced queue of delays, speech, commands, and related interaction events. It composes registered behavior; it does not replace Paths or the external task scheduler.
 - **Sequence:** A composition of saved equations/operations into a reusable multi-step transform.
 - **Function:** Executable implementation referenced by entity actions. Dynamic local entity functions run in `fileWorker`, never on the browser main thread; server functions and JPL run behind the Compute boundary. Both require validation, explicit capabilities, and policy controls.
+- **Execution effect:** A typed read, write, network, communication, navigation, automation, governance, or presentation result with requested/authorized/applied/denied state. The shared envelope makes effects comparable without granting one execution plane another plane's authority.
 
 ## Why the whole chain matters
 
@@ -43,6 +44,7 @@ A correct Essence with a bad signature will not match later wording. A correct s
 - Missing required Path coverage and optional coverage expansion are separate lifecycles. The current wording's required Path is built, validated, saved, installed, and replayed even when **Auto-build Path signatures with OpenAI** is disabled.
 - An installed Path that matches syntax but fails its local answer or transaction contract is defective coverage, not successful reuse. It enters required Path repair regardless of the optional Auto-build setting; the failed Path is retained only as repair evidence until a locally tested replacement or revision is installed.
 - Reusable semantic operations such as event observation, signed quantity observation, distinct counting, and summation are declared as versioned data. Language such as “sold,” “restocked,” or “received” belongs to Path definitions that bind those operations; it is not procedural vocabulary in the browser runtime.
+- Coordinated referents use a typed entity-set binding rather than coercing several people into one owner. Exact named-user hydration and the current `speaker` identity establish the authorized local set; catalog rows join its members and derived operators aggregate distinct records. Singular-reference Paths reject coordinated spans. The same mechanism applies to any item vocabulary and cannot broaden server grants.
 - Pattern Schema v4 Paths reference ordered reusable subpatterns rather than enumerating every complete sentence combination. The matcher activates bounded alternatives, unifies typed captures and declarative binding patches, requires complete meaningful-token coverage, and returns the ordinary Path binding contract. Pattern Schema v3 continues during migration. Capability-family migrations must retain positive, negative, collision, response, refresh, and downstream integration tests. See [decision 0020](../../decisions/0020-compositional-subpattern-capability-framework.md).
 - Runtime candidate routing indexes Paths by speech act and required anchors before full matching. Batch quality gates index structural and operation keys once before evaluating collisions. Generated sentence corpora remain Capability Lab evidence and are not shipped as one runtime Path per example.
 - Failure evidence is classified from capture through presentation with a stable level, owner, code, retryability, model eligibility, and repair action. Capability Lab clusters cases by this fingerprint and ranks the reusable repair with the largest coverage gain. Only classification, subpattern, semantic-binding, and ambiguous local-proof failures explicitly marked model-eligible may request grounded interpretation help. Compiler, catalog, lifecycle, integration, transport, security, and presentation defects do not become repeated interpretation calls merely because an LLM is available.
@@ -136,6 +138,8 @@ The implemented semantic-coverage proof detects explicit numeric/cardinal loss p
 
 Entities publish commands into a registry. Menus determine which commands are meaningful in the current state; calls move between states or execute registered behavior. Automations emit into that same interaction channel, allowing a voice/menu experience to compose ordinary entity behavior instead of maintaining a second command system.
 
+Execution-envelope v1 is now the preferred interaction handoff. Browser Path execution returns requested navigation/automation effects to the main-thread registry, requested presentation effects to Message, and requested communication effects to Message/Automation. Legacy command, answer, and response-sentence fields remain fallback transport for cached or older producers. `fileWorker` can request an effect but cannot mark it applied.
+
 Message routes a proven answer from a voice-originated request into that same Automation queue as an ephemeral speech step. It prefers the Path's `responseSentence` and falls back to the canonical answer. Automation preserves ordering and delegates synthesis and playback to Speak and Sound. Typed requests do not unexpectedly speak, and unverified model interpretations or protected results never enter the server-backed text-to-speech channel.
 
 ## Derived arithmetic query rows
@@ -158,4 +162,4 @@ For each distinct bound record, the operator contributes its one finite numeric 
 
 ## Required formalization
 
-Versioned schemas are still needed for Essence operations, signature types, Path transforms, command targets, menu transitions, automation events, and sequences. The schemas must include permissions, side-effect classification, test fixtures, migration rules, and observable failure stages.
+Versioned schemas are still needed for Essence operations, signature types, Path transforms, command targets, menu transitions, automation event payloads, and sequences. Execution and intent envelopes now freeze the common plane/effect and jurisdiction fields; the remaining schemas must add module-specific permissions, test fixtures, migration rules, and observable failure stages.

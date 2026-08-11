@@ -46,9 +46,10 @@ The architecture is available at three levels of detail so the same platform mod
 12. [Canonical entity substrate](docs/canonical-entity-substrate.md)
 13. [Canonical indexing and Context compilation](docs/canonical-indexing-and-context-compilation.md)
 14. [Entity middleware, composition, and governance](docs/entity-middleware-composition-and-governance.md)
-15. [Canonical-substrate compatibility inventory](docs/canonical-substrate-compatibility-inventory.md)
-16. [Canonical-substrate migration](docs/canonical-substrate-migration.md)
-17. Capability specifications:
+15. [Execution envelopes and governed interaction](docs/execution-envelopes-and-governed-interaction.md)
+16. [Canonical-substrate compatibility inventory](docs/canonical-substrate-compatibility-inventory.md)
+17. [Canonical-substrate migration](docs/canonical-substrate-migration.md)
+18. Capability specifications:
    - [Scheduled entity tasks](docs/capabilities/scheduled-tasks.md)
    - [Account, device identity, and protected assets](docs/capabilities/identity-encryption.md)
    - [Sentence, Essence, Path, command, menu, and automation runtime](docs/capabilities/interaction-runtime.md)
@@ -58,8 +59,8 @@ The architecture is available at three levels of detail so the same platform mod
    - [Email platform](docs/capabilities/email-platform.md)
    - [Distributed entities and Context publication](docs/capabilities/distributed-entities.md)
    - [Recipient-specific zero-trust sharing](docs/capabilities/recipient-protected-sharing.md)
-18. [Shared contracts](contracts/README.md)
-19. [Architecture decisions](decisions/README.md)
+19. [Shared contracts](contracts/README.md)
+20. [Architecture decisions](decisions/README.md)
 
 ## How this stays useful
 

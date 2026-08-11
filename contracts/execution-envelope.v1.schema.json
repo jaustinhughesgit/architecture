@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architecture.1var.com/contracts/execution-envelope.v1.schema.json",
+  "title": "1var execution envelope v1",
+  "oneOf": [
+    { "$ref": "#/$defs/invocation" },
+    { "$ref": "#/$defs/effect" },
+    { "$ref": "#/$defs/result" }
+  ],
+  "$defs": {
+    "id": { "type": "string", "minLength": 1, "maxLength": 180 },
+    "plane": { "enum": ["browser-main", "file-worker", "compute-jpl"] },
+    "target": {
+      "type": "object", "additionalProperties": true,
+      "required": ["kind", "id"],
+      "properties": { "kind": { "$ref": "#/$defs/id" }, "id": { "$ref": "#/$defs/id" } }
+    },
+    "error": {
+      "type": "object", "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": { "code": { "$ref": "#/$defs/id" }, "message": { "type": "string", "maxLength": 1000 } }
+    },
+    "effect": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contractVersion", "recordType", "effectId", "type", "action", "status", "target", "payload"],
+      "properties": {
+        "contractVersion": { "const": 1 }, "recordType": { "const": "execution-effect" },
+        "effectId": { "$ref": "#/$defs/id" },
+        "type": { "enum": ["read", "write", "network", "communication", "navigation", "automation", "governance", "presentation"] },
+        "action": { "$ref": "#/$defs/id" },
+        "status": { "enum": ["requested", "authorized", "applied", "denied"] },
+        "target": { "anyOf": [{ "$ref": "#/$defs/target" }, { "type": "null" }] },
+        "payload": {}
+      }
+    },
+    "invocation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contractVersion", "recordType", "invocationId", "plane", "target", "operation", "input", "idempotencyKey", "provenance"],
+      "properties": {
+        "contractVersion": { "const": 1 }, "recordType": { "const": "execution-invocation" },
+        "invocationId": { "$ref": "#/$defs/id" }, "plane": { "$ref": "#/$defs/plane" },
+        "target": { "$ref": "#/$defs/target" }, "operation": { "$ref": "#/$defs/id" },
+        "input": {}, "idempotencyKey": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "provenance": { "anyOf": [{ "type": "object" }, { "type": "null" }] }
+      }
+    },
+    "result": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contractVersion", "recordType", "invocationId", "plane", "disposition", "output", "error", "effects", "trace"],
+      "properties": {
+        "contractVersion": { "const": 1 }, "recordType": { "const": "execution-result" },
+        "invocationId": { "$ref": "#/$defs/id" }, "plane": { "$ref": "#/$defs/plane" },
+        "disposition": { "enum": ["respond", "fail"] }, "output": {},
+        "error": { "anyOf": [{ "$ref": "#/$defs/error" }, { "type": "null" }] },
+        "effects": { "type": "array", "maxItems": 128, "items": { "$ref": "#/$defs/effect" } },
+        "trace": { "anyOf": [{ "type": "object" }, { "type": "null" }] }
+      },
+      "allOf": [
+        { "if": { "properties": { "disposition": { "const": "fail" } } }, "then": { "properties": { "error": { "$ref": "#/$defs/error" } } } }
+      ]
+    }
+  }
+}

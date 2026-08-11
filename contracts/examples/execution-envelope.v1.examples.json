@@ -1,0 +1,23 @@
+[
+  {
+    "contractVersion": 1,
+    "recordType": "execution-invocation",
+    "invocationId": "invocation-example-1",
+    "plane": "browser-main",
+    "target": { "kind": "semantic-operation", "id": "contextdb.quantity-observation@1/query_group_current" },
+    "operation": "read.graph",
+    "input": { "bindingNames": ["owners", "item"] },
+    "idempotencyKey": null,
+    "provenance": { "pathSignature": "pattern:v4:quantity_group_current_composed_query" }
+  },
+  {
+    "contractVersion": 1,
+    "recordType": "execution-effect",
+    "effectId": "effect-example-1",
+    "type": "communication",
+    "action": "speak",
+    "status": "requested",
+    "target": { "kind": "module", "id": "automation" },
+    "payload": { "text": "Austin and you have 3 dogs." }
+  }
+]

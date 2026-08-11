@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architecture.1var.com/contracts/intent-jurisdiction.v1.schema.json",
+  "title": "1var intent jurisdiction decision v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contractVersion", "recordType", "speechAct", "effectClass", "artifactDecision", "evolutionOutcome", "reasonCode", "target"],
+  "properties": {
+    "contractVersion": { "const": 1 },
+    "recordType": { "const": "intent-jurisdiction-decision" },
+    "speechAct": { "enum": ["question", "assertion", "correction", "command", "clarification"] },
+    "effectClass": { "enum": ["read.graph", "write.fact", "write.correction", "invoke.local", "invoke.external", "compose", "define.capability", "repair.path", "repair.capability", "fork.capability", "clarify"] },
+    "artifactDecision": { "type": "string", "minLength": 1, "maxLength": 180 },
+    "evolutionOutcome": { "anyOf": [{ "enum": ["reuse", "repair", "compose", "fork", "build", "clarify"] }, { "type": "null" }] },
+    "reasonCode": { "type": "string", "minLength": 1, "maxLength": 180 },
+    "target": { "anyOf": [{ "type": "object" }, { "type": "null" }] }
+  }
+}

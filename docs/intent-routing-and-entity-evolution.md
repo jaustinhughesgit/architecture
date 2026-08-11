@@ -1,8 +1,10 @@
 # Intent Routing and Entity Evolution
 
-**Status:** Product intent with partial implementation foundations. This document defines where a request should be solved and why an entity should be reused, repaired, composed, forked, or created. It does not claim that every decision and lifecycle contract is implemented.
+**Status:** Implemented decision foundation with partial lifecycle adoption. Browser routing and Compute discovery now emit the versioned jurisdiction fields and distinguish reuse, repair, fork, and build. Immutable compatible releases, installations, promotion, dependency ranges, and all legacy callers remain incomplete.
 
 Durable decision: [ADR 0005](../decisions/0005-intent-routing-and-entity-evolution.md).
+
+Executable decision shape: [intent-jurisdiction v1](../contracts/intent-jurisdiction.v1.schema.json). Cross-plane adoption: [execution envelopes and governed interaction](execution-envelopes-and-governed-interaction.md).
 
 ## Core rule
 

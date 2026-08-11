@@ -6,6 +6,8 @@ This directory holds versioned, machine-readable contracts shared by the reposit
 
 - [`canonical-substrate.v1.schema.json`](canonical-substrate.v1.schema.json) freezes logical Word, entity, address, group, relation, version, grant, capability, installation, local-mapping, retrieval-posting, and mutation records. It deliberately does not freeze DynamoDB table names or short legacy attributes. Representative records are in [`examples/canonical-substrate.v1.examples.json`](examples/canonical-substrate.v1.examples.json).
 - [`entity-middleware.v1.schema.json`](entity-middleware.v1.schema.json) freezes root-to-target invocation and `pass`/`respond`/`fail` result envelopes.
+- [`execution-envelope.v1.schema.json`](execution-envelope.v1.schema.json) freezes one invocation/result/effect shape across browser-main, isolated `fileWorker`, and Compute/JPL while keeping their authorities separate.
+- [`intent-jurisdiction.v1.schema.json`](intent-jurisdiction.v1.schema.json) freezes speech act, effect class, artifact decision, capability-evolution outcome, reason, and target evidence.
 - [`canonical-governance.v1.schema.json`](canonical-governance.v1.schema.json) freezes action decisions, optimistic lifecycle transitions, and sanitized audit evidence.
 - [`context-graph-sync.v1.schema.json`](context-graph-sync.v1.schema.json) remains the active browser publication, acknowledgement, and hydration transport during migration. Compute must compile it into the canonical substrate; the transport schema does not declare the sidecar canonical.
 - [`llm-template-selection.v1.schema.json`](llm-template-selection.v1.schema.json) identifies server-owned model request templates.
