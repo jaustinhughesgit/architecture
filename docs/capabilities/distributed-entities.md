@@ -1,6 +1,6 @@
 # Distributed Entities and Context Publication
 
-**Status:** Partial; ordinary ContextDB publication, participant hydration, and exact public-profile hydration are active
+**Status:** Partial; canonical Context compilation, participant/public dual-read hydration, and exact public-profile hydration are active foundations
 
 Durable direction: [ADR 0002](../../decisions/0002-entities-are-distributed-assets.md).
 
@@ -28,7 +28,7 @@ Published context should use the platform's established entity substrate rather 
 - **Versions and access records** govern lifecycle, visibility, actions, provenance, revocation, and reconciliation.
 - **Entity bundles and protected-asset references** carry executable and sensitive capability material without embedding plaintext secrets in ordinary context.
 
-The logical v1 record contract is now frozen in [the canonical entity substrate](../canonical-entity-substrate.md); physical row and scale-index migration remains incomplete. The invariant is stable: lexical identity, entity identity, relationship identity, and authorization remain separate. See [decision 0023](../../decisions/0023-words-are-lexical-addresses.md) and [decision 0025](../../decisions/0025-canonical-substrate-behind-persistence-port.md).
+The logical v1 record contract is frozen in [the canonical entity substrate](../canonical-entity-substrate.md). New Context records now use the physical foundation and sharded projections, while legacy creator migration, backfill, and deployed scale proof remain incomplete. Lexical identity, entity identity, relationship identity, and authorization remain separate. See [decision 0023](../../decisions/0023-words-are-lexical-addresses.md) and [decision 0026](../../decisions/0026-sharded-canonical-context-publication-and-hydration.md).
 
 ## Local-first and shared are complementary
 
@@ -61,11 +61,11 @@ Local execution must not wait for publication. Publication failure must remain v
 
 ## Current implementation evidence
 
-The active transcription worker now observes committed ordinary ContextDB graph deltas, records them in an encrypted identity-scoped outbox, and publishes them asynchronously through the API boundary. Compute verifies that the requested workspace belongs to the authenticated principal, resolves the current speaker and exact unique public user handles, writes versioned nodes and relations to a retained Context graph table, and returns authoritative node/relation IDs. The browser persists those mappings and applies node IDs to ContextDB, graph mentions, histories, checkpoints, and Path translations.
+The active transcription worker observes committed ordinary ContextDB graph deltas, records them in an encrypted identity-scoped outbox, and publishes them asynchronously through the API boundary. Compute verifies the authenticated workspace, resolves the current speaker and exact unique public user handles, compiles Words, entities, subdomain addresses, a workspace/principal Context group with its head, links, versions, grants, and sharded projections, then writes the retained compatibility sidecar and returns authoritative node/relation IDs. The browser persists those mappings and applies node IDs to ContextDB, graph mentions, histories, checkpoints, and Path translations.
 
-That retained Context graph table is an **active partial synchronization implementation**, not the architectural destination or a replacement for Words, entities, subdomains, groups, links, versions, and access controls. Its physical access now runs behind the canonical persistence port, preserving the outbox, idempotency, stable-ID replacement, audience, tombstone, and hydration behavior while later phases compile the records into the substrate. Until that convergence is implemented and proven, cross-browser context publication is functional for its documented audiences but duplicates part of the platform ontology.
+The retained Context graph table is now a migration adapter rather than the only server fact store. Canonical batches are written first; a failure is retryable and does not acknowledge the sidecar publication. Hydration reads canonical and sidecar records, prefers canonical duplicates, and checks current grants. The sidecar remains necessary for historical records and rollback until phase-13 backfill and parity gates pass.
 
-Each connected relation component is visible to its publisher and any uniquely resolved user participants. Hydration reads only the authenticated principal's audience partition and merges those entities into local ContextDB; the principal's stable server entity becomes the local `speaker`. This lets one user publish a spoken fact about another known public user and lets that participant ask a first-person question after hydration.
+Each connected relation component is visible to its publisher and any uniquely resolved user participants. Hydration selects only the authenticated principal's server-derived audience, reloads canonical records and grants, includes sidecar-only compatibility rows, and merges permitted entities into local ContextDB; the principal's stable server entity becomes the local `speaker`. This lets one user publish a spoken fact about another known public user and lets that participant ask a first-person question after hydration.
 
 For a public workspace, a component connected to the authenticated current-speaker node also receives a public-profile audience. An executed self-property assertion such as `My name is Austin` can register the exact profile name because the server observes a resolved current-speaker → name → value relation rather than trusting transcript text. Before a later question naming Austin runs locally, the browser requests exact-name hydration; Compute resolves the unique profile and selects Austin's public audience without accepting a client-supplied target identity. The remote Austin node keeps its name but never becomes the requesting browser's `speaker`. See [decision 0022](../../decisions/0022-public-profile-named-context-hydration.md).
 
@@ -102,5 +102,5 @@ For example, `cats` may resolve through a future `cat` lemma, but the matching w
 2. Add user confirmation or trust policy for incoming facts before they influence sensitive decisions.
 3. Add conflict arbitration for concurrent multi-device edits beyond deterministic version/tombstone publication.
 4. Add production end-to-end coverage with two independently authenticated browser identities and revocation across both devices.
-5. Compile and migrate the active Context graph sidecar, now isolated behind the persistence port, to canonical Word, entity/address, group/relation, version, grant, and local-mapping records while preserving outbox retry, stable-ID replacement, audience, tombstone, and hydration guarantees.
-6. Specify the lemma-ready word schema and reverse address indexes, including sense separation, pagination, authorization-first query plans, and hot-partition benchmarks.
+5. Backfill existing sidecar rows, compare canonical/compatibility parity, cut over, and retire the sidecar through the phase-13 rollback plan.
+6. Complete lemma-ready Word relationships, broad typed traversal/aggregation, sense separation, authorization-first query plans, and deployed hot-partition/cost benchmarks.

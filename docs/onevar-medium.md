@@ -149,7 +149,7 @@ After an ordinary non-protected mutation commits locally, permitted changes shou
 
 Other users and devices hydrate only the entities and relationships they are authorized to receive. Sharing must preserve source, provenance, version, visibility, action-specific permissions, and revocation.
 
-The current browser-to-server publication path uses a retained Context graph sidecar. Its encrypted outbox, idempotency, server-ID replacement, participant/public-profile audiences, tombstones, and hydration are active foundations. Sidecar access now runs through the canonical persistence port, but its records have not yet been compiled into the canonical Words/entities/addresses/groups/relations/grants substrate. That is migration work, not permission to discard either set of proven capabilities.
+The browser-to-server publication path retains its Context graph sidecar during migration. Its encrypted outbox, idempotency, server-ID replacement, participant/public-profile audiences, tombstones, and hydration remain active. New publications now compile canonical Words/entities/addresses/Context groups/relations/versions/grants and sharded lookup projections before writing that compatibility sidecar. Hydration reads and authorizes canonical records while including old sidecar-only data. Historical backfill, parity cutover, and sidecar retirement remain explicit later work.
 
 Position, Search, embeddings, and RAG provide bounded candidate discovery over large populations. Their postings are derived from canonical entity IDs and versions and are safe to rebuild. They never supply fact identity or permission: canonical records are reloaded and action-specific grants applied before candidates are returned, traversed, aggregated, or executed.
 

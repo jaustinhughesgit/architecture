@@ -7,9 +7,9 @@ This is the controlled migration from parallel persistence shapes to one entity 
 | 1. Freeze and describe canonical contracts | Versioned logical record schema, invariants, publication/query boundary, and ADR | Implemented foundation |
 | 2. Build a compatibility inventory | Store, route, capability, risk, and preservation map | Implemented |
 | 3. Introduce one canonical persistence API | Compute port with foundation, sidecar, and derived-index adapters; initial consumers migrated | Implemented foundation |
-| 4. Fix identifiers and indexing for scale | Non-hot allocation, partition strategy, pagination, measured indexes | Planned |
-| 5. Compile Context publication into canonical records | Context v1 delta → versioned canonical mutation and acknowledgement | Planned |
-| 6. Move hydration and queries to the canonical substrate | Permission-filtered canonical traversal, aggregation, and dual-read parity | Planned |
+| 4. Fix identifiers and indexing for scale | Counter-free IDs for new Context records; sharded canonical and Position projections; compatible pagination | Implemented foundation |
+| 5. Compile Context publication into canonical records | Context v1 delta → Words/entities/addresses/groups/relations/versions/grants/projections before sidecar acknowledgement | Implemented foundation |
+| 6. Move hydration and queries to the canonical substrate | Grant-checked canonical hydration, dual-read deduplication, canonical profile/Word candidates, authorized Position/Search | Implemented foundation |
 | 7. Formalize entity middleware and composition | Root-to-target contract plus `map`/`extend`/`link`/`use`/`substitute` semantics | Planned |
 | 8. Unify governance and lifecycle | Grants, versions, revocation, deletion, delegation, protected references, audit | Planned |
 | 9. Complete middleware conformance | The supplied plan repeats phase 7; this slot tracks cross-layer conformance and compatibility after formalization | Planned |
@@ -19,4 +19,4 @@ This is the controlled migration from parallel persistence shapes to one entity 
 | 13. Backfill, cut over, and retire the sidecar | Idempotent backfill, dual-read comparison, rollback, cutover, governed retirement | Planned |
 | 14. Prove scale and continuous evolution | Load/cost/security tests, failure levels, compatibility gates, ongoing gap discovery | Planned |
 
-“Implemented foundation” means the contract or seam now exists and is tested; it does not claim later data migration, scale repartitioning, or cutover is complete.
+“Implemented foundation” means the contract or seam now exists and is tested. For phases 4–6 it does not claim legacy counter routes are all migrated, sidecar records are backfilled, broad aggregation is complete, or deployed scale/cost gates have passed. See [canonical indexing and Context compilation](canonical-indexing-and-context-compilation.md).

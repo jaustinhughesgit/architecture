@@ -24,26 +24,27 @@ Status classes:
 | `versions` | Foundation | Entity/version history | Canonical version evidence. No in-place rewrite that loses provenance. |
 | `access`, `verified`, `perm_grants` | Foundation + adapter | Older access/verification records and newer policy grants | One action-specific Grant contract. Dual-read until precedence, revocation, expiry, and delegation are formally reconciled. |
 | S3 public/private entity bundles | Foundation/support | Durable entity content, JPL, presentation, local-worker assets, cached output | Canonical entity/capability implementation references. Preserve public/private and protected-asset boundaries. |
-| `context_graph` / `ContextGraphTable` | Adapter | Participant/public audience projections, profiles, mappings, idempotency, stable IDs, versions, tombstones, hydration | Compile to Words/entities/relations/grants/local mappings. Preserve all sync mechanics until dual-read parity is proven; do not treat it as a permanent ontology. |
+| `context_graph` / `ContextGraphTable` | Adapter | Participant/public audience projections, profiles, mappings, idempotency, stable IDs, versions, tombstones, hydration | New writes compile to canonical Words/entities/addresses/groups/relations/versions/grants first; dual-read preserves old records. Keep through phase-13 backfill/parity/rollback. |
+| `CanonicalProjectionTable` | Derived | Sharded audience, Word-to-entity, profile, local-mapping, and idempotency lookup rows | Rebuildable indexes over canonical IDs/versions. Reload facts and grants; never infer identity or authority from a projection. |
 | `paths`, `PathFoundationTable` | Support | Identity-scoped learned Paths and reviewed shared foundation | Interaction index referencing canonical operations/entities. Paths remain browser-local execution/reuse contracts, not fact storage. |
 | `ProtectedAssetsTable`, audit table, ciphertext objects | Support | Trusted-server ciphertext/references, grants, consent, and audit | Canonical records contain protected references only. Never copy plaintext into entities, Words, RAG, logs, or provenance. |
-| `anchor_bands` | Derived | L0/L1/band/shard candidate postings for Position/Search | Retrieval Posting. Rebuild from canonical entity version/content hash and authorize after canonical reload, before return or aggregation. |
+| `anchor_bands` | Derived | L0/L1/band/shard candidate postings for Position/Search | New `AB2` writes shard in the partition key and carry entity revision/hash. Search reads v2 plus legacy v1, reloads canonical addresses, and authorizes before ranking/return. Stale cleanup and deployed load gates remain. |
 | `embPaths` and embedding artifacts | Derived | Alternate/legacy embedding lookup and path similarity | Retrieval/path indexes with explicit source version and model. Inventory ownership before consolidation; safe to rebuild, not to infer facts from. |
 | S3 anchor sets | Derived | Position quantization artifacts | Versioned index-set artifact. Model/dimension/set compatibility must be explicit. |
 | `users`, `cookies`, passphrases/device-key records | Support | Account identity, session, authenticator/public key metadata | Principal references and authentication inputs. Account existence is not an ordinary entity grant. |
 | tasks, schedules, presence, invites, email/suppression tables | Support | Operational execution and communication lifecycle | Retain behind their owning modules; link to canonical entity/capability IDs and enforce their own lifecycle contracts. |
-| global counter tables (`wCounter`, `eCounter`, `vCounter`, others) | Adapter / scale risk | Allocate compact legacy IDs | Preserve compatibility now; replace hot allocation in phase 4 using measured distributed/ranged allocation without changing existing IDs. |
+| global counter tables (`wCounter`, `eCounter`, `vCounter`, others) | Adapter / scale risk | Allocate compact legacy IDs | Preserve existing IDs. New Context/Word compilation is counter-free; remaining legacy creation routes migrate consumer-by-consumer before counter retirement. |
 
 ## Code and route inventory
 
 | Surface | Current evidence | Migration treatment |
 | --- | --- | --- |
 | `compute/app/routes/shared.js` | Shared getters for subdomains, entities, Words, groups, access, verification, links, versions, and creators | First consumer of the canonical persistence port. Compatibility return envelopes stay stable. |
-| `compute/app/routes/modules/contextGraph.js` | Active Context v1 publication, audience derivation, profile lookup, mappings, idempotency, hydration, tombstones | Route all physical sidecar and fallback lookups through the port now; compile canonical mutations in phase 5. |
+| `compute/app/routes/modules/contextGraph.js` | Active Context v1 publication, audience derivation, profile lookup, mappings, idempotency, hydration, tombstones | Canonical-first dual-write and grant-checked dual-read are active when the projection table is configured; keep sidecar compatibility through phase 13. |
 | `compute/app/routes/controller.js` and creation modules | Direct counters and physical Words/entity/version/subdomain writes | Migrate to canonical mutation/write methods before scale-ID work and cutover. |
 | relationship modules: `map`, `extend`, `links`, `groups`, `useGroup`, `substituteGroup` | Existing composition mechanics across entity and link records | Formalize relation effects and per-node authorization; preserve behavior and IDs. |
 | `runEntity`, JPL, Shorthand, ArrayLogic/Convert | Governed server execution, composition/build, and some persistence/index side effects | Keep execution distinct from persistence; phase 10 unifies invocation envelopes, not runtime languages or trust planes. |
-| `anchor`, `position`, `search`, `anchors.js` | Position writes, anchor-band postings, semantic candidate search | Derived-index namespace. Known gaps: caller-influenced owner/policy, incomplete pagination, authorization after candidate ranking, tenant/global fallback instead of union, stale postings, and no exact reranking. Fix in phases 4/6/14, not by treating RAG as canonical. |
+| `anchor`, `position`, `search`, `anchors.js` | Position writes, anchor-band postings, semantic candidate search | Now use the persistence port for positioning/retrieval, server-derived identity/policy, partition-key shards, tenant/global union, current canonical reload, and authorization before `topK`. Stale removal, exact reranking, and deployed cost/load proof remain phase 14. |
 | capability registry/build/edit/diagnosis | Definitions, manifests, model jobs, repair/fork fields | Map definitions and user installations separately; preserve model-output validation and repair evidence. |
 | `aws` ContextDB/transcription worker | Local graph, encrypted outbox, Path/Essence execution, ID replacement, hydration | Keep local-first and zero-trust behavior. Change only the server compilation/hydration adapter behind the existing versioned sync contract. |
 | `aws` Position/Search modules and portal | User-facing discovery/index controls | Align payloads to the canonical retrieval contract; do not expose table/index implementation as authority. |
@@ -66,7 +67,7 @@ The migration is not complete if it loses any of the following:
 - idempotent Context publication, stable ID replacement, participant/public scopes, tombstones, profiles, cursors, and multi-session hydration;
 - Position/Search/RAG as a scalable, permission-filtered candidate layer over the same canonical identities.
 
-## Phase 1–3 exit assessment
+## Phase 1–6 exit assessment
 
 | Requirement | Status after this phase |
 | --- | --- |
@@ -76,7 +77,11 @@ The migration is not complete if it loses any of the following:
 | Shared canonical getters use the port | Implemented foundation |
 | Active Context sidecar access uses the port | Implemented foundation |
 | Every legacy direct table call is removed | Not part of phase 3; tracked consumer-by-consumer |
-| Sidecar data is compiled/backfilled into canonical records | Phase 5/13 |
-| Identifiers/indexes are production-scale | Phase 4/14 |
+| New Context data is compiled into canonical records | Implemented foundation |
+| Existing sidecar data is backfilled and the sidecar retired | Phase 13 |
+| New Context IDs avoid global counters | Implemented foundation |
+| All legacy creator counters are retired | Not yet; consumer-by-consumer compatibility remains |
+| Canonical/Position indexes distribute hot domains | Implemented foundation |
+| Production-scale latency, throughput, and cost are proven | Phase 14 |
 
-No table, index, bundle, protected record, Path, or local Context record is deleted in phases 1–3.
+No table, bundle, protected record, Path, or local Context record is deleted in phases 1–6. The sidecar and legacy anchor keys remain readable rollback inputs.

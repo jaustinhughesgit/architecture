@@ -89,7 +89,9 @@ Exact Word and lemma indexes should answer vocabulary-address questions cheaply.
 
 - **Contract:** v1 accepted and machine-readable.
 - **Persistence port:** implemented foundation in Compute; established reads and active Context sidecar access can run through adapters.
-- **Canonical writes:** partial; legacy creation modules still write physical records directly.
-- **Context compilation:** planned for migration phase 5.
-- **Canonical hydration/query:** planned for phase 6.
-- **Position/RAG:** implemented foundation as a derived index, but scale, pagination, stale-posting removal, exact reranking, and authorization ordering remain incomplete.
+- **Canonical writes:** new Context publication compiles Words, entities, addresses, Context groups, relations, versions, grants, and sharded projections; legacy creation modules still write physical records directly.
+- **Context compilation:** implemented foundation with canonical-first, sidecar-second idempotent dual-write.
+- **Canonical hydration/query:** implemented foundation for grant-checked Context hydration, exact profiles, bounded Word candidates, and sidecar dual-read. Broad typed traversal/aggregation remains incomplete.
+- **Position/RAG:** new postings use partition-key shards and server-derived policy; Search unions v2/v1 candidates, reloads canonical addresses, and authorizes before ranking. Stale cleanup, exact reranking, and deployed scale/cost proof remain incomplete.
+
+See [canonical indexing and Context compilation](canonical-indexing-and-context-compilation.md) and [decision 0026](../decisions/0026-sharded-canonical-context-publication-and-hydration.md).
