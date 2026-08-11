@@ -28,7 +28,7 @@ Published context should use the platform's established entity substrate rather 
 - **Versions and access records** govern lifecycle, visibility, actions, provenance, revocation, and reconciliation.
 - **Entity bundles and protected-asset references** carry executable and sensitive capability material without embedding plaintext secrets in ordinary context.
 
-The exact row and index contract is still being formalized across layers. The invariant is stable: lexical identity, entity identity, relationship identity, and authorization remain separate. See [decision 0023](../../decisions/0023-words-are-lexical-addresses.md).
+The logical v1 record contract is now frozen in [the canonical entity substrate](../canonical-entity-substrate.md); physical row and scale-index migration remains incomplete. The invariant is stable: lexical identity, entity identity, relationship identity, and authorization remain separate. See [decision 0023](../../decisions/0023-words-are-lexical-addresses.md) and [decision 0025](../../decisions/0025-canonical-substrate-behind-persistence-port.md).
 
 ## Local-first and shared are complementary
 
@@ -63,7 +63,7 @@ Local execution must not wait for publication. Publication failure must remain v
 
 The active transcription worker now observes committed ordinary ContextDB graph deltas, records them in an encrypted identity-scoped outbox, and publishes them asynchronously through the API boundary. Compute verifies that the requested workspace belongs to the authenticated principal, resolves the current speaker and exact unique public user handles, writes versioned nodes and relations to a retained Context graph table, and returns authoritative node/relation IDs. The browser persists those mappings and applies node IDs to ContextDB, graph mentions, histories, checkpoints, and Path translations.
 
-That retained Context graph table is an **active partial synchronization implementation**, not the architectural destination or a replacement for Words, entities, subdomains, groups, links, versions, and access controls. Its outbox, idempotency, stable-ID replacement, audience, tombstone, and hydration behavior should be adapted to or migrated behind the canonical entity substrate. Until that convergence is implemented and proven, cross-browser context publication is functional for its documented audiences but duplicates part of the platform ontology.
+That retained Context graph table is an **active partial synchronization implementation**, not the architectural destination or a replacement for Words, entities, subdomains, groups, links, versions, and access controls. Its physical access now runs behind the canonical persistence port, preserving the outbox, idempotency, stable-ID replacement, audience, tombstone, and hydration behavior while later phases compile the records into the substrate. Until that convergence is implemented and proven, cross-browser context publication is functional for its documented audiences but duplicates part of the platform ontology.
 
 Each connected relation component is visible to its publisher and any uniquely resolved user participants. Hydration reads only the authenticated principal's audience partition and merges those entities into local ContextDB; the principal's stable server entity becomes the local `speaker`. This lets one user publish a spoken fact about another known public user and lets that participant ask a first-person question after hydration.
 
@@ -102,5 +102,5 @@ For example, `cats` may resolve through a future `cat` lemma, but the matching w
 2. Add user confirmation or trust policy for incoming facts before they influence sensitive decisions.
 3. Add conflict arbitration for concurrent multi-device edits beyond deterministic version/tombstone publication.
 4. Add production end-to-end coverage with two independently authenticated browser identities and revocation across both devices.
-5. Adapt or migrate the active Context graph sidecar to canonical word, entity/subdomain, group/link, version, and access records while preserving outbox retry, stable-ID replacement, audience, tombstone, and hydration guarantees.
+5. Compile and migrate the active Context graph sidecar, now isolated behind the persistence port, to canonical Word, entity/address, group/relation, version, grant, and local-mapping records while preserving outbox retry, stable-ID replacement, audience, tombstone, and hydration guarantees.
 6. Specify the lemma-ready word schema and reverse address indexes, including sense separation, pagination, authorization-first query plans, and hot-partition benchmarks.

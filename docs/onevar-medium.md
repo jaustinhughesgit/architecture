@@ -149,7 +149,9 @@ After an ordinary non-protected mutation commits locally, permitted changes shou
 
 Other users and devices hydrate only the entities and relationships they are authorized to receive. Sharing must preserve source, provenance, version, visibility, action-specific permissions, and revocation.
 
-The current browser-to-server publication path uses a retained Context graph sidecar. Its encrypted outbox, idempotency, server-ID replacement, participant/public-profile audiences, tombstones, and hydration are active foundations, but its storage model has not yet converged on the canonical Words/entities/subdomains/groups/links/access substrate. That is migration work, not permission to discard either set of proven capabilities.
+The current browser-to-server publication path uses a retained Context graph sidecar. Its encrypted outbox, idempotency, server-ID replacement, participant/public-profile audiences, tombstones, and hydration are active foundations. Sidecar access now runs through the canonical persistence port, but its records have not yet been compiled into the canonical Words/entities/addresses/groups/relations/grants substrate. That is migration work, not permission to discard either set of proven capabilities.
+
+Position, Search, embeddings, and RAG provide bounded candidate discovery over large populations. Their postings are derived from canonical entity IDs and versions and are safe to rebuild. They never supply fact identity or permission: canonical records are reloaded and action-specific grants applied before candidates are returned, traversed, aggregated, or executed.
 
 Protected assets require explicit trust modes. Public capability definitions may declare that a credential or private value is required, but must not contain the user's secret. Local execution can provide a zero-knowledge option; server-side decryption or provider execution is a separate, explicitly trusted-server option.
 

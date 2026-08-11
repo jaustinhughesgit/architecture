@@ -1,6 +1,15 @@
 # Shared Contracts
 
-This directory is the future home of versioned, machine-readable contracts shared by the repositories.
+This directory holds versioned, machine-readable contracts shared by the repositories.
+
+## Active contracts
+
+- [`canonical-substrate.v1.schema.json`](canonical-substrate.v1.schema.json) freezes logical Word, entity, address, group, relation, version, grant, capability, installation, local-mapping, retrieval-posting, and mutation records. It deliberately does not freeze DynamoDB table names or short legacy attributes. Representative records are in [`examples/canonical-substrate.v1.examples.json`](examples/canonical-substrate.v1.examples.json).
+- [`context-graph-sync.v1.schema.json`](context-graph-sync.v1.schema.json) remains the active browser publication, acknowledgement, and hydration transport during migration. Compute must compile it into the canonical substrate; the transport schema does not declare the sidecar canonical.
+- [`llm-template-selection.v1.schema.json`](llm-template-selection.v1.schema.json) identifies server-owned model request templates.
+- [`model-cost-trace.v1.schema.json`](model-cost-trace.v1.schema.json) carries sanitized model usage metadata.
+
+Position/Search/RAG records use the canonical `retrieval-posting` contract: they are derived candidates with `authorizationMode: candidate-only`, never identity, fact, or permission records.
 
 Candidates include:
 
@@ -32,4 +41,4 @@ Candidates include:
 
 Do not copy an evolving schema independently into all three repositories without a compatibility strategy. When a contract becomes executable, give it a schema version, fixtures, producer tests, consumer tests, and a migration policy. Record compatible repository versions or commits until releases share a unified versioning mechanism.
 
-This directory currently documents the contract program; it does not claim these schemas are already centralized.
+These schemas centralize the logical boundary; producer/consumer adoption and physical migration remain capability-specific and must use the documented status vocabulary.

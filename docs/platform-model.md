@@ -51,6 +51,12 @@ Words are inexpensive, shared lexical addresses; they are not entity identities.
 
 **Product intent:** word records can grow into a lemma-ready lexical graph containing roots, inflections, aliases, language, and morphology. “cat” and “cats,” or “add,” “adds,” and “added,” may therefore reach compatible linguistic candidates without storing every sentence combination. A shared lemma must never merge entity identities or semantic senses. Paths, Context, entity type, relationships, and authorization still disambiguate the intended entity. See [decision 0023](../decisions/0023-words-are-lexical-addresses.md).
 
+### Canonical persistence and derived retrieval
+
+Words, entities, addresses/subdomains, groups, typed relations, versions, grants, capabilities, installations, and local/server mappings share one versioned logical persistence boundary. Physical DynamoDB tables and compact legacy attributes remain replaceable adapters. New server modules use the canonical persistence port rather than making a table layout part of their behavioral contract. See [canonical entity substrate](canonical-entity-substrate.md) and [decision 0025](../decisions/0025-canonical-substrate-behind-persistence-port.md).
+
+Position, Search, embeddings, and RAG remain useful for bounded discovery across many users, but their postings are derived from a named canonical entity version and content hash. They can nominate candidates only. Exact canonical records and action-specific grants are reloaded before a candidate is returned, traversed, aggregated, or executed. A stale or missing retrieval posting may affect recall; it must never change the underlying fact or authority.
+
 ### ContextDB
 
 ContextDB holds the user's contextual graph: facts, relationships, properties, and referents used to interpret and answer requests. Its value is structured retrieval and composition, not merely storing message strings.

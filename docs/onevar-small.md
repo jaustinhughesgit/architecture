@@ -6,7 +6,7 @@ See the [medium overview](onevar-medium.md) or [canonical reading order](../READ
 
 A sentence is linguistically analyzed and matched to a validated Path. The Path materializes a canonical Essence representing the intended operation, then routes it to authorized execution. Known interactions run deterministically; an LLM helps interpret, diagnose, or build capabilities for novel situations, but proposed behavior must be tested before becoming reusable.
 
-Entities are the common addressable unit for data, logic, relationships, applications, communication, presentation, and governance. Words are inexpensive shared lexical references, detached from entity identity and extensible through lemmas. Subdomains address entities; groups, links, versions, and permissions connect and govern them. Parent-to-child entities can execute as middleware until one responds.
+Entities are the common addressable unit for data, logic, relationships, applications, communication, presentation, and governance. Words are inexpensive shared lexical references, detached from entity identity and extensible through lemmas. Addresses, groups, links, versions, and permissions govern them; parent-to-child entities form response middleware. Position/RAG narrows candidates but never supplies facts or authority.
 
 Execution occurs in three planes: trusted reusable browser logic, dynamic entity scripts isolated in `fileWorker`, and authorized server Compute/JPL.
 

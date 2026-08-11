@@ -36,3 +36,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0022: Hydrate public self-context by exact profile name](0022-public-profile-named-context-hydration.md)
 - [0023: Words are lexical addresses, not entity identities](0023-words-are-lexical-addresses.md)
 - [0024: Dynamic local entity code runs in File Worker](0024-dynamic-local-entity-code-runs-in-fileworker.md)
+- [0025: Canonical entity substrate behind a versioned persistence port](0025-canonical-substrate-behind-persistence-port.md)

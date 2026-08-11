@@ -62,6 +62,12 @@ Use the shared Words substrate for cheap lexical lookup and reuse, then resolve 
 
 Lemma and morphology support should reduce duplicated sentence and spelling combinations while preserving distinct meanings. Never merge a person's entity, a physical object, a capability, or a semantic sense merely because they share a token or root. Apply permission filters before returning or aggregating reverse word-to-entity matches.
 
+## Keep persistence canonical and retrieval derived
+
+New server work uses the canonical persistence port for Words, entities, addresses, groups, relations, versions, grants, capabilities, installations, and local/server mappings. Table names, compact legacy fields, Context-sidecar partitions, and index layouts belong in adapters so physical scaling changes do not redefine platform identity or behavior.
+
+Position, Search, embeddings, and RAG narrow candidate sets; they do not own facts or authority. Every posting names the canonical source identity/version and is safe to rebuild. Reload canonical records and apply action-specific grants before returning, aggregating, or executing a candidate.
+
 ## Keep dynamic local scripts off the main thread
 
 The browser main thread is the trusted coordinator for reusable 1var logic and validated rendering. Dynamic entity and user-authored scripts execute through `fileWorker`; Compute/JPL owns authorized server execution. Worker results are untrusted structured data or declarative requests until a trusted module validates their schema, permissions, size, destinations, and presentation safety.
@@ -112,3 +118,4 @@ Before implementing a new subsystem or exception, answer:
 10. If an entity changes, which declared input, output, effect, guarantee, or trust requirement proves repair versus fork?
 11. Is the term being resolved a lexical address, an entity identity, or both at different stages?
 12. Which execution plane owns the work, and what validation occurs when its result crosses into another plane?
+13. Is this record canonical, a temporary compatibility projection, or a rebuildable retrieval index?

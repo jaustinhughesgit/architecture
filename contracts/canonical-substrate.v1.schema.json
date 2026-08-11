@@ -1,0 +1,338 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architecture.1var.com/contracts/canonical-substrate.v1.schema.json",
+  "title": "1var canonical entity substrate records v1",
+  "description": "Logical records crossing the canonical persistence boundary. Physical DynamoDB layouts are compatibility details.",
+  "oneOf": [
+    { "$ref": "#/$defs/word" },
+    { "$ref": "#/$defs/entity" },
+    { "$ref": "#/$defs/address" },
+    { "$ref": "#/$defs/group" },
+    { "$ref": "#/$defs/relation" },
+    { "$ref": "#/$defs/versionRecord" },
+    { "$ref": "#/$defs/grant" },
+    { "$ref": "#/$defs/capability" },
+    { "$ref": "#/$defs/installation" },
+    { "$ref": "#/$defs/localMapping" },
+    { "$ref": "#/$defs/retrievalPosting" },
+    { "$ref": "#/$defs/mutation" }
+  ],
+  "$defs": {
+    "id": { "type": "string", "minLength": 1, "maxLength": 180 },
+    "version": { "type": "integer", "minimum": 1 },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "labels": {
+      "type": "array",
+      "maxItems": 32,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 200 }
+    },
+    "principal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["principalType", "principalId"],
+      "properties": {
+        "principalType": { "enum": ["user", "device", "group", "organization", "public", "service"] },
+        "principalId": { "$ref": "#/$defs/id" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actor", "sourceType", "recordedAt"],
+      "properties": {
+        "actor": { "$ref": "#/$defs/principal" },
+        "sourceType": { "enum": ["voice", "message", "path", "entity", "worker", "compute", "import", "migration", "system"] },
+        "sourceId": { "type": ["string", "null"], "maxLength": 300 },
+        "pathSignature": { "type": ["string", "null"], "maxLength": 500 },
+        "requestId": { "type": ["string", "null"], "maxLength": 180 },
+        "recordedAt": { "$ref": "#/$defs/timestamp" }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "tombstone"],
+      "properties": {
+        "state": { "enum": ["draft", "active", "deprecated", "revoked", "deleted"] },
+        "tombstone": { "type": "boolean" },
+        "supersedesVersion": { "type": ["integer", "null"], "minimum": 1 },
+        "deletedAt": { "oneOf": [{ "$ref": "#/$defs/timestamp" }, { "type": "null" }] }
+      }
+    },
+    "base": {
+      "type": "object",
+      "required": ["schemaVersion", "recordType", "id", "version", "owner", "provenance", "lifecycle", "updatedAt"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "recordType": { "type": "string" },
+        "id": { "$ref": "#/$defs/id" },
+        "version": { "$ref": "#/$defs/version" },
+        "owner": { "$ref": "#/$defs/principal" },
+        "workspaceId": { "type": ["string", "null"], "maxLength": 180 },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "lifecycle": { "$ref": "#/$defs/lifecycle" },
+        "createdAt": { "$ref": "#/$defs/timestamp" },
+        "updatedAt": { "$ref": "#/$defs/timestamp" }
+      }
+    },
+    "stringValue": {
+      "type": "object", "additionalProperties": false, "required": ["valueType", "value"],
+      "properties": { "valueType": { "const": "string" }, "value": { "type": "string", "maxLength": 100000 } }
+    },
+    "numberValue": {
+      "type": "object", "additionalProperties": false, "required": ["valueType", "value"],
+      "properties": { "valueType": { "const": "number" }, "value": { "type": "number" }, "unitWordId": { "$ref": "#/$defs/id" } }
+    },
+    "booleanValue": {
+      "type": "object", "additionalProperties": false, "required": ["valueType", "value"],
+      "properties": { "valueType": { "const": "boolean" }, "value": { "type": "boolean" } }
+    },
+    "temporalValue": {
+      "type": "object", "additionalProperties": false, "required": ["valueType", "value"],
+      "properties": {
+        "valueType": { "enum": ["date", "time", "date-time", "duration"] },
+        "value": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "timeZone": { "type": "string", "maxLength": 100 }
+      }
+    },
+    "jsonValue": {
+      "type": "object", "additionalProperties": false, "required": ["valueType", "value"],
+      "properties": { "valueType": { "const": "json" }, "value": {} }
+    },
+    "entityReference": {
+      "type": "object", "additionalProperties": false, "required": ["valueType", "entityId"],
+      "properties": { "valueType": { "const": "entity-ref" }, "entityId": { "$ref": "#/$defs/id" }, "entityVersion": { "$ref": "#/$defs/version" } }
+    },
+    "protectedReference": {
+      "type": "object", "additionalProperties": false, "required": ["valueType", "assetId", "trustMode"],
+      "properties": {
+        "valueType": { "const": "protected-ref" },
+        "assetId": { "$ref": "#/$defs/id" },
+        "trustMode": { "enum": ["local-zero-knowledge", "trusted-server"] }
+      }
+    },
+    "typedValue": {
+      "oneOf": [
+        { "$ref": "#/$defs/stringValue" }, { "$ref": "#/$defs/numberValue" },
+        { "$ref": "#/$defs/booleanValue" }, { "$ref": "#/$defs/temporalValue" },
+        { "$ref": "#/$defs/jsonValue" }, { "$ref": "#/$defs/entityReference" },
+        { "$ref": "#/$defs/protectedReference" }
+      ]
+    },
+    "word": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["recordType", "surface", "normalized"],
+          "properties": {
+            "schemaVersion": {}, "recordType": { "const": "word" }, "id": {}, "version": {}, "owner": {}, "workspaceId": {}, "provenance": {}, "lifecycle": {}, "createdAt": {}, "updatedAt": {},
+            "surface": { "type": "string", "minLength": 1, "maxLength": 200 },
+            "normalized": { "type": "string", "minLength": 1, "maxLength": 200 },
+            "lemmaWordId": { "type": ["string", "null"], "maxLength": 180 },
+            "aliases": { "$ref": "#/$defs/labels" },
+            "language": { "type": "string", "minLength": 2, "maxLength": 35 },
+            "senseKey": { "type": ["string", "null"], "maxLength": 180 },
+            "morphology": { "type": "object", "maxProperties": 24, "additionalProperties": { "type": ["string", "number", "boolean"] } }
+          }
+        }
+      ]
+    },
+    "entity": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["recordType", "entityKind", "wordIds", "properties"],
+          "properties": {
+            "schemaVersion": {}, "recordType": { "const": "entity" }, "id": {}, "version": {}, "owner": {}, "workspaceId": {}, "provenance": {}, "lifecycle": {}, "createdAt": {}, "updatedAt": {},
+            "entityKind": { "enum": ["data", "person", "physical", "structural", "executable", "interaction", "presentation", "communication", "navigation", "automation", "governance", "capability", "installation", "composite"] },
+            "wordIds": { "type": "array", "maxItems": 64, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+            "properties": { "type": "object", "maxProperties": 128, "additionalProperties": { "$ref": "#/$defs/typedValue" } },
+            "parentEntityId": { "type": ["string", "null"], "maxLength": 180 },
+            "groupIds": { "type": "array", "maxItems": 64, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+            "materializedOutput": { "oneOf": [{ "$ref": "#/$defs/typedValue" }, { "type": "null" }] }
+          }
+        }
+      ]
+    },
+    "address": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["recordType", "entityId", "wordId", "path", "visibility"],
+          "properties": {
+            "schemaVersion": {}, "recordType": { "const": "address" }, "id": {}, "version": {}, "owner": {}, "workspaceId": {}, "provenance": {}, "lifecycle": {}, "createdAt": {}, "updatedAt": {},
+            "entityId": { "$ref": "#/$defs/id" }, "wordId": { "$ref": "#/$defs/id" },
+            "groupId": { "type": ["string", "null"], "maxLength": 180 },
+            "path": { "type": "string", "minLength": 1, "maxLength": 1000 },
+            "visibility": { "enum": ["private", "participants", "workspace", "public"] },
+            "positionRef": { "type": ["string", "null"], "maxLength": 180 }
+          }
+        }
+      ]
+    },
+    "group": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object", "additionalProperties": false, "required": ["recordType", "wordId", "headEntityId"],
+          "properties": {
+            "schemaVersion": {}, "recordType": { "const": "group" }, "id": {}, "version": {}, "owner": {}, "workspaceId": {}, "provenance": {}, "lifecycle": {}, "createdAt": {}, "updatedAt": {},
+            "wordId": { "$ref": "#/$defs/id" }, "headEntityId": { "$ref": "#/$defs/id" },
+            "memberEntityIds": { "type": "array", "maxItems": 1000, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } }
+          }
+        }
+      ]
+    },
+    "predicate": {
+      "oneOf": [
+        { "type": "object", "additionalProperties": false, "required": ["wordId"], "properties": { "wordId": { "$ref": "#/$defs/id" } } },
+        { "type": "object", "additionalProperties": false, "required": ["entityId"], "properties": { "entityId": { "$ref": "#/$defs/id" } } }
+      ]
+    },
+    "relation": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["recordType", "subjectEntityId", "predicate", "object", "relationKind"],
+          "properties": {
+            "schemaVersion": {}, "recordType": { "const": "relation" }, "id": {}, "version": {}, "owner": {}, "workspaceId": {}, "provenance": {}, "lifecycle": {}, "createdAt": {}, "updatedAt": {},
+            "subjectEntityId": { "$ref": "#/$defs/id" }, "predicate": { "$ref": "#/$defs/predicate" },
+            "object": { "$ref": "#/$defs/typedValue" },
+            "relationKind": { "enum": ["fact", "observation", "property", "link", "map", "extend", "use", "substitute", "membership", "lineage"] }
+          }
+        }
+      ]
+    },
+    "versionRecord": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["recordType", "resourceType", "resourceId", "resourceVersion", "changeType", "snapshotHash"],
+          "properties": {
+            "schemaVersion": {}, "recordType": { "const": "version" }, "id": {}, "version": {}, "owner": {}, "workspaceId": {}, "provenance": {}, "lifecycle": {}, "createdAt": {}, "updatedAt": {},
+            "resourceType": { "enum": ["word", "entity", "address", "group", "relation", "grant", "capability", "installation"] },
+            "resourceId": { "$ref": "#/$defs/id" }, "resourceVersion": { "$ref": "#/$defs/version" },
+            "changeType": { "enum": ["create", "replace", "deprecate", "revoke", "tombstone", "restore", "migrate"] },
+            "snapshotHash": { "type": "string", "minLength": 32, "maxLength": 128 }
+          }
+        }
+      ]
+    },
+    "grant": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["recordType", "principal", "resourceType", "resourceId", "actions"],
+          "properties": {
+            "schemaVersion": {}, "recordType": { "const": "grant" }, "id": {}, "version": {}, "owner": {}, "workspaceId": {}, "provenance": {}, "lifecycle": {}, "createdAt": {}, "updatedAt": {},
+            "principal": { "$ref": "#/$defs/principal" },
+            "resourceType": { "enum": ["word", "entity", "relation", "group", "address", "capability", "installation", "protected-asset"] },
+            "resourceId": { "$ref": "#/$defs/id" },
+            "actions": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["find", "read", "aggregate", "use", "execute", "set", "edit", "delete", "delegate", "publish", "govern"] } },
+            "expiresAt": { "oneOf": [{ "$ref": "#/$defs/timestamp" }, { "type": "null" }] },
+            "conditions": { "type": "object", "maxProperties": 32 }
+          }
+        }
+      ]
+    },
+    "contract": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contractVersion", "inputs", "outputs", "effects", "executionPlane"],
+      "properties": {
+        "contractVersion": { "$ref": "#/$defs/version" },
+        "inputs": { "type": "object" }, "outputs": { "type": "object" },
+        "effects": { "type": "array", "uniqueItems": true, "items": { "enum": ["read", "write", "network", "communication", "navigation", "automation", "governance", "presentation"] } },
+        "executionPlane": { "enum": ["browser-main", "file-worker", "compute-jpl"] }
+      }
+    },
+    "capability": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object", "additionalProperties": false, "required": ["recordType", "entityId", "contract", "implementationRef"],
+          "properties": {
+            "schemaVersion": {}, "recordType": { "const": "capability" }, "id": {}, "version": {}, "owner": {}, "workspaceId": {}, "provenance": {}, "lifecycle": {}, "createdAt": {}, "updatedAt": {},
+            "entityId": { "$ref": "#/$defs/id" }, "contract": { "$ref": "#/$defs/contract" },
+            "implementationRef": { "$ref": "#/$defs/id" }, "sourceCapabilityId": { "type": ["string", "null"], "maxLength": 180 }
+          }
+        }
+      ]
+    },
+    "installation": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object", "additionalProperties": false, "required": ["recordType", "capabilityId", "principal", "bindings"],
+          "properties": {
+            "schemaVersion": {}, "recordType": { "const": "installation" }, "id": {}, "version": {}, "owner": {}, "workspaceId": {}, "provenance": {}, "lifecycle": {}, "createdAt": {}, "updatedAt": {},
+            "capabilityId": { "$ref": "#/$defs/id" }, "principal": { "$ref": "#/$defs/principal" },
+            "bindings": { "type": "object", "maxProperties": 128, "additionalProperties": { "$ref": "#/$defs/typedValue" } },
+            "configuration": { "type": "object" }, "protectedAssetIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } }
+          }
+        }
+      ]
+    },
+    "localMapping": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object", "additionalProperties": false, "required": ["recordType", "principalId", "localId", "canonicalId", "canonicalVersion"],
+          "properties": {
+            "schemaVersion": {}, "recordType": { "const": "local-mapping" }, "id": {}, "version": {}, "owner": {}, "workspaceId": {}, "provenance": {}, "lifecycle": {}, "createdAt": {}, "updatedAt": {},
+            "principalId": { "$ref": "#/$defs/id" }, "localId": { "$ref": "#/$defs/id" },
+            "canonicalId": { "$ref": "#/$defs/id" }, "canonicalVersion": { "$ref": "#/$defs/version" }
+          }
+        }
+      ]
+    },
+    "retrievalPosting": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["recordType", "derived", "authorizationMode", "entityId", "entityVersion", "indexSetId", "contentHash", "coordinates"],
+          "properties": {
+            "schemaVersion": {}, "recordType": { "const": "retrieval-posting" }, "id": {}, "version": {}, "owner": {}, "workspaceId": {}, "provenance": {}, "lifecycle": {}, "createdAt": {}, "updatedAt": {},
+            "derived": { "const": true }, "authorizationMode": { "const": "candidate-only" },
+            "entityId": { "$ref": "#/$defs/id" }, "entityVersion": { "$ref": "#/$defs/version" },
+            "indexSetId": { "$ref": "#/$defs/id" }, "modelId": { "type": ["string", "null"], "maxLength": 180 },
+            "contentHash": { "type": "string", "minLength": 32, "maxLength": 128 },
+            "coordinates": { "type": "object", "minProperties": 1, "maxProperties": 32, "additionalProperties": { "type": ["string", "number", "integer"] } },
+            "scopeHints": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } }
+          }
+        }
+      ]
+    },
+    "mutationWrite": {
+      "type": "object", "additionalProperties": false, "required": ["operation", "record"],
+      "properties": {
+        "operation": { "enum": ["create", "replace", "tombstone"] },
+        "expectedVersion": { "type": ["integer", "null"], "minimum": 1 },
+        "record": {
+          "oneOf": [
+            { "$ref": "#/$defs/word" }, { "$ref": "#/$defs/entity" }, { "$ref": "#/$defs/address" },
+            { "$ref": "#/$defs/group" }, { "$ref": "#/$defs/relation" }, { "$ref": "#/$defs/versionRecord" }, { "$ref": "#/$defs/grant" },
+            { "$ref": "#/$defs/capability" }, { "$ref": "#/$defs/installation" }, { "$ref": "#/$defs/localMapping" }
+          ]
+        }
+      }
+    },
+    "mutation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schemaVersion", "recordType", "id", "version", "owner", "workspaceId", "provenance", "lifecycle", "updatedAt", "idempotencyKey", "writes"],
+      "properties": {
+        "schemaVersion": { "const": 1 }, "recordType": { "const": "mutation" }, "id": { "$ref": "#/$defs/id" },
+        "version": { "$ref": "#/$defs/version" }, "owner": { "$ref": "#/$defs/principal" }, "workspaceId": { "$ref": "#/$defs/id" },
+        "provenance": { "$ref": "#/$defs/provenance" }, "lifecycle": { "$ref": "#/$defs/lifecycle" }, "createdAt": { "$ref": "#/$defs/timestamp" }, "updatedAt": { "$ref": "#/$defs/timestamp" },
+        "idempotencyKey": { "$ref": "#/$defs/id" }, "writes": { "type": "array", "minItems": 1, "maxItems": 500, "items": { "$ref": "#/$defs/mutationWrite" } }
+      }
+    }
+  }
+}
