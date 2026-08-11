@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://1var.com/contracts/test-system-reset.v1.schema.json",
+  "title": "1var isolated test-system reset v1",
+  "description": "Canonical reset request, status, and result payloads inside the existing Compute envelope.",
+  "oneOf": [
+    { "$ref": "#/$defs/request" },
+    { "$ref": "#/$defs/status" },
+    { "$ref": "#/$defs/result" }
+  ],
+  "$defs": {
+    "request": {
+      "type": "object",
+      "required": ["testEnvironmentId", "mode"],
+      "properties": {
+        "testEnvironmentId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "mode": { "const": "canonical" }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "type": "object",
+      "required": [
+        "available", "reasonCode", "accountId", "environmentId", "mode",
+        "contractVersion", "legacyPurgeRequired", "legacyPurgeCompletedAt"
+      ],
+      "properties": {
+        "available": { "type": "boolean" },
+        "reasonCode": { "type": ["string", "null"] },
+        "accountId": { "type": ["string", "null"] },
+        "environmentId": { "type": ["string", "null"] },
+        "mode": { "const": "canonical" },
+        "contractVersion": { "const": 1 },
+        "legacyPurgeRequired": { "type": ["boolean", "null"] },
+        "legacyPurgeCompletedAt": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "tableResult": {
+      "type": "object",
+      "required": ["tableName", "deleted"],
+      "properties": {
+        "tableName": { "type": "string", "minLength": 1 },
+        "deleted": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "failure": {
+      "type": "object",
+      "required": ["tableName", "error"],
+      "properties": {
+        "tableName": { "type": "string", "minLength": 1 },
+        "error": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "phase": {
+      "type": "object",
+      "required": ["performed"],
+      "properties": {
+        "performed": { "type": "boolean" },
+        "completed": { "type": "boolean" },
+        "completedAt": { "type": ["string", "null"], "format": "date-time" },
+        "clearedTables": { "type": "array", "items": { "$ref": "#/$defs/tableResult" } },
+        "skippedTables": { "type": "array", "items": { "type": "string" } },
+        "failures": { "type": "array", "items": { "$ref": "#/$defs/failure" } }
+      },
+      "additionalProperties": false
+    },
+    "result": {
+      "type": "object",
+      "required": [
+        "alert", "mode", "contractVersion", "legacyPurge", "canonicalReset",
+        "clearedTables", "skippedTables", "failures"
+      ],
+      "properties": {
+        "alert": { "enum": ["success", "failed"] },
+        "mode": { "const": "canonical" },
+        "contractVersion": { "const": 1 },
+        "legacyPurge": { "$ref": "#/$defs/phase" },
+        "canonicalReset": { "$ref": "#/$defs/phase" },
+        "compatibilityCleanup": { "$ref": "#/$defs/phase" },
+        "identityCleanup": { "$ref": "#/$defs/phase" },
+        "resetCounters": { "type": "array", "items": { "type": "string" } },
+        "clearedTables": { "type": "array", "items": { "$ref": "#/$defs/tableResult" } },
+        "skippedTables": { "type": "array", "items": { "type": "string" } },
+        "failures": { "type": "array", "items": { "$ref": "#/$defs/failure" } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

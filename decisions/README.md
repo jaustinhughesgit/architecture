@@ -39,3 +39,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0025: Canonical entity substrate behind a versioned persistence port](0025-canonical-substrate-behind-persistence-port.md)
 - [0026: Sharded canonical Context publication and hydration](0026-sharded-canonical-context-publication-and-hydration.md)
 - [0027: Versioned entity middleware, composition, and governance](0027-versioned-entity-middleware-composition-and-governance.md)
+- [0028: Order the legacy purge before canonical test resets](0028-ordered-legacy-purge-and-canonical-test-reset.md)

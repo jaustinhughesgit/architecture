@@ -102,7 +102,9 @@ locally tested exact Path or family alias
   → server revalidates the Path, origin, and local proof summary
   → retained shared foundation store records the exact artifact and provenance
   → every identity merges it during initial Path hydration
-  → hard test reset clears identity data/Paths but preserves the confirmed foundation
+  → first canonical test reset purges legacy residue, then clears active identity data/Paths
+  → later canonical resets skip the completed legacy purge
+  → every reset preserves the confirmed foundation
 ```
 
 Confirmation promotes wording coverage, not semantic authority. A confirmed alias keeps its own grammar and bindings and reuses the versioned semantic operation already compiled by the browser. Model output cannot confirm itself or supply a replacement executable transform.
