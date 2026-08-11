@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architecture.1var.com/contracts/entity-middleware.v1.schema.json",
+  "title": "1var entity middleware contract v1",
+  "oneOf": [
+    { "$ref": "#/$defs/invocation" },
+    { "$ref": "#/$defs/decision" },
+    { "$ref": "#/$defs/result" }
+  ],
+  "$defs": {
+    "id": { "type": "string", "minLength": 1, "maxLength": 180 },
+    "principal": {
+      "type": "object", "additionalProperties": false,
+      "required": ["principalType", "principalId"],
+      "properties": {
+        "principalType": { "enum": ["user", "device", "group", "organization", "public", "service"] },
+        "principalId": { "$ref": "#/$defs/id" }
+      }
+    },
+    "lineageNode": {
+      "type": "object", "additionalProperties": false,
+      "required": ["entityId", "entityVersion"],
+      "properties": {
+        "entityId": { "$ref": "#/$defs/id" },
+        "entityVersion": { "type": "integer", "minimum": 1 },
+        "addressId": { "$ref": "#/$defs/id" },
+        "capabilityId": { "$ref": "#/$defs/id" }
+      }
+    },
+    "effect": {
+      "type": "object", "additionalProperties": true,
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["read", "write", "network", "communication", "navigation", "automation", "governance", "presentation"] }
+      }
+    },
+    "error": {
+      "type": "object", "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": { "code": { "$ref": "#/$defs/id" }, "message": { "type": "string", "maxLength": 1000 } }
+    },
+    "invocation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contractVersion", "recordType", "invocationId", "principal", "targetEntityId", "lineage", "input"],
+      "properties": {
+        "contractVersion": { "const": 1 }, "recordType": { "const": "entity-middleware-invocation" },
+        "invocationId": { "$ref": "#/$defs/id" }, "principal": { "$ref": "#/$defs/principal" },
+        "targetEntityId": { "$ref": "#/$defs/id" },
+        "lineage": { "type": "array", "minItems": 1, "maxItems": 64, "items": { "$ref": "#/$defs/lineageNode" } },
+        "input": {}, "context": { "type": "object" }, "idempotencyKey": { "$ref": "#/$defs/id" }
+      }
+    },
+    "decision": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contractVersion", "recordType", "disposition", "effects"],
+      "properties": {
+        "contractVersion": { "const": 1 }, "recordType": { "const": "entity-middleware-decision" },
+        "disposition": { "enum": ["pass", "respond", "fail"] }, "result": {},
+        "error": { "$ref": "#/$defs/error" },
+        "effects": { "type": "array", "maxItems": 128, "items": { "$ref": "#/$defs/effect" } }
+      },
+      "allOf": [
+        { "if": { "properties": { "disposition": { "const": "respond" } } }, "then": { "required": ["result"] } },
+        { "if": { "properties": { "disposition": { "const": "fail" } } }, "then": { "required": ["error"] } }
+      ]
+    },
+    "result": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contractVersion", "recordType", "disposition", "effects", "trace"],
+      "properties": {
+        "contractVersion": { "const": 1 }, "recordType": { "const": "entity-middleware-result" },
+        "disposition": { "enum": ["pass", "respond", "fail"] }, "result": {},
+        "error": { "$ref": "#/$defs/error" },
+        "effects": { "type": "array", "maxItems": 128, "items": { "$ref": "#/$defs/effect" } },
+        "trace": {
+          "type": "array", "maxItems": 64,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["entityId", "index", "disposition", "durationMs"],
+            "properties": {
+              "entityId": { "$ref": "#/$defs/id" }, "index": { "type": "integer", "minimum": 0 },
+              "disposition": { "enum": ["pass", "respond", "fail"] }, "durationMs": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      },
+      "allOf": [
+        { "if": { "properties": { "disposition": { "const": "respond" } } }, "then": { "required": ["result"] } },
+        { "if": { "properties": { "disposition": { "const": "fail" } } }, "then": { "required": ["error"] } }
+      ]
+    }
+  }
+}

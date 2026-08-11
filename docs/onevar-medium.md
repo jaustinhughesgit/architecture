@@ -119,7 +119,7 @@ The general composition primitives `map`, `extend`, `link`, `use`, and `substitu
 
 Entities can form parent-and-child middleware lineages.
 
-When a target entity is invoked, the platform resolves the authorized path from its root through the selected child. Each entity may examine the request, contribute state or behavior, pass control forward, or return a response. The first applicable entity that responds can complete the invocation.
+When a target entity is invoked, middleware v1 resolves one acyclic owning path from its root through the selected child. Every node reloads current `execute` authority, then returns `pass`, `respond`, or `fail`; the first response or failure terminates the invocation. Non-owning `map`, `link`, `use`, and `substitute` relations do not silently become ancestors.
 
 This permits behavior such as:
 
@@ -148,6 +148,8 @@ Local-first does not mean local-only.
 After an ordinary non-protected mutation commits locally, permitted changes should enter a durable encrypted publication outbox. The server creates or resolves canonical entities, words, subdomains, groups, links, versions, and access relationships, then returns authoritative identifiers. The browser persists the local-to-server mapping and replaces temporary local identity where appropriate.
 
 Other users and devices hydrate only the entities and relationships they are authorized to receive. Sharing must preserve source, provenance, version, visibility, action-specific permissions, and revocation.
+
+The canonical governance decision uses the same `find`, `read`, `aggregate`, `use`, `execute`, `set`, `edit`, `delete`, `delegate`, `publish`, and `govern` vocabulary across entities and relations. Revoked or deleted state overrides stale grants. Lifecycle changes require the expected version and write the new state, immutable version evidence, and sanitized audit evidence atomically. Protected assets still require their additional cryptographic wrapping, consent, and execution-boundary checks.
 
 The browser-to-server publication path retains its Context graph sidecar during migration. Its encrypted outbox, idempotency, server-ID replacement, participant/public-profile audiences, tombstones, and hydration remain active. New publications now compile canonical Words/entities/addresses/Context groups/relations/versions/grants and sharded lookup projections before writing that compatibility sidecar. Hydration reads and authorizes canonical records while including old sidecar-only data. Historical backfill, parity cutover, and sidecar retirement remain explicit later work.
 

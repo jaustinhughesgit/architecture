@@ -38,3 +38,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0024: Dynamic local entity code runs in File Worker](0024-dynamic-local-entity-code-runs-in-fileworker.md)
 - [0025: Canonical entity substrate behind a versioned persistence port](0025-canonical-substrate-behind-persistence-port.md)
 - [0026: Sharded canonical Context publication and hydration](0026-sharded-canonical-context-publication-and-hydration.md)
+- [0027: Versioned entity middleware, composition, and governance](0027-versioned-entity-middleware-composition-and-governance.md)

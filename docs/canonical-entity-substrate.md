@@ -93,5 +93,7 @@ Exact Word and lemma indexes should answer vocabulary-address questions cheaply.
 - **Context compilation:** implemented foundation with canonical-first, sidecar-second idempotent dual-write.
 - **Canonical hydration/query:** implemented foundation for grant-checked Context hydration, exact profiles, bounded Word candidates, and sidecar dual-read. Broad typed traversal/aggregation remains incomplete.
 - **Position/RAG:** new postings use partition-key shards and server-derived policy; Search unions v2/v1 candidates, reloads canonical addresses, and authorizes before ranking. Stale cleanup, exact reranking, and deployed scale/cost proof remain incomplete.
+- **Composition/middleware:** five typed primitives, deterministic owning lineage, middleware decisions, and active route conformance are implemented foundations. Cross-plane invocation adoption remains phase 10.
+- **Governance/lifecycle:** one action decision plus conditional lifecycle/version/audit transactions are implemented foundations. Legacy grant backfill and non-composition consumer migration remain incomplete.
 
-See [canonical indexing and Context compilation](canonical-indexing-and-context-compilation.md) and [decision 0026](../decisions/0026-sharded-canonical-context-publication-and-hydration.md).
+See [canonical indexing and Context compilation](canonical-indexing-and-context-compilation.md), [entity middleware, composition, and governance](entity-middleware-composition-and-governance.md), [decision 0026](../decisions/0026-sharded-canonical-context-publication-and-hydration.md), and [decision 0027](../decisions/0027-versioned-entity-middleware-composition-and-governance.md).

@@ -22,10 +22,11 @@ Status classes:
 | `groups` | Foundation | Named grouping and head identity | Group plus typed membership/use relations. Preserve group IDs and general `use`/`substitute` behavior. |
 | `links` | Foundation | Whole/part/property edges and reverse lookup keys | Typed Relation records. Keep `map`, `extend`, `link`, `use`, and `substitute` mechanically distinct. |
 | `versions` | Foundation | Entity/version history | Canonical version evidence. No in-place rewrite that loses provenance. |
-| `access`, `verified`, `perm_grants` | Foundation + adapter | Older access/verification records and newer policy grants | One action-specific Grant contract. Dual-read until precedence, revocation, expiry, and delegation are formally reconciled. |
+| `access`, `verified`, `perm_grants` | Foundation + adapter | Older access/verification records and newer policy grants | One action-specific Grant decision now evaluates owner, current grant, expiry, public-read limits, version, and exact legacy evidence. Continue consumer migration and grant backfill before retiring adapters. |
 | S3 public/private entity bundles | Foundation/support | Durable entity content, JPL, presentation, local-worker assets, cached output | Canonical entity/capability implementation references. Preserve public/private and protected-asset boundaries. |
 | `context_graph` / `ContextGraphTable` | Adapter | Participant/public audience projections, profiles, mappings, idempotency, stable IDs, versions, tombstones, hydration | New writes compile to canonical Words/entities/addresses/groups/relations/versions/grants first; dual-read preserves old records. Keep through phase-13 backfill/parity/rollback. |
 | `CanonicalProjectionTable` | Derived | Sharded audience, Word-to-entity, profile, local-mapping, and idempotency lookup rows | Rebuildable indexes over canonical IDs/versions. Reload facts and grants; never infer identity or authority from a projection. |
+| `CanonicalAuditTable` | Foundation evidence | Append-only action decisions and lifecycle/composition mutations | Retained encrypted, month/shard-partitioned audit evidence. Metadata is allow-listed; never store payload or protected plaintext. |
 | `paths`, `PathFoundationTable` | Support | Identity-scoped learned Paths and reviewed shared foundation | Interaction index referencing canonical operations/entities. Paths remain browser-local execution/reuse contracts, not fact storage. |
 | `ProtectedAssetsTable`, audit table, ciphertext objects | Support | Trusted-server ciphertext/references, grants, consent, and audit | Canonical records contain protected references only. Never copy plaintext into entities, Words, RAG, logs, or provenance. |
 | `anchor_bands` | Derived | L0/L1/band/shard candidate postings for Position/Search | New `AB2` writes shard in the partition key and carry entity revision/hash. Search reads v2 plus legacy v1, reloads canonical addresses, and authorizes before ranking/return. Stale cleanup and deployed load gates remain. |
@@ -42,7 +43,7 @@ Status classes:
 | `compute/app/routes/shared.js` | Shared getters for subdomains, entities, Words, groups, access, verification, links, versions, and creators | First consumer of the canonical persistence port. Compatibility return envelopes stay stable. |
 | `compute/app/routes/modules/contextGraph.js` | Active Context v1 publication, audience derivation, profile lookup, mappings, idempotency, hydration, tombstones | Canonical-first dual-write and grant-checked dual-read are active when the projection table is configured; keep sidecar compatibility through phase 13. |
 | `compute/app/routes/controller.js` and creation modules | Direct counters and physical Words/entity/version/subdomain writes | Migrate to canonical mutation/write methods before scale-ID work and cutover. |
-| relationship modules: `map`, `extend`, `links`, `groups`, `useGroup`, `substituteGroup` | Existing composition mechanics across entity and link records | Formalize relation effects and per-node authorization; preserve behavior and IDs. |
+| relationship modules: `map`, `extend`, `links`, `groups`, `useGroup`, `substituteGroup` | Existing composition mechanics across entity and link records | Active `map`, `extend`, `link`, `useGroup`, and `substituteGroup` routes now use the canonical conformance adapter and dual-write typed relation/audit fields. Backfill historical fields and migrate alternate `groups` compatibility code later. |
 | `runEntity`, JPL, Shorthand, ArrayLogic/Convert | Governed server execution, composition/build, and some persistence/index side effects | Keep execution distinct from persistence; phase 10 unifies invocation envelopes, not runtime languages or trust planes. |
 | `anchor`, `position`, `search`, `anchors.js` | Position writes, anchor-band postings, semantic candidate search | Now use the persistence port for positioning/retrieval, server-derived identity/policy, partition-key shards, tenant/global union, current canonical reload, and authorization before `topK`. Stale removal, exact reranking, and deployed cost/load proof remain phase 14. |
 | capability registry/build/edit/diagnosis | Definitions, manifests, model jobs, repair/fork fields | Map definitions and user installations separately; preserve model-output validation and repair evidence. |
@@ -67,7 +68,7 @@ The migration is not complete if it loses any of the following:
 - idempotent Context publication, stable ID replacement, participant/public scopes, tombstones, profiles, cursors, and multi-session hydration;
 - Position/Search/RAG as a scalable, permission-filtered candidate layer over the same canonical identities.
 
-## Phase 1–6 exit assessment
+## Phase 1–9 exit assessment
 
 | Requirement | Status after this phase |
 | --- | --- |
@@ -83,5 +84,10 @@ The migration is not complete if it loses any of the following:
 | All legacy creator counters are retired | Not yet; consumer-by-consumer compatibility remains |
 | Canonical/Position indexes distribute hot domains | Implemented foundation |
 | Production-scale latency, throughput, and cost are proven | Phase 14 |
+| Middleware ordering, termination, cancellation, and per-node authorization are versioned | Implemented foundation |
+| Five composition primitives have distinct mechanical semantics and canonical conformance writes | Implemented foundation |
+| Lifecycle state, immutable version evidence, and audit can commit atomically | Implemented foundation |
+| Every execution plane uses the middleware transport | Phase 10 |
+| Historical composition fields and grants are backfilled | Phase 13 |
 
-No table, bundle, protected record, Path, or local Context record is deleted in phases 1–6. The sidecar and legacy anchor keys remain readable rollback inputs.
+No table, bundle, protected record, Path, or local Context record is deleted in phases 1–9. The sidecar, legacy composition fields, legacy grants, and legacy anchor keys remain readable rollback inputs.

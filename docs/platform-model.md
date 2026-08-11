@@ -35,15 +35,17 @@ Entities are reusable units of information, behavior, presentation, or interacti
 
 An entity may be a hard stored asset, an executable asset, an interaction asset, a structural graph node, or a compute capability. Compute is one entity behavior, not the definition of an entity. Browser and server entities share this platform identity because permitted local entities are intended to publish into durable, addressable, governable server records. See [distributed entities and Context publication](capabilities/distributed-entities.md).
 
-Entities can have parent/child lineage. **Product intent:** invoking a child can execute the relevant parent lineage from the top parent through the selected child. This makes a lineage comparable to a composable headless experience rather than an isolated function call. Lineage order, parameter flow, failure behavior, and permission checks must remain explicit contracts as implementation matures.
+Entities can have parent/child lineage. Entity middleware v1 resolves one deterministic owning lineage from root through the selected target, authorizes `execute` at every node, invokes sequentially, and accepts only `pass`, `respond`, or `fail`. The first response or failure terminates the chain; cycles, ambiguous owning parents, and depth overflow fail closed. Retry is never implicit. The runtime contract is implemented as a Compute foundation; phase 10 owns adoption by the browser, `fileWorker`, and active Compute transports without changing their trust boundaries.
 
-Current browser and Compute implementations provide foundations for this middleware behavior: an invocation can resolve a root-to-target lineage, let each authorized entity pass control or respond, and bubble a function-style response back to the caller. The complete ordering, parameter, error, per-node authorization, and observability contract remains **Partial**. An entity may also expose a materialized output for a safe fast response, but cache keys, dependencies, freshness, invalidation, and permission changes must be explicit before that output can be treated as authoritative.
+An entity may also expose a materialized output for a safe fast response, but it remains subject to the same current authorization. Cache keys, inputs, dependencies, freshness, invalidation, version, and permission scope must be explicit before that output can be authoritative. See [entity middleware, composition, and governance](entity-middleware-composition-and-governance.md).
 
 ### Entity relationships
 
 `map`, `extend`, `link`, `use`, and `substitute` are general-purpose composition and control primitives. They are not assigned one permanent business meaning.
 
 They may support many patterns, including provider protocol composition, onboarding experiences, education relationships, product catalogs, governed transactions, content reuse, or future patterns not yet known. Documentation and implementations should describe their mechanical semantics and constraints separately from example use cases.
+
+Only owning `extend`/lineage edges establish middleware ancestry. `map`, `link`, `use`, and `substitute` remain non-owning so reference and reuse cannot silently acquire ownership, lifecycle, or execution authority.
 
 ### Words and lexical addressing
 
@@ -202,3 +204,5 @@ A provider protocol can be represented using entities and lineage for workflow, 
 17. A word, alias, or lemma can address entity candidates but is never itself proof of entity identity, ownership, meaning, or permission.
 18. Dynamic local entity or user-authored script source executes in `fileWorker`, never on the browser main thread; worker output receives no authority until a trusted module validates and handles it.
 19. Permitted cross-user facts should converge on the canonical entity, word, relationship, version, and access substrate. A synchronization sidecar may support migration, but it must not become an undocumented parallel ontology.
+20. Every middleware node requires current action authorization; relationship membership, visibility, retrieval ranking, or a previous node's grant cannot authorize the next node.
+21. Revoked or deleted canonical state wins over stale grants and materialized output. Lifecycle mutations require an expected version and append immutable, sanitized audit evidence.

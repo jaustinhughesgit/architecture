@@ -14,6 +14,12 @@ const examples = JSON.parse(fs.readFileSync(
   path.join(root, "contracts/examples/canonical-substrate.v1.examples.json"),
   "utf8"
 ));
+const middleware = JSON.parse(fs.readFileSync(
+  path.join(root, "contracts/entity-middleware.v1.schema.json"), "utf8"
+));
+const governance = JSON.parse(fs.readFileSync(
+  path.join(root, "contracts/canonical-governance.v1.schema.json"), "utf8"
+));
 
 test("v1 dispatches every frozen canonical record family", () => {
   const refs = new Set(schema.oneOf.map((entry) => entry.$ref));
@@ -51,4 +57,20 @@ test("the logical schema does not freeze current table names", () => {
   for (const physicalName of ["context_graph", "subdomains", "anchor_bands", "perm_grants"]) {
     assert.equal(source.includes(physicalName), false, physicalName);
   }
+});
+
+test("middleware v1 freezes lineage and first-response dispositions", () => {
+  assert.equal(middleware.$defs.invocation.properties.contractVersion.const, 1);
+  assert.equal(middleware.$defs.invocation.properties.lineage.maxItems, 64);
+  assert.deepEqual(middleware.$defs.decision.properties.disposition.enum, ["pass", "respond", "fail"]);
+  assert.equal(middleware.$defs.result.properties.trace.maxItems, 64);
+});
+
+test("governance v1 shares canonical actions and explicit lifecycle evidence", () => {
+  assert.deepEqual(governance.$defs.action.enum, [
+    "find", "read", "aggregate", "use", "execute", "set", "edit", "delete", "delegate", "publish", "govern",
+  ]);
+  assert.deepEqual(governance.$defs.state.enum, ["draft", "active", "deprecated", "revoked", "deleted"]);
+  assert.equal(governance.$defs.lifecycleTransition.properties.expectedVersion.minimum, 1);
+  assert.equal(governance.$defs.auditEvent.properties.metadata.maxProperties, 12);
 });
