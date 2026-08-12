@@ -31,6 +31,7 @@
 - A missing duplicate field declaration may be recovered only from an exact protected placeholder already located at a literal declarative request parameter. This synchronizes non-secret metadata; it never supplies plaintext or expands the provider destination.
 - A revision with exactly one incomplete requirement may also move exactly one undeclared provider request placeholder into that protected namespace. Multiple requirements or undeclared fields remain ambiguous and fail closed.
 - If the placeholder was also emitted as an ordinary input, migration is allowed only when one input is uniquely credential-like from the requirement and input metadata; the ordinary input and example value are then removed. Competing candidates fail closed.
+- Missing provider identity metadata may be derived only from the one literal request host that contains the exact protected placeholder. Multiple destinations fail closed, and the protected value is never inspected.
 - Consent must identify the actor, asset, provider/host, action, duration or use count, and selected trust mode.
 - Provider redirects, host changes, and dynamic URLs must be revalidated against policy.
 - Results may themselves be sensitive and need local encryption or redaction.
