@@ -124,6 +124,8 @@ Input cannot be answered by local graph semantics
   → validate typed output and render the answer
 ```
 
+Capability revision preflight treats the candidate Paths as replacements for the same capability/entity identity. The browser keeps the current Paths executable while testing, excludes only those exact predecessors from collision scoring, and commits the replacement only after the original utterance and quality gates pass. Unrelated installed Paths remain collision evidence.
+
 Discovery should happen once per missing reusable capability, not once per wording. Provider protocol knowledge should live in reusable, versioned entities or public templates rather than be regenerated in every end-user entity.
 
 Background discovery and build responses use two distinct success boundaries: HTTP transport success and the nested Compute application result. A nested `ok:false` is a failure even when the API relay returned HTTP 200. Compute returns a sanitized code, stage, message, provider status when safe, and retryability; the browser may replace a failed background model job only within a small persisted bound. It must never convert a missing application result into an `UNKNOWN` build status or retry one terminal job indefinitely.
