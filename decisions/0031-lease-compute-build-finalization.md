@@ -10,10 +10,13 @@ Completed background capability output has one short server-side finalization le
 
 Approved generated capability Shorthand may start from an empty published object when no parent workspace document is readable. The parent is context, not a prerequisite for creating the separately addressed child entity. The ordinary Shorthand routes, canonical entity persistence, manifest validation, registry write, and coordinator completion remain authoritative.
 
+Generated entity creation selects route results with a transport-normalizing Shorthand primitive. It accepts the registered direct envelope and API-relayed wrappers without requiring compilers to embed a fixed `response` depth; ordinary object traversal stays exact.
+
 ## Consequences
 
 - Gateway/browser timeout retries cannot concurrently finalize the same model response.
 - A lost finalizer can be retried after the bounded lease expires.
 - Cold capability creation works from a new or missing workspace document.
+- Router envelope changes do not turn entity IDs into wrapper objects.
 - Polling exposes deterministic terminal diagnostics without exposing prompts, credentials, protected values, or hidden reasoning.
 - Durable server continuation of model jobs beyond the browser-held response handle remains incomplete work.

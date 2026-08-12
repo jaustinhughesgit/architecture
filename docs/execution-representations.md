@@ -220,7 +220,7 @@ This simplified operation asks Convert to record a pass using a capability with 
 ]
 ```
 
-Depending on the surrounding Convert request, the current implementation may run a supplied entity, create a new entity for the operation, or use the approved compute-capability build path. The resulting Shorthand rows perform the concrete routing, document updates, and result selection. A generated child capability may execute those rows over an empty published seed when its parent workspace document is not readable; its own entity identity, save, manifest validation, registry write, and leased build finalization still must succeed.
+Depending on the surrounding Convert request, the current implementation may run a supplied entity, create a new entity for the operation, or use the approved compute-capability build path. The resulting Shorthand rows perform the concrete routing, document updates, and result selection. Generated entity creation uses `ROUTEGET` to select named values through registered direct or relayed route envelopes; ordinary `GET` remains exact object traversal. A generated child capability may execute those rows over an empty published seed when its parent workspace document is not readable; its own entity identity, save, manifest validation, registry write, and leased build finalization still must succeed.
 
 An explicit visible-entity build uses a different element shape:
 
