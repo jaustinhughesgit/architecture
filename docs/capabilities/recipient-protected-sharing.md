@@ -1,6 +1,6 @@
 # Recipient-Specific Zero-Trust Sharing
 
-**Status:** Encryption foundation implemented; recipient retrieval and lifecycle incomplete
+**Status:** Recipient use-grant foundation implemented; rewrap and group lifecycle incomplete
 
 Durable direction: [ADR 0003](../../decisions/0003-recipient-wrapped-zero-trust-sharing.md).
 
@@ -54,7 +54,9 @@ owner selects protected data and recipients/devices
 - The protected-asset record stores one ciphertext and a map of user wraps; the legacy passphrase transport is disabled for new creation.
 - API-oriented assets may also receive a KMS executor wrap for trusted-server use.
 
-The critical integration gap is server authorization: protected-asset `get` and `envelope` operations currently require the requesting principal to equal the single asset owner. The server does not yet authorize a listed recipient to retrieve the envelope. The legacy passphrase route is also owner-bound. Therefore, cross-user zero-trust sharing is represented cryptographically but is not complete operationally.
+The server now stores a principal-first grant separately from the envelope. A grant has canonical action `use` and one or both delivery scopes: `provider` permits only approved Compute-to-provider injection; `recipient` permits the authenticated recipient to retrieve only their own wrap and decrypt locally. Neither scope grants edit, rotate, delete, audit, or delegation authority. A key wrap without an active version-matched grant is not authorization. Rotation invalidates older recipient grants until a new wrap and grant version are installed.
+
+This preserves the valuable legacy passphrase exchange without its unsafe authorization shape. Recipients publish versioned public encryption material; senders create fresh salts and encrypted wraps locally; the server stores opaque material. The salt is stored with each wrap and is not a secret. New creation uses Protected Assets rather than the global-counter passphrase record.
 
 ## Required invariants
 
@@ -69,10 +71,7 @@ The critical integration gap is server authorization: protected-asset `get` and 
 
 ## Required repair
 
-1. Add a recipient/grant index separate from owner metadata.
-2. Authorize recipient envelope retrieval without granting edit, rotate, audit, or delete authority.
-3. Return only the envelope fields needed by the authorized recipient and bind every audit event to principal, device, purpose, and version.
-4. Add local rewrap/re-encrypt flows for add, remove, rotate, and key-version changes.
-5. Let organization policy manage recipient groups while resolving them to explicit versioned wraps.
-6. Keep executor wraps optional and visibly separate from recipient-only zero-trust assets.
-7. Test owner, recipient, revoked recipient, wrong device, rotated key, offline copy, and compromised-server threat cases.
+1. Add local rewrap/re-encrypt flows for add, remove, rotate, and key-version changes.
+2. Let organization policy manage recipient groups while resolving them to explicit versioned wraps.
+3. Add fresh WebAuthn assertions for policies that promise hardware-gated use.
+4. Complete deployed owner, recipient, revoked recipient, wrong device, rotated key, offline copy, and compromised-server threat tests.

@@ -12,7 +12,7 @@
 - Freeze entity middleware v1 as sequential root-to-target execution with per-node authorization and `pass`/`respond`/`fail` decisions. First response or failure terminates the chain.
 - Only owning `extend`/lineage relations create middleware ancestry. `map`, `link`, `use`, and `substitute` remain non-owning composition edges with distinct mechanical semantics.
 - Normalize legacy fields through a compatibility adapter and require active composition mutation routes to authorize endpoints and publish canonical conformance relations.
-- Use the canonical action vocabulary for grants and a shared lifecycle transition machine with optimistic versions.
+- Use the canonical action vocabulary for grants and a shared lifecycle transition machine with optimistic versions. Decision 0029 subsequently canonicalizes entity invocation under `use` and retains `execute` only as a compatibility alias.
 - Commit canonical lifecycle state, immutable version evidence, and allow-listed audit evidence atomically. Store audit evidence in a retained encrypted, bucketed/sharded table.
 - Keep Protected Asset cryptographic and consent controls intact. Governance of a protected reference is not authority to decrypt it.
 - Do not silently make the existing `runEntity` endpoint execute additional ancestors. Cross-plane transport adoption belongs to phase 10.
@@ -21,7 +21,7 @@
 
 - **Infer middleware from every relationship.** Rejected because non-owning links and reuse would silently gain lifecycle and execution authority.
 - **Keep route-specific permissions.** Rejected because revocation, expiry, public visibility, and delegation would continue to disagree.
-- **Make visibility equivalent to use/execute.** Rejected; public permits candidate discovery and reads, not mutation or execution.
+- **Make visibility equivalent to use.** Rejected; public permits candidate discovery and internal reads, not release of a resolved value or invocation.
 - **Replace protected-asset governance.** Rejected because an ordinary entity grant cannot replace key wrapping, consent, or execution-boundary checks.
 
 ## Consequences

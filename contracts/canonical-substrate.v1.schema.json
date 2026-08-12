@@ -235,7 +235,7 @@
             "principal": { "$ref": "#/$defs/principal" },
             "resourceType": { "enum": ["word", "entity", "relation", "group", "address", "capability", "installation", "protected-asset"] },
             "resourceId": { "$ref": "#/$defs/id" },
-            "actions": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["find", "read", "aggregate", "use", "execute", "set", "edit", "delete", "delegate", "publish", "govern"] } },
+            "actions": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["find", "read", "aggregate", "use", "set", "edit", "delete", "delegate", "publish", "govern"] } },
             "expiresAt": { "oneOf": [{ "$ref": "#/$defs/timestamp" }, { "type": "null" }] },
             "conditions": { "type": "object", "maxProperties": 32 }
           }

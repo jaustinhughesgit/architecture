@@ -64,7 +64,7 @@ See [identity and encryption](capabilities/identity-encryption.md), [worker isol
 
 ## Authorization and visibility
 
-Public/private determines discoverability or audience, not every permitted action. Authorization should independently govern actions such as execute, use, set, edit, delete, delegate, and permit. Parent/child execution and relationship traversal must evaluate authorization at each relevant boundary rather than inherit unlimited access accidentally.
+Public/private determines discoverability or audience, not every permitted action. Authorization independently governs actions such as use, set, edit, delete, delegate, and govern. Returning a value and invoking logic are both `use`; `execute` is retained only as a legacy request alias. Parent/child use and relationship traversal must evaluate authorization at each relevant boundary rather than inherit unlimited access accidentally.
 
 A Word, alias, normalized form, or lemma is only a lexical address. Resolving it to entity candidates grants no visibility or action authority. Candidate retrieval must apply the entity, relationship, version, workspace, owner, and action-specific policy before returning or aggregating data. Protected plaintext must not become globally discoverable lexical material without explicit publication authority.
 

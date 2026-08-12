@@ -29,20 +29,20 @@ Legacy fields remain readable during migration: entity `t`, `l`, `u`, `z`, and `
 The caller supplies structured input and a target; a trusted resolver supplies the canonical entity versions in owning lineage order. A caller-supplied list is not authority. At each node the runtime:
 
 1. checks cancellation;
-2. reloads current resource state and the `execute` grant;
+2. reloads current resource state and the `use` grant;
 3. invokes the node in its declared execution plane;
 4. validates the node decision and effects; and
 5. continues only for `pass`.
 
-Materialized output is a possible `respond` result, not an authorization shortcut. Its input/dependency/version/permission scope and freshness must match the invocation. Active `runEntity` now checks canonical `execute` governance for its target, while the current foundation freezes and unit-tests the lineage runner. It does not silently execute previously unexecuted parents. Phase 10 owns transport adoption and execution-plane adapters.
+Materialized output is a possible `respond` result, not an authorization shortcut. Its input/dependency/version/permission scope and freshness must match the invocation. Active `runEntity` now checks canonical `use` governance for its target, while the current foundation freezes and unit-tests the lineage runner. It does not silently use previously unused parents.
 
 ## Governance and lifecycle
 
-Canonical actions are `find`, `read`, `aggregate`, `use`, `execute`, `set`, `edit`, `delete`, `delegate`, `publish`, and `govern`. Owner authority, current action grants, public read-only visibility, and exact compatibility evidence are evaluated through one decision function. Caller-supplied ownership or visibility is never evidence.
+Canonical actions are `find`, `read`, `aggregate`, `use`, `set`, `edit`, `delete`, `delegate`, `publish`, and `govern`. `Use` is the response boundary: invoking a compute entity and returning a resolved data value are both uses. `Read` and `aggregate` may still describe internal data access, but they do not independently authorize releasing the result. Legacy `execute` input and stored grants normalize to `use` at the governance adapter. Owner authority, current action grants, public read-only visibility, and exact compatibility evidence are evaluated through one decision function. Caller-supplied ownership or visibility is never evidence.
 
 Legacy permission characters translate conservatively while records are migrated. Legacy `verifyThis` can authorize only the exact resource/action for which it produced compatibility evidence; it is not a general grant and cannot be replayed for another endpoint.
 
-Lifecycle states remain `draft`, `active`, `deprecated`, `revoked`, and `deleted`. Mutations declare `expectedVersion`. A valid transition writes the next state, immutable version evidence, and an audit event in one DynamoDB transaction. Deleted records are tombstones; revoked/deleted resources cannot be read or executed through an old grant. The retained encrypted canonical audit table is month- and shard-partitioned to avoid one global or per-resource lifetime hot key. Audit metadata is allow-listed and must not contain user payloads, protected plaintext, tokens, prompts, or response bodies.
+Lifecycle states remain `draft`, `active`, `deprecated`, `revoked`, and `deleted`. Mutations declare `expectedVersion`. A valid transition writes the next state, immutable version evidence, and an audit event in one DynamoDB transaction. Deleted records are tombstones; revoked/deleted resources cannot be read or used through an old grant. The retained encrypted canonical audit table is month- and shard-partitioned to avoid one global or per-resource lifetime hot key. Audit metadata is allow-listed and must not contain user payloads, protected plaintext, tokens, prompts, or response bodies.
 
 Protected assets keep their stronger broker, consent, wrapping, revocation, and audit controls. Canonical governance authorizes the reference/action; it does not decrypt or copy the asset and does not replace cryptographic access checks.
 

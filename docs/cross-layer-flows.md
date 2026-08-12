@@ -216,7 +216,7 @@ The local companion is managed through the web experience; it need not expose a 
 
 ### Recipient-specific local sharing
 
-The creator encrypts one content payload and creates a separately salted key wrap for each authorized recipient/device. The server stores opaque material and access grants. A recipient authenticates, downloads the permitted envelope, and decrypts locally. A server executor wrap is optional and changes the trust mode. See [recipient-specific zero-trust sharing](capabilities/recipient-protected-sharing.md).
+The creator encrypts one content payload and creates a separately salted key wrap for each authorized recipient/device. The server stores opaque material plus a separate version-matched canonical `use` grant. Recipient delivery returns only that principal's wrap for local decryption. Provider delivery lets a compatible entity inject the secret only into the policy-bound provider request and cannot reveal or manage it. A server executor wrap is optional and changes the trust mode. See [recipient-specific zero-trust sharing](capabilities/recipient-protected-sharing.md).
 
 ## Background work
 

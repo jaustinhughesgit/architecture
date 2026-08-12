@@ -150,7 +150,7 @@ Mindsets, thoughts, and moods are not architectural legacy. Individual implement
 
 ### Public/private and authorization
 
-Visibility controls whether work is available publicly or remains private to a user, group, team, or sandbox. Authorization is more granular: execute, use, set, edit, delete, permit, and other actions may have different grants.
+Visibility controls whether work is available publicly or remains private to a user, group, team, or sandbox. Authorization is more granular: use, set, edit, delete, delegate, and other actions may have different grants. `Use` covers the response boundary whether the system invokes a compute entity or returns a resolved value; older `execute` requests are normalized to `use`.
 
 Public work can become reusable infrastructure or marketable templates. Private work supports sensitive and collaborative uses. Visibility must never be treated as a replacement for action-level authorization or protected-asset controls.
 
