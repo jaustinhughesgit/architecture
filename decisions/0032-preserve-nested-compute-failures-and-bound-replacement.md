@@ -12,7 +12,7 @@ Accepted.
 
 Compute failures return a sanitized typed diagnostic containing code, stage, retryability, safe provider status when available, and message. The browser treats nested `ok:false` as failure regardless of the relay's HTTP status and rejects capability envelopes without `build.status`.
 
-Retryability authorizes replacement, not unbounded polling. The browser may start at most two replacement discovery jobs and two replacement build jobs. It persists those counters with the resumable browser job. Configuration, authorization, invalid-job-identity, and other terminal failures are not replaced.
+Retryability authorizes replacement, not unbounded polling. The browser may start at most two replacement discovery jobs and two replacement build jobs, including build envelopes terminated by a transient provider status such as 429, 503, or timeout. It persists those counters with the resumable browser job. Configuration, authorization, invalid-job-identity, and deterministic implementation-validation failures are not replaced.
 
 ## Alternatives
 
