@@ -9,13 +9,13 @@ An unanswered question may require either a missing local Essence Path or a fres
 
 ## Decision
 
-An explicitly classified local graph miss remains in Path repair and Edit. When an otherwise compute-eligible question has no local classification and exhausts local Path repair, the browser sends its preserved evidence through capability jurisdiction once with `localRepairExhausted`.
+An explicitly classified local graph miss remains in Path repair and Edit. When an otherwise compute-eligible cold question has no local classification, the browser asks capability jurisdiction before starting its required local Path build. A `not_compute` decision marks the check complete and resumes that local build exactly once. Legacy misses that already entered local repair may send their preserved evidence through jurisdiction once with `localRepairExhausted`.
 
 Capability discovery may build or reuse an external entity. If it returns `not_compute`, the browser restores the original local failure and offers the existing scoped Edit repair. Background repair-status polling uses HTTP success for a completed poll and carries deterministic acceptance or rejection in the JSON lifecycle result.
 
 ## Consequences
 
-- Provider-backed cold misses can reach generic compute construction without domain vocabulary in the browser.
+- Provider-backed cold misses can reach generic compute construction without domain vocabulary or wasted local compiler rounds in the browser.
 - Classified local data misses cannot escape into external capability creation.
 - Failed jurisdiction does not discard the LLM interpretation, rejected candidates, or Edit recovery path.
 - A terminal candidate rejection is no longer confused with a failed status transport request.
