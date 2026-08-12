@@ -126,6 +126,8 @@ Input cannot be answered by local graph semantics
 
 Discovery should happen once per missing reusable capability, not once per wording. Provider protocol knowledge should live in reusable, versioned entities or public templates rather than be regenerated in every end-user entity.
 
+Background discovery and build responses use two distinct success boundaries: HTTP transport success and the nested Compute application result. A nested `ok:false` is a failure even when the API relay returned HTTP 200. Compute returns a sanitized code, stage, message, provider status when safe, and retryability; the browser may replace a failed background model job only within a small persisted bound. It must never convert a missing application result into an `UNKNOWN` build status or retry one terminal job indefinitely.
+
 ## Entity and Path repair
 
 Before requesting repair, a browser-local question match is a guarded interpretation set rather than a recency-selected winner. Every compatible installed question Path is materialized and queried read-only against the same scoped ContextDB. A unique semantically distinct candidate that satisfies the answer contract executes locally. If no candidate is valid, the request enters required repair; multiple valid semantic candidates emit an explicit ambiguity whose bounded signatures, typed bindings, rows, and answers travel with the repair payload so the model can adjudicate and the browser can prove the resulting stitch. Syntactic specificity orders candidates but cannot make a learned role interpretation semantically authoritative.
