@@ -27,6 +27,7 @@
 - Never include plaintext protected values in model prompts, logs, diagnostics, Paths, entity source, URLs, ordinary ContextDB, analytics, or job records.
 - Entities declare requirements by stable references and scopes.
 - Protected provider fields store canonical `query`, `header`, or `body` injection locations; bounded generator wording aliases may normalize to those values but cannot add a destination or reveal a value.
+- Model-generated requirement, provider, and field labels may be normalized into canonical non-secret identifiers only when every exact declarative protected placeholder is rewritten by the same mapping before validation. Persisted contracts remain strict.
 - A missing duplicate field declaration may be recovered only from an exact protected placeholder already located at a literal declarative request parameter. This synchronizes non-secret metadata; it never supplies plaintext or expands the provider destination.
 - A revision with exactly one incomplete requirement may also move exactly one undeclared provider request placeholder into that protected namespace. Multiple requirements or undeclared fields remain ambiguous and fail closed.
 - Consent must identify the actor, asset, provider/host, action, duration or use count, and selected trust mode.
