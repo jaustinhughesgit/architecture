@@ -100,6 +100,8 @@ Every generalized fix should include:
 
 For cross-layer features, express the externally visible result as a failing scenario in `testing`, prove the reusable behavior at its lowest owning layer, then pass the headless API/Compute scenario before wiring the website. Finish with a thin browser test only for behavior that actually depends on the DOM, browser storage, workers, permissions, authenticators, or rendering. See [headless acceptance testing](headless-acceptance-testing.md).
 
+Browser runtime asset revisions are transitive contracts. A versioned module that starts a worker must pass its revision to that worker, and the worker must pass the same revision to imported libraries and datasets. Otherwise a deployment can combine new orchestration with stale executable semantics even when every source file on the server is current.
+
 Weather is useful because it exercises time, location, credentials, providers, Paths, entities, and failure diagnosis. Inventory, addresses, and family facts exercise different graph and referent boundaries. None should be hard-coded as privileged domains.
 
 ## Architecture review questions
