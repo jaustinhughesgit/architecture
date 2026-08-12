@@ -43,3 +43,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0029: Version execution, intent jurisdiction, and interaction effects](0029-versioned-execution-intent-and-interaction-effects.md)
 - [0029: Use is the response boundary and protected sharing is scoped](0029-use-is-the-response-boundary-and-protected-sharing-is-scoped.md)
 - [0030: Reclassify unclassified Path failures through capability jurisdiction](0030-reclassify-unclassified-path-failures-through-capability-jurisdiction.md)
+- [0031: Lease compute-build finalization and preserve terminal diagnostics](0031-lease-compute-build-finalization.md)
