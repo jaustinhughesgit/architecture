@@ -124,7 +124,7 @@ Input cannot be answered by local graph semantics
   → validate typed output and render the answer
 ```
 
-Capability revision preflight treats the candidate Paths as replacements for the same capability/entity identity. The browser keeps the current Paths executable while testing, excludes only those exact predecessors from collision scoring, and commits the replacement only after the original utterance and quality gates pass. Unrelated installed Paths remain collision evidence.
+Capability revision preflight treats the candidate Paths as replacements for the same capability/entity identity. The browser keeps the current Paths executable while testing, excludes only those exact predecessors from collision scoring, and commits the replacement only after the original utterance and quality gates pass. The exact executed replay retains its browser-proven speech act across Edit's context reset; cold and unrelated examples still require classifier proof. Unrelated installed Paths remain collision evidence.
 
 Discovery should happen once per missing reusable capability, not once per wording. Provider protocol knowledge should live in reusable, versioned entities or public templates rather than be regenerated in every end-user entity.
 
