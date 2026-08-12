@@ -325,6 +325,8 @@ Wording growth is not automatically entity growth:
 
 - The browser distinguishes local graph candidates from compute-eligible misses and supports deterministic local query/mutation Paths.
 - Compute discovery has `reuse`, `extend`, and `build` outcomes and exposes capability manifests with semantic inputs and outputs.
+- A cold `not_compute` decision gets one local proof attempt; failure can re-enter Compute jurisdiction once with bounded local diagnostic evidence, preventing external-data requests from remaining trapped in local Path repair.
+- Registry discovery admits active cross-owner definitions only through canonical `use` grants; execution rechecks governance and Protected Asset authority independently.
 - Entity editing uses edit versions, authorization checks, structured patches, validation, and linked Path repair evidence.
 - Capability manifests and registry entries carry capability and entity identifiers plus versions.
 - Entity relationships and `map`, `extend`, `link`, `use`, and `substitute` provide composition foundations.
@@ -336,7 +338,7 @@ Wording growth is not automatically entity growth:
 - Define immutable capability-contract and implementation-version schemas.
 - Replace ambiguous `extend` handling with an explicit repair-versus-fork contract diff.
 - Add fork creation, lineage, installation/overlay, promotion, deprecation, and dependency-impact contracts.
-- Make shared capability reuse independent from user data, credentials, and configuration.
+- Add first-class installation/configuration records and indexed capability candidate retrieval; current reuse keeps browser Paths and Protected Assets user-scoped but still lacks a durable installation record.
 - Target Paths at compatible capability contracts rather than silently mutable implementations.
 - Add composition planning and optimization without crossing permission or side-effect boundaries.
 - Prevent capability discovery from receiving local fact mutations unless local repair has genuinely failed and the request has been reclassified.
