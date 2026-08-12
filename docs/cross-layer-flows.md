@@ -234,6 +234,7 @@ Browser submits idempotent operation
 ```
 
 Retries must not create duplicate entities, Paths, facts, provider charges, or protected-asset actions.
+For entity revision, an identical resubmission whose earlier response was lost reconnects by revision hash to the existing job; a different revision cannot adopt that lock or job.
 
 ## Per-request model cost inspection
 
