@@ -41,3 +41,5 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0027: Versioned entity middleware, composition, and governance](0027-versioned-entity-middleware-composition-and-governance.md)
 - [0028: Order the legacy purge before canonical test resets](0028-ordered-legacy-purge-and-canonical-test-reset.md)
 - [0029: Version execution, intent jurisdiction, and interaction effects](0029-versioned-execution-intent-and-interaction-effects.md)
+- [0029: Use is the response boundary and protected sharing is scoped](0029-use-is-the-response-boundary-and-protected-sharing-is-scoped.md)
+- [0030: Reclassify unclassified Path failures through capability jurisdiction](0030-reclassify-unclassified-path-failures-through-capability-jurisdiction.md)
