@@ -56,6 +56,8 @@ owner selects protected data and recipients/devices
 
 The server now stores a principal-first grant separately from the envelope. A grant has canonical action `use` and one or both delivery scopes: `provider` permits only approved Compute-to-provider injection; `recipient` permits the authenticated recipient to retrieve only their own wrap and decrypt locally. Neither scope grants edit, rotate, delete, audit, or delegation authority. A key wrap without an active version-matched grant is not authorization. Rotation invalidates older recipient grants until a new wrap and grant version are installed.
 
+The browser requires a one-time explicit checkbox before the configured recipients are applied to the next capability credential. It resets after creation. Ordinary protected speech and unapproved protected answers remain local-only.
+
 This preserves the valuable legacy passphrase exchange without its unsafe authorization shape. Recipients publish versioned public encryption material; senders create fresh salts and encrypted wraps locally; the server stores opaque material. The salt is stored with each wrap and is not a secret. New creation uses Protected Assets rather than the global-counter passphrase record.
 
 ## Required invariants
