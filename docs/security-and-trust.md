@@ -28,6 +28,7 @@
 - Entities declare requirements by stable references and scopes.
 - Protected provider fields store canonical `query`, `header`, or `body` injection locations; bounded generator wording aliases may normalize to those values but cannot add a destination or reveal a value.
 - A missing duplicate field declaration may be recovered only from an exact protected placeholder already located at a literal declarative request parameter. This synchronizes non-secret metadata; it never supplies plaintext or expands the provider destination.
+- A revision with exactly one incomplete requirement may also move exactly one undeclared provider request placeholder into that protected namespace. Multiple requirements or undeclared fields remain ambiguous and fail closed.
 - Consent must identify the actor, asset, provider/host, action, duration or use count, and selected trust mode.
 - Provider redirects, host changes, and dynamic URLs must be revalidated against policy.
 - Results may themselves be sensitive and need local encryption or redaction.
