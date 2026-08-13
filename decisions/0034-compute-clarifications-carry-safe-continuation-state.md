@@ -19,3 +19,5 @@ The worker validates the continuation against the installed compute contract bef
 ## Consequences
 
 Multi-input provider capabilities can clarify in any order without losing earlier answers, including across worker Path refreshes. The continuation is safe to render in diagnostics because it never contains plaintext protected material. Provider-specific orchestration remains in declarative entities rather than browser code.
+
+Typed discovery and replay preserve an explicit relative-day surface even when the model also supplied its normalized date. This keeps Path learning grounded in words the user actually said while allowing execution to receive the canonical date locally.
