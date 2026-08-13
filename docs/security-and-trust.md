@@ -33,10 +33,13 @@
 - If the placeholder was also emitted as an ordinary input, migration is allowed only when one input is uniquely credential-like from the requirement and input metadata; the ordinary input and example value are then removed. Competing candidates fail closed.
 - Missing provider identity metadata may be derived only from the one literal request host that contains the exact protected placeholder. Multiple destinations fail closed, and the protected value is never inspected.
 - Consent must identify the actor, asset, provider/host, action, duration or use count, and selected trust mode.
+- Every asset declares `plaintextRetention: never` and one explicit use policy: browser-only local zero-knowledge, trusted-server use with approval each time, or preapproved trusted-server use. Browser-only envelopes must not contain an executor wrap; trusted provider-use envelopes must contain one.
 - Provider redirects, host changes, and dynamic URLs must be revalidated against policy.
 - Results may themselves be sensitive and need local encryption or redaction.
 - Revocation must prevent future use without requiring the entity or Path to be deleted.
 - Reset and deletion operations must cover primary records, audit retention policy, cached grants, and derived references deliberately.
+
+Changing the use policy is a browser cryptographic rotation: the browser retrieves the authorized recipient envelope, decrypts locally, creates a new envelope bound to the new policy, and sends ciphertext plus metadata back. Removing protection likewise decrypts locally before deleting the server record. Neither operation sends plaintext to Compute. Version-bound recipient grants require rewrap after rotation.
 
 ## Recipient-specific sharing
 

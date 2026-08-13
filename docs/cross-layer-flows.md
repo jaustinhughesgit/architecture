@@ -17,6 +17,18 @@ No `aws-api`, compute Lambda, provider, or OpenAI call belongs on this path. Ref
 
 When policy permits sharing, the committed graph delta also enters a durable asynchronous publication outbox. That publication never delays the local answer.
 
+## Continuous voice, text, and protected segments
+
+```text
+Hold a Transcribe control
+  → ordinary audio and protected local segments retain ordered switch indexes
+  → moving between ordinary and protected controls changes the next segment mode
+  → moving left cancels capture and opens Message in the selected mode
+  → final release assembles one sanitized input and executes once
+```
+
+Protected speech is encrypted in the browser before the worker receives its opaque reference. It never enters the word map or model learning. The recent-input overlay shows only the last three sanitized interaction records and exists only while Message is focused or a Transcribe control is held. See [decision 0035](../decisions/0035-segmented-input-and-protected-use-policy.md).
+
 ## Local dynamic entity execution
 
 ```text

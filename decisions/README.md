@@ -45,3 +45,6 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0030: Reclassify unclassified Path failures through capability jurisdiction](0030-reclassify-unclassified-path-failures-through-capability-jurisdiction.md)
 - [0031: Lease compute-build finalization and preserve terminal diagnostics](0031-lease-compute-build-finalization.md)
 - [0032: Preserve nested Compute failures and bound background replacement](0032-preserve-nested-compute-failures-and-bound-replacement.md)
+- [0033: Provider request inputs are execution dependencies](0033-provider-request-inputs-are-execution-dependencies.md)
+- [0034: Compute clarifications carry safe continuation state](0034-compute-clarifications-carry-safe-continuation-state.md)
+- [0035: Segment input continuously and declare the protected use boundary](0035-segmented-input-and-protected-use-policy.md)
