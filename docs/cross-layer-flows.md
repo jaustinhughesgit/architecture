@@ -119,6 +119,7 @@ Input cannot be answered by local graph semantics
   → resolve explicit utterance bindings and authorized context
   → obtain protected-asset consent or reference when required
   → build or reuse a validated entity and JPL implementation
+  → require every ordinary input used by a provider request, or resolve it from a non-null default
   → install tested compute Paths
   → invoke through aws-api and compute
   → validate typed output and render the answer
@@ -127,6 +128,8 @@ Input cannot be answered by local graph semantics
 Capability revision preflight treats the candidate Paths as replacements for the same capability/entity identity. The browser keeps the current Paths executable while testing, excludes only those exact predecessors from collision scoring, and commits the replacement only after the original utterance and quality gates pass. The exact executed replay retains its browser-proven speech act across Edit's context reset; cold and unrelated examples still require classifier proof. Unrelated installed Paths remain collision evidence.
 
 Discovery should happen once per missing reusable capability, not once per wording. Provider protocol knowledge should live in reusable, versioned entities or public templates rather than be regenerated in every end-user entity.
+
+An EntityPlan request parameter that reads an ordinary operation input makes that input an execution dependency. The manifest must mark it required or provide a non-null default before the entity can be published. Provider research may strengthen a previously optional semantic input to required without changing its type or binding meaning; utterance-bound dependencies still require a clarification and an annotated learnable example. This prevents unresolved placeholders from becoming malformed provider calls.
 
 Background discovery and build responses use two distinct success boundaries: HTTP transport success and the nested Compute application result. A nested `ok:false` is a failure even when the API relay returned HTTP 200. Compute returns a sanitized code, stage, message, provider status when safe, and retryability; the browser may replace a failed background model job only within a small persisted bound. It must never convert a missing application result into an `UNKNOWN` build status or retry one terminal job indefinitely.
 
