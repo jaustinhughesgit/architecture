@@ -15,12 +15,13 @@ Publishing plaintext, a plaintext alias, ciphertext as a graph value, or a clien
 - Relations to the placeholder remain in the ordinary participant/public-self graph. This publishes that a requestable value occupies a semantic role, not the value itself.
 - Compute validates every published reference against the active Protected Asset record and accepts it only when `ownerId` matches the authenticated publisher. A forged, revoked, deleted, or missing reference fails closed.
 - Canonical entity records, the Context sidecar, and hydration preserve the opaque reference. The browser stores hydrated references separately from graph lexemes.
-- A local question tournament may select the one Path whose complete non-derived relation prefix reaches a protected marker. It returns `PROTECTED_ASSET_ACCESS_REQUIRED`, emits the existing `protected-access:needed` event, and does not invoke Path repair, interpretation, or Compute discovery.
+- A local question tournament may select a Path when its complete non-derived relation prefix reaches one unambiguous protected-reference set, even when equivalent Path variants differ in their final aggregate row. A remote-owner question returns `PROTECTED_ASSET_ACCESS_REQUIRED`, emits the existing `protected-access:needed` event, and does not invoke Path repair, interpretation, or Compute discovery.
+- A current-speaker question uses the existing Speak/Reveal presentation policy instead of requesting access from its own owner. After device-local approval, Message decrypts the referenced value and transfers it transiently to the Transcribe worker for an isolated query against a cloned graph. The plaintext is not installed into ContextDB, added to history, or persisted.
 - The existing protected request, owner notification, local key rewrap, versioned recipient `use` grant, and recipient-wrap retrieval remain the authority path. The marker itself grants nothing.
 
 ## Consequences
 
-Users can discover and request access to a protected fact through ordinary voice and existing Path/Essence structure. The server learns the surrounding ordinary semantic structure and that one role is protected; users who need the entire sentence hidden must protect the entire sentence rather than only one segment. Post-approval automatic replay and presentation remain separate lifecycle work.
+Users can discover and request access to another owner's protected fact through ordinary voice and existing Path/Essence structure, while owners can answer their own protected questions through the local presentation controls. The server learns the surrounding ordinary semantic structure and that one role is protected; users who need the entire sentence hidden must protect the entire sentence rather than only one segment. Remote post-approval automatic replay and presentation remain separate lifecycle work.
 
 ## Alternatives considered
 
