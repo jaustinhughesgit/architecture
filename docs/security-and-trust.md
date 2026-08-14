@@ -35,6 +35,7 @@
 - Missing provider identity metadata may be derived only from the one literal request host that contains the exact protected placeholder. Multiple destinations fail closed, and the protected value is never inspected.
 - Consent must identify the actor, asset, provider/host, action, duration or use count, and selected trust mode.
 - An active device-local Speak or Reveal duration is standing presentation consent for matching protected answers until expiry. Message applies it automatically and hides the corresponding one-time button; after expiry, presentation again requires a new duration or a direct one-time action.
+- Ask and Don't ask are both non-authorizing states. Ask may open Message and speak only the fixed approval notice; Don't ask suppresses the notice. Neither exposes protected plaintext.
 - Every asset declares `plaintextRetention: never` and one explicit use policy: browser-only local zero-knowledge, trusted-server use with approval each time, or preapproved trusted-server use. Browser-only envelopes must not contain an executor wrap; trusted provider-use envelopes must contain one.
 - Provider redirects, host changes, and dynamic URLs must be revalidated against policy.
 - Results may themselves be sensitive and need local encryption or redaction.
@@ -45,6 +46,8 @@
 Changing the use policy is a browser cryptographic rotation: the browser retrieves the authorized recipient envelope, decrypts locally, creates a new envelope bound to the new policy, and sends ciphertext plus metadata back. Removing protection likewise decrypts locally before deleting the server record. Neither operation sends plaintext to Compute. Version-bound recipient grants require rewrap after rotation.
 
 Speak and Reveal presentation windows are stored locally as asset reference, choice, expiry, and remaining-use count. Enabling a window begins with direct user activation and local envelope decryption; changing the dropdown restarts the timer. ContextDB query provenance propagates protection to direct and derived answers, which are masked until Message verifies the local setting and requests one ephemeral presentation from the worker. Protected speech uses browser-local synthesis. This is device-key possession plus user activation, not yet a verified WebAuthn assertion.
+
+Starting microphone capture cancels Automation speech, pending or active TTS playback, and browser-local synthesis before recording begins, preventing platform greetings or approval prompts from being re-ingested as user speech.
 
 ## Recipient-specific sharing
 

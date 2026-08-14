@@ -29,7 +29,9 @@ Hold a Transcribe control
 
 Protected speech is encrypted in the browser before the worker receives its opaque reference. Its transient browser-local semantic form remains available for matching after all ordered spans are assembled. If that complete typed Path context disambiguates an isolated protected transcript, the browser rotates the same local-only asset to the contextual plaintext before graph execution; only versioned ciphertext reaches the server. Protected speech never enters the word map or model learning. The recent-input overlay shows only the last three sanitized interaction records and exists only while Message is focused or a Transcribe control is held. See [decision 0035](../decisions/0035-segmented-input-and-protected-use-policy.md).
 
-Protected-answer presentation remains device-local. An unexpired Speak or Reveal policy automatically applies when the worker returns a matching protected answer. Message hides that policy's one-time button while the window is active; after expiry, the button again performs one direct, locally authenticated presentation without extending the stored duration.
+The microphone-start boundary interrupts delayed Automation, pending TTS synthesis, active Sound playback, and local `speechSynthesis` before capture. A slide-open Message panel stays pinned while Message or Transcribe is used and closes by X or an outside pointer action.
+
+Protected-answer presentation remains device-local. An unexpired Speak or Reveal policy automatically applies when the worker returns a matching protected answer. Message hides that policy's one-time button while the window is active; after expiry, the button again performs one direct, locally authenticated presentation without extending the stored duration. Ask opens Message and queues a fixed sanitized approval notice; Don't ask suppresses that notice without granting access.
 
 ## Local dynamic entity execution
 
