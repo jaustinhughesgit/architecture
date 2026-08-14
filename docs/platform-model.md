@@ -162,7 +162,9 @@ Protected assets include API keys, financial details, personal identification, a
 - A true zero-knowledge option keeps decryption and use on a user-controlled device so platform servers cannot technically access plaintext.
 - Recipient-specific zero-trust sharing encrypts locally and gives each authorized user/device an independent salted key wrap. An optional server-executor wrap is a different, explicitly trusted-server mode.
 
-Entities should reference protected-asset requirements, not embed secrets. See `security-and-trust.md` and [recipient-specific zero-trust sharing](capabilities/recipient-protected-sharing.md).
+A partially protected fact may keep its ordinary graph structure shareable while replacing the protected value with an opaque, owner-validated asset reference. That reference is request routing, not authorization or plaintext; use still requires a current grant and recipient wrap.
+
+Entities should reference protected-asset requirements, not embed secrets. See `security-and-trust.md`, [recipient-specific zero-trust sharing](capabilities/recipient-protected-sharing.md), and [decision 0037](../decisions/0037-requestable-protected-context-markers.md).
 
 ## 3. Builder and end-user layers
 

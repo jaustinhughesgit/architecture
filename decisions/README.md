@@ -49,3 +49,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0034: Compute clarifications carry safe continuation state](0034-compute-clarifications-carry-safe-continuation-state.md)
 - [0035: Segment input continuously and declare the protected use boundary](0035-segmented-input-and-protected-use-policy.md)
 - [0036: Browser-acknowledged notifications with latched email fallback](0036-browser-acknowledged-notifications-with-latched-email-fallback.md)
+- [0037: Publish requestable protected Context markers without plaintext](0037-requestable-protected-context-markers.md)

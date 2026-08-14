@@ -58,7 +58,9 @@ The server now stores a principal-first grant separately from the envelope. A gr
 
 The browser requires a one-time explicit checkbox before the configured recipients are applied to the next capability credential. It resets after creation. Ordinary protected speech and unapproved protected answers remain local-only.
 
-A requester that already holds an opaque reference but lacks a current grant can now create a pending request. The owner receives a durable notification and can approve from a direct browser action. Approval unwraps only the existing content key locally, creates a new wrap for the requester's current account public-key version, and atomically stores that wrap with a version-matched recipient `use` grant. Denial stores no wrap or grant. Notification delivery and generic email fallback are specified separately; semantic discovery of a requestable protected fact without its reference remains incomplete.
+A requester that holds an opaque reference but lacks a current grant can create a pending request. A partially protected Context fact now publishes its ordinary semantic relations with the value replaced by a generic protected marker carrying that reference. Compute accepts the marker only when the authenticated publisher owns the active asset. Named hydration can therefore discover that an answer is requestable without receiving the value. The existing local Path follows the relation to the marker, stops at the authorization boundary, and opens the Request owner interaction instead of treating the missing number as a Path or Compute failure.
+
+The owner receives a durable notification and can approve from a direct browser action. Approval unwraps only the existing content key locally, creates a new wrap for the requester's current account public-key version, and atomically stores that wrap with a version-matched recipient `use` grant. Denial stores no wrap or grant. Notification delivery and generic email fallback are specified separately.
 
 This preserves the valuable legacy passphrase exchange without its unsafe authorization shape. Recipients publish versioned public encryption material; senders create fresh salts and encrypted wraps locally; the server stores opaque material. The salt is stored with each wrap and is not a secret. New creation uses Protected Assets rather than the global-counter passphrase record.
 
@@ -79,3 +81,4 @@ This preserves the valuable legacy passphrase exchange without its unsafe author
 2. Let organization policy manage recipient groups while resolving them to explicit versioned wraps.
 3. Add fresh WebAuthn assertions for policies that promise hardware-gated use.
 4. Complete deployed owner, recipient, revoked recipient, wrong device, rotated key, offline copy, and compromised-server threat tests.
+5. Complete automatic post-approval replay/presentation across two independently authenticated production browser sessions.
