@@ -1,6 +1,6 @@
 # Recipient-Specific Zero-Trust Sharing
 
-**Status:** Recipient use-grant foundation implemented; rewrap and group lifecycle incomplete
+**Status:** Recipient use-grant and owner-approved add-recipient foundation implemented; removal, rotation, and group lifecycle incomplete
 
 Durable direction: [ADR 0003](../../decisions/0003-recipient-wrapped-zero-trust-sharing.md).
 
@@ -58,6 +58,8 @@ The server now stores a principal-first grant separately from the envelope. A gr
 
 The browser requires a one-time explicit checkbox before the configured recipients are applied to the next capability credential. It resets after creation. Ordinary protected speech and unapproved protected answers remain local-only.
 
+A requester that already holds an opaque reference but lacks a current grant can now create a pending request. The owner receives a durable notification and can approve from a direct browser action. Approval unwraps only the existing content key locally, creates a new wrap for the requester's current account public-key version, and atomically stores that wrap with a version-matched recipient `use` grant. Denial stores no wrap or grant. Notification delivery and generic email fallback are specified separately; semantic discovery of a requestable protected fact without its reference remains incomplete.
+
 This preserves the valuable legacy passphrase exchange without its unsafe authorization shape. Recipients publish versioned public encryption material; senders create fresh salts and encrypted wraps locally; the server stores opaque material. The salt is stored with each wrap and is not a secret. New creation uses Protected Assets rather than the global-counter passphrase record.
 
 ## Required invariants
@@ -73,7 +75,7 @@ This preserves the valuable legacy passphrase exchange without its unsafe author
 
 ## Required repair
 
-1. Add local rewrap/re-encrypt flows for add, remove, rotate, and key-version changes.
+1. Complete local rewrap/re-encrypt flows for remove, rotate, device changes, and key-version changes.
 2. Let organization policy manage recipient groups while resolving them to explicit versioned wraps.
 3. Add fresh WebAuthn assertions for policies that promise hardware-gated use.
 4. Complete deployed owner, recipient, revoked recipient, wrong device, rotated key, offline copy, and compromised-server threat tests.

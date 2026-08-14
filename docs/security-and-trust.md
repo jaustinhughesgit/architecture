@@ -57,6 +57,9 @@ Zero-trust sharing requires both a cryptographic recipient wrap and an authoriza
 - Adding an executor/KMS wrap makes server decryption technically possible and must be labeled trusted-server mode.
 - Removing a recipient cannot revoke ciphertext they already downloaded; future confidentiality requires a new content key and version.
 - Organization membership is resolved to explicit recipient/device grants and key versions rather than treated as a decryption key itself.
+- A protected-access request grants nothing. Approval becomes effective only when the owner's browser creates a recipient-specific content-key wrap and Compute atomically installs the matching versioned `use` grant.
+- Notification records and email may contain only opaque lifecycle identifiers and fixed presentation. Protected values, questions, answers, semantic labels, and model content are forbidden. Browser acknowledgement suppresses fallback delivery but does not resolve a pending approval.
+- Verified notification email contacts are separate KMS ciphertext records activated by the matching email hash. Plaintext may exist only inside the bounded SES send operation and may not enter logs or notification records.
 
 See [recipient-specific zero-trust sharing](capabilities/recipient-protected-sharing.md).
 

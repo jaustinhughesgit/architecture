@@ -59,6 +59,7 @@ The architecture is available at three levels of detail so the same platform mod
    - [Email platform](docs/capabilities/email-platform.md)
    - [Distributed entities and Context publication](docs/capabilities/distributed-entities.md)
    - [Recipient-specific zero-trust sharing](docs/capabilities/recipient-protected-sharing.md)
+   - [Durable notifications and email fallback](docs/capabilities/durable-notifications.md)
 19. [Shared contracts](contracts/README.md)
 20. [Architecture decisions](decisions/README.md)
 

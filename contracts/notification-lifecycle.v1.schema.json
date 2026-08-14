@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://1var.com/contracts/notification-lifecycle.v1.schema.json",
+  "title": "1var durable notification lifecycle v1",
+  "oneOf": [
+    { "$ref": "#/$defs/notification" },
+    { "$ref": "#/$defs/inbox" },
+    { "$ref": "#/$defs/acknowledgement" },
+    { "$ref": "#/$defs/resolution" }
+  ],
+  "$defs": {
+    "notificationId": { "type": "string", "pattern": "^n_[A-Za-z0-9_]+$", "maxLength": 220 },
+    "requestId": { "type": "string", "pattern": "^par_[a-f0-9]{40}$" },
+    "principalId": { "type": "string", "pattern": "^u:[^\\s]{1,157}$", "maxLength": 160 },
+    "reference": { "type": "string", "pattern": "^protected_asset:pa_[A-Za-z0-9_-]{16,160}$" },
+    "accessRequestPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requestId", "requesterId", "reference"],
+      "properties": {
+        "requestId": { "$ref": "#/$defs/requestId" },
+        "requesterId": { "$ref": "#/$defs/principalId" },
+        "reference": { "$ref": "#/$defs/reference" }
+      }
+    },
+    "accessDecisionPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requestId", "decision"],
+      "properties": {
+        "requestId": { "$ref": "#/$defs/requestId" },
+        "decision": { "enum": ["approved", "denied"] }
+      }
+    },
+    "notification": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["notificationId", "kind", "createdAt", "payload"],
+          "properties": {
+            "notificationId": { "$ref": "#/$defs/notificationId" },
+            "kind": { "const": "protected_access_request" },
+            "createdAt": { "type": "string", "format": "date-time" },
+            "payload": { "$ref": "#/$defs/accessRequestPayload" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["notificationId", "kind", "createdAt", "payload"],
+          "properties": {
+            "notificationId": { "$ref": "#/$defs/notificationId" },
+            "kind": { "const": "protected_access_decision" },
+            "createdAt": { "type": "string", "format": "date-time" },
+            "payload": { "$ref": "#/$defs/accessDecisionPayload" }
+          }
+        }
+      ]
+    },
+    "inbox": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ok", "schemaVersion", "kind", "notifications"],
+      "properties": {
+        "ok": { "const": true },
+        "schemaVersion": { "const": 1 },
+        "kind": { "const": "notificationInbox" },
+        "notifications": { "type": "array", "maxItems": 100, "items": { "$ref": "#/$defs/notification" } }
+      }
+    },
+    "acknowledgement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ok", "schemaVersion", "kind", "acknowledged", "notificationIds", "acknowledgedAt"],
+      "properties": {
+        "ok": { "const": true },
+        "schemaVersion": { "const": 1 },
+        "kind": { "const": "notificationsAcknowledged" },
+        "acknowledged": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "notificationIds": {
+          "type": "array", "minItems": 1, "maxItems": 100, "uniqueItems": true,
+          "items": { "$ref": "#/$defs/notificationId" }
+        },
+        "acknowledgedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ok", "schemaVersion", "kind", "notificationId", "resolved"],
+      "properties": {
+        "ok": { "const": true },
+        "schemaVersion": { "const": 1 },
+        "kind": { "const": "notificationResolved" },
+        "notificationId": { "$ref": "#/$defs/notificationId" },
+        "resolved": { "type": "boolean" }
+      }
+    }
+  }
+}

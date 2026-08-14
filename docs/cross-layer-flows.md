@@ -33,6 +33,20 @@ The microphone-start boundary interrupts delayed Automation, pending TTS synthes
 
 Protected-answer presentation remains device-local. An unexpired Speak or Reveal policy automatically applies when the worker returns a matching protected answer. Message hides that policy's one-time button while the window is active; after expiry, the button again performs one direct, locally authenticated presentation without extending the stored duration. Any valid protected reference in the result keeps the masked answer, both dropdowns, and both one-time controls visible in the opened Message panel. Ask opens that panel and queues a fixed sanitized approval notice; Don't ask suppresses that notice without granting access.
 
+## Protected access requests and notification fallback
+
+```text
+recipient encounters an ungranted opaque Protected Asset reference
+  → Request Owner creates a pending access record but no grant
+  → owner browser renders and acknowledges a durable request card
+  → owner approves from a direct action
+  → owner browser unwraps the content key and wraps it for the requester
+  → Compute atomically stores recipient wrap + version-matched use grant
+  → requester receives a durable approved/denied confirmation
+```
+
+If the recipient browser does not acknowledge a notification within one minute, delayed SQS processing may send one generic reminder to the account's verified, KMS-encrypted delivery contact. A per-user latch suppresses more email until browser pickup. Neither inbox nor email contains protected content or the request question. Delivery acknowledgement and request resolution are separate states. See [durable notifications](capabilities/durable-notifications.md) and [decision 0036](../decisions/0036-browser-acknowledged-notifications-with-latched-email-fallback.md).
+
 ## Local dynamic entity execution
 
 ```text
