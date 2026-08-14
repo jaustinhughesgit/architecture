@@ -27,7 +27,7 @@ Hold a Transcribe control
   → final release assembles one sanitized input and executes once
 ```
 
-Protected speech is encrypted in the browser before the worker receives its opaque reference. It never enters the word map or model learning. The recent-input overlay shows only the last three sanitized interaction records and exists only while Message is focused or a Transcribe control is held. See [decision 0035](../decisions/0035-segmented-input-and-protected-use-policy.md).
+Protected speech is encrypted in the browser before the worker receives its opaque reference. Its transient browser-local semantic form remains available for matching after all ordered spans are assembled. If that complete typed Path context disambiguates an isolated protected transcript, the browser rotates the same local-only asset to the contextual plaintext before graph execution; only versioned ciphertext reaches the server. Protected speech never enters the word map or model learning. The recent-input overlay shows only the last three sanitized interaction records and exists only while Message is focused or a Transcribe control is held. See [decision 0035](../decisions/0035-segmented-input-and-protected-use-policy.md).
 
 ## Local dynamic entity execution
 

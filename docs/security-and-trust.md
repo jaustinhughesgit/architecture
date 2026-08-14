@@ -25,7 +25,7 @@
 ## Protected-asset invariants
 
 - Never include plaintext protected values in model prompts, logs, diagnostics, Paths, entity source, URLs, ordinary ContextDB, analytics, or job records.
-- A partially protected utterance has separate local semantic, masked display, and reference-bearing stored forms. The semantic form remains transient and browser-local through capture, Message handoff, and worker execution. Remote classification, repair, learning, compute discovery, and server publication consume only masked or reference-bearing forms.
+- A partially protected utterance has separate local semantic, masked display, and reference-bearing stored forms. The semantic form remains transient and browser-local through capture, Message handoff, and worker execution. If complete-sentence typed Path context corrects an isolated protected transcript, the browser may rotate only that browser-local protected-speech asset before graph execution; the reference remains stable and the server receives only replacement ciphertext bound to the next version. Remote classification, repair, learning, compute discovery, and server publication consume only masked or reference-bearing forms.
 - Entities declare requirements by stable references and scopes.
 - Protected provider fields store canonical `query`, `header`, or `body` injection locations; bounded generator wording aliases may normalize to those values but cannot add a destination or reveal a value.
 - Model-generated requirement, provider, and field labels may be normalized into canonical non-secret identifiers only when every exact declarative protected placeholder is rewritten by the same mapping before validation. Persisted contracts remain strict.
