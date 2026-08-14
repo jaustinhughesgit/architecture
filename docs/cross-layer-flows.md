@@ -31,7 +31,7 @@ Protected speech is encrypted in the browser before the worker receives its opaq
 
 The microphone-start boundary interrupts delayed Automation, pending TTS synthesis, active Sound playback, and local `speechSynthesis` before capture. A slide-open Message panel stays pinned while Message or Transcribe is used and closes by X or an outside pointer action.
 
-Protected-answer presentation remains device-local. An unexpired Speak or Reveal policy automatically applies when the worker returns a matching protected answer. Message hides that policy's one-time button while the window is active; after expiry, the button again performs one direct, locally authenticated presentation without extending the stored duration. Ask opens Message and queues a fixed sanitized approval notice; Don't ask suppresses that notice without granting access.
+Protected-answer presentation remains device-local. An unexpired Speak or Reveal policy automatically applies when the worker returns a matching protected answer. Message hides that policy's one-time button while the window is active; after expiry, the button again performs one direct, locally authenticated presentation without extending the stored duration. Any valid protected reference in the result keeps the masked answer, both dropdowns, and both one-time controls visible in the opened Message panel. Ask opens that panel and queues a fixed sanitized approval notice; Don't ask suppresses that notice without granting access.
 
 ## Local dynamic entity execution
 
