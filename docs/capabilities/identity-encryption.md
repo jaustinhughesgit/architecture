@@ -11,10 +11,11 @@ This capability spans account bootstrap, email verification, device-held cryptog
 - The browser creates P-256 encryption and signing key pairs. Public keys are registered with the server; the local encryption private key is stored as a non-exported browser `CryptoKey` in IndexedDB.
 - WebAuthn enrollment creates a hardware/platform authenticator credential and registers its attestation information.
 - Protected assets can be encrypted before server storage and have server-side requirement and audit records.
+- Protected Assets and ContextDB expose device-local Speak and Reveal windows with visible countdowns. Protected answers show the same controls in Message. The setting stores no plaintext, restarts when changed, and reveal-once is consumed after use.
 
 ## Important trust distinction
 
-WebAuthn **enrollment** is present, but hardware-gated protected-asset **use** is not yet a complete guarantee. The implementation creates a credential, while local decryption currently loads the IndexedDB key without a corresponding `navigator.credentials.get()` assertion for every protected operation.
+WebAuthn **enrollment** is present, but hardware-gated protected-asset **use** is not yet a complete guarantee. The implementation creates a credential, while local decryption and presentation-policy activation currently require direct user activation and the IndexedDB device key without a corresponding `navigator.credentials.get()` assertion for every protected operation.
 
 The intended ceremony is:
 

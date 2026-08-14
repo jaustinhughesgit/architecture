@@ -25,6 +25,7 @@
 ## Protected-asset invariants
 
 - Never include plaintext protected values in model prompts, logs, diagnostics, Paths, entity source, URLs, ordinary ContextDB, analytics, or job records.
+- A partially protected utterance has separate local semantic, masked display, and reference-bearing stored forms. The semantic form remains transient and browser-local through capture, Message handoff, and worker execution. Remote classification, repair, learning, compute discovery, and server publication consume only masked or reference-bearing forms.
 - Entities declare requirements by stable references and scopes.
 - Protected provider fields store canonical `query`, `header`, or `body` injection locations; bounded generator wording aliases may normalize to those values but cannot add a destination or reveal a value.
 - Model-generated requirement, provider, and field labels may be normalized into canonical non-secret identifiers only when every exact declarative protected placeholder is rewritten by the same mapping before validation. Persisted contracts remain strict.
@@ -36,10 +37,13 @@
 - Every asset declares `plaintextRetention: never` and one explicit use policy: browser-only local zero-knowledge, trusted-server use with approval each time, or preapproved trusted-server use. Browser-only envelopes must not contain an executor wrap; trusted provider-use envelopes must contain one.
 - Provider redirects, host changes, and dynamic URLs must be revalidated against policy.
 - Results may themselves be sensitive and need local encryption or redaction.
+- Provider-use authority and presentation authority are independent. Device-local Speak/Reveal durations do not authorize server use, and server-use policy does not authorize display or speech.
 - Revocation must prevent future use without requiring the entity or Path to be deleted.
 - Reset and deletion operations must cover primary records, audit retention policy, cached grants, and derived references deliberately.
 
 Changing the use policy is a browser cryptographic rotation: the browser retrieves the authorized recipient envelope, decrypts locally, creates a new envelope bound to the new policy, and sends ciphertext plus metadata back. Removing protection likewise decrypts locally before deleting the server record. Neither operation sends plaintext to Compute. Version-bound recipient grants require rewrap after rotation.
+
+Speak and Reveal presentation windows are stored locally as asset reference, choice, expiry, and remaining-use count. Enabling a window begins with direct user activation and local envelope decryption; changing the dropdown restarts the timer. ContextDB query provenance propagates protection to direct and derived answers, which are masked until Message verifies the local setting and requests one ephemeral presentation from the worker. Protected speech uses browser-local synthesis. This is device-key possession plus user activation, not yet a verified WebAuthn assertion.
 
 ## Recipient-specific sharing
 
