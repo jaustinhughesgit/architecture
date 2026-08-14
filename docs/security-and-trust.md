@@ -35,7 +35,6 @@
 - Missing provider identity metadata may be derived only from the one literal request host that contains the exact protected placeholder. Multiple destinations fail closed, and the protected value is never inspected.
 - Consent must identify the actor, asset, provider/host, action, duration or use count, and selected trust mode.
 - An active device-local Speak or Reveal duration is standing presentation consent for matching protected answers until expiry. Message applies it automatically and hides the corresponding one-time button; after expiry, presentation again requires a new duration or a direct one-time action.
-- Protected input and protected answer state are distinct. An opaque reference in a statement may mask that input and publish its requestable graph marker, but only an explicit protected-answer result may open answer presentation controls or mask a response diagnostic.
 - Ask and Don't ask are both non-authorizing states. Ask may open Message and speak only the fixed approval notice; Don't ask suppresses the notice. Neither exposes protected plaintext.
 - Every asset declares `plaintextRetention: never` and one explicit use policy: browser-only local zero-knowledge, trusted-server use with approval each time, or preapproved trusted-server use. Browser-only envelopes must not contain an executor wrap; trusted provider-use envelopes must contain one.
 - Provider redirects, host changes, and dynamic URLs must be revalidated against policy.
