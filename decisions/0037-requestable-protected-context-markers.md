@@ -17,11 +17,13 @@ Publishing plaintext, a plaintext alias, ciphertext as a graph value, or a clien
 - Canonical entity records, the Context sidecar, and hydration preserve the opaque reference. The browser stores hydrated references separately from graph lexemes.
 - A local question tournament may select a Path when its complete non-derived relation prefix reaches one unambiguous protected-reference set, even when equivalent Path variants differ in their final aggregate row. A remote-owner question returns `PROTECTED_ASSET_ACCESS_REQUIRED`, emits the existing `protected-access:needed` event, and does not invoke Path repair, interpretation, or Compute discovery.
 - A current-speaker question uses the existing Speak/Reveal presentation policy instead of requesting access from its own owner. After device-local approval, Message decrypts the referenced value and transfers it transiently to the Transcribe worker for an isolated query against a cloned graph. The plaintext is not installed into ContextDB, added to history, or persisted.
-- The existing protected request, owner notification, local key rewrap, versioned recipient `use` grant, and recipient-wrap retrieval remain the authority path. The marker itself grants nothing.
+- The owner approval card requires a grant window: one use, 15 minutes, 1 hour, 1 day, or forever. Compute stores that lifecycle with the versioned recipient `use` grant and rejects expired or exhausted grants.
+- The recipient first checks an existing grant before creating another request. After approval, the durable decision carries only the opaque reference and lifecycle metadata; the requester browser retrieves only its recipient wrap, decrypts locally, and replays the retained question against a temporary graph. The response can be spoken locally without persisting plaintext. Later questions reuse the grant until its window expires or its one use is consumed.
+- The existing protected request, owner notification, local key rewrap, versioned recipient `use` grant, and recipient-wrap retrieval remain the authority path. The marker and notification grant nothing by themselves.
 
 ## Consequences
 
-Users can discover and request access to another owner's protected fact through ordinary voice and existing Path/Essence structure, while owners can answer their own protected questions through the local presentation controls. The server learns the surrounding ordinary semantic structure and that one role is protected; users who need the entire sentence hidden must protect the entire sentence rather than only one segment. Remote post-approval automatic replay and presentation remain separate lifecycle work.
+Users can discover and request access to another owner's protected fact through ordinary voice and existing Path/Essence structure, while owners can answer their own protected questions through the local presentation controls. The server learns the surrounding ordinary semantic structure and that one role is protected; users who need the entire sentence hidden must protect the entire sentence rather than only one segment. Approved recipient replay remains browser-local and bounded by the owner's grant window.
 
 ## Alternatives considered
 
@@ -49,4 +51,6 @@ Previously published partially protected facts lack their protected value relati
 - Browser tests prove publication contains the generic marker and relation but no protected alias.
 - Publication/hydration tests prove the opaque reference survives ID and named-user boundaries.
 - Compute tests accept an active owner reference, return it through named hydration, and reject another owner's reference.
-- The full two-browser flow remains a deployment acceptance test: owner publishes a partially protected quantity and name; requester asks the named question; Request owner appears; approval installs the recipient wrap and grant.
+- Server tests prove owner-selected duration storage, expiry/one-use enforcement, recipient-only envelope delivery, and atomic grant consumption.
+- Browser tests prove the remote pending question is retained, approved values replay through the existing temporary-graph proof, and local speech receives the proven response sentence.
+- The full two-browser flow remains a deployment acceptance test: owner publishes a partially protected quantity and name; requester asks the named question; Request owner appears; approval installs the recipient wrap and grant; the retained question answers without a second request.
