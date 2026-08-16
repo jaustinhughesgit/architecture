@@ -59,6 +59,8 @@ Words, entities, addresses/subdomains, groups, typed relations, versions, grants
 
 Position, Search, embeddings, and RAG remain useful for bounded discovery across many users, but their postings are derived from a named canonical entity version and content hash. They can nominate candidates only. Exact canonical records and action-specific grants are reloaded before a candidate is returned, traversed, aggregated, or executed. A stale or missing retrieval posting may affect recall; it must never change the underlying fact or authority.
 
+Compute capability discovery applies that rule with two deliberately different signatures. A canonical SHA-256 contract fingerprint identifies exact normalized contract content while excluding owner, entity address, lifecycle, release number, and timestamps. A sanitized semantic Position document supplies paraphrase recall across different human requests. Search narrows the catalog; current manifest reload, implementation-policy validation, and a canonical `use` grant decide whether reuse is possible. Neither a generated capability label nor an embedding is entity identity. See [decision 0039](../decisions/0039-compute-contract-fingerprints-and-positioning.md).
+
 ### ContextDB
 
 ContextDB holds the user's contextual graph: facts, relationships, properties, and referents used to interpret and answer requests. Its value is structured retrieval and composition, not merely storing message strings.
@@ -78,6 +80,12 @@ Essences are structured semantic operations derived from utterances. They separa
 Essence generation must retain required semantic distinctions: subject, property, quantity, location, time reference, ownership, negation, and other modifiers. Losing “tomorrow,” “my mom,” or a supplied location is a platform interpretation failure, not an acceptable simplification.
 
 An explicit qualified owner must bind every ownership or change edge produced from that statement. A model-generated generic intermediate label must not detach the data from “North Store,” “Amy's team,” or another supplied identity.
+
+### Convert requirements
+
+Convert is an entity-authoring interaction, not an Essence mode. A user may divide one spoken creation or edit request into ordered requirement segments with explicit hard stops. Those segments form one versioned Convert requirement envelope and one final submission; the temporary gesture used to mark a boundary does not authorize Essence execution, Path learning, word indexing, or ContextDB reads or writes.
+
+Compute discovery receives the ordered requirements and derives a semantic capability contract before validated generation. Create and Edit share this requirement-composition primitive but use different lifecycle targets. Context may be attached only through a future explicit typed reference, never through implicit Convert-side ContextDB gathering. See [decision 0038](../decisions/0038-convert-hard-stops-compose-requirements.md).
 
 ### Paths and signatures
 

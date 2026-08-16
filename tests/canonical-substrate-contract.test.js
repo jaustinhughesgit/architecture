@@ -68,7 +68,7 @@ test("middleware v1 freezes lineage and first-response dispositions", () => {
 
 test("governance v1 shares canonical actions and explicit lifecycle evidence", () => {
   assert.deepEqual(governance.$defs.action.enum, [
-    "find", "read", "aggregate", "use", "execute", "set", "edit", "delete", "delegate", "publish", "govern",
+    "find", "read", "aggregate", "use", "set", "edit", "delete", "delegate", "publish", "govern",
   ]);
   assert.deepEqual(governance.$defs.state.enum, ["draft", "active", "deprecated", "revoked", "deleted"]);
   assert.equal(governance.$defs.lifecycleTransition.properties.expectedVersion.minimum, 1);

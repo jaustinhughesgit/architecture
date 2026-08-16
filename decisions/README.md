@@ -50,3 +50,5 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0035: Segment input continuously and declare the protected use boundary](0035-segmented-input-and-protected-use-policy.md)
 - [0036: Browser-acknowledged notifications with latched email fallback](0036-browser-acknowledged-notifications-with-latched-email-fallback.md)
 - [0037: Publish requestable protected Context markers without plaintext](0037-requestable-protected-context-markers.md)
+- [0038: Convert hard stops compose requirements outside Essence](0038-convert-hard-stops-compose-requirements.md)
+- [0039: Compute contracts use exact fingerprints plus authorized semantic positioning](0039-compute-contract-fingerprints-and-positioning.md)
