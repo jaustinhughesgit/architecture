@@ -14,6 +14,8 @@ When all declared outputs can be produced from ordinary inputs or literals, the 
 
 This does not send ContextDB to Compute during Convert authoring. Convert still carries only the spoken capability requirements. At later invocation, the browser resolves the manifest's typed input from its local graph and sends the minimum ordinary value required by the selected operation.
 
+For a direct subject/property binding with multiple observations, the browser resolves the newest matching relation as the current value. Older observations remain graph history; they do not shadow a later update during Compute invocation.
+
 ## Consequences
 
 Input-only presentation and transformation entities become valid reusable Compute capabilities. ContextDB remains local-first, and no server gains graph access. External provider entities retain the existing public-HTTPS, allow-list, protected-injection, and deterministic validation gates.
@@ -35,3 +37,4 @@ The change narrows network authority. Browser-local binding sources cannot be co
 - Prove builder instructions forbid fetching browser-local binding sources and do not force initial web research.
 - Preserve required-input consumption, declared-output validation, and all provider/protected-asset gates.
 - Run a command-prompt lifecycle that stores a value locally, builds the input-only entity, invokes it, changes the local value, and invokes the same entity again.
+- Prove the second invocation resolves the newest matching direct-property observation rather than the first historical value.
