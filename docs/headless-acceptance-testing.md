@@ -62,7 +62,7 @@ A scenario is declarative JSON with ordered public actions or message inputs and
 
 The published Essence endpoint should also prefer a valid deterministic quantity-ledger plan over model interpretation for a recognized remainder query. This keeps direct contract tests and clients that have not yet adopted worker-local replay consistent with the browser primitive. Compute scenarios select the authoritative registered manifest from the public Convert result rather than a nested pre-creation generation artifact, and fail explicitly when discovery requires an Edit/extension lifecycle that the create/reuse runner does not implement.
 
-The canonical cross-user refresh scenario uses two independent authenticated profiles and hydrates the named owner once before the tested fact is published. It then publishes the later fact, exact-refreshes the already-known identity, and requires the deployed local question Path to return the new value. A scenario that hydrates only after all facts exist does not cover the stale-known-referent regression.
+The canonical cross-user refresh scenario uses two independent authenticated profiles, self-hydrates each actor as the browser does, and hydrates the named owner once before the tested fact is published. It then publishes the later fact, exact-refreshes the already-known identity by its remembered canonical ID, and requires the deployed local question Path to return the new value. A scenario that hydrates only after all facts exist does not cover the stale-known-referent regression.
 
 ## Capability status
 

@@ -14,7 +14,7 @@ New Context publications compile into the established canonical Words, entities,
 - Context-derived canonical IDs and Word IDs are deterministic hashes; the identifier library also provides time-ordered distributed IDs for future non-idempotent creation. Neither requires a shared allocation write.
 - Existing legacy IDs remain valid. Counter-backed legacy creation routes are compatibility adapters until migrated individually.
 - Rebuildable audience, Word-to-entity, profile, local-mapping, and idempotency projections use a retained encrypted `CanonicalProjectionTable`. The shard is part of its partition key. Projection rows never become fact or authorization authority.
-- Hydration reads canonical and sidecar sources during migration, prefers canonical duplicates, reloads canonical entities/relations, and reloads action grants before returning records. Existing public request and response envelopes remain unchanged.
+- Hydration reads canonical and sidecar sources during migration, selects the highest record version and prefers canonical only for equal-version duplicates, reloads canonical entities/relations, and reloads action grants before returning records. This prevents an eventually visible older canonical foundation row from hiding a newer strongly read sidecar revision. Existing public request and response envelopes remain unchanged.
 - Position writes new `AB2` anchor postings with the shard in the partition key. Search unions v2 shards with legacy v1 postings, reloads canonical subdomains, derives visibility from server state, authorizes candidates, and only then applies `topK` ranking.
 - Caller-supplied owner and policy fields cannot choose a Position/Search identity or grant.
 
@@ -36,7 +36,7 @@ Audience projections nominate records only. Hydration requires current `perm_gra
 
 ## Migration and compatibility
 
-Deploy the retained projection table and permissions before enabling its environment variable. New writes then dual-write canonical first and sidecar second. Reads dual-read and deduplicate. Old Context cursors continue on the sidecar path. Existing v1 anchor postings remain readable while new Position writes use v2. Phase 13 will backfill, compare parity, cut over, and retire the sidecar only after rollback gates pass.
+Deploy the retained projection table and permissions before enabling its environment variable. New writes then dual-write canonical first and sidecar second. Reads dual-read and deduplicate by record identity and version, with canonical winning an equal-version tie. Old Context cursors continue on the sidecar path. Existing v1 anchor postings remain readable while new Position writes use v2. Phase 13 will backfill, compare parity, cut over, and retire the sidecar only after rollback gates pass.
 
 ## Verification
 
