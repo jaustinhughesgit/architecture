@@ -18,6 +18,8 @@ The envelope carries no implicit Essence, Path, word-map, or ContextDB evidence.
 
 Compute capability discovery receives both the ordered segments and their combined request. The model treats every segment as a requirement for the same capability. Discovery produces a semantic capability contract; validated generation produces JPL; ArrayLogic and Shorthand materialize the entity through their existing governed boundaries.
 
+Grammatical ownership and ordinary values remain separate in that contract. A deictic current-speaker form such as `my`, `me`, `I`, `self`, `user`, or `current user` identifies the canonical `speaker` side of a ContextDB binding address; it is not a second required input beside the property value resolved at that address. Discovery and EntityPlan generation are instructed accordingly. Generated-contract normalization may rename a model-confused deictic ContextDB value input from the owner label to its declared non-deictic property, merge it with an identical property binding, or discard a separately generated owner pseudo-input only when the speaker binding and deictic examples prove it redundant. An explicitly declared input name or a non-deictic person value is preserved.
+
 An invocation phrase explicitly declared inside a requirement—for example, a bounded “when I ask/say/type …” clause—is authoritative authoring evidence. Compute deterministically preserves that phrase as an utterance example on the selected operation even when discovery proposes a different paraphrase. The browser compiles and tests every retained example before reporting the entity ready. This preserves user wording without making the complete Convert requirement envelope an invocation or giving server-authored text ownership of browser token signatures.
 
 The ordinary interaction rail retains the submitted Convert request as a browser-owned authoring-history item. Worker Essence-history refreshes merge around that item rather than replacing it. The item is presentation history only: retaining it does not send the request through Essence, write ContextDB, or authorize replay. A Path-learning replay with the same input context replaces the failed visible exchange instead of appearing as a second user utterance.
@@ -51,6 +53,7 @@ This decision narrows data flow. Ordinary Convert requirements may reach Compute
 - Preserve two or more nonempty segments exactly and in order.
 - Add a terminal period at each unpunctuated hard stop, join segments with one line break, derive one combined request, and submit it once.
 - Prove the discovery prompt receives the segment array with empty semantic evidence.
+- Prove a deictic current-speaker owner becomes the ContextDB subject rather than a required `user`/`speaker` input, while an explicitly declared or non-deictic person input remains ordinary data.
 - Prove the generated capability contract retains all required inputs and clarifications.
 - Prove validated JPL is materialized through active ArrayLogic and Shorthand implementations.
 - Prove ordinary Convert speech emits the authoring contract without calling the Essence/ContextDB recording path.
