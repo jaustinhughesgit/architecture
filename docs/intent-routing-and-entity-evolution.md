@@ -72,6 +72,8 @@ clarify
 
 The selected class determines validation, authorization, idempotency, and audit requirements. A lower class must not be promoted to a more powerful class merely because generation is available. A request classified as `write.fact` does not get authority to create executable behavior.
 
+Likewise, asking capability jurisdiction about an unclassified cold question does not clear evidence that a catalog-owned local graph operation can answer it. That evidence remains authoritative until bounded local repair is exhausted; otherwise the platform can create a competing executable entity for a data question. See [decision 0042](../decisions/0042-local-data-jurisdiction-and-opt-in-compute-caching.md).
+
 ## Boat example
 
 ### “I just purchased one more boat.”

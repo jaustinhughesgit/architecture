@@ -12,6 +12,8 @@ An EntityPlan request list may be empty. Binding hints are browser input-resolut
 
 When all declared outputs can be produced from ordinary inputs or literals, the plan maps those values directly into its response. The deterministic compiler emits the response JPL action without Axios or provider hosts. Background generation may search official provider documentation when external information is actually required, but initial research is optional. A correction following provider validation must also permit removing an unnecessary request instead of forcing a replacement provider.
 
+An unambiguous input projection does not require model-authored implementation at all. Exact name-compatible inputs and outputs compile directly, and a single type-compatible input may supply a single declared output under its output name. Ambiguous or multi-input transformations still require a validated EntityPlan. See [decision 0042](0042-local-data-jurisdiction-and-opt-in-compute-caching.md).
+
 This does not send ContextDB to Compute during Convert authoring. Convert still carries only the spoken capability requirements. At later invocation, the browser resolves the manifest's typed input from its local graph and sends the minimum ordinary value required by the selected operation.
 
 A Path-specific qualified referent may replace a deictic manifest subject such as `speaker` for one identity-scoped equation. The Path retains the canonical entity ID and bounded referent evidence, revalidates that entity locally, and preserves the manifest property. This does not fork the shared capability or send the graph to Compute. See [decision 0041](0041-path-scoped-referent-memory.md).
@@ -48,3 +50,4 @@ The change narrows network authority. Browser-local binding sources cannot be co
 - Prove a command-shaped invocation of an answer-producing Compute Path reaches browser presentation.
 - Prove a command-shaped alias of a locally validated question Path queries rather than mutates ContextDB and presents only its proven result.
 - Prove a Path-specific canonical referent resolves a deictic ContextDB input without changing the shared manifest or reading the caller's value instead.
+- Prove the unambiguous projection takes the deterministic build path without a model call while an unmatched multi-input transformation does not.
