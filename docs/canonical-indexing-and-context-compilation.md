@@ -57,7 +57,7 @@ Exact profile lookup is canonical-first and still includes compatibility/legacy 
 
 ## Position/Search
 
-New Position writes use `AB2` keys whose partition key contains the anchor shard. Search performs bounded reads from all configured v2 shards and the old v1 partition during migration. It unions tenant and global candidates, reloads subdomains, derives public/private policy from server state, applies owner/grant authorization, and ranks only the authorized set. If the initial 160-band candidate window is completely empty, Search makes one bounded 320-band pass; it does not scan the entity table. Anchor rows carry the canonical entity revision and content hash so later stale-row cleanup can compare them.
+New Position writes use `AB2` keys whose partition key contains the anchor shard. Search performs bounded reads from all configured v2 shards and the old v1 partition during migration. It unions tenant and global candidates, reloads subdomains, derives public/private policy from server state, applies owner/grant authorization, and ranks only the authorized set. Anchor rows carry the canonical entity revision and content hash so later stale-row cleanup can compare them.
 
 ## Deferred gates
 

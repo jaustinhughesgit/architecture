@@ -15,8 +15,6 @@ The phrase `My name is Austin` also exposed a reusable language gap. A failed mo
 - Ordinary, non-protected relation components connected to the authenticated current-speaker node also receive a server-owned `public:<principal>` audience when the publishing workspace is public. Unrelated components remain publisher/participant scoped.
 - A signed-in browser may request named hydration with an exact proper-person label. Compute verifies the requester's workspace, resolves exactly one public profile, chooses the target public audience server-side, and returns only that audience's graph page. Zero or multiple matches return no graph.
 - Before a non-protected question runs its local Path tournament, Transcribe extracts bounded proper-person labels from local tokens and attempts named hydration. Failure to hydrate does not bypass local proof or give the server authority to answer.
-- A possessive proper-person subject may specialize a reused Compute Path's ContextDB binding for that invocation. The entity contract remains reusable and may declare `speaker`; the browser-created Path records the named subject and, when uniquely hydrated, its local server entity ID while preserving the entity-declared property. Resolution still reads only the hydrated local graph. It does not create a person-specific compute definition or send ContextDB values into discovery.
-- Named hydration outcomes are retained with local input diagnostics so a missing, ambiguous, forbidden, or failed cross-user lookup does not disappear behind a generic Path miss.
 - The browser installs the resolved target's public display name on its stable node, while stripping remote current-speaker aliases. Only the authenticated requesting principal maps to local `speaker`.
 - Publication remains asynchronous. Profile registration and named question hydration require no manual sync control.
 
@@ -50,5 +48,4 @@ New self-connected mutations in public workspaces receive the public audience au
 
 - Compute tests publish `I have three cats`, publish `My name is Austin`, hydrate Austin from a second authenticated workspace, and verify exact profile resolution plus public graph rows.
 - Browser tests extract Austin only from proper-person syntax, prevent the remote user from becoming local `speaker`, call the exact-name action, and run the existing quantity Essence query over the hydrated graph to reproduce `3`.
-- Browser tests also prove that `Austin's` specializes a speaker-scoped ContextDB input to Austin without changing the reusable entity manifest, and that the already-proven input kind is carried into exact replay Path compilation.
 - Ambiguous names, unrelated components, workspace ownership, idempotency, and protected-input exclusion retain contract coverage.
