@@ -8,7 +8,7 @@ Convert and Essence share capture infrastructure, but they do not share semantic
 
 ## Decision
 
-Convert requirement authoring uses a versioned `convertRequirements` envelope containing an ordered `requirementSegments` array and a derived `userRequest`. Each hard stop finalizes one nonempty segment. The segments are submitted once, in order, as one creation or edit request.
+Convert requirement authoring uses a versioned `convertRequirements` envelope containing an ordered `requirementSegments` array and a derived `userRequest`. Each Button 3 ↔ Button 2 hard stop finalizes one nonempty segment, adds a terminal period when the segment has no sentence punctuation, and inserts exactly one line break before the next segment. The segments are submitted once, in order, as one creation or edit request.
 
 The envelope carries no implicit Essence, Path, word-map, or ContextDB evidence. Its `relevantItems` is empty. A future contextual reference must be selected explicitly and use its own typed attachment contract; it cannot silently restore automatic ContextDB gathering.
 
@@ -41,7 +41,7 @@ This decision narrows data flow. Ordinary Convert requirements may reach Compute
 ## Verification
 
 - Preserve two or more nonempty segments exactly and in order.
-- Derive one combined request and submit it once.
+- Add a terminal period at each unpunctuated hard stop, join segments with one line break, derive one combined request, and submit it once.
 - Prove the discovery prompt receives the segment array with empty semantic evidence.
 - Prove the generated capability contract retains all required inputs and clarifications.
 - Prove validated JPL is materialized through active ArrayLogic and Shorthand implementations.
