@@ -16,6 +16,7 @@ This repository is a platform client for verification, not a fourth runtime with
 | Generate and register device keys | `encryption setup` with Node WebCrypto | Real WebAuthn user activation and authenticator assertions |
 | Repeat a feature flow | `scenario run <file>` with stable subset assertions | Thin end-to-end UI wiring |
 | Submit statements and questions | `message run <file>` calls published interpretation routes and can replay supported questions through published local graph primitives | Worker lifecycle, encrypted IndexedDB persistence, automatic Path installation, and rendering |
+| Prove chronological cross-user Context refresh | `context run <file> --profiles <owner>,<reader>` executes deployed semantic Paths, publishes with separate authenticated profiles, exact-hydrates named public components, and answers from the deployed graph runtime | Browser worker scheduling, IndexedDB/outbox persistence, and rendering |
 | Clear a test database | `db reset --confirm reset:<environment>` | None; the destructive authority remains on the server |
 
 ## Verification flow
@@ -60,6 +61,8 @@ Reset is intended for isolated or ephemeral test stacks. Per-run namespaces or d
 A scenario is declarative JSON with ordered public actions or message inputs and stable expected outcomes. API scenarios assert public response subsets. Message scenarios preserve a local graph across turns, apply graph mutations before fact ingestion in browser transaction order, and may assert speech-act kind, final `{ask}` values, required deterministic operations, and an explicit local execution mode. Local replay must load the browser primitive from the deployment under test and make no classification or Essence request for that step; it must not reimplement product semantics in `testing`. Exact ordering is appropriate when it is part of the public contract; volatile trace data and generated identifiers should not be copied into expected output.
 
 The published Essence endpoint should also prefer a valid deterministic quantity-ledger plan over model interpretation for a recognized remainder query. This keeps direct contract tests and clients that have not yet adopted worker-local replay consistent with the browser primitive. Compute scenarios select the authoritative registered manifest from the public Convert result rather than a nested pre-creation generation artifact, and fail explicitly when discovery requires an Edit/extension lifecycle that the create/reuse runner does not implement.
+
+The canonical cross-user refresh scenario uses two independent authenticated profiles and hydrates the named owner once before the tested fact is published. It then publishes the later fact, exact-refreshes the already-known identity, and requires the deployed local question Path to return the new value. A scenario that hydrates only after all facts exist does not cover the stale-known-referent regression.
 
 ## Capability status
 

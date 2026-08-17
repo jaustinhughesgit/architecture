@@ -73,6 +73,8 @@ Entity mention resolution separates canonical identity from grammatical surface 
 
 Successful resolution can become identity-scoped Path memory. A Path may retain a bounded array of canonical entity IDs and evidence for a semantic role plus normalized mention. Repetition validates and prefers that remembered entity locally; it does not turn the name into a global alias, copy the preference into a shared Path, or grant access. Recent resolved inputs and responses can temporarily break a local same-name tie, while explicit corrections count against the prior choice.
 
+Remembered identity and data freshness are separate. An explicit named cross-user question can reuse the canonical entity ID to avoid another candidate search or clarification while still exact-refreshing that entity's currently authorized public component before local execution. Mention resolution treats the literal value reached through a name edge as data owned by the named entity, not as a second person candidate.
+
 Data should preserve distinct subjects and properties. For example, an address may have street, unit, city, state, and postal-code facts connected to the correct person; it should not become one opaque value when the intent requires its parts. Queries must retain explicit referents such as “my” versus “my mom's.”
 
 Repeated observations are distinct event identities even when their type and properties match. Aggregation counts or combines those event identities; it must not overwrite one event node or project a descriptive property as the count. A referential correction rewires the identified relationship with provenance rather than adding contradictory correction prose.

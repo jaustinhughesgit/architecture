@@ -24,7 +24,7 @@ The unit being ranked is the complete role binding or connected path, not the na
 
 After a referent is resolved and a Path is locally proved, the identity-scoped Path may retain a bounded `referentMemory` array. Each entry identifies the semantic role, normalized spoken mention, canonical entity ID, affected input names, successful-use evidence, and correction evidence. The equation also retains the resolved ContextDB subject ID for the input it supplies. The shared Path family and compute manifest remain generic.
 
-On a later match, the browser validates the remembered entity against current ContextDB, graph connections, lifecycle, and authority. If already present locally, no Search or question is needed. If the local graph needs rehydration, the browser may present the remembered canonical ID to the server; the server must verify that the ID still denotes the exact public profile for the spoken label and return only its currently authorized audience. An invalid or stale memory falls back to ordinary candidate resolution rather than becoming authority.
+On a later match, the browser validates the remembered entity against current ContextDB, graph connections, lifecycle, and authority. If already present locally, no candidate Search or question is needed. An explicit named cross-user question still exact-refreshes that profile's currently authorized public component before local execution because remembered identity does not prove data freshness. The browser may present the remembered canonical ID to the server; the server must verify that the ID still denotes the exact public profile for the spoken label and return only its currently authorized audience. An invalid or stale memory falls back to ordinary candidate resolution rather than becoming authority.
 
 For compute discovery, the browser separates the concrete invocation referent from a sanitized capability query. Position/Search receives the reusable behavior phrase, such as “register status report,” while discovery receives bounded evidence that Austin is invocation data. Position remains candidate retrieval only. Canonical entity records, graph edges, manifest contracts, and action-specific grants remain authoritative.
 
@@ -32,7 +32,7 @@ Path referent memory is an identity-scoped overlay. It must not enter a shared f
 
 ## Current implementation boundary
 
-The implemented foundation covers one unambiguous qualified possessive referent, including “Austin's register status report.” Exact authorized profile hydration installs the canonical entity in ContextDB; recent successful compute referent evidence can break a local same-name tie; the original compute equation persists its referent memory and ContextDB subject ID; and later local execution prefers that ID while revalidating the graph. If rehydration is required, the remembered ID is exact-validated before its public audience is returned.
+The implemented foundation covers one unambiguous qualified possessive referent, including “Austin's register status report.” Exact authorized profile hydration installs the canonical entity in ContextDB; a name-property value node is not counted as a second person candidate; recent successful compute referent evidence can break a local same-name tie; the original compute equation persists its referent memory and ContextDB subject ID; and later local execution prefers that ID while revalidating the graph. Every explicit named cross-user question refreshes that profile's authorized public component, using the remembered ID for exact validation when available, so newer facts arrive without another candidate search or clarification.
 
 Joint multi-edge candidate ranking, Position-backed same-name tournaments, frequency/decay updates, explicit correction updates, generalized non-person referents, effect-risk thresholds, and model-generated minimum distinguishing questions remain incomplete.
 
@@ -59,7 +59,7 @@ The server receives a remembered canonical entity ID only to validate an exact p
 - Prove a first request resolves a qualified Austin through authorized hydration and keeps Austin out of the reusable capability query.
 - Prove the installed Path persists Austin's canonical entity ID and its affected ContextDB input in bounded referent memory.
 - Prove a manifest defaulting to `speaker.RegisterStatus` resolves Austin's current value through the Path-specific subject rather than user 2's value.
-- Prove a repeated request skips name hydration when Austin is already present locally.
-- Prove rehydration can exact-validate a remembered Austin ID without another name candidate search.
+- Prove a repeated request skips candidate search and clarification but refreshes Austin's current authorized public component even when his identity is already present locally.
+- Prove refresh can exact-validate a remembered Austin ID without another name candidate search.
 - Prove recent resolved Path evidence can break a same-name local tie but an unresolved tie fails closed.
 - Prove a remembered ID cannot bypass current profile-name validation, graph authority, use grants, or Protected Asset policy.
