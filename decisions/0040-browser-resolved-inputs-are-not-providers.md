@@ -14,6 +14,8 @@ When all declared outputs can be produced from ordinary inputs or literals, the 
 
 This does not send ContextDB to Compute during Convert authoring. Convert still carries only the spoken capability requirements. At later invocation, the browser resolves the manifest's typed input from its local graph and sends the minimum ordinary value required by the selected operation.
 
+Context binding addresses compare through a syntax-neutral identifier key: camelCase, snake_case, kebab-case, and spaced forms are equivalent at this boundary. This accommodates harmless formatting differences between a generated manifest and an Essence property without adding domain aliases, merging graph entities, or changing the persisted spelling.
+
 For a direct subject/property binding with multiple observations, the browser resolves the newest matching relation as the current value. Older observations remain graph history; they do not shadow a later update during Compute invocation.
 
 ## Consequences
@@ -38,3 +40,4 @@ The change narrows network authority. Browser-local binding sources cannot be co
 - Preserve required-input consumption, declared-output validation, and all provider/protected-asset gates.
 - Run a command-prompt lifecycle that stores a value locally, builds the input-only entity, invokes it, changes the local value, and invokes the same entity again.
 - Prove the second invocation resolves the newest matching direct-property observation rather than the first historical value.
+- Prove harmless identifier formatting differences cannot make a declared ContextDB property unreachable.
