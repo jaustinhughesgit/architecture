@@ -24,7 +24,7 @@ Create and Edit share the same requirement composition mechanics. Create targets
 
 Requirement boundaries remain inspectable for prompt evaluation and repair instead of disappearing into punctuation. Convert cannot accidentally store an authoring instruction as a personal fact. A minimal headless test can supply segments directly without browser automation.
 
-The browser now closes each ordinary Convert audio chunk at a channel excursion, preserves the nonempty transcripts as ordered requirement segments, and submits them once on final release. Ordinary Convert text and audio bypass Essence recording, word indexing, ContextDB mutation, and question replay. The durable browser build lifecycle preserves the v1 prompt across polling/reload, installs manifest-derived local Paths, and stops after installation because the authoring requirements are not an invocation. Edit remains on its separate explicit-target interception path and has not yet adopted the same multi-segment composer.
+The browser now closes each ordinary Convert audio chunk at a channel excursion, preserves the nonempty transcripts as ordered requirement segments, and submits them once on final release. Ordinary Convert text and audio bypass Essence recording, word indexing, ContextDB mutation, and question replay. The durable browser build lifecycle preserves the v1 prompt across polling/reload and compiles manifest-derived local Paths. Installation becomes successful only after the Transcribe worker acknowledges a request-correlated library revision containing every new signature. Convert then stops because the authoring requirements are not an invocation; an Essence-originated discovery may replay only after the same acknowledgement. Edit remains on its separate explicit-target interception path and has not yet adopted the same multi-segment composer.
 
 ## Alternatives
 
@@ -52,4 +52,5 @@ This decision narrows data flow. Ordinary Convert requirements may reach Compute
 - Prove ordinary Convert speech emits the authoring contract without calling the Essence/ContextDB recording path.
 - Prove a quick Button 3 → Button 2 → Button 3 gesture splits capture without a dwell delay and that the deferred worker message retains the Convert-authoring marker.
 - Prove the live preview and authoritative recognized-audio replacement both render the hard stop as terminal punctuation followed by one newline.
+- Prove build completion does not unlock invocation replay until the worker acknowledges every installed compute Path signature; missing signatures and acknowledgement timeouts fail closed.
 - Keep a thin physical browser/microphone smoke test in the release checklist because simulated audio unit tests do not prove device gesture timing.
