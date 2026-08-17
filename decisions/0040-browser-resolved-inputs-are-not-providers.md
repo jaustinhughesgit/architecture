@@ -18,6 +18,8 @@ Context binding addresses compare through a syntax-neutral identifier key: camel
 
 For a direct subject/property binding with multiple observations, the browser resolves the newest matching relation as the current value. Older observations remain graph history; they do not shadow a later update during Compute invocation.
 
+The Path's execution mode, not only the utterance's surface speech act, determines whether the result is answer-producing. A validated Compute Path may recognize a command-shaped request such as “Give me…” while retaining `mode: question`; Transcribe preserves its successful typed answer. This exception is limited to an executed Compute result owned by the matched Compute Path and does not let ordinary commands or statements inject answers.
+
 ## Consequences
 
 Input-only presentation and transformation entities become valid reusable Compute capabilities. ContextDB remains local-first, and no server gains graph access. External provider entities retain the existing public-HTTPS, allow-list, protected-injection, and deterministic validation gates.
@@ -41,3 +43,4 @@ The change narrows network authority. Browser-local binding sources cannot be co
 - Run a command-prompt lifecycle that stores a value locally, builds the input-only entity, invokes it, changes the local value, and invokes the same entity again.
 - Prove the second invocation resolves the newest matching direct-property observation rather than the first historical value.
 - Prove harmless identifier formatting differences cannot make a declared ContextDB property unreachable.
+- Prove a command-shaped invocation of an answer-producing Compute Path reaches browser presentation.
