@@ -18,6 +18,10 @@ The envelope carries no implicit Essence, Path, word-map, or ContextDB evidence.
 
 Compute capability discovery receives both the ordered segments and their combined request. The model treats every segment as a requirement for the same capability. Discovery produces a semantic capability contract; validated generation produces JPL; ArrayLogic and Shorthand materialize the entity through their existing governed boundaries.
 
+An invocation phrase explicitly declared inside a requirement—for example, a bounded “when I ask/say/type …” clause—is authoritative authoring evidence. Compute deterministically preserves that phrase as an utterance example on the selected operation even when discovery proposes a different paraphrase. The browser compiles and tests every retained example before reporting the entity ready. This preserves user wording without making the complete Convert requirement envelope an invocation or giving server-authored text ownership of browser token signatures.
+
+The ordinary interaction rail retains the submitted Convert request as a browser-owned authoring-history item. Worker Essence-history refreshes merge around that item rather than replacing it. The item is presentation history only: retaining it does not send the request through Essence, write ContextDB, or authorize replay. A Path-learning replay with the same input context replaces the failed visible exchange instead of appearing as a second user utterance.
+
 Create and Edit share the same requirement composition mechanics. Create targets capability discovery/build. Edit adds an explicit target identity and follows the existing revision, validation, lineage, and replay lifecycle.
 
 ## Consequences
@@ -53,4 +57,6 @@ This decision narrows data flow. Ordinary Convert requirements may reach Compute
 - Prove a quick Button 3 → Button 2 → Button 3 gesture splits capture without a dwell delay and that the deferred worker message retains the Convert-authoring marker.
 - Prove the live preview and authoritative recognized-audio replacement both render the hard stop as terminal punctuation followed by one newline.
 - Prove build completion does not unlock invocation replay until the worker acknowledges every installed compute Path signature; missing signatures and acknowledgement timeouts fail closed.
+- Prove an explicitly declared invocation phrase survives model paraphrasing, compiles locally, and is included in the acknowledged installed set.
+- Prove Convert authoring remains visible after worker history refresh without entering Essence/ContextDB, and one repaired replay does not create a duplicate user card.
 - Keep a thin physical browser/microphone smoke test in the release checklist because simulated audio unit tests do not prove device gesture timing.

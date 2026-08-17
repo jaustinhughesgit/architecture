@@ -18,7 +18,7 @@ Context binding addresses compare through a syntax-neutral identifier key: camel
 
 For a direct subject/property binding with multiple observations, the browser resolves the newest matching relation as the current value. Older observations remain graph history; they do not shadow a later update during Compute invocation.
 
-The Path's execution mode, not only the utterance's surface speech act, determines whether the result is answer-producing. A validated Compute Path may recognize a command-shaped request such as “Give me…” while retaining `mode: question`; Transcribe preserves its successful typed answer. This exception is limited to an executed Compute result owned by the matched Compute Path and does not let ordinary commands or statements inject answers.
+The Path's execution mode, not only the utterance's surface speech act, determines whether the result is answer-producing. A validated Compute Path may recognize a command-shaped request such as “Give me…” while retaining `mode: question`; Transcribe preserves its successful typed answer. The same rule applies to a locally validated, read-only Essence question Path reached through a command-shaped alias: its rows remain query templates and its proven result may be presented. A Path whose executed mode is `command` or `statement` still cannot inject an answer.
 
 ## Consequences
 
@@ -44,3 +44,4 @@ The change narrows network authority. Browser-local binding sources cannot be co
 - Prove the second invocation resolves the newest matching direct-property observation rather than the first historical value.
 - Prove harmless identifier formatting differences cannot make a declared ContextDB property unreachable.
 - Prove a command-shaped invocation of an answer-producing Compute Path reaches browser presentation.
+- Prove a command-shaped alias of a locally validated question Path queries rather than mutates ContextDB and presents only its proven result.

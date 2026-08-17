@@ -85,7 +85,7 @@ An explicit qualified owner must bind every ownership or change edge produced fr
 
 Convert is an entity-authoring interaction, not an Essence mode. A user may divide one spoken creation or edit request into ordered requirement segments with explicit hard stops. Those segments form one versioned Convert requirement envelope and one final submission; the temporary gesture used to mark a boundary does not authorize Essence execution, Path learning, word indexing, or ContextDB reads or writes.
 
-Compute discovery receives the ordered requirements and derives a semantic capability contract before validated generation. Create and Edit share this requirement-composition primitive but use different lifecycle targets. Context may be attached only through a future explicit typed reference, never through implicit Convert-side ContextDB gathering. See [decision 0038](../decisions/0038-convert-hard-stops-compose-requirements.md).
+Compute discovery receives the ordered requirements and derives a semantic capability contract before validated generation. A bounded invocation phrase explicitly declared by the user remains an authoritative utterance example even when model discovery prefers a paraphrase; the browser must compile and test that retained phrase before readiness. Convert authoring remains visible in browser presentation history without entering Essence or ContextDB. Create and Edit share this requirement-composition primitive but use different lifecycle targets. Context may be attached only through a future explicit typed reference, never through implicit Convert-side ContextDB gathering. See [decision 0038](../decisions/0038-convert-hard-stops-compose-requirements.md).
 
 ### Paths and signatures
 
