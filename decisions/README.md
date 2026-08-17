@@ -52,3 +52,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0037: Publish requestable protected Context markers without plaintext](0037-requestable-protected-context-markers.md)
 - [0038: Convert hard stops compose requirements outside Essence](0038-convert-hard-stops-compose-requirements.md)
 - [0039: Compute contracts use exact fingerprints plus authorized semantic positioning](0039-compute-contract-fingerprints-and-positioning.md)
+- [0040: Browser-resolved Compute inputs are not providers](0040-browser-resolved-inputs-are-not-providers.md)
