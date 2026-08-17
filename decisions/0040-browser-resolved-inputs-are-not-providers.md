@@ -14,6 +14,8 @@ When all declared outputs can be produced from ordinary inputs or literals, the 
 
 This does not send ContextDB to Compute during Convert authoring. Convert still carries only the spoken capability requirements. At later invocation, the browser resolves the manifest's typed input from its local graph and sends the minimum ordinary value required by the selected operation.
 
+A Path-specific qualified referent may replace a deictic manifest subject such as `speaker` for one identity-scoped equation. The Path retains the canonical entity ID and bounded referent evidence, revalidates that entity locally, and preserves the manifest property. This does not fork the shared capability or send the graph to Compute. See [decision 0041](0041-path-scoped-referent-memory.md).
+
 Context binding addresses compare through a syntax-neutral identifier key: camelCase, snake_case, kebab-case, and spaced forms are equivalent at this boundary. This accommodates harmless formatting differences between a generated manifest and an Essence property without adding domain aliases, merging graph entities, or changing the persisted spelling.
 
 For a direct subject/property binding with multiple observations, the browser resolves the newest matching relation as the current value. Older observations remain graph history; they do not shadow a later update during Compute invocation.
@@ -27,7 +29,7 @@ Input-only presentation and transformation entities become valid reusable Comput
 ## Affected repositories
 
 - `compute`: EntityPlan schema/compiler, builder prompting, background research choice, and tests.
-- `aws`: no contract change; it continues to resolve bindings locally before invocation.
+- `aws`: resolves bindings locally and may apply an identity-scoped, Path-proven qualified referent before invocation.
 - `testing`: command-prompt scenarios can prove that a changed local value changes the next invocation result without rebuilding the entity.
 
 ## Security impact
@@ -45,3 +47,4 @@ The change narrows network authority. Browser-local binding sources cannot be co
 - Prove harmless identifier formatting differences cannot make a declared ContextDB property unreachable.
 - Prove a command-shaped invocation of an answer-producing Compute Path reaches browser presentation.
 - Prove a command-shaped alias of a locally validated question Path queries rather than mutates ContextDB and presents only its proven result.
+- Prove a Path-specific canonical referent resolves a deictic ContextDB input without changing the shared manifest or reading the caller's value instead.

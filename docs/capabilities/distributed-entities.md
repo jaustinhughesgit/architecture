@@ -6,6 +6,8 @@ Durable direction: [ADR 0002](../../decisions/0002-entities-are-distributed-asse
 
 An entity is 1var's addressable unit of meaning, data, behavior, presentation, or interaction. A compute opportunity is one use of an entity, not the definition of an entity.
 
+English ownership composes the graph one connection at a time. Each entity reached by an Essence owns the next edge, so `Austin → cart → shipping address → state` remains a connected path rather than a flattened Austin record. People, groups, animals, devices, vehicles, plants, places, and other objects use the same identity and connection machinery.
+
 ## Entity forms
 
 The same entity model supports:
@@ -43,6 +45,8 @@ cat record --quantity--> 3
 
 The server representation is a hard asset: another authorized user can ask how many cats Austin has, and the answer can be retrieved from stored entities and links without running an external compute function.
 
+The same connected graph may supply an ordinary input to reusable behavior. In “What is Austin's register status report?”, Austin is resolved as the qualified graph entity while “register status report” is the reusable capability query. After authorized hydration, the browser records Austin's canonical ID in the identity-scoped Path equation and resolves `Austin → RegisterStatus → current value` locally. Compute receives only that typed value. A later identical equation validates and reuses Austin locally; if rehydration is necessary, the remembered ID is exact-validated against the current public profile rather than being trusted as authority. See [decision 0041](../../decisions/0041-path-scoped-referent-memory.md).
+
 ## Intended publication flow
 
 ```text
@@ -68,6 +72,8 @@ The retained Context graph table is now a migration adapter rather than the only
 Each connected relation component is visible to its publisher and any uniquely resolved user participants. Hydration selects only the authenticated principal's server-derived audience, reloads canonical records and grants, includes sidecar-only compatibility rows, and merges permitted entities into local ContextDB; the principal's stable server entity becomes the local `speaker`. This lets one user publish a spoken fact about another known public user and lets that participant ask a first-person question after hydration.
 
 For a public workspace, a component connected to the authenticated current-speaker node also receives a public-profile audience. An executed self-property assertion such as `My name is Austin` can register the exact profile name because the server observes a resolved current-speaker → name → value relation rather than trusting transcript text. Before a later question naming Austin runs locally, the browser requests exact-name hydration; Compute resolves the unique profile and selects Austin's public audience without accepting a client-supplied target identity. The remote Austin node keeps its name but never becomes the requesting browser's `speaker`. See [decision 0022](../../decisions/0022-public-profile-named-context-hydration.md).
+
+After that first governed resolution, an identity-scoped Path may present the remembered canonical profile ID on later hydration. Compute accepts it only when the current profile record still maps that exact ID to the same normalized spoken label, then applies the same public-audience boundary. A mismatch falls back to candidate resolution; the ID never selects an arbitrary audience or grant.
 
 Publication retries preserve one idempotency key across connectivity failures. Removed relations publish tombstones to every prior audience. Protected plaintext and aliases never enter this channel. A partially protected mutation may publish its ordinary relation skeleton with the protected value replaced by a generic marker and opaque asset reference; Compute verifies that the authenticated publisher owns the active asset before accepting it. Hydration carries that requestable reference, but it supplies no plaintext, grant, or recipient wrap. The older entity/link/export synchronizers remain implementation foundations whose identity, indexing, composition, access, and lifecycle semantics must be reconciled with the active publication mechanics; neither implementation should be discarded without a migration plan.
 

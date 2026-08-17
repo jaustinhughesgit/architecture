@@ -43,6 +43,8 @@ Cross-person collection is a graph operation, not a new Compute capability. A co
 
 The quantity catalog now owns a vocabulary-neutral group-current operation. Its bound owner set joins each authorized owner's observation records and sums distinct record identities. Thus Austin's two dogs plus the caller's one dog yields three without a dog-specific rule. The bound set cannot broaden hydration, invent a grant, read protected plaintext, or turn candidate-only Position/Search postings into facts.
 
+A qualified entity used by Compute follows the same separation. The browser resolves the concrete referent through ContextDB, recent resolved history, Path memory, and authorized retrieval, then applies that canonical ID to the Path's local input binding. Capability Positioning uses the behavior-only query, and Compute receives only resolved ordinary inputs. The Path memory can improve later selection but cannot broaden hydration, authorization, or Protected Asset access. See [decision 0041](../decisions/0041-path-scoped-referent-memory.md).
+
 ## Remaining migration
 
 - carry v1 through every legacy entity/file/Convert/Shorthand call;
