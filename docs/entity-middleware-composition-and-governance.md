@@ -34,7 +34,7 @@ The caller supplies structured input and a target; a trusted resolver supplies t
 4. validates the node decision and effects; and
 5. continues only for `pass`.
 
-Materialized output is a possible `respond` result, not an authorization shortcut. Its input/dependency/version/permission scope and freshness must match the invocation. Active `runEntity` now checks canonical `use` governance for its target, while the current foundation freezes and unit-tests the lineage runner. It does not silently use previously unused parents.
+Materialized output is a possible `respond` result, not an authorization shortcut. Its input/dependency/version/permission scope and freshness must match the invocation. Active `runEntity` now checks canonical `use` governance for its target, while the current foundation freezes and unit-tests the lineage runner. The authorization boundary reads the target address and entity consistently, because an acknowledged create must be immediately invocable and cannot rely on eventual-consistency timing. It does not silently use previously unused parents.
 
 ## Governance and lifecycle
 
