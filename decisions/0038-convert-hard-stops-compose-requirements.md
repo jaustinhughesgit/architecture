@@ -12,6 +12,8 @@ Convert requirement authoring uses a versioned `convertRequirements` envelope co
 
 For a press that began on Button 3, entering Button 2 is the physical boundary event. It closes the current Convert recorder immediately rather than waiting for the ordinary delayed channel-switch commitment. Button 2 is parked as a delimiter for that authoring press; returning to Button 3 resumes another ordered Convert segment. The press-scoped authoring marker must travel in the actual worker message, not only in presentation or diagnostic state.
 
+The boundary is also a live presentation contract. The browser marks the current preview segment with its terminal punctuation and newline as soon as Button 2 is entered. Later provider transcripts may replace preview wording, but they must retain the boundary associated with the audio chunk; presentation must not flatten the segment list while the press remains active or after release.
+
 The envelope carries no implicit Essence, Path, word-map, or ContextDB evidence. Its `relevantItems` is empty. A future contextual reference must be selected explicitly and use its own typed attachment contract; it cannot silently restore automatic ContextDB gathering.
 
 Compute capability discovery receives both the ordered segments and their combined request. The model treats every segment as a requirement for the same capability. Discovery produces a semantic capability contract; validated generation produces JPL; ArrayLogic and Shorthand materialize the entity through their existing governed boundaries.
@@ -49,4 +51,5 @@ This decision narrows data flow. Ordinary Convert requirements may reach Compute
 - Prove validated JPL is materialized through active ArrayLogic and Shorthand implementations.
 - Prove ordinary Convert speech emits the authoring contract without calling the Essence/ContextDB recording path.
 - Prove a quick Button 3 → Button 2 → Button 3 gesture splits capture without a dwell delay and that the deferred worker message retains the Convert-authoring marker.
+- Prove the live preview and authoritative recognized-audio replacement both render the hard stop as terminal punctuation followed by one newline.
 - Keep a thin physical browser/microphone smoke test in the release checklist because simulated audio unit tests do not prove device gesture timing.
