@@ -18,12 +18,15 @@ The Convert builder deterministically compiles an unambiguous local input projec
 
 When a Path-specific ContextDB binding replaces `speaker` with one named canonical entity, answer presentation may replace only a leading deictic subject (`Your`, `You have`, or `You are`) with that locally resolved entity's possessive or agreement form. This changes perspective, not result data, capability identity, authorization, or JPL.
 
+An installed Compute Path carries the manifest's execution contract. The browser may retry one transient transport, gateway, rate-limit, provider-unavailable, or execution-timeout failure only when that contract explicitly declares `readOnly: true`. The retry preserves the invocation idempotency key and typed inputs. Mutating operations and paths without the declaration are never retried automatically.
+
 ## Consequences
 
 - Ordinary data questions do not create accidental Compute entities merely because their wording is new.
 - ContextDB-backed capabilities see current values unless their contract explicitly authorizes a bounded cache.
 - Simple presentation entities build reliably without weakening EntityPlan validation for real transformations.
 - Named invocations reuse one capability and one typed input contract while presenting the selected subject correctly.
+- A transient read-only Compute timeout does not force the user to repeat the question, while mutation safety remains fail-closed.
 
 ## Security impact
 
@@ -36,5 +39,5 @@ The decision reduces authority: local questions remain local, no graph is sent t
 - Prove `freshness:none` invokes twice and observes a changed result; prove a positive cache TTL reuses once.
 - Prove a one-input local projection builds without calling the model and consumes the required input.
 - Prove a multi-input unmatched transformation is not guessed.
+- Prove one retryable read-only timeout is retried once and the same failure is not retried for a mutating operation.
 - Prove one stored command-prompt chain covers ordinary cross-user data, requestable protected data, timed owner approval, recipient-local decryption, Convert build, self invocation, and named positioned invocation.
-
