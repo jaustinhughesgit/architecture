@@ -21,13 +21,13 @@ When policy permits sharing, the committed graph delta also enters a durable asy
 
 ```text
 Hold a Transcribe control
-  → ordinary audio and protected local segments retain ordered switch indexes
-  → moving between ordinary and protected controls changes the next segment mode
+  → each ordinary or protected capture session reserves a monotonic segment index at its pointer boundary
+  → moving between ordinary and protected controls immediately starts the next mode without a fixed dwell timer
   → moving left cancels capture and opens Message in the selected mode
   → final release assembles one sanitized input and executes once
 ```
 
-Protected speech is encrypted in the browser before the worker receives its opaque reference. Its transient browser-local semantic form remains available for matching after all ordered spans are assembled. If that complete typed Path context disambiguates an isolated protected transcript, the browser rotates the same local-only asset to the contextual plaintext before graph execution; only versioned ciphertext reaches the server. Protected speech never enters the word map or model learning. The recent-input overlay shows only the last three sanitized interaction records and exists only while Message is focused or a Transcribe control is held. See [decision 0035](../decisions/0035-segmented-input-and-protected-use-policy.md).
+Capture order and context identity are reserved before either speech provider returns, so delayed recognition cannot move a word across the trust boundary or into a newer press. A protected recognizer stops gracefully and may deliver its final result after ordinary capture has resumed; that result retains the old protected segment. A slow stopped recorder cannot overwrite its replacement, and mid-press recognition or encryption does not delay ordinary capture resumption; final release remains the barrier that waits for closing protected recognizers and every protected asset. Protected speech is encrypted in the browser before the worker receives its opaque reference. Its transient browser-local semantic form remains available for matching after all ordered spans are assembled. If that complete typed Path context disambiguates an isolated protected transcript, the browser rotates the same local-only asset to the contextual plaintext before graph execution; only versioned ciphertext reaches the server. Protected speech never enters the word map or model learning. The recent-input overlay shows only the last three sanitized interaction records and exists only while Message is focused or a Transcribe control is held. See [decision 0035](../decisions/0035-segmented-input-and-protected-use-policy.md).
 
 The microphone-start boundary interrupts delayed Automation, pending TTS synthesis, active Sound playback, and local `speechSynthesis` before capture. A slide-open Message panel stays pinned while Message or Transcribe is used and closes by X or an outside pointer action.
 

@@ -182,6 +182,8 @@ Public work can become reusable infrastructure or marketable templates. Private 
 
 Protected assets include API keys, financial details, personal identification, and other sensitive values. The architecture supports different trust modes rather than falsely labeling all server-side use zero-trust.
 
+During held voice input, an ordinary/protected pointer crossing is the trust boundary. The browser records that boundary immediately on a monotonic press timeline and reserves capture-session order and context identity before transcription finishes. No fixed dwell timer is part of the privacy contract, and delayed provider results cannot reclassify a segment or attach it to a newer press. A protected recognizer stops gracefully and retains late final results in its original protected segment. Recognition and encryption may finish asynchronously after ordinary capture resumes, but final release does not execute the assembled sentence until those local assets are ready.
+
 - A server-managed option may be offered with clear user consent and auditable controls.
 - A true zero-knowledge option keeps decryption and use on a user-controlled device so platform servers cannot technically access plaintext.
 - Recipient-specific zero-trust sharing encrypts locally and gives each authorized user/device an independent salted key wrap. An optional server-executor wrap is a different, explicitly trusted-server mode.
