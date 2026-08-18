@@ -25,6 +25,8 @@ The browser may begin local-model preparation when the user first enters a prote
 
 The independent ordinary browser speech-preview recognizer is disabled on the continuous path. It could otherwise continue consuming microphone audio after the AudioWorklet boundary and silently weaken the protected lane even if its late text were ignored.
 
+The live interaction card is a projection of the same sample-clock timeline, not a second transcript accumulator. Opening a capture segment reserves a presentation slot before recognition. An unresolved ordinary slot displays an ellipsis; a protected slot displays `***` immediately and never retains its plaintext. Recognition events carry the capture switch index and may settle only the matching slot. Callback completion order therefore cannot move text across a trust boundary or overwrite another segment. This makes trust and order visible immediately while leaving final recognized words authoritative.
+
 ## Security scope
 
 This strengthens the existing zero-knowledge boundary: 1var servers, remote transcription services, and model hosts do not receive protected PCM or its transcript. Fetching model/runtime artifacts reveals an artifact request and ordinary network metadata, not input audio.
@@ -37,7 +39,7 @@ This is not a claim that a browser-delivered web application is immune to a mali
 - There is one permission and device lifecycle, with four referencable logical lanes.
 - Protected speech has no permissive compatibility fallback; unsupported clients must use protected typed input or fix the local runtime.
 - First protected use may wait for a model download, so preparation progress and caching are part of the user experience.
-- Ordinary live preview is less immediate on the continuous path, but the privacy boundary is auditable and authoritative transcripts still assemble in sample order.
+- Exact ordinary words remain subject to recognition latency on the continuous path, but the live card exposes stable ordered/trust-classified slots immediately and authoritative transcripts settle those same slots in sample order.
 
 ## Affected repositories
 
@@ -46,4 +48,4 @@ This is not a claim that a browser-delivered web application is immune to a mali
 
 ## Verification
 
-Unit tests prove the four lane map, contiguous start/end frames, `ordinary → protected → ordinary` order, WAV creation, transferable local-worker invocation, absence of a protected `/transcribe` call, cancellation, and existing press assembly. A real-browser check must load the AudioWorklet, produce contiguous non-empty sample ranges from a synthetic single stream, load the local model, and complete an inference with `local: true`. Physical-device rapid-crossing acceptance remains required after deployment.
+Unit tests prove the four lane map, contiguous start/end frames, `ordinary → protected → ordinary` order, out-of-order live transcript settlement by switch index, non-retention of protected plaintext in the display draft, WAV creation, transferable local-worker invocation, absence of a protected `/transcribe` call, cancellation, and existing press assembly. A real-browser check must load the AudioWorklet, produce contiguous non-empty sample ranges from a synthetic single stream, load the local model, and complete an inference with `local: true`. Physical-device rapid-crossing acceptance remains required after deployment.
