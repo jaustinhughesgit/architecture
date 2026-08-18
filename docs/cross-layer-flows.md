@@ -147,6 +147,7 @@ Identity-scoped and foundation Path replication uses byte- and count-bounded ide
 ```text
 Input cannot be answered by local graph semantics
   → discover an approved capability contract
+  → freeze and validate a semantic answer plan before executable construction
   → resolve explicit utterance bindings and authorized context
   → obtain protected-asset consent or reference when required
   → build or reuse a validated entity and JPL implementation
@@ -159,6 +160,8 @@ Input cannot be answered by local graph semantics
 Capability revision preflight treats the candidate Paths as replacements for the same capability/entity identity. The browser keeps the current Paths executable while testing, excludes only those exact predecessors from collision scoring, and commits the replacement only after the original utterance and quality gates pass. The exact executed replay retains its browser-proven speech act across Edit's context reset; cold and unrelated examples still require classifier proof. Unrelated installed Paths remain collision evidence.
 
 Discovery should happen once per missing reusable capability, not once per wording. Provider protocol knowledge should live in reusable, versioned entities or public templates rather than be regenerated in every end-user entity.
+
+Convert discovery is semantic-first. For a build decision, the model must state what source answers the request, the operation, the browser input, the output, and—when applicable—the ContextDB subject/property address before it declares the capability contract. Compute reconciles the generated contract against that frozen answer plan before EntityPlan/JPL construction. A current-speaker possessive is an address owner, not an ordinary `user` value; a matching deictic pseudo-input may be repaired into the planned browser-resolved property input, while an explicitly declared or genuinely non-deictic person input is preserved. The current ContextDB value never enters discovery. A disagreement receives one bounded background semantic correction and then fails closed. Every accepted operation has a nonempty answer template before browser Path installation. See [decision 0044](../decisions/0044-semantic-answer-plans-precede-compute-contracts.md).
 
 An EntityPlan request parameter that reads an ordinary operation input makes that input an execution dependency. The manifest must mark it required or provide a non-null default before the entity can be published. Provider research may strengthen a previously optional semantic input to required without changing its type or binding meaning; utterance-bound dependencies still require a clarification and an annotated learnable example. This prevents unresolved placeholders from becoming malformed provider calls.
 
@@ -273,6 +276,8 @@ Browser submits idempotent operation
 
 Retries must not create duplicate entities, Paths, facts, provider charges, or protected-asset actions.
 For entity revision, an identical resubmission whose earlier response was lost reconnects by revision hash to the existing job; a different revision cannot adopt that lock or job.
+
+A terminal Convert build response also carries `convertArtifacts` v1 with the accepted `arrayLogic`, compiled `shorthand`, and materialized JPL `{modules, actions}`. The API transports this object without interpreting it. Convert renders it as read-only build evidence for Button 3 and Button 4 authoring. Reuse and pending responses carry the same object with null artifact fields because they did not create a new representation pipeline.
 
 ## Per-request model cost inspection
 
