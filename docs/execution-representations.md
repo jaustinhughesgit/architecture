@@ -98,7 +98,7 @@ The first action binds values. The second action sends them. If the entity queri
 
 JPL is data, not JavaScript source. A generated implementation must not contain functions, imports, comments, code fragments, or arbitrary module names. Execution still has real authority: a target can call a provider, send a response, or perform another allowed effect. Schema validity alone is therefore insufficient. Module allowlists, target and host validation, input/output contract checks, authorization, protected-asset policy, and isolated execution tests remain required.
 
-JPL access to governed server entities is not blanket access to browser-local ContextDB. For a manifest-declared ContextDB effect, JPL computes and returns the typed output while the browser proves and applies the local relation mutation. The graph snapshot and browser entity identifiers never become JPL execution context. See [decision 0046](../decisions/0046-browser-applied-compute-context-effects.md).
+JPL access to governed server entities is not blanket access to browser-local ContextDB. For a manifest-declared fixed ContextDB effect, JPL returns the typed response output while the browser proves and applies the separately declared current-to-new local relation mutation. The graph snapshot and browser entity identifiers never become JPL execution context. See [decision 0046](../decisions/0046-browser-applied-compute-context-effects.md).
 
 ### Status
 
