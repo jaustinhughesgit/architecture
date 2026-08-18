@@ -54,3 +54,8 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0039: Compute contracts use exact fingerprints plus authorized semantic positioning](0039-compute-contract-fingerprints-and-positioning.md)
 - [0040: Browser-resolved Compute inputs are not providers](0040-browser-resolved-inputs-are-not-providers.md)
 - [0041: Paths retain identity-scoped referent memory after governed resolution](0041-path-scoped-referent-memory.md)
+- [0042: Local data jurisdiction and Compute caching are explicit](0042-local-data-jurisdiction-and-opt-in-compute-caching.md)
+- [0043: Route held voice by sample clock and transcribe protected lanes locally](0043-sample-clock-voice-routing-and-local-protected-asr.md)
+- [0044: Semantic answer plans precede Compute contracts](0044-semantic-answer-plans-precede-compute-contracts.md)
+- [0045: Convert discovery receives bounded ordinary authoring context](0045-convert-discovery-receives-bounded-ordinary-authoring-context.md)
+- [0046: Browser-applied Compute effects mutate ordinary ContextDB](0046-browser-applied-compute-context-effects.md)
