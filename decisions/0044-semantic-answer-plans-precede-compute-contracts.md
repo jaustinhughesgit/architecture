@@ -14,7 +14,7 @@ Build discovery is semantic-first. Its strict structured response places an `ans
 
 Compute treats that plan as a frozen semantic contract before EntityPlan or JPL construction. Every plan must select a declared operation and output; browser-resolved sources must select an input with the same source, and a calculation must select its declared calculation output. For a current-speaker ContextDB property, Compute locates the planned property input and may repair a generated deictic pseudo-input only when the requirements did not explicitly declare that input and its examples contain no non-deictic value. The repaired input is browser-resolved `contextdb` data at canonical subject `speaker`; model-authored annotations such as `my` are removed because they are grammatical evidence, not invocation values. Explicitly named inputs and actual person values remain ordinary inputs.
 
-The plan never contains the current ContextDB value. At invocation, the browser resolves the address locally and sends only the scalar. The validated answer source travels with the internal build request: browser-resolved one-input/one-output contracts may use the deterministic local projection compiler, while a provider plan cannot be mistaken for a local copy merely because it has the same structural shape. No second model is needed to copy an unambiguous browser-resolved scalar into the declared output.
+The plan never contains the current ContextDB value. Bounded ordinary authoring context may show discovery that a value currently exists, but reconciliation removes any copy of that value from defaults, constants, utterance annotations, capability identity, and implementation literals. At invocation, the browser resolves the address locally and sends only the scalar. The validated answer source travels with the internal build request: browser-resolved one-input/one-output contracts may use the deterministic local projection compiler, while a provider plan cannot be mistaken for a local copy merely because it has the same structural shape. No second model is needed to copy an unambiguous browser-resolved scalar into the declared output.
 
 If background discovery JSON or semantic reconciliation fails, Compute starts one replacement background response containing the invalid JSON and sanitized validation feedback. The replacement job ID is opaque to the browser and remains resumable through the existing Convert polling contract. A second invalid result fails closed; correction cannot loop.
 
@@ -31,7 +31,7 @@ Every normalized Compute operation has a nonempty answer template. When generati
 
 ## Security impact
 
-The change preserves local-first and zero-trust boundaries. Discovery receives the requested binding address but no current ContextDB value or graph snapshot. Compute sees only the ordinary scalar sent during an authorized invocation. The correction response receives bounded requirements, its own prior JSON, and sanitized validation feedback; it receives no new private context.
+The change preserves local-first and zero-trust execution boundaries. Under decision 0045, discovery may receive bounded non-protected recent inputs and their proven Essence rows, but never a full graph snapshot or protected entry. Those rows are authoring evidence only. Compute execution sees only the ordinary scalar sent during an authorized invocation. The correction response receives the same bounded authoring evidence, its own prior JSON, and sanitized validation feedback.
 
 ## Verification
 

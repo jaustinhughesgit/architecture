@@ -2,6 +2,8 @@
 
 Status: accepted
 
+Amended by [decision 0045](0045-convert-discovery-receives-bounded-ordinary-authoring-context.md): `relevantItems` remains unavailable to Convert, but the browser now supplies a separate bounded `authoringContext` containing up to 20 non-protected recent inputs and their browser-proven Essence rows.
+
 ## Context
 
 Convert and Essence share capture infrastructure, but they do not share semantic authority. The legacy transcription route could classify Convert speech as Essence, gather automatic ContextDB context, update lexical state, and commit pending graph mutations. Convert is instead how a user speaks requirements for creating or editing an entity. During one Convert hold, sliding to Essence and back marks a hard stop between requirements; it does not change the meaning of those words into a ContextDB operation.
@@ -14,7 +16,7 @@ For a press that began on Button 3, entering Button 2 is the physical boundary e
 
 The boundary is also a live presentation contract. The browser marks the current preview segment with its terminal punctuation and newline as soon as Button 2 is entered. Later provider transcripts may replace preview wording, but they must retain the boundary associated with the audio chunk; presentation must not flatten the segment list while the press remains active or after release.
 
-The envelope carries no implicit Essence, Path, word-map, or ContextDB evidence. Its `relevantItems` is empty. A future contextual reference must be selected explicitly and use its own typed attachment contract; it cannot silently restore automatic ContextDB gathering.
+The envelope does not reuse the broad Essence fallback payload: its `relevantItems` remains empty. Decision 0045 adds a narrower `authoringContext` contract containing bounded ordinary recent inputs and their already-proven Essence effects. It excludes protected entries and full graph snapshots, informs discovery only, and cannot attach a remembered value to the reusable entity.
 
 Compute capability discovery receives both the ordered segments and their combined request. The model treats every segment as a requirement for the same capability. Discovery produces a semantic capability contract; validated generation produces JPL; ArrayLogic and Shorthand materialize the entity through their existing governed boundaries.
 
@@ -46,7 +48,7 @@ The browser now closes each ordinary Convert audio chunk at a channel excursion,
 
 ## Security impact
 
-This decision narrows data flow. Ordinary Convert requirements may reach Compute and the configured model, but implicit ContextDB rows and resolved remembered values do not. Protected-input rules remain separate and unchanged.
+This decision originally excluded all implicit ContextDB evidence. Decision 0045 permits bounded ordinary recent-input/Essence authoring evidence while retaining the protected-input exclusion and browser-local invocation-value boundary.
 
 ## Verification
 
