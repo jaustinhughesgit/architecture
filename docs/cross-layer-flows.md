@@ -277,7 +277,7 @@ Browser submits idempotent operation
 Retries must not create duplicate entities, Paths, facts, provider charges, or protected-asset actions.
 For entity revision, an identical resubmission whose earlier response was lost reconnects by revision hash to the existing job; a different revision cannot adopt that lock or job.
 
-A terminal Convert build response also carries `convertArtifacts` v1 with the accepted `arrayLogic`, compiled `shorthand`, and materialized JPL `{modules, actions}`. The API transports this object without interpreting it. Convert renders it as read-only build evidence for Button 3 and Button 4 authoring. Reuse and pending responses carry the same object with null artifact fields because they did not create a new representation pipeline.
+A terminal Convert build response also carries `convertArtifacts` v1 with the accepted `arrayLogic`, compiled `shorthand`, and materialized JPL `{modules, actions}`. The API transports this object without interpreting it. Convert renders it as read-only build evidence for Button 3 and Button 4 authoring. A continuation polling the exact successful build retains `BUILT_AND_REGISTERED` and a bounded typed copy of those artifacts. A separate request that selects an already completed definition returns `CAPABILITY_REUSED`; genuine reuse and pending responses carry null artifact fields because they did not create a new representation pipeline.
 
 ## Per-request model cost inspection
 

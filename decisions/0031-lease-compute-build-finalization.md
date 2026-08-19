@@ -8,6 +8,8 @@ A browser may stop waiting before a Lambda finishes a completed background model
 
 Completed background capability output has one short server-side finalization lease. Other Lambdas return resumable `BUILD_PENDING` state while that lease is active; only its holder may mark the build completed or failed. A terminal failure retains a bounded code and sanitized message so later polling receives the original cause.
 
+The coordinator also retains a bounded typed `convertArtifacts` inspection object for a successful build. A continuation polling the exact build it started receives `BUILT_AND_REGISTERED` plus that build's ArrayLogic, compiled Shorthand, and materialized JPL evidence. `CAPABILITY_REUSED` is reserved for discovery or a separate request that selects an already completed capability. This lifecycle distinction lets reset-gated acceptance reject retained functional entities without mistaking a normal asynchronous final poll for reuse. Artifact evidence contains generated contracts and executable structure, not protected plaintext, credentials, prompts, or hidden reasoning.
+
 Approved generated capability Shorthand may start from an empty published object when no parent workspace document is readable. The parent is context, not a prerequisite for creating the separately addressed child entity. The ordinary Shorthand routes, canonical entity persistence, manifest validation, registry write, and coordinator completion remain authoritative.
 
 Generated entity creation selects route results with a transport-normalizing Shorthand primitive. It accepts the registered direct envelope and API-relayed wrappers without requiring compilers to embed a fixed `response` depth; ordinary object traversal stays exact.
@@ -19,4 +21,5 @@ Generated entity creation selects route results with a transport-normalizing Sho
 - Cold capability creation works from a new or missing workspace document.
 - Router envelope changes do not turn entity IDs into wrapper objects.
 - Polling exposes deterministic terminal diagnostics without exposing prompts, credentials, protected values, or hidden reasoning.
+- Polling the originating successful build preserves its creation status and bounded inspection artifacts; genuine reuse remains distinguishable.
 - Durable server continuation of model jobs beyond the browser-held response handle remains incomplete work.
