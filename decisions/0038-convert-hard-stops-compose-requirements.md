@@ -10,7 +10,7 @@ Convert and Essence share capture infrastructure, but they do not share semantic
 
 ## Decision
 
-Convert requirement authoring uses a versioned `convertRequirements` envelope containing an ordered `requirementSegments` array and a derived `userRequest`. Each Button 3 ↔ Button 2 hard stop finalizes one nonempty segment, adds a terminal period when the segment has no sentence punctuation, and inserts exactly one line break before the next segment. The segments are submitted once, in order, as one creation or edit request.
+Convert requirement authoring uses a versioned `convertRequirements` envelope containing an ordered `requirementSegments` array and a derived `userRequest`. Each Button 3 ↔ Button 2 hard stop finalizes one nonempty segment, adds a terminal period when the segment has no sentence punctuation, and inserts exactly one line break before the next segment. The segments are submitted once, in order, as one creation or edit request. Every browser producer of this envelope—including the direct typed Convert module and the Transcribe hard-stop composer—must enter the same durable discovery/build lifecycle; the legacy request/response conversion transport remains only for non-versioned conversion prompts.
 
 For a press that began on Button 3, entering Button 2 is the physical boundary event. It closes the current Convert recorder immediately rather than waiting for the ordinary delayed channel-switch commitment. Button 2 is parked as a delimiter for that authoring press; returning to Button 3 resumes another ordered Convert segment. The press-scoped authoring marker must travel in the actual worker message, not only in presentation or diagnostic state.
 
