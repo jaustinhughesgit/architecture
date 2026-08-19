@@ -12,11 +12,11 @@ The browser owns ContextDB identity. The model may infer that two phrases are co
 
 ## Decision
 
-The semantic catalog exposes a vocabulary-neutral `contextdb.entity-alias` operation. Its Path recognizes a possessive identity statement with an indefinite naming complement, resolves the possessed subject to an existing node, proves the speaker-to-object ownership relation, and applies a declarative `entity:addLexeme` transaction to that relation's object. The transaction fails closed when the selector is missing or ambiguous and never creates a second subject.
+The semantic catalog exposes a vocabulary-neutral `contextdb.entity-alias` operation. Its Path recognizes a possessive identity statement with an indefinite naming complement, resolves the possessed subject to an existing node, proves a direct speaker-to-object relation independently of the predicate node's local or authoritative identity, and applies a declarative `entity:addLexeme` transaction to that relation's object. The transaction fails closed when the selector is missing or ambiguous and never creates a second subject.
 
 A compound alias registers both the complete normalized name and each non-article component as mention keys for the same entity. Component lookup retains all candidates, so ordinary mention resolution remains ambiguity-safe.
 
-Possessive scalar assertions carry a separate `existingRelatedEntity` binding. When the possessive phrase uniquely names an existing graph node already connected as an object from the speaker, the assertion records the node's condition. When it does not, the same grammar remains an ordinary property assertion on the speaker, preserving inputs such as `My register status is open` even after that predicate exists in ContextDB. Declarative `whenNone` conditional rows select that fallback; no domain vocabulary is embedded in runtime code.
+Possessive scalar assertions carry a separate `existingRelatedEntity` binding. When the possessive phrase uniquely names an existing graph node already connected as an object from the speaker, the assertion records the node's condition. When it does not, the same grammar remains an ordinary property assertion on the speaker, preserving inputs such as `My register status is open` even after that predicate exists in ContextDB. Declarative `whenNone` conditional rows select that fallback; browser editing, local compilation, and server persistence all validate the same negative guard contract. No domain vocabulary is embedded in runtime code.
 
 Generic status and binary-choice question Paths resolve the owned entity by any installed alias and project its condition through the existing entity-property query operation.
 
