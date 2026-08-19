@@ -13,7 +13,7 @@ A model-generated label is not stable identity. Conversely, an embedding is inte
 Every validated compute manifest receives a versioned signature bundle with two distinct products:
 
 1. An exact SHA-256 contract fingerprint is calculated from canonical semantic manifest fields while excluding entity address, owner, status, release number, and timestamps. It identifies exact contract content, not the entity itself.
-2. A sanitized semantic document is built from capability and operation descriptions, typed inputs and outputs, binding sources/resolvers, freshness, and protected-requirement purpose metadata. Example values, protected values, defaults, and answer prose are excluded. Its embedding is written through the existing sharded Position substrate.
+2. Sanitized semantic documents are built from capability and operation descriptions, typed inputs and outputs, binding sources/resolvers, freshness, protected-requirement purpose metadata, and generalized utterance patterns. An utterance pattern replaces annotated or family-varying example values with typed placeholders such as `wash my {vehicle}`; raw example values, protected values, defaults, and answer prose are excluded. The full contract document and a bounded set of command-pattern documents are embedded and written through the existing sharded Position substrate.
 
 Convert and the capability discovery endpoint query Search first. Search returns a bounded candidate set, reloads current canonical address records, and reports whether the caller has `use`. Interactive Search keeps its narrower default band window; capability discovery uses a bounded 512-band window because short behavior paraphrases can sit outside that default. Both retain sharded partition limits and a top-K cap, so the recall adjustment does not become a catalog scan. The capability registry then reloads and validates the exact manifests and their action-specific grants before the model may choose reuse, repair, fork, or build. Once indexed Search is available, an empty result is authoritative and never expands into a table scan. A bounded scan remains only as compatibility for isolated environments where Search is unavailable.
 
@@ -31,6 +31,7 @@ Deterministic two-operand arithmetic is represented as a typed calculation contr
 ## Consequences
 
 - Candidate retrieval scales with bounded anchor windows rather than catalog size.
+- Short commands can nominate a definition through a command-pattern projection without requiring their embedding to share the full contract document's anchor neighborhood.
 - Exact contract fingerprints and semantic Positions have different names and responsibilities; neither replaces canonical entity identity.
 - Existing capabilities need a bounded signature/index/public-grant backfill before they participate in cross-account reuse.
 - Stale postings may reduce recall but cannot grant access or override the current manifest.
@@ -44,19 +45,20 @@ Deterministic two-operand arithmetic is represented as a typed calculation contr
 
 ## Security impact
 
-The semantic document excludes example values and protected values. Private definitions receive tenant-scoped postings; public definitions may also receive global postings. Search still reloads canonical state. Execution requires owner authority, a caller grant, or an explicit `pub` use grant. Retrieval proximity never authorizes execution.
+Semantic documents exclude raw example values and protected values. Generalized utterance patterns retain only shared command words and typed placeholders. Private definitions receive tenant-scoped postings; public definitions may also receive global postings. Search still reloads canonical state. Execution requires owner authority, a caller grant, or an explicit `pub` use grant. Retrieval proximity never authorizes execution.
 
 ## Migration
 
-New and edited manifests are signed and positioned during registration. Existing active manifests require a bounded backfill that recomputes the fingerprint, writes current v2 postings, and creates a public-use grant only where product policy explicitly marks the compute definition reusable. Old postings remain rebuildable compatibility data until stale-removal operations are available.
+New and edited manifests are signed and positioned during registration. Signature bundle v2 adds bounded generalized command-pattern projections without changing canonical entity identity or the exact contract-hash inputs. Existing active manifests require a bounded backfill that recomputes the signature bundle, writes current v2 postings, and creates a public-use grant only where product policy explicitly marks the compute definition reusable. Old postings remain rebuildable compatibility data until stale-removal operations are available.
 
 ## Verification
 
 - Fingerprints ignore ownership/release metadata and change when semantic behavior changes.
-- Semantic Position text excludes utterance example values.
+- Semantic Position text excludes raw utterance example values while retaining typed command patterns.
+- A short command can reach the exact authorized definition through a separate bounded pattern projection even when the full contract projection occupies another anchor neighborhood.
 - Public definitions write tenant and global v2 postings; private definitions do not gain a global posting.
 - Indexed discovery reloads only authorized Search candidates and does not scan after an indexed miss.
 - Capability discovery supplies the 512-band bounded recall window while ordinary Search retains its 160 default.
 - A `pub` grant authorizes `use` while public visibility without that grant does not.
 - Typed calculations compile to Math JPL using both runtime inputs and do not call a provider or builder model.
-- Live pre-fix evidence: account B paraphrased account A's addition request and received `build/calculate_sum`; direct execution of the generated entity failed. A deployed post-fix rerun is still required.
+- Live pre-v2 evidence: User 2 could list User 1's use-granted carwash manifest and find it with the exact semantic document, but `Wash my car` returned zero Position candidates. A deployed v2 rerun is required.
