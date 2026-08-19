@@ -231,7 +231,7 @@ A provider protocol can be represented using entities and lineage for workflow, 
 8. Examples must test generalized mechanics; passing one literal phrase is not proof of a scalable fix.
 9. A scheduled, emailed, streamed, automated, or worker-executed entity must retain ordinary entity lineage, authorization, protected-asset, and audit rules.
 10. Operational isolation, encryption at rest, authenticator enrollment, and zero-knowledge are distinct claims and must not be presented as interchangeable.
-11. A local entity and its server representation must be connected by durable identity, version, provenance, authorization, and synchronization state; a label is not an identity.
+11. A local entity and its server representation must be connected by durable identity, version, provenance, authorization, and synchronization state; a label is not an identity. A remapped temporary ID cannot be recycled for another semantic object, and server publication must reject incompatible principal-local ID reuse.
 12. A recipient key wrap grants cryptographic potential, while a server grant authorizes retrieval. Both must agree before sharing works.
 13. An ordinary data assertion or correction must not be promoted into executable entity creation when a typed graph transaction fully represents the intent.
 14. A capability repair must preserve its declared semantic contract; a contract addition or change requires an explicit fork, child, or successor rather than silent mutation.
