@@ -60,3 +60,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0045: Convert discovery receives bounded ordinary authoring context](0045-convert-discovery-receives-bounded-ordinary-authoring-context.md)
 - [0046: Browser-applied Compute effects mutate ordinary ContextDB](0046-browser-applied-compute-context-effects.md)
 - [0047: Owned-entity aliases preserve browser-local identity](0047-owned-entity-aliases-preserve-local-identity.md)
+- [0048: Compute installations bind entity use by exact ID](0048-compute-installations-bind-entity-use-by-exact-id.md)

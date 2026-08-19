@@ -60,6 +60,8 @@ Local-to-server entity publication is background work too. It needs a durable lo
 
 Use the shared Words substrate for cheap lexical lookup and reuse, then resolve the resulting candidates through entity type, Context, relationships, provenance, and authorization. A normalized word, alias, inflection, or common lemma is an address—not proof that two entities are the same.
 
+Apply that boundary to Compute installation too: spoken dialog may use word relevance to nominate a shared capability and bounded caller graph candidates, but an installed Path and running Compute operation use exact capability, version, operation, dependency, entity, subject, and relation IDs. Never turn an app's convenient dependency name into a global ContextDB alias. See [decision 0048](../decisions/0048-compute-installations-bind-entity-use-by-exact-id.md).
+
 Lemma and morphology support should reduce duplicated sentence and spelling combinations while preserving distinct meanings. Never merge a person's entity, a physical object, a capability, or a semantic sense merely because they share a token or root. Apply permission filters before returning or aggregating reverse word-to-entity matches.
 
 ## Keep persistence canonical and retrieval derived
