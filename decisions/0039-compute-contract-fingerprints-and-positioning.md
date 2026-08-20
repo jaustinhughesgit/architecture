@@ -19,6 +19,8 @@ Convert and the capability discovery endpoint query Search first. Search returns
 
 Public visibility remains read/discovery authority only. A public compute definition becomes executable across accounts through an explicit canonical `pub` grant containing `use`; public visibility alone does not imply execution. Convert-created public compute definitions seed that grant alongside the owner grant. User installations, bindings, data, settings, Paths, and Protected Assets remain separate and user-scoped.
 
+`BUILT_AND_REGISTERED` is also a retrieval-readiness claim for a reusable Convert definition, not merely a canonical-manifest write. Convert registration retries its bounded Position projection and reports a retryable build failure if indexing is not acknowledged. The canonical manifest may remain durable because Position is rebuildable, but a missing derived posting cannot be mislabeled as a completed reusable build.
+
 Deterministic two-operand arithmetic is represented as a typed calculation contract (`operator`, two input/literal operands, and declared output). The server compiles that contract into trusted Math JPL without a provider or a second model generation pass. This prevents example literals from becoming an implementation.
 
 ## Alternatives
@@ -35,6 +37,7 @@ Deterministic two-operand arithmetic is represented as a typed calculation contr
 - Exact contract fingerprints and semantic Positions have different names and responsibilities; neither replaces canonical entity identity.
 - Existing capabilities need a bounded signature/index/public-grant backfill before they participate in cross-account reuse.
 - Stale postings may reduce recall but cannot grant access or override the current manifest.
+- A reusable Convert build either acknowledges its Position posting or fails retryably; it cannot report completion with no discoverable projection.
 - First-class installation records, exact semantic reranking, backfill operations, and production-scale cost/load proof remain unfinished.
 
 ## Affected repositories
@@ -60,5 +63,6 @@ New and edited manifests are signed and positioned during registration. Signatur
 - Indexed discovery reloads only authorized Search candidates and does not scan after an indexed miss.
 - Capability discovery supplies the 512-band bounded recall window while ordinary Search retains its 160 default.
 - A `pub` grant authorizes `use` while public visibility without that grant does not.
+- A transient Position failure is retried, and a persistent failure prevents `BUILT_AND_REGISTERED` even though the canonical manifest remains stored.
 - Typed calculations compile to Math JPL using both runtime inputs and do not call a provider or builder model.
 - Live v2 evidence: User 2 could list User 1's use-granted carwash manifest and find it with the exact semantic document, but `Wash my car` returned zero Position candidates even after the manifest normalized to one `car` input. A deployed v3 rerun must prove the isolated command projection is retrieved before the cross-user scenario is accepted.
