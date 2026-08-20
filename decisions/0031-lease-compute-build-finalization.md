@@ -6,7 +6,7 @@ A browser may stop waiting before a Lambda finishes a completed background model
 
 ## Decision
 
-Completed background capability output has one short server-side finalization lease. Other Lambdas return resumable `BUILD_PENDING` state while that lease is active; only its holder may mark the build completed or failed. A terminal failure retains a bounded code and sanitized message so later polling receives the original cause.
+Capability materialization has one short server-side finalization lease. For model-backed builds it begins after completed background output; for deterministic builds it begins before Shorthand materialization. Other Lambdas return resumable `BUILD_PENDING` state while that lease is active; only its holder may mark the build completed or failed. A terminal failure retains a bounded code and sanitized message so later polling receives the original cause.
 
 If an initial request claims the build but its response is lost, `BUILD_IN_PROGRESS` returns that coordinator's exact build ID. Browser and headless controllers must adopt the ID and resume the same record; treating this state as terminal or starting a competing build is incorrect.
 
@@ -21,6 +21,7 @@ Generated entity creation selects route results with a transport-normalizing Sho
 ## Consequences
 
 - Gateway/browser timeout retries cannot concurrently finalize the same model response.
+- Deterministic Shorthand materialization cannot run concurrently merely because an API relay timed out.
 - A lost first build response reconnects through the returned coordinator identity.
 - A lost finalizer can be retried after the bounded lease expires.
 - Cold capability creation works from a new or missing workspace document.
