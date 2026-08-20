@@ -14,7 +14,7 @@ ContextDB has always created useful entities immediately in the browser, while o
 - The current speaker resolves to a stable principal entity. The browser marks another user candidate only when a voice token is classified as a proper person and is also present in the executed Path's semantic bindings. Compute then resolves that candidate only through an exact, unique public handle; ambiguous names remain publisher-owned contextual entities and produce a warning.
 - Every connected relation component is stored for the publisher and the uniquely resolved user participants in that component. Hydration reads only the authenticated principal's audience partition.
 - Compute returns authoritative node and relation IDs. The browser durably records the mapping and replaces entity IDs throughout the graph, mentions, ContextDB state, message history, checkpoints, and Path translation state.
-- Relations retain publisher and source provenance. Deletion or audience removal uses versioned tombstones.
+- Relations retain publisher and source provenance. When an acknowledged same-publisher relation keeps its exact ID, subject, and predicate while replacing its object, its established server-derived audiences remain attached and every new endpoint is projected into those audiences. This preserves hydration closure for current-value transitions whose bounded delta no longer contains the original speaker-to-subject path. A changed subject or predicate does not inherit the prior audience; former sidecar and canonical audience projections receive versioned tombstones that hydration excludes. Deletion or audience removal uses the same tombstone rule.
 - Protected input and protected graph markers remain local and never use this ordinary publication channel.
 - The v1 Context graph store is the active synchronization sidecar, not a decision to replace the canonical Word, entity/subdomain, group/link, version, and access substrate. Its proven transport and lifecycle mechanics must converge behind that substrate. See [decision 0023](0023-words-are-lexical-addresses.md).
 
@@ -46,6 +46,6 @@ Existing local facts remain local until a new committed mutation republishes the
 
 ## Verification
 
-- Compute contract tests cover identity resolution, cross-user audience hydration, idempotent retry, ambiguity, and workspace authorization.
+- Compute contract tests cover identity resolution, cross-user audience hydration, same-scope relation-rewire endpoint closure, idempotent retry, ambiguity, and workspace authorization.
 - Browser tests cover encrypted-state-compatible retry behavior, stable ID replacement, participant hydration, and protected-data exclusion.
 - Cross-layer deployment verifies the retained Context graph table and Lambda environment before production browser testing.
