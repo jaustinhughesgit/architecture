@@ -62,3 +62,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0047: Owned-entity aliases preserve browser-local identity](0047-owned-entity-aliases-preserve-local-identity.md)
 - [0048: Compute installations bind entity use by exact ID](0048-compute-installations-bind-entity-use-by-exact-id.md)
 - [0049: Current-state assertions rewire canonical relations](0049-current-state-assertions-rewire-canonical-relations.md)
+- [0050: Fresh browser identity bootstrap owns cookie rotation](0050-fresh-browser-identity-bootstrap.md)
