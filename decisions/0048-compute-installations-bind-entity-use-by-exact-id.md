@@ -20,7 +20,7 @@ When an utterance has no local Path, capability Position/Search selects candidat
 - at most 200 word-selected related ordinary ContextDB entities; and
 - only the bounded relations whose endpoints are in that candidate set.
 
-The model selects the semantic Compute operation. For each dependency, the installer first attempts exact deterministic reconciliation: one browser-resolved invocation subject plus the selected operation's declared current/result transition may bind a relation only when exactly one supplied relation has that subject and value. In that case the server derives the dependency, property, subject, and relation IDs directly from the selected manifest and bounded graph; asking a model to reproduce opaque IDs would add error without adding generalization. If the graph leaves more than one candidate, the model may propose `using` composition only with IDs present in those two exact sets: a dependency ID from the selected manifest operation and target entity, subject, and relation IDs from the supplied graph. Deterministic validation requires one target per dependency, the selected relation's property and subject IDs to equal the proposal, its object to hold the declared current or resulting value, and its subject to equal the browser-resolved invocation entity when one is available. The model cannot create, rewrite, or authorize an ID.
+The model selects the semantic Compute operation. For each dependency, the installer first attempts exact deterministic reconciliation: one browser-resolved invocation target plus the selected operation's declared current/result transition may bind a relation only when exactly one supplied relation has that subject and value. A direct mention uses the referent itself. A qualified possessive retains the owner identity separately and uses the one exact owned entity reached through the supplied ownership edge as the invocation target. In that case the server derives the dependency, property, subject, and relation IDs directly from the selected manifest and bounded graph; asking a model to reproduce opaque IDs would add error without adding generalization. If the graph leaves more than one candidate, the model may propose `using` composition only with IDs present in those two exact sets: a dependency ID from the selected manifest operation and target entity, subject, and relation IDs from the supplied graph. Deterministic validation requires one target per dependency, the selected relation's property and subject IDs to equal the proposal, its object to hold the declared current or resulting value, and its subject to equal the browser-resolved invocation target when one is available. The model cannot create, rewrite, or authorize an ID.
 
 The resulting user-owned Path pins the Compute entity ID, version, operation ID, logical dependency ID, target property entity ID, target subject entity ID, and target relation ID. Runtime reads and writes through those exact IDs and fails closed when the binding is stale, unrelated, ambiguous, or holds an undeclared value. It does not fall back to a same-name relation after an exact binding exists.
 
@@ -30,12 +30,13 @@ This foundation excludes Protected Assets. Protected references, encrypted label
 
 ## Consequences
 
-- Spoken-dialog relevance remains lexical and bounded; Compute execution becomes exact-ID based.
+- Spoken-dialog relevance remains lexical and bounded; Compute execution becomes exact-ID based. Qualified possession preserves separate owner and owned-target IDs.
 - Similar dependency names in a register application and carwash application cannot cross-bind because their source dependency IDs and invocation subjects differ.
 - An unambiguous exact graph binding does not depend on a model copying opaque IDs; ambiguous graphs still fail closed unless a bounded model proposal selects exact supplied IDs and passes validation.
 - Shared Compute definitions remain owner-independent while installations remain user/workspace-local.
 - Existing manifests and Paths without entity-use bindings retain the prior bounded effect resolver for compatibility.
 - Allocating a brand-new caller data relation when no compatible target exists, broader read-only dependency kinds, multi-relation transactions, and protected dependency reconciliation require later contract versions; they must not be simulated with global aliases.
+- A binding to another publisher's relation is mutation evidence, not authority. It can execute only through the owner-published bounded delegation in [decision 0051](0051-owner-published-compute-delegates-bounded-context-effects.md).
 
 ## Verification
 
