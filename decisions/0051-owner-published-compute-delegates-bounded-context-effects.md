@@ -19,6 +19,8 @@ A possessive invocation carries two identities through Path creation and executi
 
 The owner ID constrains identity and response perspective. The owned target ID constrains the Compute dependency and effect subject. Possessive morphology is normalized only for structural matching; the captured surface remains available for presentation. The shared manifest, Position, and creator Path do not acquire either caller-specific ID.
 
+Possessive-reference evidence is required for commands as well as questions. An imperative has no clause subject, but `Wash Austin's car` still carries the structural owner/object edge `Austin -> car`; the browser resolves that edge after named hydration and sends its exact IDs with discovery. If a qualified remote invocation selects an operation with entity dependencies but discovery does not return one exact `use` binding per dependency, the browser must fail before Path installation. It may not silently install an unbound Path that mutates only the caller's hydrated copy.
+
 An owner-published, user-owned Compute capability may delegate only its own declared `contextdb.replace_object` effects. The app's public or caller-specific `use` grant is authority to invoke that exact entity/version/operation; it is not a direct grant to edit arbitrary Context. Before committing an effect, Compute verifies all of the following server-side:
 
 1. the caller owns the active workspace and may `use` the exact capability entity and version;
@@ -55,11 +57,11 @@ The new endpoint is narrower than ordinary relation editing: it accepts only one
 
 ## Migration
 
-Existing local effects and owner-invoked capabilities continue through browser-local mutation and ordinary owner publication. Only an effect bound to a named-hydrated foreign relation uses delegated application. Existing Paths without publisher/version evidence fail closed and must be rebuilt from current hydration.
+Existing local effects and owner-invoked capabilities continue through browser-local mutation and ordinary owner publication. Only an effect bound to a named-hydrated foreign relation uses delegated application. Existing Paths without publisher/version evidence fail closed and must be rebuilt from current hydration. Qualified remote Paths with writable dependencies but no exact entity-use binding are invalid and must never be installed as local-only fallbacks.
 
 ## Verification
 
 - Discovery tests prove a possessive owner ID and owned target ID remain distinct and bind the target relation.
-- Browser tests prove possessive examples compile, named ownership resolves one exact target, response perspective remains named, and delegated relations are excluded from caller publication.
+- Browser tests prove question and imperative possessive syntax compile, named ownership resolves one exact target, every qualified writable dependency is bound before installation, response perspective remains named, and delegated relations are excluded from caller publication.
 - Server tests prove an authorized caller can apply the exact app-owner transition idempotently and that an app owned by a different publisher cannot mutate the relation.
 - The disposable two-browser acceptance resets first, builds and publishes with User 1, invokes `Wash Austin's car` as User 2, verifies both users observe the same new status, and resets again.
