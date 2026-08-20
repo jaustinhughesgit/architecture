@@ -8,6 +8,8 @@ A browser may stop waiting before a Lambda finishes a completed background model
 
 Capability materialization has one short server-side finalization lease. For model-backed builds it begins after completed background output; for deterministic builds it begins before Shorthand materialization. Other Lambdas return resumable `BUILD_PENDING` state while that lease is active; only its holder may mark the build completed or failed. A terminal failure retains a bounded code and sanitized message so later polling receives the original cause.
 
+The Compute worker lifetime must exceed the observed materialization window, and the finalizer lease must exceed that worker lifetime. An API relay may stop waiting earlier without cancelling the lease holder. Provider calls keep their separate smaller deadlines; a longer worker lifetime does not grant longer provider execution.
+
 If an initial request claims the build but its response is lost, `BUILD_IN_PROGRESS` returns that coordinator's exact build ID. Browser and headless controllers must adopt the ID and resume the same record; treating this state as terminal or starting a competing build is incorrect.
 
 A provider response may report `queued` or `in_progress` only for a bounded lifetime. Discovery normalizes seconds, milliseconds, and ISO provider timestamps; a pending response without a usable timestamp fails retryably because the server cannot prove its age. Capability generation uses the build coordinator's immutable server-owned start instead, so a provider timestamp cannot move the cutoff forward. Exceeding the lifetime becomes the typed, retryable terminal failure `OPENAI_BACKGROUND_RESPONSE_STALLED`; it cannot remain `BUILD_PENDING` forever. Browser and headless controllers may discard that failed response/build identity and start at most two fresh replacements. Validation continuations remain available to a replacement, while the build coordinator prevents a late or duplicate result from being applied as the active build.
@@ -22,6 +24,7 @@ Generated entity creation selects route results with a transport-normalizing Sho
 
 - Gateway/browser timeout retries cannot concurrently finalize the same model response.
 - Deterministic Shorthand materialization cannot run concurrently merely because an API relay timed out.
+- The lease holder has enough worker lifetime to finish instead of entering an expiry-and-retry cycle.
 - A lost first build response reconnects through the returned coordinator identity.
 - A lost finalizer can be retried after the bounded lease expires.
 - Cold capability creation works from a new or missing workspace document.
