@@ -14,9 +14,9 @@ The phrase `My name is Austin` also exposed a reusable language gap. A failed mo
 - A public workspace may register its current principal's exact public profile name only from an executed graph relation whose subject resolves to the authenticated current speaker and whose predicate is the identity profile property `name`, `display name`, or `full name`. Raw transcript text and client-supplied principal IDs have no profile authority.
 - Ordinary, non-protected relation components connected to the authenticated current-speaker node also receive a server-owned `public:<principal>` audience when the publishing workspace is public. Unrelated components remain publisher/participant scoped.
 - A signed-in browser may request named hydration with an exact proper-person label. Compute verifies the requester's workspace, resolves exactly one public profile, chooses the target public audience server-side, and returns only that audience's graph page. Zero or multiple matches return no graph.
-- Before a non-protected question runs its local Path tournament, Transcribe extracts bounded proper-person labels from local tokens and attempts named hydration. Failure to hydrate does not bypass local proof or give the server authority to answer.
+- Before a non-protected question runs its local Path tournament, Transcribe extracts bounded proper-person labels from local tokens and attempts named hydration. Since the publisher's local-first outbox may still be receiving server acknowledgements, an exact unique-name miss is retried over one bounded propagation window. Ambiguous names fail closed immediately. Failure to hydrate does not bypass local proof or give the server authority to answer.
 - The browser installs the resolved target's public display name on its stable node, while stripping remote current-speaker aliases. Only the authenticated requesting principal maps to local `speaker`.
-- Publication remains asynchronous. Profile registration and named question hydration require no manual sync control.
+- Publication remains asynchronous. Profile registration and named question hydration require no manual sync control; the bounded reader retry covers the normal new-publication race without turning an offline local statement into a synchronous server dependency.
 
 ## Alternatives considered
 
@@ -47,5 +47,5 @@ New self-connected mutations in public workspaces receive the public audience au
 ## Verification
 
 - Compute tests publish `I have three cats`, publish `My name is Austin`, hydrate Austin from a second authenticated workspace, and verify exact profile resolution plus public graph rows.
-- Browser tests extract Austin only from proper-person syntax, prevent the remote user from becoming local `speaker`, call the exact-name action, and run the existing quantity Essence query over the hydrated graph to reproduce `3`.
+- Browser tests extract Austin only from proper-person syntax, prevent the remote user from becoming local `speaker`, retry a unique exact-name miss until the asynchronous publisher appears, stop immediately on ambiguity, call the exact-name action, and run the existing local Essence query over the hydrated graph.
 - Ambiguous names, unrelated components, workspace ownership, idempotency, and protected-input exclusion retain contract coverage.
