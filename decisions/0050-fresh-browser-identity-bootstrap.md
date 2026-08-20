@@ -12,7 +12,7 @@ Calling the ordinary `newGroup/newUser/newUser` route while either retained cook
 
 - `/newuser` sends `freshBrowserIdentity: true` only to the exact `newGroup/newUser/newUser` bootstrap route.
 - Compute recognizes that flag only on that exact route. It expires host-only and `.1var.com` `accessToken` cookies, removes incoming token material from the request, and invokes the ordinary account/group creation primitive anonymously.
-- The replacement cookie and returned workspace are created in the same request lifecycle and therefore belong to the same principal.
+- The replacement cookie is propagated into both the mutable request context and the dispatch metadata used by the `newGroup` action before the workspace is created. The returned workspace and replacement cookie therefore belong to the same principal; a pre-middleware cookie snapshot has no action authority.
 - Ordinary `newGroup` calls, Context actions, and every other route retain normal authentication and cannot opt into identity replacement.
 - `/newuser?reset=1` continues expiring the website-visible domain cookie as defense in depth, but correctness no longer depends on the browser having only that cookie scope.
 
@@ -33,6 +33,6 @@ The flag grants no access to an existing account and cannot weaken another route
 
 ## Verification
 
-- Unit tests reject the flag outside the exact bootstrap path and prove both cookie scopes are expired.
+- Unit tests reject the flag outside the exact bootstrap path, prove both cookie scopes are expired, and prove recovered identity replaces the stale dispatch-metadata cookie consumed by action handlers.
 - Website contract tests require `/newuser` to send the explicit flag.
 - Browser acceptance starts with a canonical reset, creates a browser publisher and a separately authenticated reader, then verifies named Context hydration and exact-ID local Path execution.
