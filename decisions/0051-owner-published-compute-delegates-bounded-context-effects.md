@@ -21,6 +21,8 @@ The owner ID constrains identity and response perspective. The owned target ID c
 
 Possessive-reference evidence is required for commands as well as questions. An imperative has no clause subject, but `Wash Austin's car` still carries the structural owner/object edge `Austin -> car`; the browser resolves that edge after named hydration and sends its exact IDs with discovery. If a qualified remote invocation selects an operation with entity dependencies but discovery does not return one exact `use` binding per dependency, the browser must fail before Path installation. It may not silently install an unbound Path that mutates only the caller's hydrated copy.
 
+The worker result for an ordinary recognized Path miss must therefore carry the current post-hydration graph together with its local syntax. Named hydration happens before the local Path tournament; dropping that graph at the miss boundary would erase the exact owner, owned target, and relation evidence before discovery even though the browser had already resolved it. Transcribe uses that snapshot only as bounded discovery evidence and still requires Compute to return exact validated IDs. Protected input remains outside this route.
+
 An owner-published, user-owned Compute capability may delegate only its own declared `contextdb.replace_object` effects. The app's public or caller-specific `use` grant is authority to invoke that exact entity/version/operation; it is not a direct grant to edit arbitrary Context. Before committing an effect, Compute verifies all of the following server-side:
 
 1. the caller owns the active workspace and may `use` the exact capability entity and version;
