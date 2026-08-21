@@ -1,6 +1,6 @@
 # 0051: Owner-published Compute delegates bounded Context effects
 
-- **Status:** Accepted — implemented foundation; deployed two-browser proof pending
+- **Status:** Accepted — implemented and proven in the deployed two-browser flow
 - **Date:** 2026-08-20
 - **Affected repositories:** `architecture`, `aws`, `compute`, `testing`
 
@@ -67,3 +67,4 @@ Existing local effects and owner-invoked capabilities continue through browser-l
 - Browser tests prove question and imperative possessive syntax compile, named ownership resolves one exact target, every qualified writable dependency is bound before installation, response perspective remains named, and delegated relations are excluded from caller publication.
 - Server tests prove an authorized caller can apply the exact app-owner transition idempotently and that an app owned by a different publisher cannot mutate the relation.
 - The disposable two-browser acceptance resets first, builds and publishes with User 1, invokes `Wash Austin's car` as User 2, verifies both users observe the same new status, and resets again.
+- The deployed browser proof on 2026-08-21 started after a canonical reset, installed a new User 2 Path rather than a creator Path, bound the exact Compute dependency to Austin's exact named-hydrated subject/relation/publisher/version with `read_write`, changed exactly one relation, returned `Austin's car is clean`, and independently queried the same clean status. The reset-gated repository scenario passed the same 13 assertions before and after deployment.
