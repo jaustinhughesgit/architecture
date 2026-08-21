@@ -10,7 +10,7 @@ Capability materialization has one short server-side finalization lease. For mod
 
 The Compute worker lifetime must exceed the observed materialization window, and the finalizer lease must exceed that worker lifetime. An API relay may stop waiting earlier without cancelling the lease holder. Provider calls keep their separate smaller deadlines; a longer worker lifetime does not grant longer provider execution.
 
-If an initial request claims the build but its response is lost, `BUILD_IN_PROGRESS` returns that coordinator's exact build ID. Browser and headless controllers must adopt the ID and resume the same record; treating this state as terminal or starting a competing build is incorrect.
+If an initial request claims the build but its response is lost, `BUILD_IN_PROGRESS` returns that coordinator's exact build ID. Browser and headless controllers must adopt the ID and resume the same record; treating this state as terminal or starting a competing build is incorrect. The first response can end before the client learns any build ID. In that case Compute reconciles the durable record by exact owner, normalized capability ID, and immutable capability-request hash before consulting the capability registry for collisions. A matching running record returns its build identity; a matching completed record returns `BUILT_AND_REGISTERED`, its manifest, and its bounded artifacts. A different request hash still reaches normal extension/collision handling.
 
 A provider response may report `queued` or `in_progress` only for a bounded lifetime. Discovery normalizes seconds, milliseconds, and ISO provider timestamps; a pending response without a usable timestamp fails retryably because the server cannot prove its age. Capability generation uses the build coordinator's immutable server-owned start instead, so a provider timestamp cannot move the cutoff forward. Exceeding the lifetime becomes the typed, retryable terminal failure `OPENAI_BACKGROUND_RESPONSE_STALLED`; it cannot remain `BUILD_PENDING` forever. Browser and headless controllers may discard that failed response/build identity and start at most two fresh replacements. Validation continuations remain available to a replacement, while the build coordinator prevents a late or duplicate result from being applied as the active build.
 
@@ -25,7 +25,7 @@ Generated entity creation selects route results with a transport-normalizing Sho
 - Gateway/browser timeout retries cannot concurrently finalize the same model response.
 - Deterministic Shorthand materialization cannot run concurrently merely because an API relay timed out.
 - The lease holder has enough worker lifetime to finish instead of entering an expiry-and-retry cycle.
-- A lost first build response reconnects through the returned coordinator identity.
+- A lost first build response reconnects through the returned coordinator identity even when the browser never received that identity from the timed-out request.
 - A lost finalizer can be retried after the bounded lease expires.
 - Cold capability creation works from a new or missing workspace document.
 - Router envelope changes do not turn entity IDs into wrapper objects.
