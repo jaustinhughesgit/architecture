@@ -56,4 +56,6 @@ The clean stack starts with a same-origin API, an opaque `__Host-1var_session` c
 - AWS CDK synthesis proving Node.js 24, private S3, CloudFront, same-origin HTTP API, and on-demand DynamoDB.
 - Thin browser acceptance from `/newentity1` through exact entity navigation and `ui on`.
 - Deployed isolated-distribution acceptance before domain cutover.
-
+- Production deployment through repository- and environment-bound GitHub OIDC, with no long-lived GitHub AWS credentials.
+- Live `1var.com` acceptance proving the exact release, private entity create/read authorization, anonymous denial, entity routing, command execution, and `ui on` after the reversible apex transfer.
+- `onevar-operations` records the prior distribution and executable Route 53 forward, verification-cleanup, and rollback batches.
