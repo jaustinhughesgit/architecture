@@ -12,7 +12,7 @@ Each primary identity has one worker-owned Context runtime persisted in IndexedD
 
 The Phase 2 core catalog is intentionally small and vocabulary-neutral. It supports profile names, owned-object declaration and identification, one current condition, self/named current-state questions, and an explicit ordinary audience change. A `single_current_value` relation is rewired with a monotonic relation version while an append-only observation retains previous and next object IDs.
 
-Local mutation and response commit before network publication. Publication authenticates the owner from the host-only session, rejects foreign or hydrated rows, converts local temporary entity/relation IDs to canonical IDs, checks expected revisions and idempotency, and returns the exact mapping. A delayed acknowledgement remaps a newer local graph without overwriting its later mutation or pending request.
+Local mutation and response commit before network publication. Before network I/O, the worker durably separates one exact active snapshot and idempotency key from a coalesced newer pending revision. A timeout, offline transition, reload, or lost response retries the active request exactly instead of skipping to a newer expected revision. Publication authenticates the owner from the host-only session, rejects foreign or hydrated rows, converts local temporary entity/relation IDs to canonical IDs, checks expected revisions and idempotency, and returns the exact mapping. A delayed acknowledgement remaps a newer local graph without overwriting its later mutation or pending request.
 
 Canonical DynamoDB persistence uses compact metadata, entity, relation, observation, mapping, and receipt rows. One publication transaction writes only the changed rows, revision metadata, receipt, and public-name-index change. Phase 2 bounds one delta to the 100-item atomic transaction limit rather than rewriting a growing snapshot. A future bulk-import protocol must use a separate staged commit contract.
 
@@ -43,7 +43,7 @@ The server derives owner identity from the session, limits publication to that o
 
 ## Verification
 
-- Pure runtime tests cover dirty/clean/dirty rewiring, a pet domain, ambiguity, clarification rollback, hydration continuation identity, delayed publication acknowledgement, content hash, and local p95.
+- Pure runtime tests cover dirty/clean/dirty rewiring, a pet domain, ambiguity, clarification rollback, hydration continuation identity, delayed and lost publication acknowledgement, exact active-request retry, content hash, and local p95.
 - API and persistence tests cover strict contracts, foreign graph rejection, idempotency, stale/non-monotonic writes, ambiguous public names, reset, compact delta rows, and snapshot reconstruction.
 - Production-bundle Chromium acceptance starts with two fresh browser contexts; proves local input, online reload, offline query, denial before share, exact refreshed remote dirty/clean/dirty answers, revocation, review, and reset after completion.
 - Startup JavaScript measures 107,740 gzip bytes against a 135,000-byte budget. Cached local query p95 is gated at 25 ms and local exact hydration at 3,000 ms.
