@@ -12,7 +12,7 @@ The Phase 3 production execution boundary is ordinary, non-protected, compiler-b
 
 - Convert freezes an answer plan before proposing a typed fixed-transition contract.
 - Trusted code owns IDs, direct Invocation Frames, JPL syntax, package hashing, installation, exact binding, and effect validation.
-- Executable programs exist only in immutable content-addressed S3 packages. DynamoDB stores the bounded manifest, descriptor, routing metadata, release state, and expiring idempotency receipt. Discovery reloads and verifies S3 before returning executable content.
+- Callable executable programs are loaded only from immutable content-addressed S3 packages. New DynamoDB rows store the bounded manifest, descriptor, routing metadata, release state, and expiring idempotency receipt. A bounded migration reader extracts and ignores the manifest-adjacent program in a legacy row. Discovery still reloads and verifies S3 before returning executable content.
 - ArrayLogic v1 sequences exact installed operations and durably checkpoints typed results and local effects. Its only released compensation policy is explicitly `none`.
 - Ordinary voice crosses `getUserMedia`, AudioWorklet, a dedicated encoder worker, transient transcription, and the same typed dispatcher. Protected voice remains excluded.
 - Model promotion requires the deployed 50-case authoring suite to pass at 98 percent or better with zero critical failures. Sanitized provider token receipts remain on the durable job so release evidence includes cost inputs without prompts, secrets, or protected data.
@@ -36,7 +36,7 @@ The callable Phase 3 runtime receives only manifest-declared ordinary inputs and
 ## Verification
 
 - Deterministic tests prove exact binding, effect application, S3 package verification, release revocation, workflow retry and reload behavior, adapter conformance, and middleware stop semantics.
-- DynamoDB tests prove capability rows contain no executable program.
+- DynamoDB tests prove new capability rows contain no executable program and legacy rows are reduced to their manifest before leaving persistence.
 - A development-only paid evaluation runs all 50 cases through the normal durable API and deletes its releases afterward.
 - A deployed ordinary-voice acceptance sends synthetic non-user speech through the browser media pipeline and verifies voice provenance in the local trace.
 - Development and production promotion run reset-gated acceptance against the exact CloudFront output.
@@ -46,4 +46,3 @@ The callable Phase 3 runtime receives only manifest-declared ordinary inputs and
 - `architecture`: this decision, roadmap, catalog, and execution representation status.
 - `onevar-platform`: manifest-only Dynamo records, S3 round-trip verification, durable provider usage receipts, deployed model evaluation, voice acceptance, and release documentation.
 - `onevar-operations`: production promotion, health evidence, and exact rollback target.
-
