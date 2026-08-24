@@ -62,6 +62,8 @@ Phase 1 contains no claim that legacy ContextDB, Path, voice, Convert, Compute, 
 
 ## Phase 2 — Verified input-to-response kernel
 
+**Status:** Implemented with local acceptance complete; deployed reset-gated acceptance pending as of 2026-08-24.
+
 **Goal:** From a clean reset, text input creates, connects, updates, and queries ordinary non-protected data locally, while an authorized second user can resolve and query the published current state by exact identity. Compute entities are not required for Phase 2. Known same-user interactions require no model or network.
 
 ### 2.1 Freeze contracts and golden traces
