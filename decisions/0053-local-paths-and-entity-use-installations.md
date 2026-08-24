@@ -58,7 +58,7 @@ ArrayLogic connects Compute operations sequentially through exact typed result r
 ## Affected repositories
 
 - `architecture`: this decision, the clean roadmap, capability status, and cross-layer model.
-- `onevar-platform`: Phase 2 contracts, local Path compiler, ContextDB, Entity Binding Compiler, package manager, fixed Compute proof, API sync, and acceptance.
+- `onevar-platform`: Phase 3 Invocation Frame contracts, Entity Binding Compiler, package manager, fixed Compute proof, broader Compute generation, API execution boundary, and acceptance. Phase 2 supplies the local Path, ContextDB, identity, publication, and hydration foundation it depends on.
 - `onevar-operations`: later immutable package and environment promotion controls; no immediate Phase 2 domain change.
 - POC repositories remain behavioral evidence and are not modified by this clean-platform decision.
 

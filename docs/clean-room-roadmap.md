@@ -29,9 +29,10 @@ The creator's Path is never copied into another user's active library. Shared ca
 | Interaction Evidence v1 | Immutable text/voice origin, ordering, mode, identity, and privacy classification | Browser |
 | Essence Operation v1 | Typed local query, mutation, binding, command, or invocation meaning | Installed browser catalog |
 | Invocation Frame v1 | Capability-published structural phrases and typed slots from which a browser can synthesize a local Path | Capability definition; browser compiles |
-| Local Path v1 | Locally tested signature to exact operation and installation IDs | Browser identity |
+| Local Path v1 | Locally tested signature to an exact catalog operation and, when applicable, installation ID | Browser identity |
 | Path Template Package v1 | Immutable shared learning evidence, frames, tests, and provenance; never activated verbatim as a foreign user Path | Package publisher plus local verifier |
 | Context Mutation v1 | Idempotent, version-checked graph changes with declared cardinality and provenance | Browser ContextDB |
+| Context Publication/Hydration v1 | Audience-scoped ordinary graph deltas, canonical identity mappings, and authorized exact graph slices | Publishing and receiving identities plus server governance |
 | Entity Use Binding v1 | Installation-scoped dependency-to-entity/relation indirection by exact IDs | Installer workspace |
 | Binding Essence v1 | Generic `For <capability>, use <target> as <dependency>` local operation that creates an Entity Use Binding | Browser catalog and installer |
 | Invocation/Result/Effect v1 | Shared cross-plane request, typed response, requested effects, and applied/denied receipt | Calling plane requests; trusted coordinator authorizes |
@@ -61,87 +62,88 @@ Phase 1 contains no claim that legacy ContextDB, Path, voice, Convert, Compute, 
 
 ## Phase 2 — Verified input-to-response kernel
 
-**Goal:** From a clean reset, text input produces locally verified ordinary data responses and can invoke one fixed non-protected Compute fixture through a locally synthesized Path and exact `using` installation binding. Known interactions require no model or network.
+**Goal:** From a clean reset, text input creates, connects, updates, and queries ordinary non-protected data locally, while an authorized second user can resolve and query the published current state by exact identity. Compute entities are not required for Phase 2. Known same-user interactions require no model or network.
 
 ### 2.1 Freeze contracts and golden traces
 
-- Add machine-readable schemas for the Phase 2 subset of Interaction Evidence, Essence Operation, Invocation Frame, Local Path, Context Mutation, Entity Use Binding, Binding Essence, Invocation/Result/Effect, and Commit Receipt.
+- Add machine-readable schemas for the Phase 2 subset of Interaction Evidence, Essence Operation, Local Path, Context Mutation, Context Publication/Hydration, and Commit Receipt.
 - Give every schema a major version, parser, canonical serializer, content hash, size bound, and unknown-field policy.
 - Record golden traces from input through response. Every trace names the exact artifact and owner at each transition.
-- Define one stable failure vocabulary covering capture, match, synthesis, binding, graph proof, authorization, execution, effect application, persistence, and presentation.
+- Define one stable failure vocabulary covering capture, match, synthesis, graph proof, authorization, persistence, hydration, freshness, and presentation.
 
 ### 2.2 Build browser-local ContextDB
 
 - Run the graph store and Path matcher behind a worker boundary; the main thread coordinates and renders.
-- Persist identity-scoped entities, relations, versions, local/canonical mappings, installed Paths, installations, bindings, interaction evidence, and pending sync in IndexedDB.
+- Persist identity-scoped entities, relations, versions, local/canonical mappings, installed Paths, interaction evidence, authorized hydrated slices, and pending sync in IndexedDB.
 - Use monotonic temporary IDs and exact remapping after server acknowledgement.
 - Support typed graph query and mutation primitives needed by the initial statement, property, possession, classification, current-value, and question operations.
 - Implement catalog-declared `single_current_value`; `dirty -> clean -> dirty` rewires one current relation while preserving observation history.
-- Add a clean reset and bounded pre-input rollback that restore ContextDB and Path/install state together.
+- Add a clean reset and bounded pre-input rollback that restore ContextDB, Path, hydration, and sync state together.
 
 ### 2.3 Build deterministic local Path synthesis
 
 - Ship only a small versioned core semantic catalog and routing index at startup.
 - Compile known exact, structural, and composed-subpattern signatures locally from catalog operations.
-- Compile capability Invocation Frames into local invocation Paths without a model.
-- When deterministic routes are exhausted, construct relevance evidence from at most the last 20 permitted interactions and 200 permitted related ordinary entities. Words and structure rank candidates; only supplied exact IDs may enter an installation, Path reference, or effect target.
+- When deterministic routes are exhausted, construct relevance evidence from at most the last 20 permitted interactions and 200 permitted related ordinary entities. Words and structure rank candidates; only supplied exact IDs may enter a Path reference or mutation/query target.
 - Require token coverage, typed-role coverage, positive/negative/collision gates, isolated graph proof, atomic installation, and original-input replay.
-- Store Path identity separately from installation bindings so either can change without corrupting the other.
-- A foreign Path template package is learning evidence. The installer creates and proves a local derivative; it never activates the publisher's user-specific Path.
+- Store Path identity separately from graph identity and publication mappings so each can evolve without corrupting the others.
+- A shared Path template is learning evidence. The receiving browser creates and proves a local derivative; it never activates the publisher's user-specific Path.
 - Use an LLM only after deterministic matching, compilation, graph proof, and explicit clarification cannot resolve a genuinely unfamiliar meaning.
 
-### 2.4 Build the Entity Binding Compiler
+### 2.4 Publish and hydrate authorized ordinary Context
 
-- Treat capability dependencies as typed imports and local entities/relations as typed exports.
-- Reconcile in this order: existing exact installation binding; exact typed/structural unique match; generic Binding Essence sentence; explicit user selection; bounded LLM proposal over supplied exact IDs.
-- Support one reusable foundation form: `For <capability>, use <local reference> as <dependency>` plus structurally equivalent catalog-owned forms.
-- Persist an Entity Use Binding with installation, capability, version, operation, dependency, parameter entity, target subject/property/relation, target version, access, provenance, and revocation state.
-- If no compatible target exists, create the capability parameter shell as the authoritative local entity rather than inventing a same-name global alias.
-- Reads and declared writes dereference the exact binding. A stale version, ambiguous target, missing grant, incompatible value, or undeclared effect fails closed; runtime never falls back to a same-name relation.
+- Treat `My name is Austin.` as an identity-scoped graph statement that can establish the exact profile identity used by later authorized named-person resolution.
+- Publish permitted ordinary graph deltas through an encrypted, idempotent outbox without blocking the same-user local response. Non-protected data is not automatically public; every published entity and relation retains an explicit audience and action grant.
+- Return canonical IDs and versions, then atomically remap ContextDB, pending outbox records, Path identity memory, and hydrated references.
+- For `Is Austin's Camry clean or dirty?`, resolve Austin's exact authorized identity, fetch the smallest exact permitted graph slice, hydrate it into the caller's local ContextDB, and execute the caller's own local Path over that slice.
+- Exact-refresh a named remote subject before answering a current-state question unless a declared freshness policy permits the cached hydrated version. Return the proven scalar value, never an opaque entity or relation ID.
+- Preserve the structural chain `Austin -> owns -> Toyota Camry -> current condition`; a word match on `Austin`, `car`, `clean`, or `dirty` is never sufficient identity or authority.
+- Ambiguous same-name people, missing audience grants, revoked relations, stale versions, and incomplete graph slices fail closed or request clarification.
 
-### 2.5 Prove one fixed Compute vertical slice
+### 2.5 Add packages, review, and reset proof
 
-- Publish one platform-owned, non-protected fixture capability with typed Invocation Frames, one read/write ordinary dependency, bounded JPL, an effect contract, and deterministic responses.
-- Keep full Convert authoring out of Phase 2; the fixture exists to prove the permanent invocation boundary before generators are added.
-- Resolve the user's invocation target locally, install the capability, synthesize a local Path, create an exact Entity Use Binding, run ordered middleware, execute the fixture, validate its result, and apply only its declared exact ContextDB effect.
-- Prove that two capabilities with a human-readable `current_status` dependency cannot cross-bind because their capability/operation/dependency/installation IDs differ.
-
-### 2.6 Add publication, packages, and review
-
-- Publish ordinary non-protected graph deltas through an encrypted, idempotent outbox without blocking the local response.
-- Store immutable core/template packages by content hash and deliver them through S3/CloudFront; use compact routing cards for discovery and IndexedDB/Service Worker cache for installation.
-- Add one command-prompt review command that shows Interaction Evidence, matched or synthesized Path, Essence, ContextDB before/after, installation binding, invocation, requested/applied effects, response, timing, and model/cost usage.
+- Store the measured startup catalog and shared template packages by content hash and deliver them through S3/CloudFront with IndexedDB/Service Worker caching.
+- A package supplies trusted catalog operations or compilation evidence; integrity and provenance do not grant data access or activate another user's Path.
+- Add one command-prompt review command that shows Interaction Evidence, matched or synthesized Path, Essence, ContextDB before/after, publication/hydration IDs and versions, authorization decision, response, timing, and model/cost usage.
 - Exclude protected plaintext, credentials, raw audio, unrestricted graph dumps, and arbitrary prompts from packages and diagnostics.
+- Make reset remove local graph, Paths, hydrated slices, mappings, outbox state, and test-owned server publications so every acceptance run begins without functional residue.
 
 ### Phase 2 required acceptance
 
 Every release starts from the authorized clean reset and proves:
 
-1. `I have a car.` creates one owned object.
-2. `My car is a Toyota Camry.` enriches that same object.
-3. `My Toyota Camry is dirty.` creates one current condition relation.
-4. Both `What is the status of my Camry?` and `Is my Toyota clean or dirty?` return `dirty` locally.
-5. `My Toyota Camry is clean.` rewires the same current relation; repeating `dirty` leaves one current value and preserved history.
-6. Reload and offline execution return the same known answers without API or model calls.
-7. A second vocabulary-neutral domain fixture proves the primitives contain no car-specific branch.
-8. The fixed capability expects `current_status`, the local graph exposes a differently named property, and deterministic binding or the standard binding sentence creates one exact `using` installation without an LLM.
-9. Invocation changes only the bound relation and returns the declared response; a similarly named dependency in another fixture remains untouched.
-10. A second clean browser compiles its own Path and installation; `copiedCreatorPath` is false.
-11. Malformed, stale, ambiguous, unauthorized, and replayed requests fail or converge idempotently at the named boundary.
-12. Browser review and headless trace contain the same artifact IDs and outcome.
+1. User 1 says `My name is Austin.` and establishes one exact identity eligible for explicit authorized publication.
+2. `I have a car.` creates one object owned by that identity.
+3. `My car is a Toyota Camry.` enriches that same object.
+4. `My Toyota Camry is dirty.` creates one current condition relation.
+5. Both `What is the status of my Camry?` and `Is my Toyota clean or dirty?` return `dirty` locally.
+6. `My Toyota Camry is clean.` rewires the same current relation; saying it is `dirty` again leaves one current value and preserved observation history.
+7. Reload and offline execution return the same known same-user answers without API or model calls.
+8. After User 1 grants the required ordinary visibility, User 2 asks `Is Austin's Camry clean or dirty?` and receives the currently published scalar state through exact identity and graph resolution.
+9. After User 1 changes the state and sync acknowledges it, the same User 2 question exact-refreshes and returns the new value rather than stale data or an ID.
+10. A same-name person, absent grant, revoked relation, or ambiguous car cannot leak or guess a result.
+11. A second vocabulary-neutral domain proves the primitives contain no car-specific branch.
+12. Each browser compiles and owns its local query Path; `copiedCreatorPath` is false.
+13. Malformed, stale, unauthorized, duplicated, and replayed writes fail or converge idempotently at the named boundary.
+14. Browser review and headless trace contain the same artifact IDs, authorization result, and answer.
 
 ### Phase 2 performance gates
 
 - The command surface accepts input without waiting for identity Path hydration from the server.
 - A cached known Path performs no model or API call and has a measured local p95 budget established before Phase 2 sign-off.
 - The compressed startup core has a measured byte budget; adding a published Path template does not increase every user's startup payload.
-- A locally cached package remains executable offline.
-- Every network request, model request, package load, execution node, effect, and persistence retry has a bounded timeout and correlation ID.
+- A locally cached core package remains executable offline.
+- A cross-user current-state query has a separate measured exact-refresh latency budget and never treats a stale local copy as current without a declared freshness policy.
+- Every network request, model request, package load, hydration, and persistence retry has a bounded timeout and correlation ID.
 
 ## Phase 3 — User-built Compute, composition, and voice
 
 **Goal:** Users create, share, install, combine, and invoke ordinary non-protected capabilities while voice and text enter the same verified runtime.
 
+- Freeze Invocation Frame, Entity Use Binding, Binding Essence, Invocation/Result/Effect, Entity Middleware, ArrayLogic Workflow, and JPL Program schemas before implementing the broad runtime.
+- Build the Entity Binding Compiler: exact existing binding, unique typed structural match, generic binding sentence, explicit choice, then bounded LLM selection over supplied exact IDs.
+- Prove the permanent Compute boundary with one platform-owned non-protected fixture before enabling generation: local Path compilation from Invocation Frames, exact installation binding, bounded JPL execution, validated requested effect, and exact local commit.
+- Prove that identical human-readable dependency names in unrelated capabilities cannot cross-bind because capability, version, operation, dependency, installation, entity, and relation IDs differ.
 - Add the AudioWorklet/audio-worker pipeline and the sliding Essence/Convert control. Text and voice produce the same Interaction Evidence contract; protected audio remains excluded until Phase 4.
 - Implement Convert requirement segments and the 3 -> 2 -> 3 hard-stop boundary.
 - Freeze semantic answer plans before capability contracts and executable generation.
@@ -153,7 +155,7 @@ Every release starts from the authorized clean reset and proves:
 - Adopt Entity Middleware v1 across active planes: deterministic `extend` lineage, per-node authorization, sequential `pass`/`respond`/`fail`, and immediate stop on the first response or failure.
 - Add the isolated `fileWorker` execution envelope for explicitly local dynamic capabilities; it may request effects but never apply them.
 - Publish capability and Path template packages; every installer creates local Paths and separate exact Entity Use Bindings.
-- Prove two-user creation, discovery, installation, local wording, read/write use binding, sequential ArrayLogic composition, and first-response middleware from a clean reset.
+- Prove that two different users can independently discover the same capability, compile their own local wording, and bind it to their own ordinary data; then prove sequential ArrayLogic composition and first-response middleware from a clean reset.
 
 ## Phase 4 — Protection, governed services, and marketplace economics
 
