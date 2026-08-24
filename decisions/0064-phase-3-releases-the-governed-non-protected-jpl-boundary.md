@@ -10,7 +10,7 @@ Phase 3 implemented strict contracts and deterministic foundations for JPL, Java
 
 The Phase 3 production execution boundary is ordinary, non-protected, compiler-bounded JPL v1:
 
-- Convert freezes an answer plan before proposing a typed fixed-transition contract.
+- Convert freezes an answer plan before proposing a typed fixed-transition contract. Trusted canonicalization guarantees one required selected-subject input and makes the frozen transition endpoints authoritative over repeated contract-stage fields.
 - Trusted code owns IDs, direct Invocation Frames, JPL syntax, package hashing, installation, exact binding, and effect validation.
 - Callable executable programs are loaded only from immutable content-addressed S3 packages. New DynamoDB rows store the bounded manifest, descriptor, routing metadata, release state, and expiring idempotency receipt. A bounded migration reader extracts and ignores the manifest-adjacent program in a legacy row. Discovery still reloads and verifies S3 before returning executable content.
 - ArrayLogic v1 sequences exact installed operations and durably checkpoints typed results and local effects. Its only released compensation policy is explicitly `none`.
@@ -37,7 +37,7 @@ The callable Phase 3 runtime receives only manifest-declared ordinary inputs and
 
 - Deterministic tests prove exact binding, effect application, S3 package verification, release revocation, workflow retry and reload behavior, adapter conformance, and middleware stop semantics.
 - DynamoDB tests prove new capability rows contain no executable program and legacy rows are reduced to their manifest before leaving persistence.
-- A development-only paid evaluation runs all 50 cases through the normal durable API and deletes its releases afterward.
+- A development-only paid evaluation runs all 50 cases through the normal durable API and deletes its releases afterward. Named-case filtering is diagnostic only and cannot satisfy the promotion gate.
 - A deployed ordinary-voice acceptance sends synthetic non-user speech through the browser media pipeline and verifies voice provenance in the local trace.
 - Development and production promotion run reset-gated acceptance against the exact CloudFront output.
 
