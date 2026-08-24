@@ -195,6 +195,14 @@ The parser recognizes `__$ref(n)` references to earlier ArrayLogic elements and 
 
 ArrayLogic expresses intent at a higher level than either downstream representation. It can say that a capability with certain inputs and outputs is needed without spelling out every entity mutation row. The compiler can then find or invoke an existing entity, compile an approved entity plan, create an entity, build Shorthand rows to modify it, and return creation details.
 
+### Sequential composition target
+
+The clean platform will version ArrayLogic as the workflow representation for combining several Compute entities in one ordered operation. Each step identifies an exact entity, version, and operation. A later input may reference an earlier step's typed result through an exact workflow reference, so the sequence behaves as one composable solution while every component retains its own identity, contract, authorization, provenance, and cost record.
+
+This is sequential execution, not concurrency. A step runs only when its declared predecessors have produced the required results. The workflow contract must define failure, cancellation, timeout, idempotency, retry, effect order, and compensation instead of relying on incidental Shorthand row behavior. Compute-to-Compute references are exact dataflow; they do not use linguistic matching or Entity Use Bindings.
+
+ArrayLogic sequencing is also distinct from Entity Middleware. ArrayLogic runs declared work steps in order. Middleware runs an owning handler lineage until the first `respond` or `fail`, then stops without invoking later handlers.
+
 ### Example
 
 This simplified operation asks Convert to record a pass using a capability with a declared output contract:
@@ -248,7 +256,7 @@ The current `parseArrayLogic` implementation also performs or coordinates some s
 
 ### Status
 
-**Implemented / partial spec.** Convert uses the active `compute/app/routes/parseArrayLogic.js` implementation. Several older numbered parsers and an alternate converter remain in the repository. There is no canonical versioned ArrayLogic schema, and several element types have different validation strength. The approved `computeEntity` path is more constrained than the legacy operation path.
+**Implemented POC build plan / proposed workflow contract.** Convert uses the active `compute/app/routes/parseArrayLogic.js` implementation. Several older numbered parsers and an alternate converter remain in the repository. There is no canonical versioned ArrayLogic schema, and several element types have different validation strength. The approved `computeEntity` path is more constrained than the legacy operation path. Safe sequential multi-Compute workflow semantics are a clean-platform Phase 3 target, not a claim about the current parser.
 
 ## The soccer coaching example across the representations
 
@@ -270,6 +278,7 @@ The durable coaching facts should live as governed entity and ContextDB data, no
 6. Prefer structured, versioned contracts between the representations. Preserve provenance from request to ArrayLogic element, Shorthand row, entity mutation, and JPL action so failures can be attributed and repaired.
 7. Keep domain nouns such as soccer passes out of the core language. They belong in entity data and capability contracts built from general composition and execution primitives.
 8. Keep dynamic local entity script in `fileWorker`; do not use JPL, Shorthand, or ArrayLogic terminology to imply that arbitrary generated JavaScript may execute on the main thread.
+9. Keep sequential ArrayLogic workflow dataflow separate from middleware first-response handling and from installation-owned Entity Use Bindings.
 
 ## Current implementation evidence
 

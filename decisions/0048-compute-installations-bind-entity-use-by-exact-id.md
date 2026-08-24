@@ -4,6 +4,8 @@
 
 Accepted — implemented foundation for ordinary, non-protected ContextDB relations.
 
+The clean platform target in [decision 0053](0053-local-paths-and-entity-use-installations.md) retains this exact-ID safety while moving durable dependency bindings from any one caller Path into a separate installation-owned Entity Use Binding. This POC decision remains implementation evidence; it is not the clean persistence shape.
+
 ## Context
 
 A reusable Compute entity can describe the right behavior while naming its data dependency differently from a caller's existing ContextDB entity. Treating names such as `current_status`, `clean_status`, `state`, or `condition` as global aliases would let unrelated applications accidentally read or modify one another's data. Copying the creator's Path would be equally wrong because a Path contains caller-local wording, graph identity, and installation state.

@@ -18,23 +18,18 @@ The goal is not merely to answer the current question. It is to preserve validat
 
 ## From language to execution
 
-The conceptual flow is:
-
-```text
-sentence → Essence → Path → execution
-```
-
-The deterministic runtime performs the relationship more precisely as:
+The deterministic runtime performs the relationship as:
 
 ```text
 voice or message
-  → token and linguistic analysis
+  → immutable interaction evidence
   → exact, structural, or compositional signature
-  → validated Path
-  → canonical Essence
+  → caller-local validated Path
+  → browser-local catalog-owned Essence
   → authorized execution
       ├─ data query or mutation
       ├─ entity middleware invocation
+      ├─ sequential ArrayLogic workflow
       ├─ local worker execution
       ├─ command/menu/navigation
       ├─ automation or communication
@@ -43,7 +38,7 @@ voice or message
   → reusable learning
 ```
 
-A Sentence is the original human evidence. An Essence expresses the intended semantic operation independently of the exact wording. A Path connects recognizable language structure to a deterministic Essence transform or another authorized capability.
+A Sentence is the original human evidence. An Essence expresses the intended semantic operation independently of the exact wording. A Path connects recognizable language structure to a deterministic Essence transform or another authorized capability. These artifacts are browser-local and may differ between users even when they reach the same shared Compute operation.
 
 Paths should be constructed from typed, reusable subpatterns for roles, relations, operators, projections, modifiers, and syntax. The platform should not need to store every possible sentence. Compatible subpatterns combine to recognize new wording while preserving semantic distinctions such as actor, ownership, quantity, time, destination, negation, and authority.
 
@@ -64,6 +59,10 @@ For example:
 The committed result becomes immediately queryable.
 
 When wording or behavior is unfamiliar, an LLM can interpret the situation, explain a failure, propose a Semantic Plan, suggest a Path, or help build a capability. The LLM is not authoritative storage or execution. Its proposal must be compiled into platform primitives, tested against the local graph, checked for collisions and permissions, installed, and replayed. Once validated, later interactions should use the local Path instead of repeatedly paying for model inference.
+
+Shared capabilities publish exact versioned manifests, operation and dependency IDs, Invocation Frames, tests, and effects. A receiving browser compiles its own Path from that evidence; it does not activate the creator's Path. A separate installation-owned Entity Use Binding applies `using` to connect one exact capability dependency to one exact permitted local entity or relation. Existing bindings, unique typed structural matches, and the generic sentence `For <capability>, use <local reference> as <dependency>` resolve most installations deterministically. An LLM is a bounded fallback that may select only supplied exact IDs.
+
+This separation prevents two unrelated apps whose dependencies are both displayed as `current_status` from sharing data accidentally. Local Paths own wording-to-operation selection, installations own capability-to-data continuity, and exact typed ArrayLogic references connect one Compute result to a later Compute input.
 
 ## Words and entities
 
@@ -119,7 +118,7 @@ The general composition primitives `map`, `extend`, `link`, `use`, and `substitu
 
 Entities can form parent-and-child middleware lineages.
 
-When a target entity is invoked, middleware v1 resolves one acyclic owning path from its root through the selected child. Every node reloads current `execute` authority, then returns `pass`, `respond`, or `fail`; the first response or failure terminates the invocation. Non-owning `map`, `link`, `use`, and `substitute` relations do not silently become ancestors.
+When a target entity is invoked, middleware v1 resolves one acyclic owning path from its root through the selected child. Every node reloads current `use` authority, then returns `pass`, `respond`, or `fail`; the first response or failure terminates the invocation. Non-owning `map`, `link`, `use`, and `substitute` relations do not silently become ancestors.
 
 This permits behavior such as:
 
@@ -130,6 +129,8 @@ This permits behavior such as:
 - a fallback entity continuing the chain when earlier entities do not respond.
 
 A successful compute result may be materialized into the entity's subdomain output. Later compatible requests can retrieve that hard response without repeating the computation. A mature version of this optimization must record the inputs, dependencies, version, permission scope, expiration, and invalidation rules associated with the cached result.
+
+Middleware is not a workflow scheduler. It asks ordered handlers for the first authoritative outcome. ArrayLogic is the separate sequential workflow representation for running several exact Compute operations in order and passing typed results from earlier steps into later steps.
 
 ## Three execution planes
 

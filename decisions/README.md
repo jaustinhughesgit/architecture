@@ -65,3 +65,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0050: Fresh browser identity bootstrap owns cookie rotation](0050-fresh-browser-identity-bootstrap.md)
 - [0051: Owner-published Compute delegates bounded Context effects](0051-owner-published-compute-delegates-bounded-context-effects.md)
 - [0052: Build the replacement as a clean-room platform with a separate domain cutover](0052-clean-room-platform-and-domain-cutover.md)
+- [0053: Synthesize caller-local Paths and stitch capability dependencies through installation-owned entity use](0053-local-paths-and-entity-use-installations.md)

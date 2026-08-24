@@ -24,6 +24,8 @@ Only owning `extend`/lineage edges determine middleware ancestry. Multiple ownin
 
 Legacy fields remain readable during migration: entity `t`, `l`, `u`, `z`, and `m` normalize to the typed relations above. The active `map`, `extend`, `link`, `useGroup`, and `substituteGroup` mutation routes now authorize their endpoints and emit canonical relation/version/audit fields while retaining their old response envelopes and legacy writes. A canonical conformance write must complete before a successful route acknowledgement.
 
+An Entity Use Binding is the clean platform's installation-scoped application of `use`: it connects one exact capability/version/operation/dependency to one exact permitted entity or relation without transferring identity. It is not an owning middleware edge, a global alias, or a Path signature. Paths select the installation; the installation retains the binding across local Path rebuilds. See [decision 0053](../decisions/0053-local-paths-and-entity-use-installations.md).
+
 ## Middleware invocation
 
 The caller supplies structured input and a target; a trusted resolver supplies the canonical entity versions in owning lineage order. A caller-supplied list is not authority. At each node the runtime:
