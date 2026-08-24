@@ -24,11 +24,15 @@ The architecture is available at three levels of detail so the same platform mod
 
 | Repository | Primary responsibility | Detailed guide |
 | --- | --- | --- |
+| `onevar-platform` | Clean-room product monorepo for the replacement website, local runtime, contracts, API, application infrastructure, and acceptance | `../onevar-platform/docs/architecture/platform.md` |
+| `onevar-operations` | Production domain attachment, environment promotion, and rollback controls for the replacement platform | `../onevar-operations/README.md` |
 | `aws` | Browser experience, trusted local runtime, Path/Essence processing, ContextDB interaction, `fileWorker` execution, and user-facing controls | `../aws/docs/layer.md` |
 | `aws-api` | Browser-facing API boundary and controlled transport to compute | `../aws-api/docs/layer.md` |
 | `compute` | Entity/JPL execution, server persistence, capability lifecycle, protected assets, and provider interaction | `../compute/docs/layer.md` |
 | `testing` | Command-based cross-layer acceptance, test-device setup, mailbox verification, and guarded test-environment reset | `../testing/docs/layer.md` |
 | `architecture` | Cross-layer model, vocabulary, contracts, decisions, and capability status | This repository |
+
+`aws`, `aws-api`, `compute`, and `testing` remain intact as the proof-of-concept implementation and behavioral evidence during clean-room replacement. They are not runtime dependencies of `onevar-platform`. See [decision 0052](decisions/0052-clean-room-platform-and-domain-cutover.md).
 
 ## Reading order
 

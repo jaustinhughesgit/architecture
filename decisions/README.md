@@ -64,3 +64,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0049: Current-state assertions rewire canonical relations](0049-current-state-assertions-rewire-canonical-relations.md)
 - [0050: Fresh browser identity bootstrap owns cookie rotation](0050-fresh-browser-identity-bootstrap.md)
 - [0051: Owner-published Compute delegates bounded Context effects](0051-owner-published-compute-delegates-bounded-context-effects.md)
+- [0052: Build the replacement as a clean-room platform with a separate domain cutover](0052-clean-room-platform-and-domain-cutover.md)
