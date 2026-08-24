@@ -10,7 +10,8 @@ Phase 3 implemented strict contracts and deterministic foundations for JPL, Java
 
 The Phase 3 production execution boundary is ordinary, non-protected, compiler-bounded JPL v1:
 
-- Convert freezes an answer plan before proposing a typed fixed-transition contract. Trusted canonicalization guarantees one required selected-subject input and makes the frozen transition endpoints authoritative over repeated contract-stage fields.
+- Convert freezes an answer plan before proposing a typed fixed-transition contract. Trusted canonicalization guarantees one required selected-subject input; trusted projection restores its frozen name, type, required flag, and dependency ownership, and makes the frozen transition endpoints authoritative over repeated contract-stage fields.
+- Each model stage may replace one response that ends in a recognized transient provider failure. Revision-checked durable state prevents parallel replacement starts, every response ID and available token receipt is retained, and semantic or validation failures are never retried.
 - Trusted code owns IDs, direct Invocation Frames, JPL syntax, package hashing, installation, exact binding, and effect validation.
 - Callable executable programs are loaded only from immutable content-addressed S3 packages. New DynamoDB rows store the bounded manifest, descriptor, routing metadata, release state, and expiring idempotency receipt. A bounded migration reader extracts and ignores the manifest-adjacent program in a legacy row. Discovery still reloads and verifies S3 before returning executable content.
 - ArrayLogic v1 sequences exact installed operations and durably checkpoints typed results and local effects. Its only released compensation policy is explicitly `none`.
@@ -27,6 +28,7 @@ This decision narrows the production timing in decisions 0055 and 0063; it does 
 - npm package use cases remain tested, but no package is dynamically installed or executed during a production invocation.
 - First-response child middleware semantics remain stable while caller-supplied lineage never becomes authority.
 - Workflow compensation cannot be inferred from forward effects, prompts, or presentation text.
+- Provider recovery is bounded and auditable rather than an unbounded SDK retry or a silent second charge.
 - The exact Phase 3 release can be promoted and rolled back independently of Phase 4 governance work.
 
 ## Security impact
