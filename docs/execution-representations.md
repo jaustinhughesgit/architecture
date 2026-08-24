@@ -1,5 +1,13 @@
 # JPL, Shorthand, and ArrayLogic
 
+## Clean-platform Phase 3 boundary
+
+The clean `onevar-platform` implementation begins a versioned replacement boundary without importing the proof-of-concept runtimes. A model or Convert flow proposes a typed Capability Build Plan. Trusted compiler code validates it and emits a content-hashed JPL v1 program from a closed instruction set; the model does not author JPL, Shorthand, IDs, permissions, or JavaScript. The interpreter checks the exact capability release and operation, declared inputs and outputs, hash, step limit, and requested effects. A browser installation uses property concepts and allowed values only to nominate a compatible property-scoped current relation, then binds each dependency to that exact local relation ID. The worker—not JPL—validates and applies an ordinary Context effect.
+
+Clean ArrayLogic v1 is a sequential workflow of exact capability/version/operation steps with typed references to earlier outputs. It is not parallel execution. Clean Shorthand remains a bounded internal build/patch representation and is not required to invoke a capability. Approved JavaScript adapters are the escape hatch for behavior outside bounded JPL; they are prebuilt, immutable, digest-addressed, authority-classified artifacts, never packages dynamically installed during an invocation. See [decision 0055](../decisions/0055-compiler-owned-jpl-and-hybrid-compute-execution.md).
+
+This foundation is implemented and locally proven. The clean platform also has compact Position candidate routing, durable answer-first contract generation, content-addressed capability packages, a model-free Binding Essence, deterministic middleware execution, reviewed adapter conformance fixtures, and ordinary voice capture/encoding. Production adapter execution cells, durable browser-coordinated workflow effects, entity-resolver middleware adoption, broad model evals, real-device voice acceptance, and deployment remain incomplete. The sections below continue to document proof-of-concept behavior as migration evidence unless they explicitly say clean platform.
+
 ## Purpose
 
 JPL, Shorthand, and ArrayLogic are three distinct JSON-based representations in the current 1var execution and creation flow. They operate at different levels and must not be used as interchangeable names for “the logic.”
