@@ -6,7 +6,7 @@ The clean `onevar-platform` implementation begins a versioned replacement bounda
 
 Clean ArrayLogic v1 is a sequential workflow of exact capability/version/operation steps with typed references to earlier outputs. It is not parallel execution. Clean Shorthand remains a bounded internal build/patch representation and is not required to invoke a capability. Approved JavaScript adapters are the escape hatch for behavior outside bounded JPL; they are prebuilt, immutable, digest-addressed, authority-classified artifacts, never packages dynamically installed during an invocation. See [decision 0055](../decisions/0055-compiler-owned-jpl-and-hybrid-compute-execution.md).
 
-This foundation is implemented and locally proven. The clean platform also has compact Position candidate routing, durable answer-first contract generation, content-addressed capability packages, a model-free Binding Essence, deterministic middleware execution, reviewed adapter conformance fixtures, and ordinary voice capture/encoding. Production adapter execution cells, durable browser-coordinated workflow effects, entity-resolver middleware adoption, broad model evals, real-device voice acceptance, and deployment remain incomplete. The sections below continue to document proof-of-concept behavior as migration evidence unless they explicitly say clean platform.
+This foundation is implemented and locally proven. The clean platform also has compact Position candidate routing, durable answer-first contract generation, content-addressed capability packages with external owner revocation, a model-free Binding Essence, target-first middleware execution, durable browser-coordinated workflow effects/checkpoints, a 50-case model-promotion gate, reviewed adapter conformance fixtures, and ordinary voice capture/encoding. Production adapter execution cells, active entity-resolver middleware adoption, production model measurement, real-device voice acceptance, and deployment remain incomplete. Package signing and independent marketplace review remain Phase 4. The sections below continue to document proof-of-concept behavior as migration evidence unless they explicitly say clean platform.
 
 ## Purpose
 
@@ -205,7 +205,7 @@ ArrayLogic expresses intent at a higher level than either downstream representat
 
 ### Sequential composition target
 
-The clean platform will version ArrayLogic as the workflow representation for combining several Compute entities in one ordered operation. Each step identifies an exact entity, version, and operation. A later input may reference an earlier step's typed result through an exact workflow reference, so the sequence behaves as one composable solution while every component retains its own identity, contract, authorization, provenance, and cost record.
+The clean platform versions ArrayLogic as the workflow representation for combining several Compute entities in one ordered operation. Each installed step maps to an exact local capability installation and operation. A later input may reference an earlier step's typed result through an exact workflow reference, so the sequence behaves as one composable solution while every component retains its own identity, contract, authorization, provenance, and cost record. The browser worker durably checkpoints the invocation ID, attempt, result, effect receipt, cancellation state, and typed outputs with any local Context mutation, allowing reload-safe resume without duplicating an acknowledged step.
 
 This is sequential execution, not concurrency. A step runs only when its declared predecessors have produced the required results. The workflow contract must define failure, cancellation, timeout, idempotency, retry, effect order, and compensation instead of relying on incidental Shorthand row behavior. Compute-to-Compute references are exact dataflow; they do not use linguistic matching or Entity Use Bindings.
 
@@ -264,7 +264,7 @@ The current `parseArrayLogic` implementation also performs or coordinates some s
 
 ### Status
 
-**Implemented POC build plan / proposed workflow contract.** Convert uses the active `compute/app/routes/parseArrayLogic.js` implementation. Several older numbered parsers and an alternate converter remain in the repository. There is no canonical versioned ArrayLogic schema, and several element types have different validation strength. The approved `computeEntity` path is more constrained than the legacy operation path. Safe sequential multi-Compute workflow semantics are a clean-platform Phase 3 target, not a claim about the current parser.
+**Implemented POC build plan / implemented clean workflow contract.** Convert uses the active POC `compute/app/routes/parseArrayLogic.js` implementation, where several older numbered parsers and an alternate converter remain and no canonical POC schema exists. Separately, the clean platform implements strict ArrayLogic Workflow v1 as exact sequential invocation and durable browser-coordinated checkpoints. The POC parser is migration evidence and is not imported into, or an authority for, the clean workflow runtime.
 
 ## The soccer coaching example across the representations
 

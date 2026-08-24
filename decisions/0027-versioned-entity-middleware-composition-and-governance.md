@@ -1,6 +1,6 @@
 # 0027: Versioned Entity Middleware, Composition, and Governance
 
-- Status: Accepted
+- Status: Accepted; execution order superseded by decision 0063
 - Date: 2026-08-11
 
 ## Context
@@ -9,7 +9,7 @@
 
 ## Decision
 
-- Freeze entity middleware v1 as sequential root-to-target execution with per-node authorization and `pass`/`respond`/`fail` decisions. First response or failure terminates the chain.
+- Freeze entity middleware v1 as sequential owning-lineage execution with per-node authorization and `pass`/`respond`/`fail` decisions. First response or failure terminates the chain. Decision 0063 subsequently corrects the order to selected target first, then nearest owning ancestors through the root.
 - Only owning `extend`/lineage relations create middleware ancestry. `map`, `link`, `use`, and `substitute` remain non-owning composition edges with distinct mechanical semantics.
 - Normalize legacy fields through a compatibility adapter and require active composition mutation routes to authorize endpoints and publish canonical conformance relations.
 - Use the canonical action vocabulary for grants and a shared lifecycle transition machine with optimistic versions. Decision 0029 subsequently canonicalizes entity invocation under `use` and retains `execute` only as a compatibility alias.

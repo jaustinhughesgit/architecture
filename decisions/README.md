@@ -72,3 +72,7 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0057: Content-addressed capability packages are authoritative; Position is derived](0057-content-addressed-capability-packages-and-derived-position.md)
 - [0058: Transient ordinary voice rejoins the typed interaction dispatcher](0058-ordinary-voice-rejoins-the-typed-dispatcher.md)
 - [0059: Scope current values by property dimension](0059-scope-current-values-by-property-dimension.md)
+- [0060: Browser coordinates durable ArrayLogic checkpoints](0060-browser-coordinates-durable-arraylogic-checkpoints.md)
+- [0061: Release governance is external to content-addressed packages](0061-release-governance-is-external-to-content-addressed-packages.md)
+- [0062: Model promotion requires measured authoring evals](0062-model-promotion-requires-measured-authoring-evals.md)
+- [0063: Entity middleware runs from the selected target to its owning ancestors](0063-target-first-entity-middleware-order.md)

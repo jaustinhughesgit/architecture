@@ -4,7 +4,7 @@
 
 Phases 7–9 freeze three related v1 boundaries without merging the three execution planes:
 
-1. [Entity middleware](../contracts/entity-middleware.v1.schema.json) resolves one owning root-to-target lineage, authorizes every node, invokes sequentially, and accepts only `pass`, `respond`, or `fail`. The first `respond` or `fail` terminates the chain. Cancellation stops before the next node. Retry is not implicit; a caller must use a declared idempotency and retry policy.
+1. [Entity middleware](../contracts/entity-middleware.v1.schema.json) resolves one owning target-to-root lineage, authorizes every node, invokes the selected child before its nearest owning ancestors, and accepts only `pass`, `respond`, or `fail`. The first `respond` or `fail` terminates the chain. Cancellation stops before the next node. Retry is not implicit; a caller must use a declared idempotency and retry policy. See [decision 0063](../decisions/0063-target-first-entity-middleware-order.md).
 2. Composition keeps `map`, `extend`, `link`, `use`, and `substitute` mechanically distinct typed relations. Wording and business-domain examples do not define these primitives.
 3. [Governance](../contracts/canonical-governance.v1.schema.json) uses one action vocabulary, lifecycle machine, optimistic version check, and append-only audit decision.
 
@@ -28,7 +28,7 @@ An Entity Use Binding is the clean platform's installation-scoped application of
 
 ## Middleware invocation
 
-The caller supplies structured input and a target; a trusted resolver supplies the canonical entity versions in owning lineage order. A caller-supplied list is not authority. At each node the runtime:
+The caller supplies structured input and a target; a trusted resolver supplies the canonical entity versions from that target through its owning ancestors to the root. A caller-supplied list is not authority. At each node the runtime:
 
 1. checks cancellation;
 2. reloads current resource state and the `use` grant;
