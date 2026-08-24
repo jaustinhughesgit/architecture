@@ -62,7 +62,9 @@ Phase 1 contains no claim that legacy ContextDB, Path, voice, Convert, Compute, 
 
 ## Phase 2 — Verified input-to-response kernel
 
-**Status:** Implemented with local acceptance complete; deployed reset-gated acceptance pending as of 2026-08-24.
+**Status:** Complete and deployed as immutable release `5cb00df` on 2026-08-24.
+
+The release passed the same reset-gated Chromium suite in isolated development (3/3 in 14.1 seconds) and production/`1var.com` (3/3 in 13.0 seconds). The suite deliberately drops one Context publication, uses two fresh browser identities, exercises offline recovery and exact remote dirty/clean/dirty refresh, revokes visibility, and resets both identities in `finally`.
 
 **Goal:** From a clean reset, text input creates, connects, updates, and queries ordinary non-protected data locally, while an authorized second user can resolve and query the published current state by exact identity. Compute entities are not required for Phase 2. Known same-user interactions require no model or network.
 

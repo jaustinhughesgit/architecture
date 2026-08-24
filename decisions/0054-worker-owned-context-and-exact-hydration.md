@@ -1,6 +1,6 @@
 # 0054: Worker-owned ordinary Context publishes exact deltas and hydrates authorized slices
 
-**Status:** Accepted; clean implementation and local acceptance complete, deployment pending
+**Status:** Accepted and deployed in release `5cb00df`
 
 ## Context
 
@@ -46,5 +46,5 @@ The server derives owner identity from the session, limits publication to that o
 - Pure runtime tests cover dirty/clean/dirty rewiring, a pet domain, ambiguity, clarification rollback, hydration continuation identity, delayed and lost publication acknowledgement, exact active-request retry, content hash, and local p95.
 - API and persistence tests cover strict contracts, foreign graph rejection, idempotency, stale/non-monotonic writes, ambiguous public names, reset, compact delta rows, and snapshot reconstruction.
 - Production-bundle Chromium acceptance starts with two fresh browser contexts; deliberately drops one publication request; proves exact retry, local input, online reload, offline query, denial before share, exact refreshed remote dirty/clean/dirty answers, revocation, review, and reset after completion.
-- Startup JavaScript measures 107,740 gzip bytes against a 135,000-byte budget. Cached local query p95 is gated at 25 ms and local exact hydration at 3,000 ms.
-- The final phase gate is the same clean-reset sequence against the deployed isolated and production environments, followed by another reset.
+- Startup JavaScript measures 108,158 gzip bytes against a 135,000-byte budget. Cached local query p95 is gated at 25 ms and local exact hydration at 3,000 ms.
+- The same forced-failure clean-reset sequence passed in [isolated development](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/32702156634) (3/3 in 14.1 seconds) and [production/`1var.com`](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/32702449570) (3/3 in 13.0 seconds), then reset both identities.
