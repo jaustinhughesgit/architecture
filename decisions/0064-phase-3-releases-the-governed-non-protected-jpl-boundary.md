@@ -1,6 +1,6 @@
 # 0064: Phase 3 releases the governed non-protected JPL boundary
 
-**Status:** Accepted for Phase 3 closeout
+**Status:** Accepted; Phase 3 complete
 
 ## Context
 
@@ -24,7 +24,7 @@ This decision narrows the production timing in decisions 0055 and 0063; it does 
 
 ## Consequences
 
-- Phase 3 can close without weakening the zero-trust model.
+- Phase 3 closes without weakening the zero-trust model.
 - npm package use cases remain tested, but no package is dynamically installed or executed during a production invocation.
 - First-response child middleware semantics remain stable while caller-supplied lineage never becomes authority.
 - Workflow compensation cannot be inferred from forward effects, prompts, or presentation text.
@@ -39,9 +39,10 @@ The callable Phase 3 runtime receives only manifest-declared ordinary inputs and
 
 - Deterministic tests prove exact binding, effect application, S3 package verification, release revocation, workflow retry and reload behavior, adapter conformance, and middleware stop semantics.
 - DynamoDB tests prove new capability rows contain no executable program and legacy rows are reduced to their manifest before leaving persistence.
-- A development-only paid evaluation runs all 50 cases through the normal durable API and deletes its releases afterward. Named-case filtering is diagnostic only and cannot satisfy the promotion gate.
+- Development workflow 32775939532 ran all 50 paid cases through the normal durable API, scored 50/50 with zero critical failures, retained sanitized receipts for 102 provider responses, and deleted its generated releases afterward. Named-case filtering remains diagnostic only and cannot satisfy the promotion gate.
 - A deployed ordinary-voice acceptance sends synthetic non-user speech through the browser media pipeline and verifies voice provenance in the local trace.
-- Development and production promotion run reset-gated acceptance against the exact CloudFront output.
+- Development workflow 32775939532 and production workflow 32777037295 ran reset-gated acceptance against their exact CloudFront outputs.
+- Production health and smoke checks verified release `d1b02dc0a28af71704465bd92091f54820dbef02`; production workflow 32702449570 retains exact rollback release `5cb00df6876a3d7e3b49eaf178187321ce34909e`.
 
 ## Affected repositories
 
