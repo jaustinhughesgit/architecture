@@ -1,6 +1,6 @@
 # 0065: Project input purpose and trust as four stable browser lanes
 
-**Status:** Accepted; clean-platform Phase 3.5 foundation implemented
+**Status:** Accepted; clean-platform Phase 3.5 foundation implemented and deployed
 
 ## Context
 
