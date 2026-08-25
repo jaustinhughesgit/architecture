@@ -6,6 +6,8 @@ This capability spans account bootstrap, email verification, device-held cryptog
 
 ## Current implementation
 
+- In the clean `onevar-platform` Phase 4A boundary, typed protected spans are encrypted in a dedicated worker, compiled only into exact owner-local quantity/self-property bindings, and queried without decryption. Separate one-use or timed Reveal/Speak grants authorize one matching transient presentation; rotation, revocation, safe audit, reload, command parity, and reset are covered. Protected plaintext does not enter ordinary ContextDB, models, Compute, network, terminal history, or review.
+- Clean Phase 4A does not inherit the POC's recipient or trusted-server flows. Recipient ECDH delivery, trusted-server/provider injection, local protected ASR, and WebAuthn-at-use are separately incomplete.
 - `/newUser` creates the initial group/user records and then redirects into the application.
 - The encryption enrollment flow separately requests and polls email verification.
 - The browser creates P-256 encryption and signing key pairs. Public keys are registered with the server; the local encryption private key is stored as a non-exported browser `CryptoKey` in IndexedDB.

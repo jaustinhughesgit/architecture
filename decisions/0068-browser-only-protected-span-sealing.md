@@ -1,6 +1,6 @@
 # 0068: Seal typed protected spans into exact browser-only asset references
 
-**Status:** Accepted and implemented as the first clean Phase 4A slice; governed use remains incomplete.
+**Status:** Accepted and implemented as the first clean Phase 4A slice; governed owner-local use continues in decision 0069.
 
 ## Context
 
@@ -12,7 +12,7 @@ Each coalesced typed protected span becomes one independently encrypted, version
 
 The v1 reference carries only random identity, version, owner, browser-only mode, content type, and byte length. It carries no plaintext hash or label, key material, grant, presentation policy, or server-use claim. Multiple assets and their ordered input envelope commit atomically. Safe review reports reference metadata and counts only. Reset removes ciphertext, envelopes, and the device key.
 
-This is storage and substitution, not use authority. Entity Use Binding v1 remains ordinary-only. Protected-reference execution, one-use and timed grants, Speak/Reveal, request notifications, recipient ECDH wraps, server-ask/preapproved modes, rotation/revocation, local protected ASR, and audited use require later Phase 4A contracts and tests.
+This storage contract itself grants no use authority. Entity Use Binding v1 remains ordinary-only. Decision 0069 adds exact owner-local Context bindings, one-use/timed presentation grants, Speak/Reveal, rotation, revocation, and safe audit without broadening the asset reference. Request notifications, recipient ECDH wraps, server-ask/preapproved modes, and local protected ASR remain separate contracts and tests.
 
 ## Alternatives
 
