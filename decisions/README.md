@@ -80,3 +80,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0065: Project input purpose and trust as four stable browser lanes](0065-four-lane-input-trust-surface.md)
 - [0066: Operate the clean four-lane input surface as one walkie-talkie gesture](0066-walkie-talkie-input-gesture.md)
 - [0067: Latch the command composer and preserve partial protection as ordered segments](0067-latched-segmented-input-composer.md)
+- [0068: Seal typed protected spans into exact browser-only asset references](0068-browser-only-protected-span-sealing.md)

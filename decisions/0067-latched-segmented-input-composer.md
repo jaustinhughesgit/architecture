@@ -1,6 +1,6 @@
 # 0067: Latch the command composer and preserve partial protection as ordered segments
 
-**Status:** Accepted; the clean Phase 3.5 composer and command controls are implemented. Protected segment sealing and governed use remain Phase 4A.
+**Status:** Accepted; the clean Phase 3.5 composer and command controls are implemented, and typed sealing moved to decision 0068. Governed use and protected voice remain Phase 4A.
 
 ## Context
 
@@ -22,7 +22,7 @@ Each protected span ultimately has three representations:
 2. masked display text, normally `***`;
 3. a stored opaque, versioned Protected Asset reference.
 
-Ordinary spans retain ordinary text. Before Phase 4A, any protected span keeps the complete interaction out of ordinary ContextDB, remote transcription, authoring, models, Paths, logs, and the network. Phase 4A must locally transcribe protected voice spans, encrypt each coalesced protected span, substitute exact references, and then execute the assembled input. A partially protected fact may publish ordinary relations plus an owner-validated generic protected marker, never plaintext.
+Ordinary spans retain ordinary text. The first Phase 4A slice now encrypts each typed protected span and substitutes an exact browser-only reference as specified by decision 0068. Any protected span still keeps the interaction out of ordinary ContextDB, remote transcription, authoring, models, Paths, logs, and the network. Later Phase 4A slices must add local protected voice transcription and governed execution of the assembled reference-bearing input. A partially protected fact may eventually publish ordinary relations plus an owner-validated generic protected marker, never plaintext.
 
 Protected request, use, and presentation policy remain independent. Ask and Don't ask are non-authorizing request/presentation states. A direct Approve click defaults to one use with no clock expiry and `remainingUses: 1`; consumption ends it. Other owner grant choices are 15 minutes, 1 hour, 1 day, and forever. A grant binds exact actor, asset/version, capability/operation, purpose, delivery scope, and lifecycle. Speak and Reveal windows are device-local presentation authority and cannot authorize Compute or provider use.
 
@@ -32,7 +32,7 @@ Protected request, use, and presentation policy remain independent. Ask and Don'
 - A sentence can keep ordinary structure while protecting one or many values.
 - The slider, slash controls, command registry, and future voice assembly cannot drift into separate input authorities.
 - Multiple protected spans can receive separate asset identity, grants, rotation, and revocation.
-- The existing no-leak boundary remains stricter than the future Phase 4A execution path until reference sealing is available.
+- The existing no-leak boundary remains stricter than the future Phase 4A execution path until exact grant and reference-use contracts are available.
 
 ## Affected repositories
 

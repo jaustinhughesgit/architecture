@@ -174,6 +174,8 @@ Every release starts from the authorized clean reset and proves:
 
 **Goal:** Users safely transact around capabilities and authorized data without collapsing local, recipient, or trusted-server boundaries.
 
+**Status (2026-08-25): Phase 4A has started with a clean browser-only typed-sealing foundation.** Each coalesced typed protected span now receives its own random AES-256-GCM content key and opaque versioned reference; a dedicated worker wraps content keys under a non-extractable identity-scoped AES-256-KW device key and atomically stores ciphertext plus the ordered ordinary/reference envelope. Reload, safe review, reset, no-network/no-ordinary-Context leakage, authenticated reference binding, and the complete Phase 2/3 regression suite are covered. This is not yet protected execution: Entity Use Binding v1 still rejects protected references, and grants, Speak/Reveal, recipient/server modes, revocation, audit, notifications, and local protected ASR remain fail-closed. See [decision 0068](../decisions/0068-browser-only-protected-span-sealing.md).
+
 - Add browser-only, server-ask, and server-preapproved Protected Asset modes; recipient-specific key wrapping; purpose-bound references; revocation; audit; and notification/approval flows.
 - Seal each protected input span locally into its own versioned reference while retaining the ordinary spans and sentence order. One-use approval has one consumable use without a time expiry; timed grants use 15 minutes, 1 hour, 1 day, or forever. Request, use, Speak, and Reveal policies remain independent.
 - Activate reviewed JavaScript adapters only in signed, isolated execution cells with explicit file, network, native, credential, and effect brokers; never install npm packages during an invocation.
