@@ -1,6 +1,6 @@
 # 0073: Hardware-gate exact protected presentation and recipient operations
 
-**Status:** Accepted and implemented in `onevar-platform`; deployment evidence is pending.
+**Status:** Accepted, implemented, and deployed in `onevar-platform` release `cfd0e2383c4353d582ad44c940b651dfad65b47b`.
 
 ## Context
 
@@ -21,4 +21,4 @@ The protected worker owns requests, challenges, signature verification, exact gr
 
 ## Verification
 
-Contracts reject unknown value channels and mismatched principals. Browser tests use separate virtual platform authenticators to prove owner presentation, sharing approval, recipient decryption, consumption, revocation, and network/terminal plaintext exclusion.
+Contracts reject unknown value channels and mismatched principals. Browser tests use separate virtual platform authenticators to prove owner presentation, sharing approval, recipient decryption, consumption, revocation, and network/terminal plaintext exclusion. Development workflow `32896626867` and production workflow `32897153279` passed the full gate and all 19 runnable reset-gated deployed scenarios for the same immutable release with no paid model calls.
