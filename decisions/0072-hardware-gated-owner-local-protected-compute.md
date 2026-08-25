@@ -1,6 +1,6 @@
 # 0072: Require exact WebAuthn authority for owner-local protected Compute
 
-**Status:** Accepted and implemented in `onevar-platform`; deployment evidence is pending.
+**Status:** Accepted, implemented, and deployed in `onevar-platform` release `391d91d5fb89e226db40c6e3034f97941c9f14fa`.
 
 ## Context
 
@@ -26,4 +26,4 @@ Ceremony data, credentials, grants, protected inputs, and derived answers stay b
 
 ## Verification
 
-Contracts contain no value channel. Cryptographic tests use real P-256 signatures and reject wrong challenges, origins, RP IDs, credentials, counters, DER, and mismatched attested COSE/SPKI keys. Browser acceptance uses a virtual platform authenticator to prove local-only enrollment, authorization, reuse, lock, consumption, and binding-rotation reauthorization. Deployment evidence must promote one immutable release through development and production.
+Contracts contain no value channel. Cryptographic tests use real P-256 signatures and reject wrong challenges, origins, RP IDs, credentials, counters, DER, and mismatched attested COSE/SPKI keys. Browser acceptance uses a virtual platform authenticator to prove local-only enrollment, authorization, reuse, lock, consumption, and binding-rotation reauthorization. Development workflow `32892959711` passed the complete gate, deployed acceptance, and a live-model protected Compute canary. Production workflow `32893539307` promoted the same immutable release and passed deployed acceptance without a model call.
