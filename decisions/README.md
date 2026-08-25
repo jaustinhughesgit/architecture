@@ -79,3 +79,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0064: Phase 3 releases only the governed non-protected JPL boundary](0064-phase-3-releases-the-governed-non-protected-jpl-boundary.md)
 - [0065: Project input purpose and trust as four stable browser lanes](0065-four-lane-input-trust-surface.md)
 - [0066: Operate the clean four-lane input surface as one walkie-talkie gesture](0066-walkie-talkie-input-gesture.md)
+- [0067: Latch the command composer and preserve partial protection as ordered segments](0067-latched-segmented-input-composer.md)
