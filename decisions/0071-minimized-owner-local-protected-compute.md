@@ -10,7 +10,7 @@ Semantic wording is appropriate for capability discovery and first local reconci
 
 ## Decision
 
-Every operation names an execution plane. The initial protected plane is `owner_local_protected`. Convert's two structured model stages may propose only safe typed protected requirement metadata and one bounded numeric formula; protected values are absent. Trusted code freezes semantic meaning, allocates requirement IDs, rejects protected inputs that are unused, slotted, nonnumeric, effects, or direct outputs, and compiles hash-pinned arithmetic JPL.
+Every operation names an execution plane. The initial protected plane is `owner_local_protected`. Convert's two structured model stages may propose only safe typed protected requirement metadata and one bounded numeric formula; protected values are absent. Trusted code freezes semantic meaning, turns first-stage invocation phrases into compiler-owned zero-slot frames, allocates requirement IDs, rejects protected inputs that are unused, slotted, nonnumeric, effects, or direct outputs, and compiles hash-pinned arithmetic JPL.
 
 On first use, each compiler-owned requirement selector resolves to exactly one active browser-local protected Context binding. The installation stores a versioned protected Compute binding containing exact capability/version/operation/requirement, protected binding/version, asset/version, and program-hash identity. Repeat execution follows that exact binding ID. A rotated fact permits one unique selector reconciliation to a replacement exact ID; missing or ambiguous state fails closed.
 
