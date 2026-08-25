@@ -76,3 +76,5 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0061: Release governance is external to content-addressed packages](0061-release-governance-is-external-to-content-addressed-packages.md)
 - [0062: Model promotion requires measured authoring evals](0062-model-promotion-requires-measured-authoring-evals.md)
 - [0063: Entity middleware runs from the selected target to its owning ancestors](0063-target-first-entity-middleware-order.md)
+- [0064: Phase 3 releases only the governed non-protected JPL boundary](0064-phase-3-releases-the-governed-non-protected-jpl-boundary.md)
+- [0065: Project input purpose and trust as four stable browser lanes](0065-four-lane-input-trust-surface.md)

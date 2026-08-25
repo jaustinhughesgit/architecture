@@ -164,6 +164,12 @@ Every release starts from the authorized clean reset and proves:
 - Publish capability and Path template packages; every installer creates local Paths and separate exact Entity Use Bindings.
 - Prove that two different users can independently discover the same capability, compile their own local wording, and bind it to their own ordinary data; then prove sequential ArrayLogic composition from a clean reset while retaining first-response middleware as deterministic conformance evidence for Phase 4 activation.
 
+## Phase 3.5 — Input trust surface
+
+**Goal:** Make semantic purpose and privacy explicit and mechanically testable before protected storage or execution receives authority.
+
+**Status (2026-08-24): Implemented locally; deployment verification pending.** The clean command surface projects `essence | convert` and `ordinary | protected` as four stable lanes. Hard stop is a Convert boundary rather than a mode. Typed protected sentinels are discarded before ContextDB, authoring, terminal history, or network. One AudioWorklet tags PCM with exact lane, segment index, and sample frames; protected entry is immediate, protected exit has a 100 ms guard, and any mixed-trust held session makes the complete capture fail closed without remote transcription. Protected Convert blocks its draft. Local ASR, encrypted asset creation, protected references, grants, and governed execution remain Phase 4A work. See [decision 0065](../decisions/0065-four-lane-input-trust-surface.md).
+
 ## Phase 4 — Protection, governed services, and marketplace economics
 
 **Goal:** Users safely transact around capabilities and authorized data without collapsing local, recipient, or trusted-server boundaries.
