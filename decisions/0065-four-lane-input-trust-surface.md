@@ -1,6 +1,6 @@
 # 0065: Project input purpose and trust as four stable browser lanes
 
-**Status:** Accepted; clean-platform Phase 3.5 foundation implemented and deployed
+**Status:** Accepted; clean-platform Phase 3.5 foundation implemented and deployed. The presentation and gesture contract is amended by [decision 0066](0066-walkie-talkie-input-gesture.md).
 
 ## Context
 
@@ -15,7 +15,7 @@ The browser represents input as two independent dimensions: semantic purpose is 
 3. ordinary Convert
 4. Protected Convert
 
-The positions select routing for typed and voice input. They are actual labeled controls with a separate record/stop action; selecting a lane never resets ContextDB or performs an unrelated command. Position 2 is ordinary Essence at rest. During a voice session that began at position 3, an excursion `3 -> 2 -> 3` is a Convert delimiter, not an Essence operation. Each ordinary Convert audio range is transcribed separately and retains exactly one hard-stop boundary before the next requirement.
+The positions select routing for typed and voice input. Position 2 is ordinary Essence at rest. During a voice session that began at position 3, an excursion `3 -> 2 -> 3` is a Convert delimiter, not an Essence operation. Each ordinary Convert audio range is transcribed separately and retains exactly one hard-stop boundary before the next requirement. Decision 0066 replaces the interim selection-plus-record presentation with the proof-of-concept's hold-and-drag walkie-talkie interaction while retaining this lane and trust contract.
 
 One microphone feeds one AudioWorklet clock. Every audio block carries its lane position, segment index, and start/end frame. Entering a protected lane commits on the next worklet render boundary. Leaving protected uses a cancellable 100 ms guard. In the Phase 3.5 foundation, any protected block makes the complete held capture fail closed: no block from that session enters remote transcription, protected PCM is not encoded into an outgoing WAV, and the browser retains only a fixed masked receipt. Protected typed text likewise enters no ordinary worker, ContextDB record, authoring request, model prompt, terminal transcript, or network request.
 
