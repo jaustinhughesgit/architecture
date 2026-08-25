@@ -8,6 +8,7 @@ This capability spans account bootstrap, email verification, device-held cryptog
 
 - In the clean `onevar-platform` Phase 4A boundary, typed protected spans are encrypted in a dedicated worker, compiled only into exact owner-local quantity/self-property bindings, and queried without decryption. Separate one-use or timed Reveal/Speak grants authorize one matching transient presentation; rotation, revocation, safe audit, reload, command parity, and reset are covered. Protected plaintext does not enter ordinary ContextDB, models, Compute, network, terminal history, or review.
 - Clean Phase 4B release `8b49dfa031b795451830ec5b3dbee816e53020ea` adds recipient ECDH delivery as a separate contract: one non-extractable browser private key, versioned public-key registration, exact requestable descriptors, owner-local rewrap, exact one-use/timed recipient grants, recipient-worker decryption, and opaque server storage. Development and production reset-gated two-browser acceptance pass. Trusted-server/provider injection, multi-device recovery, local protected ASR, and WebAuthn-at-use remain separately incomplete.
+- The clean Phase 4C candidate adds bounded owner-local protected numeric Compute. Compiler-owned requirements bind to exact local protected binding/asset IDs, the protected worker decrypts only declared inputs and runs hash-pinned JPL, the response remains transient, and durable traces contain only a value-free receipt. An unrelated protected asset is mechanically excluded. Deployment evidence, trusted-server executor wrapping, broader local execution, and hardware-gated use remain incomplete.
 - `/newUser` creates the initial group/user records and then redirects into the application.
 - The encryption enrollment flow separately requests and polls email verification.
 - The browser creates P-256 encryption and signing key pairs. Public keys are registered with the server; the local encryption private key is stored as a non-exported browser `CryptoKey` in IndexedDB.
@@ -40,5 +41,6 @@ The intended ceremony is:
 
 - Join account creation, email verification, recovery, device enrollment, and key rotation into a versioned state machine.
 - Add assertion-time WebAuthn checks for policies that promise hardware authorization.
+- Add a distinct trusted-server executor-wrap and exact provider/host/action/purpose grant; never reinterpret a browser-only compute binding as server authority.
 - Specify multi-device enrollment, revocation, recovery, migration, and lost-device behavior.
 - Make every UI claim match the actual trust boundary: encrypted-at-rest is not automatically zero-knowledge.

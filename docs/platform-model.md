@@ -206,6 +206,8 @@ A partially protected fact may keep its ordinary graph structure shareable while
 
 The clean Phase 4B boundary implements that recipient route through exact IDs and bounded indexes. A public ordinary profile makes the owner name discoverable; a safe protected descriptor identifies only the owner/operation/concept/binding/version and opaque reference. Owner approval rewraps the local content key for the requester's exact ECDH public-key version, the server stores only ciphertext plus the recipient wrap, and the recipient protected worker decrypts locally. No RAG, LLM, name, or word controls cryptographic use. See [decision 0070](../decisions/0070-clean-recipient-specific-zero-knowledge-sharing.md).
 
+The clean Phase 4C candidate begins with owner-local protected calculation. Convert may declare safe typed requirement meaning and an exact bounded formula, but never protected values, IDs, or JPL. Trusted code minimizes requirements, allocates IDs, and compiles hash-pinned arithmetic. The first local use resolves a requirement to one exact protected binding; repeat use follows that ID until rotation. Only the protected worker decrypts and executes, the derived response is transient, and durable Compute receives a value-free receipt. Trusted-server execution remains a different incomplete plane and is explicitly rejected rather than used as fallback. See [decision 0071](../decisions/0071-minimized-owner-local-protected-compute.md).
+
 Entities should reference protected-asset requirements, not embed secrets. See `security-and-trust.md`, [recipient-specific zero-trust sharing](capabilities/recipient-protected-sharing.md), and [decision 0037](../decisions/0037-requestable-protected-context-markers.md).
 
 ## 3. Builder and end-user layers
