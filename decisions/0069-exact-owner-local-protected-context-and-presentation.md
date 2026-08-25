@@ -1,6 +1,6 @@
 # 0069: Compile exact owner-local protected Context and govern presentation independently
 
-**Status:** Accepted and implemented for the clean typed browser-only Phase 4A boundary.
+**Status:** Accepted, implemented, and deployed for the clean typed browser-only Phase 4A boundary in release `a73dcd6dfe44c5038ed3270ae3ab29b666ed66e9`.
 
 ## Context
 
@@ -31,6 +31,8 @@ The command/action `userActivation` field is interaction evidence, not hardware 
 ## Verification
 
 Strict contract and pure runtime tests cover owner/reference identity, model-free compilation/query, ambiguity, grant expiry and consumption, and prompt command parsing. Clean Chromium acceptance covers zero-network masked query, one-use Reveal, timed Reveal across reload, device-local Speak without DOM plaintext, rotation, grant invalidation, revocation, safe audit review, reset, and ordinary/Compute regressions.
+
+Development workflow [32814141108](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/32814141108) deployed the exact release and passed 17 reset-gated deployed browser scenarios in 1.2 minutes. Production workflow [32814455645](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/32814455645) promoted the same commit and passed the same 17 scenarios in 58 seconds. A separate fresh `1var.com` entity proved `I have *** cats` → masked local query → one-use Reveal while terminal lines remained masked, then reset and review proved zero protected assets, inputs, bindings, grants, and audit events.
 
 ## Affected repositories
 
