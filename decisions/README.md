@@ -81,3 +81,5 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0066: Operate the clean four-lane input surface as one walkie-talkie gesture](0066-walkie-talkie-input-gesture.md)
 - [0067: Latch the command composer and preserve partial protection as ordered segments](0067-latched-segmented-input-composer.md)
 - [0068: Seal typed protected spans into exact browser-only asset references](0068-browser-only-protected-span-sealing.md)
+- [0069: Compile exact owner-local protected Context and govern presentation independently](0069-exact-owner-local-protected-context-and-presentation.md)
+- [0070: Route clean recipient-specific protected sharing through exact opaque grants](0070-clean-recipient-specific-zero-knowledge-sharing.md)

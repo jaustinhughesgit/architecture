@@ -204,6 +204,8 @@ The current browser implementation's zero-knowledge claim is scoped to protected
 
 A partially protected fact may keep its ordinary graph structure shareable while replacing the protected value with an opaque, owner-validated asset reference. That reference is request routing, not authorization or plaintext; use still requires a current grant and recipient wrap.
 
+The clean Phase 4B boundary implements that recipient route through exact IDs and bounded indexes. A public ordinary profile makes the owner name discoverable; a safe protected descriptor identifies only the owner/operation/concept/binding/version and opaque reference. Owner approval rewraps the local content key for the requester's exact ECDH public-key version, the server stores only ciphertext plus the recipient wrap, and the recipient protected worker decrypts locally. No RAG, LLM, name, or word controls cryptographic use. See [decision 0070](../decisions/0070-clean-recipient-specific-zero-knowledge-sharing.md).
+
 Entities should reference protected-asset requirements, not embed secrets. See `security-and-trust.md`, [recipient-specific zero-trust sharing](capabilities/recipient-protected-sharing.md), and [decision 0037](../decisions/0037-requestable-protected-context-markers.md).
 
 ## 3. Builder and end-user layers

@@ -1,6 +1,6 @@
 # Recipient-Specific Zero-Trust Sharing
 
-**Status:** Recipient use grants, owner-selected access windows, and browser-local post-approval replay implemented; removal, rotation, and group lifecycle incomplete
+**Status:** Proof-of-concept recipient lifecycle implemented; clean Phase 4B exact recipient-sharing boundary implemented and deployed; multi-device recovery, recipient removal, rotation, notifications, and group lifecycle incomplete
 
 Durable direction: [ADR 0003](../../decisions/0003-recipient-wrapped-zero-trust-sharing.md).
 
@@ -47,6 +47,18 @@ owner selects protected data and recipients/devices
 ```
 
 ## Current implementation evidence
+
+### Clean replacement platform
+
+Clean release `8b49dfa031b795451830ec5b3dbee816e53020ea` implements this direction independently of the proof-of-concept runtime. Each browser identity creates a non-extractable P-256 ECDH private key inside the dedicated protected worker and registers only its versioned public key. A protected Context assertion publishes a safe requestable descriptor with exact owner, operation, ordinary concept, binding/version, and opaque asset/version identity; it does not publish ciphertext, key material, plaintext, or a plaintext hash.
+
+A named recipient query uses public ordinary Context only to resolve one exact owner profile. It then uses exact composite IDs for the binding, current requester request, recipient key, grant, asset version, and retrieval receipt. Owner approval locally rewraps the existing content key through ephemeral ECDH, HKDF-SHA256, and AES-256-GCM. The server stores the already-encrypted asset ciphertext once and a small recipient-specific wrap per grant. It atomically consumes one-use authority with an idempotent retrieval receipt. The recipient decrypts only in its protected worker and receives a transient presentation while terminal history stays masked.
+
+The clean DynamoDB shape uses bounded exact indexes rather than scanning a protected graph: one active key per identity, one descriptor per owner/operation/concept, one current request pointer per owner/binding/requester, one timestamp-ordered owner inbox row per request, one active recipient grant per recipient/owner/binding, and one owner revocation pointer. This makes millions of protected assets a partitioning and lifecycle problem rather than an LLM or RAG problem. See [decision 0070](../../decisions/0070-clean-recipient-specific-zero-knowledge-sharing.md).
+
+Development workflow [32849210832](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/32849210832) and production workflow [32849641706](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/32849641706) each passed all 18 runnable reset-gated deployed browser scenarios for the exact release, including isolated two-user request, one-use approval, local recipient decryption, no plaintext in the network or terminal, consumption, renewed request, and cleanup.
+
+### Proof-of-concept platform
 
 - The browser always creates a local-device recipient and accepts additional numeric user recipients.
 - Recipient public encryption keys are read from server user records.

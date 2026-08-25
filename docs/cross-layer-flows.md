@@ -263,6 +263,8 @@ The local companion is managed through the web experience; it need not expose a 
 
 The creator encrypts one content payload and creates a separately salted key wrap for each authorized recipient/device. The server stores opaque material plus a separate version-matched canonical `use` grant. Recipient delivery returns only that principal's wrap for local decryption. Provider delivery lets a compatible entity inject the secret only into the policy-bound provider request and cannot reveal or manage it. A server executor wrap is optional and changes the trust mode. See [recipient-specific zero-trust sharing](capabilities/recipient-protected-sharing.md).
 
+In the clean Phase 4B route, an ordinary named query resolves one exact public profile and safe owner/operation/concept binding descriptor. The requester creates one exact pending request. Approval rewraps the existing content key in the owner's protected worker for the requester's exact public-key version; the API accepts only ciphertext and that recipient wrap. A one-use retrieval and its retry receipt commit atomically. The recipient worker decrypts and presents transiently while terminal history remains masked. Exact composite indexes address every lifecycle record without scanning protected assets or asking an LLM to stitch identities. See [decision 0070](../decisions/0070-clean-recipient-specific-zero-knowledge-sharing.md).
+
 ## Background work
 
 ```text
