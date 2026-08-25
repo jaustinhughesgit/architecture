@@ -1,6 +1,6 @@
 # 0071: Minimize protected requirements and execute browser-local Compute by exact ID
 
-**Status:** Accepted. The bounded clean owner-local Phase 4C candidate is implemented and locally verified; deployment evidence is pending. Trusted-server protected execution remains incomplete and fails closed.
+**Status:** Accepted, implemented, and deployed for the bounded clean owner-local Phase 4C slice in `onevar-platform` release `399c7deebe669b5eb684597087f0af637f243ceb`. Trusted-server protected execution remains incomplete and fails closed.
 
 ## Context
 
@@ -28,3 +28,5 @@ A direct owner invocation creates one exact one-use grant. Only the protected wo
 ## Verification
 
 Compiler, generator, API, and package tests cover deterministic formula continuity, no model-authored IDs/JPL, no unused or direct protected output, server rejection, finite arithmetic, value-free receipts, and legacy package compatibility. A clean Chromium proof authors and runs a protected cat-food calculator while an unrelated protected best-friend value also exists. It asserts zero protected/derived values in requests or durable review, zero server invocation calls, exact binding reuse on the second run, and one exact binding rotation after a replacement protected assertion.
+
+Development workflow `32887704581` passed that live-model proof from a clean reset. Production workflow `32888479400` promoted the exact same immutable release and passed the reset-gated deployed browser suite.
