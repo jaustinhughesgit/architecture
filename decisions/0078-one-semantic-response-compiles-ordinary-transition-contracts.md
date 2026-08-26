@@ -14,6 +14,8 @@ For the supported ordinary `current_property_transition` shape, one structured m
 
 The dependency's friendly name is never lookup authority. Each installation still creates an exact versioned Entity Use Binding to a relation ID, and invocation dereferences only that identity. An entity-reference input is not projected into server response prose because its execution value is an internal address; bounded response text projects only the declared new value against the frozen human subject role. Reviewed provider operations continue to expand from one catalog selection. Owner-local protected calculations retain a second validated presentation-contract proposal until response presentation is fully expressed by their semantic answer schema. Previously persisted authoring states remain readable for bounded recovery.
 
+The explicit hard stop `The exact invocation sentence is …` is authoritative authoring evidence. Its one placeholder names the selected-subject input even when the model renames it. Because this released shape applies a fixed old/new effect to one subject, any additional model-invented make/model/generalization parameters are unused and removed before fingerprinting. Multiple declared placeholders fail closed.
+
 ## Consequences
 
 - Generalization remains a model responsibility; executable structure remains a trusted compiler responsibility.
