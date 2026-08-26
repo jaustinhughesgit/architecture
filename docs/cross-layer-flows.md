@@ -275,6 +275,8 @@ Reconnect is limited to `owner_local_protected` and `trusted_server_protected` o
 
 Phase 4E.2 through 4E.4 add three separate boundaries. A trusted-ephemeral provider result is encrypted inside the executor to the invoking browser's exact active ECDH key, leaving the API with addressed ciphertext and value-free receipts. A provider write reuses the invocation ID as its idempotency key, enters durable recovery on uncertain completion, and commits only with one exact provider-effect proof. Fixed non-cash test credits reserve before provider use and atomically settle on commit or fully release on cancellation/proven no-effect failure. The admitted write and paid operations are no-network conformance fixtures; WeatherAPI remains the only admitted real network provider. See [decision 0076](../decisions/0076-protected-provider-results-effects-and-test-credit-settlement.md).
 
+`reset context` clears ordinary and protected Context but preserves the credit account, ledger, provider-operation record, effect proof, and settlement receipt. This prevents a local privacy reset from destroying economic or external-effect evidence. Only the private MFA-gated hard global reset removes the entity and all of those records together.
+
 ### Local zero-knowledge mode
 
 The browser asks a local companion runtime to execute an approved provider protocol. The companion decrypts the protected asset locally, performs the network request, filters or encrypts the result according to user policy, and returns only the permitted result. Platform servers never receive plaintext secrets.

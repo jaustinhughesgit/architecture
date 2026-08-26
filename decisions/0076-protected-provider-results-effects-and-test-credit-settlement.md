@@ -1,6 +1,6 @@
 # 0076: Separate protected provider results, external effect proof, and test-credit settlement
 
-**Status:** Accepted; implemented in `onevar-platform` Phase 4E.2 through 4E.4 and awaiting immutable deployment evidence.
+**Status:** Accepted, implemented, deployed, and proven from a hard global reset in `onevar-platform` release `bf1560c6d9cd7623f2ecc3960f5c354b2c045bd6`.
 
 ## Context
 
@@ -16,6 +16,8 @@ A provider write declares an exact effect type, uses the Compute invocation ID a
 
 Phase 4E economics use non-cash `onevar_test_credit` micros. A reviewed operation freezes user price, provider cost, publisher earning, and platform revenue; the user price must equal the other three. Reservation is atomic with creation of the exact provider operation. Commit atomically saves delivery, effect proof, executor receipts, settlement, and credit deltas. Pre-execution cancellation and definitive no-effect failure release the full reservation. Exact replay cannot reserve, spend, earn, refund, or apply an effect twice.
 
+An ordinary/protected Context reset preserves the credit account, ledger, provider-operation record, effect proof, and settlement receipt. These records are durable economic and external-effect evidence under explicit record types, not protected Context. The private MFA-gated hard global reset remains the only test operation that deletes the owning entity and all lifecycle evidence together.
+
 The first write and paid operations are no-network conformance fixtures. A real network write, variable-price provider, or monetary payment requires a new reviewed adapter/protocol. Stripe purchase, cash earnings, publisher payouts, tax, disputes, and real financial ledgers remain Phase 5.
 
 ## Consequences
@@ -30,5 +32,6 @@ The first write and paid operations are no-network conformance fixtures. A real 
 
 ## Verification
 
-Strict contract tests reject mixed plaintext/ciphertext delivery, write commit without effect proof, unbalanced economics, and unbalanced accounts. Executor tests prove addressed encryption, deterministic exact retry effect identity, fixed provider cost, and definitive no-effect evidence. Repository/API tests prove pre-execution release, recovery with the same idempotency key, exactly-once settlement, full refund, and conserved test-credit balances. Browser acceptance proves transient decryption, ciphertext-only API responses, exact effect/status inspection, replay, economics separation, refund, and review without credential leakage.
+Strict contract tests reject mixed plaintext/ciphertext delivery, write commit without effect proof, unbalanced economics, and unbalanced accounts. Executor tests prove addressed encryption, deterministic exact retry effect identity, fixed provider cost, and definitive no-effect evidence. Repository/API tests prove pre-execution release, recovery with the same idempotency key, exactly-once settlement, full refund, conserved test-credit balances, zero-cost DynamoDB settlement, and reset isolation between protected rows and durable billing/lifecycle rows. Browser acceptance proves transient decryption, ciphertext-only API responses, exact effect/status inspection, replay, economics separation, refund, and review without credential leakage.
 
+Development workflow `32997983235` promoted the exact release and passed 20 reset-gated deployed browser scenarios. A separate clean global-reset live-model canary authored all four lifecycle fixtures and proved 4E.2 through 4E.4 in 42.8 seconds. The final reset removed 300 records and four generated artifacts, leaving development ready for a first user.
