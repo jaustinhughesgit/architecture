@@ -1,6 +1,6 @@
 # 0075: Store app credentials as Protected Assets and authorize exact executor use
 
-**Status:** Accepted; clean-room foundation deployed from `onevar-platform` release `4a373ddedb8651af076c0364b0792f14f9a35799`, lifecycle recovery deployed in release `9632cf6b31323aa05af09c84623b0d5c5590b93a`, the first reviewed network adapter deployed in release `bc0ff4861b143797e4db6f5412837f850a2e3356`, and Phase 4E.1 provider-aware credential selection implemented pending promotion.
+**Status:** Accepted; clean-room foundation deployed from `onevar-platform` release `4a373ddedb8651af076c0364b0792f14f9a35799`, lifecycle recovery deployed in release `9632cf6b31323aa05af09c84623b0d5c5590b93a`, the first reviewed network adapter deployed in release `bc0ff4861b143797e4db6f5412837f850a2e3356`, and Phase 4E.1 provider-aware credential selection deployed in release `8670955f9d6040132a2057740816ed442764a822`.
 
 ## Context
 
@@ -17,6 +17,8 @@ The browser-facing API stores ciphertext, wraps, exact grants, and value-free re
 A reviewed network adapter must own its complete ordinary-input mapping and complete invocation patterns in catalog code. Compiler frame identity follows runtime frame identity, including terminal-punctuation normalization, so two model/catalog spellings cannot become equally specific executable frames. A frame slot with a dependency ID resolves existing Context and creates an exact Entity Use Binding. A frame slot without a dependency ID is parsed as its declared ordinary scalar or JSON type and saved in the caller's local Path; it cannot create Context authority or directly supply entity, relation, or file references.
 
 The same reviewed contract owns a non-secret provider credential descriptor: stable provider ID, display name, canonical domain, credential kind, environment, scope, local entry label, and optional HTTPS acquisition/help URL. Capability publication and missing-binding diagnostics may display it. The provider-specific local selector prevents a vague label such as `weather API key` from satisfying the WeatherAPI requirement. Re-entering the exact property rotates that binding and revocation follows its exact binding ID. Display name and domain are provenance for a person, never host selection or authorization; adapter, operation, requirement, binding, asset, and grant IDs remain authority.
+
+Development workflow `32975295573` proved Phase 4E.1 from a global hard reset with the live model and real WeatherAPI network cell. It passed every runnable deployed browser scenario and the provider-aware canary; a post-canary hard reset removed 75 records and 2 generated artifacts. Production workflow `32975839314` promoted the identical release and passed every runnable deployed browser scenario without another paid model call.
 
 The executor's network cell admits only compiled HTTPS hosts and reviewed method/path/query shapes, injects the credential inside the cell, refuses redirects, bounds time and response bytes, and returns JSON only to the immutable adapter. The first admitted network operation is WeatherAPI current weather: one ordinary location, one protected query credential, one exact read endpoint, and one ordinary sanitized weather summary or catalog-owned safe diagnostic. It declares no direct 1var-incurred per-call provider charge; the user's external provider quota remains external evidence.
 
