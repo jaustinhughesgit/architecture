@@ -255,6 +255,8 @@ The user deliberately permits a server-side broker to resolve and use a protecte
 
 ```text
 Browser prepares one exact protected invocation and promotes only its selected credential binding
+  → capability publication names the catalog-owned provider, canonical domain, credential kind, environment, scope, and safe help URL
+  → a provider-specific local selector rejects vague credentials before promotion; display labels and domains grant no authority
   → catalog and model punctuation variants collapse to one runtime-equivalent invocation frame
   → non-dependency speech slots become typed ordinary local-Path inputs; they create no ContextDB or use binding
   → dependency speech slots alone may resolve existing Context and create exact entity/relation authority

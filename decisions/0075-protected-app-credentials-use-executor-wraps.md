@@ -1,6 +1,6 @@
 # 0075: Store app credentials as Protected Assets and authorize exact executor use
 
-**Status:** Accepted; clean-room foundation deployed from `onevar-platform` release `4a373ddedb8651af076c0364b0792f14f9a35799`, lifecycle recovery deployed in release `9632cf6b31323aa05af09c84623b0d5c5590b93a`, and the first reviewed network adapter deployed in release `bc0ff4861b143797e4db6f5412837f850a2e3356`.
+**Status:** Accepted; clean-room foundation deployed from `onevar-platform` release `4a373ddedb8651af076c0364b0792f14f9a35799`, lifecycle recovery deployed in release `9632cf6b31323aa05af09c84623b0d5c5590b93a`, the first reviewed network adapter deployed in release `bc0ff4861b143797e4db6f5412837f850a2e3356`, and Phase 4E.1 provider-aware credential selection implemented pending promotion.
 
 ## Context
 
@@ -16,6 +16,8 @@ The browser-facing API stores ciphertext, wraps, exact grants, and value-free re
 
 A reviewed network adapter must own its complete ordinary-input mapping and complete invocation patterns in catalog code. Compiler frame identity follows runtime frame identity, including terminal-punctuation normalization, so two model/catalog spellings cannot become equally specific executable frames. A frame slot with a dependency ID resolves existing Context and creates an exact Entity Use Binding. A frame slot without a dependency ID is parsed as its declared ordinary scalar or JSON type and saved in the caller's local Path; it cannot create Context authority or directly supply entity, relation, or file references.
 
+The same reviewed contract owns a non-secret provider credential descriptor: stable provider ID, display name, canonical domain, credential kind, environment, scope, local entry label, and optional HTTPS acquisition/help URL. Capability publication and missing-binding diagnostics may display it. The provider-specific local selector prevents a vague label such as `weather API key` from satisfying the WeatherAPI requirement. Re-entering the exact property rotates that binding and revocation follows its exact binding ID. Display name and domain are provenance for a person, never host selection or authorization; adapter, operation, requirement, binding, asset, and grant IDs remain authority.
+
 The executor's network cell admits only compiled HTTPS hosts and reviewed method/path/query shapes, injects the credential inside the cell, refuses redirects, bounds time and response bytes, and returns JSON only to the immutable adapter. The first admitted network operation is WeatherAPI current weather: one ordinary location, one protected query credential, one exact read endpoint, and one ordinary sanitized weather summary or catalog-owned safe diagnostic. It declares no direct 1var-incurred per-call provider charge; the user's external provider quota remains external evidence.
 
 Use one bounded asymmetric KMS key per stage/cell and rotate its published version. Do not create KMS or Secrets Manager objects per user or asset. Millions of credentials remain inexpensive ciphertext rows and S3 objects addressed by exact IDs. AWS Secrets Manager remains reserved for core 1var-operated credentials such as OpenAI and Stripe.
@@ -25,6 +27,7 @@ Use one bounded asymmetric KMS key per stage/cell and rotate its published versi
 - Trusted-server mode is explicitly not zero-knowledge; 1var executor code can technically use plaintext during the declared call.
 - Publisher and installer credentials are separate assets. Capability packages contain requirement metadata, never credential values or wraps.
 - The LLM selects one immutable reviewed-operation ID. It cannot emit provider-action fields; trusted catalog code expands the exact selector, adapter, destination, disclosure, outputs, charge ceiling, and executable behavior.
+- A reviewed contract can advance independently of an unchanged network adapter, so provider-facing credential metadata can improve without rewriting or invalidating older immutable packages.
 - A missing wrap, expired/revoked/consumed grant, rotated asset, changed program, unapproved host, charge overflow, or unavailable executor fails closed with no browser-only fallback.
 - One exact pending protected invocation may be resumed only by the same normalized utterance and retains its invocation ID. Different speech and all ordinary invocations remain blocked until completion or explicit cancellation.
 - Explicit cancellation removes only the browser-local pending transaction and discloses no credential. Rotating the cited protected binding cancels the stale pending transaction; reset also clears durable and in-memory continuation state.

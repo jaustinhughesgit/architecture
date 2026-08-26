@@ -89,6 +89,8 @@ App credentials such as a user's weather-provider key are Protected Assets. They
 
 Trusted-server execution is an explicit alternative to local zero-knowledge execution. The isolated executor necessarily observes the credential briefly, so the UI and receipts must identify that trust mode honestly. One-use authority is consumed before decryption and fails closed on executor failure. Real provider adapters that can produce non-idempotent effects require a reviewed idempotency or reservation/commit protocol before admission.
 
+Provider credential requests must also identify the issuer honestly. Catalog-owned safe metadata supplies the provider display name, canonical domain, credential kind, environment, scope, local entry label, and optional HTTPS help URL. These fields help a person choose among credentials but do not choose a network destination or grant access. Execution still follows the exact reviewed adapter, operation, protected requirement, binding, asset version, and grant.
+
 ## Device and runtime distinctions
 
 - Creating a WebAuthn credential enrolls an authenticator; it grants nothing. Owner-local protected Compute now verifies a fresh assertion before creating exact once/timed authority. Other protected operation classes are hardware-authorized only after their own policy performs an equivalent exact assertion check.
