@@ -253,6 +253,18 @@ A published repair creates an immutable compatible implementation release associ
 
 The user deliberately permits a server-side broker to resolve and use a protected credential for an allowed provider and operation. The system enforces host, operation, owner, consent, audit, and output policies. This is encrypted and controlled, but not zero-knowledge.
 
+```text
+Browser prepares one exact protected invocation and promotes only its selected credential binding
+  → missing executor authority leaves the invocation pending without disclosing plaintext
+  → identical protected speech reconnects to that exact invocation ID
+  → platform-authenticator preflight explains unsupported browser/device combinations before creating authority
+  → user authorizes once or for a bounded duration, or explicitly cancels
+  → credential-binding rotation cancels pending work that cited the superseded binding ID/version
+  → reset clears durable local pending state and every in-memory continuation reference
+```
+
+Reconnect is limited to `owner_local_protected` and `trusted_server_protected` operations. A different utterance and every ordinary invocation fail closed while pending, so retry cannot replay an ordinary mutation, external charge, or provider side effect. Cancellation strips only the local pending transaction; it never creates a grant, deletes audit evidence, or causes server execution.
+
 ### Local zero-knowledge mode
 
 The browser asks a local companion runtime to execute an approved provider protocol. The companion decrypts the protected asset locally, performs the network request, filters or encrypts the result according to user policy, and returns only the permitted result. Platform servers never receive plaintext secrets.

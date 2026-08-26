@@ -1,6 +1,6 @@
 # 0075: Store app credentials as Protected Assets and authorize exact executor use
 
-**Status:** Accepted; clean-room foundation deployed from `onevar-platform` release `4a373ddedb8651af076c0364b0792f14f9a35799`.
+**Status:** Accepted; clean-room foundation deployed from `onevar-platform` release `4a373ddedb8651af076c0364b0792f14f9a35799`, with lifecycle recovery deployed in release `9632cf6b31323aa05af09c84623b0d5c5590b93a`.
 
 ## Context
 
@@ -22,9 +22,12 @@ Use one bounded asymmetric KMS key per stage/cell and rotate its published versi
 - Publisher and installer credentials are separate assets. Capability packages contain requirement metadata, never credential values or wraps.
 - The LLM selects one immutable reviewed-operation ID. It cannot emit provider-action fields; trusted catalog code expands the exact selector, adapter, destination, disclosure, outputs, charge ceiling, and executable behavior.
 - A missing wrap, expired/revoked/consumed grant, rotated asset, changed program, unapproved host, charge overflow, or unavailable executor fails closed with no browser-only fallback.
+- One exact pending protected invocation may be resumed only by the same normalized utterance and retains its invocation ID. Different speech and all ordinary invocations remain blocked until completion or explicit cancellation.
+- Explicit cancellation removes only the browser-local pending transaction and discloses no credential. Rotating the cited protected binding cancels the stale pending transaction; reset also clears durable and in-memory continuation state.
+- Browser platform-authenticator availability is checked before enrollment or authorization. Unsupported embedded browsers receive an actionable Safari/Chrome message; there is no weaker fallback.
 - Query/body credential transports are supported only inside reviewed adapters and are excluded from logs and receipts.
 - A local companion remains the zero-knowledge alternative for provider work that must never expose credentials to 1var servers.
 
 ## Verification
 
-Contract tests reject browser-only executor material, unknown plaintext/key/output fields, identity/version drift, and invalid grant lifecycles. Infrastructure assertions prove that only the executor can call KMS Decrypt, the API can only obtain the public key, and the executor cannot read DynamoDB. Development workflow `32936813549`, a second paid canary after deleting 501 runtime rows and 8 generated packages, and production workflow `32937232047` prove explicit promotion, server WebAuthn authorization, one-use consumption, credential-owner and capability binding, no-network provider-fixture injection, revocation, and absence of the credential from requests, packages, models, receipts, and review. The current fixture releases only one reviewed sanitized boolean; encrypted protected result delivery remains required before admitting an adapter whose result must stay protected.
+Contract tests reject browser-only executor material, unknown plaintext/key/output fields, identity/version drift, and invalid grant lifecycles. Infrastructure assertions prove that only the executor can call KMS Decrypt, the API can only obtain the public key, and the executor cannot read DynamoDB. Foundation workflows `32936813549` and `32937232047`, including a paid canary after deleting 501 runtime rows and 8 generated packages, prove explicit promotion, server WebAuthn authorization, one-use consumption, credential-owner and capability binding, no-network provider-fixture injection, revocation, and absence of the credential from requests, packages, models, receipts, and review. Lifecycle workflows `32966154024` and `32966852125` promote the same immutable recovery release after clean-reset development, complete gates, deployed acceptance, and an embedded-browser preflight check. The current fixture releases only one reviewed sanitized boolean; encrypted protected result delivery remains required before admitting an adapter whose result must stay protected.
