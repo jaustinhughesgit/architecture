@@ -90,3 +90,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0075: Store app credentials as Protected Assets and authorize exact executor use](0075-protected-app-credentials-use-executor-wraps.md)
 - [0076: Separate protected provider results, external effect proof, and test-credit settlement](0076-protected-provider-results-effects-and-test-credit-settlement.md)
 - [0077: Clean governed schedules pin exact Compute and use a shared due index](0077-clean-governed-schedules-pin-exact-compute.md)
+- [0078: One semantic response compiles ordinary transition contracts](0078-one-semantic-response-compiles-ordinary-transition-contracts.md)

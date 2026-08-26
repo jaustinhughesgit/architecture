@@ -1,6 +1,6 @@
 # 0056: Freeze semantic answers before capability contracts and compiler output
 
-**Status:** Accepted for Phase 3; clean-platform foundation implemented
+**Status:** Accepted for Phase 3; clean-platform foundation implemented; ordinary-transition second stage narrowed by decision 0078
 
 ## Context
 
@@ -10,7 +10,7 @@ The proof-of-concept sometimes asked one model response to infer the requested b
 
 Convert submits ordered requirement segments plus at most 20 recent ordinary interaction summaries and 200 related ordinary entities. Protected evidence is not accepted. A versioned first structured response answers what useful behavior is requested, whether it is computable, its typed inputs, state effect, response intent, and generalized invocation phrases. The service freezes and fingerprints that semantic answer plan before requesting a second structured response.
 
-The second response may propose only a human-readable capability contract and must cite the frozen fingerprint. Trusted code rejects effect, value-domain, required-input, or fingerprint drift; allocates all opaque IDs; materializes a typed build plan; and invokes the deterministic JPL compiler. Neither model response may contain JPL, Shorthand, ArrayLogic, JavaScript, permissions, provider credentials, packages, URLs, or entity/relation/capability IDs.
+For the supported ordinary current-property transition, decision 0078 now requires trusted code to derive the capability contract directly from this fingerprinted answer. Other supported shapes may use a separately validated human-readable contract proposal when their complete presentation contract is not represented in the first schema. Trusted code rejects effect, value-domain, required-input, or fingerprint drift; allocates all opaque IDs; materializes a typed build plan; and invokes the deterministic JPL compiler. No model response may contain JPL, Shorthand, ArrayLogic, JavaScript, permissions, provider credentials, packages, URLs, or entity/relation/capability IDs.
 
 The lifecycle is a revision-checked durable job. Polling advances at most one state transition, short leases prevent duplicate model starts, provider response IDs allow fresh Lambda requests to resume background work, and publication is idempotent. A completed job is not proof of general model quality; representative evals and browser acceptance remain release gates.
 
