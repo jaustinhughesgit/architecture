@@ -1,6 +1,6 @@
 # 0079: Browser-authoritative event synchronization has four cost modes
 
-**Status:** Accepted; implemented candidate in `onevar-platform`, pending reset-gated development proof.
+**Status:** Accepted; implemented, deployed, and live-proven in development by `onevar-platform` release `3a00ac300ae4921d636273104a35a338740fff36` and workflow [33016494721](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33016494721).
 
 ## Context
 
