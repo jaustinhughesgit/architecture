@@ -255,15 +255,21 @@ The user deliberately permits a server-side broker to resolve and use a protecte
 
 ```text
 Browser prepares one exact protected invocation and promotes only its selected credential binding
+  → catalog and model punctuation variants collapse to one runtime-equivalent invocation frame
+  → non-dependency speech slots become typed ordinary local-Path inputs; they create no ContextDB or use binding
+  → dependency speech slots alone may resolve existing Context and create exact entity/relation authority
   → missing executor authority leaves the invocation pending without disclosing plaintext
   → identical protected speech reconnects to that exact invocation ID
   → platform-authenticator preflight explains unsupported browser/device combinations before creating authority
   → user authorizes once or for a bounded duration, or explicitly cancels
   → credential-binding rotation cancels pending work that cited the superseded binding ID/version
   → reset clears durable local pending state and every in-memory continuation reference
+  → isolated network cell injects the credential into only the reviewed HTTPS host/method/path/query shape
+  → redirects, timeout, oversized/non-JSON bodies, host drift, and unsafe provider prose fail closed
+  → immutable adapter returns only its declared sanitized projection and a value-free receipt
 ```
 
-Reconnect is limited to `owner_local_protected` and `trusted_server_protected` operations. A different utterance and every ordinary invocation fail closed while pending, so retry cannot replay an ordinary mutation, external charge, or provider side effect. Cancellation strips only the local pending transaction; it never creates a grant, deletes audit evidence, or causes server execution.
+Reconnect is limited to `owner_local_protected` and `trusted_server_protected` operations. A different utterance and every ordinary invocation fail closed while pending, so retry cannot replay an ordinary mutation, external charge, or provider side effect. Cancellation strips only the local pending transaction; it never creates a grant, deletes audit evidence, or causes server execution. The deployed network slice is a bounded read-only WeatherAPI operation. Protected outputs, provider writes, paid calls, and non-idempotent effects remain unavailable until their separate output, reservation/commit, idempotency, charge, and recovery contracts are implemented and reviewed.
 
 ### Local zero-knowledge mode
 
