@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted; implemented in `onevar-platform` pending development promotion evidence.
+Accepted; implemented, deployed, and live-proven in development.
 
 ## Context
 
@@ -28,6 +28,8 @@ The explicit hard stop `The exact invocation sentence is …` is authoritative a
 - Prove deterministic contract equality for the frozen vehicle transition.
 - Prove transient answer retry publishes without starting a contract response.
 - From a private hard reset, run the exact live vehicle Convert canary, observe one provider response, download the content-addressed JPL package, invoke it, and independently verify `dirty -> clean`.
+
+Release `648ccf8605c35c40c28cf9735ddb6bcd6f4e3437` satisfied this gate in development workflow [33008411751](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33008411751). The run passed repository verification, exact deployment, 20 reset-gated browser scenarios, the paid exact vehicle-wash canary with one `gpt-5.4-mini` response, package-backed JPL invocation, independent `dirty -> clean` Context proof, and a real governed schedule.
 
 ## Supersession
 
