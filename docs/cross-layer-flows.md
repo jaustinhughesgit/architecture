@@ -271,7 +271,9 @@ Browser prepares one exact protected invocation and promotes only its selected c
   → immutable adapter returns only its declared sanitized projection and a value-free receipt
 ```
 
-Reconnect is limited to `owner_local_protected` and `trusted_server_protected` operations. A different utterance and every ordinary invocation fail closed while pending, so retry cannot replay an ordinary mutation, external charge, or provider side effect. Cancellation strips only the local pending transaction; it never creates a grant, deletes audit evidence, or causes server execution. The deployed network slice is a bounded read-only WeatherAPI operation. Protected outputs, provider writes, paid calls, and non-idempotent effects remain unavailable until their separate output, reservation/commit, idempotency, charge, and recovery contracts are implemented and reviewed.
+Reconnect is limited to `owner_local_protected` and `trusted_server_protected` operations. A different utterance and every ordinary invocation fail closed while pending, so retry cannot replay an ordinary mutation, external charge, or provider side effect. Pre-execution cancellation releases any exact test-credit reservation; cancellation after execution may have begun is rejected and requires a separate reviewed compensation operation.
+
+Phase 4E.2 through 4E.4 add three separate boundaries. A trusted-ephemeral provider result is encrypted inside the executor to the invoking browser's exact active ECDH key, leaving the API with addressed ciphertext and value-free receipts. A provider write reuses the invocation ID as its idempotency key, enters durable recovery on uncertain completion, and commits only with one exact provider-effect proof. Fixed non-cash test credits reserve before provider use and atomically settle on commit or fully release on cancellation/proven no-effect failure. The admitted write and paid operations are no-network conformance fixtures; WeatherAPI remains the only admitted real network provider. See [decision 0076](../decisions/0076-protected-provider-results-effects-and-test-credit-settlement.md).
 
 ### Local zero-knowledge mode
 
