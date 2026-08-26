@@ -1,15 +1,17 @@
 # Scheduled Entity Tasks
 
-**Status:** Partial implementation
+**Status:** Clean Phase 4F foundation implemented; deployment proof pending. Legacy POC behavior remains historical evidence.
 
 Scheduled tasks make time another way to invoke reusable 1var work. A task targets an entity; the entity remains the unit of behavior, lineage, permissions, and reuse.
 
-## Current flow
+## Clean Phase 4F flow
 
-1. The portal collects an entity, date range, local start/end time, time zone, interval, and optional weekdays.
-2. The server converts the schedule into UTC execution windows and persists task and schedule records.
-3. EventBridge Scheduler invokes the compute layer at the relevant clock times.
-4. Compute selects schedule rows valid for that invocation and runs the entity through the normal entity endpoint.
+1. The caller's browser resolves an utterance once through an installed local Path or one bounded capability discovery.
+2. The schedule freezes the exact caller installation, capability/version/operation, content-addressed package ID/hash, JPL hash, typed inputs, time zone/trigger, and price ceiling.
+3. A shared EventBridge cadence queries a sixteen-shard DynamoDB due index and atomically creates deterministic occurrence and invocation IDs.
+4. SQS delivers exact occurrence IDs to a governed worker with partial-batch retry and a DLQ.
+5. The worker reloads the immutable release/package, rechecks identity, authorization, price, credits, and protected grants, then uses the normal Compute/provider lifecycle with no model call. Missing protected authority cancels any unopened provider reservation before pausing.
+6. Ordinary or executor-encrypted results enter a browser inbox. Local effects commit only after the exact active installation accepts the result; delivery acknowledgement remains separate.
 
 This is distinct from an entity's internal `automation` queue. A scheduled task answers **when an entity starts**; automation describes **sequenced behavior during an interaction**. They may be composed.
 
@@ -26,9 +28,10 @@ This is distinct from an entity's internal `automation` queue. A scheduled task 
 - Every invocation needs a stable job and occurrence identifier for idempotency.
 - The worker must re-check authorization and asset grants at run time.
 - Retries must not duplicate irreversible effects.
-- Pause, resume, edit, cancel, history, and failure diagnostics belong to the task lifecycle.
+- Pause, resume, cancel, history, delivery acknowledgement, and failure diagnostics belong to the task lifecycle. Edit is a future versioned replacement rather than in-place authority drift.
 
 ## Known gaps
 
-The existing implementation uses persisted schedules and EventBridge Scheduler, but parts of the infrastructure configuration are environment-specific. Idempotency, retry/dead-letter behavior, authorization revalidation, result delivery, and a versioned task contract require further hardening.
+The clean contract initially supports one-time and fixed-rate triggers with a browser inbox. Calendar rules, edit/version migration, downstream notification/email/entity channels, protected owner-local execution while a browser is absent, ArrayLogic automation scheduling, load proof, and production deployment remain incomplete. The older portal/EventBridge Scheduler implementation is not imported into the clean runtime.
 
+See [decision 0077](../../decisions/0077-clean-governed-schedules-pin-exact-compute.md).

@@ -187,7 +187,7 @@ Every release starts from the authorized clean reset and proves:
 - Add installations, licenses, usage receipts, refunds, and publisher attribution independently of user data and capability definitions.
 - Add a double-entry credit ledger. Stripe purchases mint credits only after verified webhook settlement; reservations, spend, release, earnings, fees, and withdrawals are idempotent ledger transactions.
 - Meter model, Compute, provider, storage, bandwidth, and platform charges per invocation; record cost, user price, publisher earning, platform revenue, and margin without storing protected payloads.
-- Add governed automations and schedules with exact capability/version/binding snapshots, reauthorization, idempotency, retry/DLQ, cancellation, and result delivery.
+- Deploy and scale-prove the implemented Phase 4F governed-schedule foundation: exact capability/version/installation/package/JPL/input/price snapshots, runtime protected reauthorization, deterministic idempotency, shared due-index dispatch, SQS retry/DLQ, pause/resume/cancel, and browser-acknowledged results. Then add calendar rules, edit/version migration, downstream channels, and ArrayLogic automation scheduling.
 - Add file entities, upload/download, immutable versions, generated artifacts, and a governed PDF capability. File bytes and executable behavior remain separate entity members with declared trust and retention.
 - Prove one user running a service against another user's authorized ordinary data, then extend the same flow to a protected reference with explicit consent.
 

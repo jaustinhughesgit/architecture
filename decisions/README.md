@@ -87,3 +87,6 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0072: Gate owner-local protected Compute with hardware authority](0072-hardware-gated-owner-local-protected-compute.md)
 - [0073: Gate protected presentation and recipient use with hardware authority](0073-hardware-gated-presentation-and-recipient-use.md)
 - [0074: Reset development runtime state through a private MFA-gated workflow](0074-private-development-hard-reset.md)
+- [0075: Store app credentials as Protected Assets and authorize exact executor use](0075-protected-app-credentials-use-executor-wraps.md)
+- [0076: Separate protected provider results, external effect proof, and test-credit settlement](0076-protected-provider-results-effects-and-test-credit-settlement.md)
+- [0077: Clean governed schedules pin exact Compute and use a shared due index](0077-clean-governed-schedules-pin-exact-compute.md)
