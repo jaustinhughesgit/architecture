@@ -1,6 +1,6 @@
 # 0077: Clean governed schedules pin exact Compute and use a shared due index
 
-**Status:** Accepted; implemented in `onevar-platform`, deployment proof pending.
+**Status:** Accepted; implemented and live-proven in development in `onevar-platform` release `46d4f39b8c6b066a983024c4c1681eb605b54bf5`.
 
 ## Context
 
