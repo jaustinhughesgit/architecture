@@ -1,6 +1,6 @@
 # 0077: Clean governed schedules pin exact Compute and use a shared due index
 
-**Status:** Accepted; implemented and live-proven in development in `onevar-platform` release `46d4f39b8c6b066a983024c4c1681eb605b54bf5`.
+**Status:** Accepted; implemented and live-proven in development in `onevar-platform` foundation release `46d4f39b8c6b066a983024c4c1681eb605b54bf5` and changed-version delivery repair `694508d5f35b7890604c03720a4c94977255c40b`.
 
 ## Context
 
@@ -28,3 +28,5 @@ The first clean contract admits one-time and fixed-rate schedules. It does not y
 - A local graph mutation is not proven until the browser imports the exact occurrence result and commits its exact installation binding.
 - A completed one-time trigger may still have a result awaiting browser delivery; lifecycle completion must not be presented as local effect completion.
 - Ordinary `reset context` preserves durable schedule lifecycle evidence; the private non-production hard reset removes it with all runtime records.
+
+Development workflow [33011169676](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33011169676) passed repository verification, 20 reset-gated deployed browser scenarios, and a real 1.9-minute EventBridge/SQS canary that prepared the schedule against a clean exact vehicle relation, advanced that same relation to dirty, refreshed only its ID at delivery, and proved the scheduled `dirty -> clean` effect.
