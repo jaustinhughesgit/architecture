@@ -1,6 +1,6 @@
 # 0075: Store app credentials as Protected Assets and authorize exact executor use
 
-**Status:** Accepted; clean-room implementation in progress in `onevar-platform`.
+**Status:** Accepted; clean-room foundation deployed from `onevar-platform` release `4a373ddedb8651af076c0364b0792f14f9a35799`.
 
 ## Context
 
@@ -20,11 +20,11 @@ Use one bounded asymmetric KMS key per stage/cell and rotate its published versi
 
 - Trusted-server mode is explicitly not zero-knowledge; 1var executor code can technically use plaintext during the declared call.
 - Publisher and installer credentials are separate assets. Capability packages contain requirement metadata, never credential values or wraps.
-- The LLM may propose semantic requirement metadata, but trusted code selects an allowlisted adapter and compiles executable behavior.
+- The LLM selects one immutable reviewed-operation ID. It cannot emit provider-action fields; trusted catalog code expands the exact selector, adapter, destination, disclosure, outputs, charge ceiling, and executable behavior.
 - A missing wrap, expired/revoked/consumed grant, rotated asset, changed program, unapproved host, charge overflow, or unavailable executor fails closed with no browser-only fallback.
 - Query/body credential transports are supported only inside reviewed adapters and are excluded from logs and receipts.
 - A local companion remains the zero-knowledge alternative for provider work that must never expose credentials to 1var servers.
 
 ## Verification
 
-Contract tests must reject browser-only executor material, unknown plaintext/key/output fields, identity/version drift, and invalid grant lifecycles. Infrastructure assertions must prove that only the executor can call KMS Decrypt, the API can only obtain the public key, and the executor cannot read DynamoDB. Reset-gated browser acceptance must prove explicit promotion, server WebAuthn authorization, one-use consumption, credential-owner and capability binding, provider-fixture injection, encrypted result handling, revocation, and absence of the credential from requests, packages, models, logs, receipts, and review.
+Contract tests reject browser-only executor material, unknown plaintext/key/output fields, identity/version drift, and invalid grant lifecycles. Infrastructure assertions prove that only the executor can call KMS Decrypt, the API can only obtain the public key, and the executor cannot read DynamoDB. Development workflow `32936813549`, a second paid canary after deleting 501 runtime rows and 8 generated packages, and production workflow `32937232047` prove explicit promotion, server WebAuthn authorization, one-use consumption, credential-owner and capability binding, no-network provider-fixture injection, revocation, and absence of the credential from requests, packages, models, receipts, and review. The current fixture releases only one reviewed sanitized boolean; encrypted protected result delivery remains required before admitting an adapter whose result must stay protected.
