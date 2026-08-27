@@ -16,6 +16,8 @@ The receiving browser verifies the signature, definition/package/workflow hashes
 
 An immutable capability package is marketplace-governed rather than owned by one listing. It may participate in another signed composition only through an active exact source license or a write collaboration grant. Fork provenance records source listing IDs. Same-account device sync is an authenticated release delta using the separate discoverable account passkey from [decision 0084](0084-account-passkeys-are-not-protected-authority.md); publisher rollback reconciles lazily when each account next reads its library.
 
+Collaboration changes exact use/write authority but never changes signed pricing. Free access must be an explicit zero price in the signed release. When a recipient learns another valid spoken Path for an installed app, the new caller-local installation retains the exact listing, release, marketplace installation, license, publisher, and price-ceiling attribution instead of falling back to raw public capability execution.
+
 ## Consequences
 
 - Foreign active Paths never cross the marketplace boundary.
