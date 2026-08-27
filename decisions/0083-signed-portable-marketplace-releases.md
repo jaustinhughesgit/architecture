@@ -18,6 +18,8 @@ An immutable capability package is marketplace-governed rather than owned by one
 
 Collaboration changes exact use/write authority but never changes signed pricing. Free access must be an explicit zero price in the signed release. When a recipient learns another valid spoken Path for an installed app, the new caller-local installation retains the exact listing, release, marketplace installation, license, publisher, and price-ceiling attribution instead of falling back to raw public capability execution.
 
+Refund revokes the current installation but does not turn its inactive library tombstone into a permanent install lock. A later purchase of an active listing receives new exact license, marketplace-installation, transaction, receipt, caller-local installation, binding, and Path identities. The server conditionally advances the current library projection only from the exact inactive revision while retaining prior refunded license, transaction, receipt, and revoked local-installation evidence. An active installation remains a conflict and uses the separate upgrade lifecycle.
+
 ## Consequences
 
 - Foreign active Paths never cross the marketplace boundary.
