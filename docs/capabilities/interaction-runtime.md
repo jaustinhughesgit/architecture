@@ -28,6 +28,7 @@ sentence or voice
 - **Response sentence:** A deterministic human-readable rendering of a successful Path's request bindings and proven query variables. It supplements the canonical answer value and has no independent semantic authority.
 - **Command:** A named, declarative action and target published into the browser command registry. Commands provide safe entry points to entities, functions, routes, UI actions, or other registered behavior.
 - **Menu:** A stateful set of available commands and calls. Menus expose contextual choices and transitions rather than requiring every action to be a globally active phrase.
+- **App bundle:** An immutable release that pins one root capability, supporting capability releases, optional ArrayLogic, and one view projection. A user menu entry points to a bundle but independently owns aliases, lifecycle, source, and granted permissions.
 - **Call:** A menu/state transition that can show, hide, run, go back, close, or expose options through the same command channel.
 - **Automation:** A sequenced queue of delays, speech, commands, and related interaction events. It composes registered behavior; it does not replace Paths or the external task scheduler.
 - **Sequence:** A composition of saved equations/operations into a reusable multi-step transform.
@@ -37,6 +38,16 @@ sentence or voice
 ## Why the whole chain matters
 
 A correct Essence with a bad signature will not match later wording. A correct signature with a bad Path transform will retrieve or mutate the wrong data. A correct Path that invokes the wrong command or menu state still produces bad behavior. Editing therefore needs the sentence, Essence, ContextDB traverse, matching signatures, Path transforms, command/menu definitions, and relevant entity contract together.
+
+## Clean app menu and focus
+
+Successful Convert builds register locally as `built`; an authorized shared package registers as `used` after its first local installation. `open`, `show`, `close`, `select`, `pin`, `hide`, and `remove` change only the user's menu/view state. They do not invoke an operation, delete the source app, or grant access. Ambiguous aliases fail closed.
+
+An existing exact Path remains first. A cold invocation miss checks matching entities in the open app, then other active menu entries, then global semantic discovery. A focused app's exact installed Context entity IDs may break an otherwise-equal lexical tie, but cannot make an unrelated or unowned object eligible.
+
+Single Essence gestures execute normally. A same-button Convert double tap/hold emits the same typed focused-improvement intent as `improve app:`. Its bounded authoring context contains exact app/view/entity/workflow IDs, up to 20 recent ordinary proven interactions, and up to 200 related ordinary entity IDs; protected plaintext is structurally excluded.
+
+Declared event analytics compile vocabulary-neutral browser-local record and aggregate entities. ArrayLogic commits the root step before the recorder. Aggregate descriptors support count, sum, exact filters, and grouping over exact app/stream IDs. The server interpreter cannot execute this plane. Shared first-use installations are use-only; public visibility and local menu state cannot manufacture write authority. See [decision 0081](../../decisions/0081-local-app-menu-and-browser-aggregate-composition.md).
 
 ## Builder behavior
 
