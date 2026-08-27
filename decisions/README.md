@@ -95,3 +95,5 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0080: Focus exact entities and evolve ArrayLogic immutably](0080-focus-exact-entities-and-evolve-arraylogic-immutably.md)
 - [0081: Local app menu and browser aggregate composition](0081-local-app-menu-and-browser-aggregate-composition.md)
 - [0082: App collaboration and release revocation use exact verified authority](0082-exact-app-collaboration-and-release-revocation.md)
+- [0083: Marketplace releases are signed portable definitions with caller-local installation](0083-signed-portable-marketplace-releases.md)
+- [0084: Account passkeys are not Protected Asset authority](0084-account-passkeys-are-not-protected-authority.md)
