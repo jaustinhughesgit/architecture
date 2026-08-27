@@ -8,9 +8,13 @@ Represent an app as immutable bundle releases and a user's access to it as a sep
 
 Resolution is ordered: existing exact Path; matching open-app entities; the rest of the user's active menu; authorized global discovery. Focused ContextDB entity IDs may break an otherwise-equal lexical tie only after ownership and semantic compatibility are proved. Opening a view and invoking a capability are separate intents.
 
+Natural app-surface commands are recognized before a currently selected Convert lane decorates text. `menu`, `open`, and inspection commands remain local navigation even when Convert is visible; an explicit `convert:` prefix remains capability authoring.
+
 Compile declared event analytics into general browser-local `record_event` and `aggregate_events` capabilities. ArrayLogic sequences the root operation before recording, so prose cannot masquerade as a successful event. Aggregates support count, sum, exact filters, and grouping over exact app/stream identity. Browser-local descriptors execute only in the isolated Context worker; server JPL rejects them.
 
 Builder entries receive local authoring authority. A shared app installed through first use is read/use-only. `fork <app name>` creates a user-owned composition over the same immutable root while excluding the source's supporting composition; direct collaborative write still needs a governed grant. Protected plaintext is excluded from focused authoring context. User-facing input Undo/Back is explicitly deferred.
+
+Focused composition does not require a builder to invoke a new root capability first. If no installation exists, it creates an exact local root installation anchor with no bindings and pins it into the workflow. The anchor grants no data authority. The first matching invocation deterministically completes that same installation ID with one exact dependency binding, so workflow step identity remains stable and no hidden lifecycle action is required.
 
 ## Consequences
 
@@ -20,6 +24,7 @@ Builder entries receive local authoring authority. A shared app installed throug
 - App releases, workflow releases, packages, and receipts remain immutable and inspectable.
 - Removing a menu entry does not delete source entities or history.
 - App-authored analytics replace fixed platform analytics.
+- Builders can extend an app immediately after Convert without a synthetic first execution.
 - Cross-device menu synchronization and direct collaborative write grants need independent authorized transport contracts.
 
 ## Evidence
