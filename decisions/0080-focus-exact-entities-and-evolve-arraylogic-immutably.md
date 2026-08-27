@@ -1,6 +1,6 @@
 # 0080: Focus exact entities and evolve ArrayLogic immutably
 
-**Status:** Accepted; implemented candidate in `onevar-platform` pending deployed proof.
+**Status:** Accepted; implemented, deployed, and live-proven in development.
 
 ## Context
 
@@ -32,3 +32,7 @@ The fixed publisher-analytics event, repository rows, cursor state, and `analyti
 - Raw ArrayLogic JSON remains an inspection/advanced path, not the only authoring surface.
 - App analytics must be built as governed data and Compute entities, then explicitly added to a workflow. A general record/aggregate effect contract is still needed before Convert can build the complete cross-user carwash analytics example.
 - Sync mode cost controls remain useful for schedules and future entity-authored delivery, without hard-coded analytics writes on every invocation.
+
+## Implementation proof
+
+`onevar-platform` release `06925e6a1dbadbf794a8c87b2f0a2b48cdb1d0bd` and development workflow `33031904635` passed full verification and 21 reset-gated deployed browser scenarios. The focused proof selected an exact installed capability, created workflow v1, advanced it to immutable v2, reloaded with the focus intact, executed the latest release, and committed its declared ContextDB effect. A final private hard reset deleted 226 runtime records and 2 generated packages; an independent inventory returned zero.
