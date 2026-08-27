@@ -1,6 +1,6 @@
 # 0079: Browser-authoritative event synchronization has four cost modes
 
-**Status:** Accepted; implemented, deployed, and live-proven in development by `onevar-platform` release `3a00ac300ae4921d636273104a35a338740fff36` and workflow [33016494721](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33016494721).
+**Status:** Accepted for four-mode schedule delivery; the fixed publisher-analytics portion was removed by [decision 0080](0080-focus-exact-entities-and-evolve-arraylogic-immutably.md).
 
 ## Context
 
@@ -8,7 +8,7 @@ Browser ContextDB is authoritative for local Paths, exact entity/relation bindin
 
 ## Decision
 
-One authenticated cursor-delta protocol carries only data authorized for the active entity: pending schedule occurrences addressed to that owner and privacy-minimized publisher analytics addressed to the capability publisher. Schedule results still rejoin the exact browser installation, refresh only its already-bound relation ID, revalidate the effect, commit locally, and acknowledge separately. A notification is never a mutation and never contains user Context.
+One authenticated delta protocol carries pending schedule occurrences addressed to that owner. Schedule results still rejoin the exact browser installation, refresh only its already-bound relation ID, revalidate the effect, commit locally, and acknowledge separately. A notification is never a mutation and never contains user Context. Future entity-authored data delivery must define its own authorization and schema instead of being inferred from Compute completion.
 
 Each device selects one mode:
 
@@ -21,13 +21,13 @@ Only one visible tab per primary entity owns the lease for intervals and WebSock
 
 Real-time tickets are opaque, one-use, short-lived, session-authenticated capabilities. API Gateway connection rows expire and identify only recipient/transport. The WebSocket payload is a constant hint; the HTTP delta remains the authorization boundary.
 
-Publisher analytics are idempotent receipts addressed to the exact publisher. They contain capability/version/operation, trigger, sanitized-or-encrypted delivery class, committed outcome, price, publisher earning, and time. They contain no actor ID, speech, inputs, entity/relation IDs, Context values, response, protected references, or credential data. The browser retains a bounded recent window; long-range marketplace rollups remain Phase 5 work.
+Execution, credit, settlement, and provider receipts remain internal platform evidence. They are not projected into a fixed user-facing analytics entity. Analytics is built through explicit ordinary data/query capabilities and ArrayLogic composition.
 
 ## Consequences
 
 - Users no longer request schedule delivery manually while an eligible browser is active.
 - Light and medium avoid per-minute polling; heavy is explicit; WebSockets are reserved for real-time.
 - Multiple tabs do not multiply periodic or socket traffic.
-- Publisher performance appears locally without customer data.
+- Sync does not create undeclared publisher data on every invocation.
 - A socket message cannot broaden authority, apply an effect, or carry plaintext.
 - When every device is closed, browser-local effects wait durably for the next authorized sync.

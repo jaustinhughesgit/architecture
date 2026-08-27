@@ -211,6 +211,12 @@ This is sequential execution, not concurrency. A step runs only when its declare
 
 ArrayLogic sequencing is also distinct from Entity Middleware. ArrayLogic runs declared work steps in order. Middleware runs an owning handler lineage until the first `respond` or `fail`, then stops without invoking later handlers.
 
+### Focused editing
+
+The clean Runtime Console can focus one exact installed Compute operation or ArrayLogic release. `add step` creates workflow v1 from a focused Compute operation or N+1 from a focused workflow. It connects only exact name-and-type-compatible outputs/inputs and otherwise exposes a declared workflow input. `fix step` is a different transaction: it replaces one step only when trusted code proves the normalized operation contract equivalent, then creates N+1. A change to inputs, outputs, dependency/effect semantics, protected requirements, execution plane, provider policy, response contract, or read/write class is not a repair.
+
+Focus is an authoring pointer, not authority. Names only nominate a unique local installation; stored focus and edits use exact installation, capability, operation, workflow, and version IDs. Older workflow releases and runs remain immutable. See [decision 0080](../decisions/0080-focus-exact-entities-and-evolve-arraylogic-immutably.md).
+
 ### Example
 
 This simplified operation asks Convert to record a pass using a capability with a declared output contract:

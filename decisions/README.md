@@ -91,3 +91,5 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0076: Separate protected provider results, external effect proof, and test-credit settlement](0076-protected-provider-results-effects-and-test-credit-settlement.md)
 - [0077: Clean governed schedules pin exact Compute and use a shared due index](0077-clean-governed-schedules-pin-exact-compute.md)
 - [0078: One semantic response compiles ordinary transition contracts](0078-one-semantic-response-compiles-ordinary-transition-contracts.md)
+- [0079: Browser-authoritative event synchronization has four cost modes](0079-browser-authoritative-sync-has-four-cost-modes.md)
+- [0080: Focus exact entities and evolve ArrayLogic immutably](0080-focus-exact-entities-and-evolve-arraylogic-immutably.md)
