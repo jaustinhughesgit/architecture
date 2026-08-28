@@ -10,7 +10,7 @@ Storing and querying an AWS bill fragment for every ordinary request would make 
 
 ## Decision
 
-The standard pricing lane uses one authoritative AWS cost record per account-stage 5 AM pricing block. A scheduled job first proves `onevar:stage` is an active user-defined cost-allocation tag, then retrieves Cost Explorer hourly NetUnblendedCost grouped by service and refreshes the preceding seven blocks. Every hour in the exact interval must be present, including 23- and 25-hour daylight-saving blocks; missing evidence cannot be interpreted as zero cost. Provisional evidence is inspectable but cannot make rate coverage complete. Heavy operations retain separate itemization.
+The standard pricing lane uses one authoritative AWS cost record per account-stage 5 AM pricing block. A scheduled job alone holds the narrow permission to activate `onevar:stage`, retries until AWS discovers that deployed tag, proves it is active, then retrieves Cost Explorer hourly NetUnblendedCost grouped by service and refreshes the preceding seven blocks. Human and deploy identities do not receive that account-billing authority. Every hour in the exact interval must be present, including 23- and 25-hour daylight-saving blocks; missing evidence cannot be interpreted as zero cost. Provisional evidence is inspectable but cannot make rate coverage complete. Heavy operations retain separate itemization.
 
 Signed Stripe webhooks normalize the admitted Checkout, refund, dispute, connected-account, transfer/reversal, and payout lifecycle into exact idempotent reconciliation records and balanced journals. Attribution follows 1var metadata, exact Stripe object relationships, or the exact connected-account index, never a name.
 
