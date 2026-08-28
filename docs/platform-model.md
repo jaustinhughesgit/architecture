@@ -260,3 +260,4 @@ A provider protocol can be represented using entities and lineage for workflow, 
 19. Permitted cross-user facts should converge on the canonical entity, word, relationship, version, and access substrate. A synchronization sidecar may support migration, but it must not become an undocumented parallel ontology.
 20. Every middleware node requires current action authorization; relationship membership, visibility, retrieval ranking, or a previous node's grant cannot authorize the next node.
 21. Revoked or deleted canonical state wins over stale grants and materialized output. Lifecycle mutations require an expected version and append immutable, sanitized audit evidence.
+22. A customer price is not raw cost evidence. Standard aggregated pricing, heavy itemized pricing, app/provider economics, and user-to-user fees are independently versioned; incomplete cost coverage cannot silently publish a lower authoritative rate.

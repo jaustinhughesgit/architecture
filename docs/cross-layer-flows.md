@@ -307,6 +307,21 @@ For entity revision, an identical resubmission whose earlier response was lost r
 
 A terminal Convert build response also carries `convertArtifacts` v1 with the accepted `arrayLogic`, compiled `shorthand`, and materialized JPL `{modules, actions}`. The API transports this object without interpreting it. Convert renders it as read-only build evidence for Button 3 and Button 4 authoring. A continuation polling the exact successful build retains `BUILT_AND_REGISTERED` and a bounded typed copy of those artifacts. A separate request that selects an already completed definition returns `CAPABILITY_REUSED`; genuine reuse and pending responses carry null artifact fields because they did not create a new representation pipeline.
 
+## Two-lane priced server interaction
+
+```text
+Browser or schedule submits one exact server interaction identity
+  → runtime executes under one authenticated owner and immutable operation
+  → authoritative elapsed time and OpenAI usage classify the interaction
+  → <= 5 seconds AND <= 5,000 total tokens selects the frozen daily rate
+  → exceeding either boundary requires exact itemized cost evidence
+  → one DynamoDB transaction debits credits, advances spend, stores the compact
+    idempotent receipt and journal, and increments one of 256 daily shards
+  → retry with the same interaction identity returns duplicate, never a second debit
+```
+
+The standard aggregate covers a 5 AM-to-5 AM `America/New_York` block and retains only count, platform cost, and model cost. Its next customer rate applies the declared multipliers and becomes authoritative only with complete source coverage. Heavy interaction evidence is excluded from that aggregate. Local-only ContextDB/Path work and billing/pricing inspection do not enter the flow. See [decision 0092](../decisions/0092-two-lane-daily-interaction-pricing.md).
+
 ## Per-request model cost inspection
 
 ```text
