@@ -103,3 +103,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0088: Checkout return and webhook share one fulfillment](0088-checkout-return-and-webhook-share-one-fulfillment.md)
 - [0089: Cost meters retain usage and versioned pricing](0089-cost-meters-retain-usage-and-versioned-pricing.md)
 - [0090: Cost pricing and user-transfer fees are versioned separate policies](0090-cost-pricing-and-user-transfer-fees-are-versioned-separate-policies.md)
+- [0091: Cost-source coverage and external fee evidence are explicit](0091-cost-source-coverage-and-external-fee-evidence.md)
