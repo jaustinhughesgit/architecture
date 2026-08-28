@@ -114,3 +114,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0099: Stripe refunds reverse exact credit issuance](0099-stripe-refunds-reverse-exact-credit-issuance.md)
 - [0100: Stripe money events use a bounded durable inbox](0100-stripe-money-events-use-a-bounded-durable-inbox.md)
 - [0101: Publisher withdrawals separate reserves, transfers, and payouts](0101-publisher-withdrawals-separate-reserves-transfers-and-payouts.md)
+- [0102: Exact credit provenance gates publisher cash](0102-credit-provenance-gates-publisher-cash.md)
