@@ -8,6 +8,8 @@ Represent an app as immutable bundle releases and a user's access to it as a sep
 
 Resolution is ordered: existing exact Path; matching open-app entities; the rest of the user's active menu; authorized global discovery. Focused ContextDB entity IDs may break an otherwise-equal lexical tie only after ownership and semantic compatibility are proved. Opening a view and invoking a capability are separate intents.
 
+Repeated plain Convert builds may create different immutable capability IDs for the same normalized operation contract. An equal-scoring tie is resolved by most recent registration or explicit open only when every tied candidate is a root-only app built and owned by that same local user. Releases remain immutable and inspectable. Different publishers, marketplace installations, normalized contracts, supporting entities, or ArrayLogic compositions continue to fail closed as real ambiguity.
+
 Natural app-surface commands are recognized before a currently selected Convert lane decorates text. `menu`, `open`, and inspection commands remain local navigation even when Convert is visible; an explicit `convert:` prefix remains capability authoring.
 
 Compile declared event analytics into general browser-local `record_event` and `aggregate_events` capabilities. ArrayLogic sequences the root operation before recording, so prose cannot masquerade as a successful event. Aggregates support count, sum, exact filters, and grouping over exact app/stream identity. Browser-local descriptors execute only in the isolated Context worker; server JPL rejects them.
@@ -25,6 +27,8 @@ Focused composition does not require a builder to invoke a new root capability f
 - Removing a menu entry does not delete source entities or history.
 - App-authored analytics replace fixed platform analytics.
 - Builders can extend an app immediately after Convert without a synthetic first execution.
+- Persistent users can repeat an equivalent plain Convert build without resetting local state or manually opening one of several indistinguishable roots.
+- Contract-equivalent marketplace apps and composed apps do not inherit this convenience tie-break.
 - Cross-device menu synchronization and direct collaborative write grants need independent authorized transport contracts.
 
 ## Evidence
