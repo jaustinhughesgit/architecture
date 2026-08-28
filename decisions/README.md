@@ -116,3 +116,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0101: Publisher withdrawals separate reserves, transfers, and payouts](0101-publisher-withdrawals-separate-reserves-transfers-and-payouts.md)
 - [0102: Exact credit provenance gates publisher cash](0102-credit-provenance-gates-publisher-cash.md)
 - [0103: Publisher transfers link the exact Checkout charge](0103-publisher-transfers-link-exact-checkout-charge.md)
+- [0104: One interaction root has one settlement and heavy server attribution](0104-one-root-settlement-and-heavy-server-attribution.md)
