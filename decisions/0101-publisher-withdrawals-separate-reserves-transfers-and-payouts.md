@@ -14,6 +14,8 @@ Operations supplies one immutable payout policy per billing environment. It decl
 
 A withdrawal reserves only available publisher cash, reloads the exact connected account, requires active transfers, payouts, and completed Stripe-hosted requirements, and creates one idempotent separate transfer. 1var stores only bounded safe readiness counts/statuses. The successful transfer credits a connected-cash subledger, not paid-out cash.
 
+Stripe-hosted onboarding returns and expired-link refreshes through the publisher's exact entity route. The completed return reloads bounded readiness evidence; the refresh creates another short-lived Stripe onboarding link. Neither return path authorizes a transfer or proves money movement.
+
 Signed Connect payout events own the bank boundary. `payout.paid` creates one exact journal from connected cash to payout clearing. An exact failed or canceled successor creates an explicit inverse. Unattributable or over-balance events are retained as `requires_review` and cannot mutate a user balance.
 
 ## Consequences
