@@ -18,4 +18,4 @@ Marketplace publisher creation requires this account passkey. The `authenticated
 
 - Multiple authenticated devices read the same account library while compiling their own local Paths and installations.
 - Publisher attribution no longer rests on an anonymous browser-created session alone.
-- Additional passkeys, recovery, verified email, stronger publisher verification, and administrator credential lifecycle remain separately governed work.
+- Multiple labeled passkeys and owner-session revocation are added by [decision 0097](0097-account-passkeys-are-multiple-labeled-credentials.md). Recovery without a surviving session or authenticator, verified email, stronger publisher verification, and administrator credential lifecycle remain separately governed work.
