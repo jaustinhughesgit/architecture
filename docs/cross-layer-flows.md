@@ -309,6 +309,8 @@ A terminal Convert build response also carries `convertArtifacts` v1 with the ac
 
 ## Two-lane priced server interaction
 
+Before a configured campaign's first billable boundary for one account, the API attempts one idempotent production promotional-grant journal keyed by campaign version and exact owner entity ID. That balanced issuance contains no cash or publisher posting. It lets clean-reset acceptance traverse the real production-credit gate without a privileged test bypass; absent explicit configuration, no grant exists. See [decision 0096](../decisions/0096-versioned-promotional-credits-use-production-ledger.md).
+
 ```text
 Browser or schedule submits one exact server interaction identity
   → runtime executes under one authenticated owner and immutable operation
