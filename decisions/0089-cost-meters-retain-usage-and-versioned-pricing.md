@@ -1,0 +1,16 @@
+# 0089 — Cost meters retain usage and versioned pricing
+
+**Status:** Accepted
+
+## Decision
+
+Store authoritative usage quantities independently from product pricing. A completed model response retains exact provider, returned model, input/output token quantities, response, stage, and operation identity. An explicit versioned operations price maps those quantities into deterministic estimated cost records and balanced `usd_micro` journals.
+
+Operating-cost evidence does not itself debit user credits, price a capability, or calculate publisher earnings. Those remain separate governed contracts. Sub-cent costs must not be prematurely rounded into cash-settlement cents.
+
+## Consequences
+
+- Reconciliation can compare exact usage with later provider invoices.
+- Pricing changes append a new version and do not rewrite historical evidence.
+- Other authoritative Compute, provider, storage, and bandwidth sources can adopt the same boundary.
+- The implementation is a model-cost foundation, not a claim that all production costs are metered.
