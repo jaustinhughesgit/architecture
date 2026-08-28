@@ -218,6 +218,12 @@ The clean Phase 4C candidate begins with owner-local protected calculation. Conv
 
 Entities should reference protected-asset requirements, not embed secrets. See `security-and-trust.md`, [recipient-specific zero-trust sharing](capabilities/recipient-protected-sharing.md), and [decision 0037](../decisions/0037-requestable-protected-context-markers.md).
 
+### Production billing and external money evidence
+
+Production credits are an append-only double-entry ledger, not a mutable counter and not the conformance-only test-credit fixture. Stripe Checkout, marketplace transfers, refunds, publisher accrual, and payouts retain exact external references and balanced postings. Browser redirects are not money authority: verified Stripe API retrieval and signed Stripe webhook delivery are separate evidence sources that may converge on the same idempotent journal.
+
+Deployment privately maintains separate platform and Connect Stripe event destinations without giving the public API secret-write authority. A successful credit-purchase refund reverses the exact original cash liability and the cumulatively proportional credit issuance. Signed delivery and bounded authenticated Stripe retrieval use the Stripe refund ID as the one reversal identity. If already-spent credits make the available balance negative, that debt blocks further spending and is reduced by later issuance; external money history is never concealed by clamping the balance. See [decisions 0085](../decisions/0085-production-billing-and-protected-lifecycle-remain-separate-trust-planes.md), [0088](../decisions/0088-checkout-return-and-webhook-share-one-fulfillment.md), and [0099](../decisions/0099-stripe-refunds-reverse-exact-credit-issuance.md).
+
 ## 3. Builder and end-user layers
 
 1var serves multiple layers of participation:
