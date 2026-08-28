@@ -10,7 +10,7 @@
 
 Expose every cost source as `live`, `partial`, or `unavailable`. A durable meter is exact evidence for one source operation only.
 
-For Stripe Checkout, retrieve the exact USD balance transaction and use its immutable ID and fee to create one idempotent payment-cost meter and balanced journal. Checkout coverage remains partial until every refund, dispute, Connect fee, and payout balance transaction is ingested.
+For Stripe Checkout, retrieve the exact USD balance transaction and use its immutable ID and fee to create one idempotent payment-cost meter and balanced journal. Stripe expansion is an optimization; the gateway explicitly retrieves nested resources when Stripe returns IDs. Credit fulfillment remains independent from cost reconciliation. An authenticated billing read performs a bounded repair over recent paid Checkout journals when fee evidence was temporarily unavailable, skipping sessions with existing meters and repairing a missing journal from its exact meter. Checkout coverage remains partial until every refund, dispute, Connect fee, and payout balance transaction is ingested.
 
 For reviewed Compute providers, keep user price and credit allocation independent from 1var's USD provider cost. Only an exact adapter declaration copied into an isolated-executor receipt can create a managed-provider cost meter. A user-supplied provider credential or quota does not create a 1var expense by inference. Provider coverage remains partial until every admitted 1var-managed adapter carries authoritative USD-cost evidence.
 
@@ -27,6 +27,7 @@ For AWS, apply exact platform and stage resource tags, then use activated cost-a
 
 - Coverage claims are mechanically inspectable and fail closed.
 - External transaction IDs make retries idempotent.
+- A transient Stripe evidence delay does not permanently lose the payment fee or block purchased credits.
 - 1var can project customer prices immediately from connected evidence while keeping unconnected sources visible.
 - AWS Billing activation and CUR delivery are an operations prerequisite, not browser or API authority.
 
@@ -42,6 +43,6 @@ Cost evidence contains exact operational identities and amounts but no protected
 ## Verification
 
 - Contract tests reject undeclared coverage states.
-- Checkout webhook/return retry tests produce one exact Stripe fee meter.
+- Checkout webhook/return/read retry tests produce one exact Stripe fee meter and journal after transient evidence failure.
 - Provider executor tests retain independent USD-cost evidence.
 - Infrastructure synthesis tests prove platform and stage resource tags.
