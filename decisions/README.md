@@ -120,3 +120,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0105: Conservative application cost estimates and one spoken root](0105-conservative-application-cost-estimates-and-one-spoken-root.md)
 - [0106: Live billing requires single-use closed-beta admission](0106-live-billing-requires-single-use-closed-beta-admission.md)
 - [0107: Pre-launch resets advance an external-event cutoff](0107-prelaunch-resets-advance-an-external-event-cutoff.md)
+- [0108: Publisher withdrawals remain reserved through Stripe settlement](0108-publisher-withdrawals-retry-after-settlement.md)

@@ -14,7 +14,7 @@ The production ledger separates cash-backed and promotional available/reserved c
 
 User-to-user marketplace transactions and external provider liabilities require cash-backed credits. Their immutable journals retain the exact source through reservation, settlement, refund, publisher payable, cash accrual, and withdrawal. Existing positive aggregate-only balances migrate conservatively to promotional provenance with a compare-and-swap update; they are never guessed to be cash-backed.
 
-A Stripe insufficient-platform-balance transfer error releases the exact withdrawal reservation and becomes a bounded actionable response. It cannot erase earnings or masquerade as a successful transfer.
+A Stripe insufficient-platform-balance transfer error cannot erase earnings or masquerade as success. [Decision 0108](0108-publisher-withdrawals-retry-after-settlement.md) supersedes the earlier release-and-resubmit behavior: the exact request now remains reserved and retries automatically after settlement.
 
 ## Consequences
 
@@ -31,4 +31,4 @@ A Stripe insufficient-platform-balance transfer error releases the exact withdra
 
 ## Verification
 
-Cross-layer tests prove promotional issuance, conservative legacy migration, blocked promotion-funded marketplace installation with zero publisher payable, successful cash-backed installation, source-preserving refunds, and reservation release after Stripe reports an unavailable platform balance.
+Cross-layer tests prove promotional issuance, conservative legacy migration, blocked promotion-funded marketplace installation with zero publisher payable, successful cash-backed installation, source-preserving refunds, and durable reservation after Stripe reports an unavailable platform balance.
