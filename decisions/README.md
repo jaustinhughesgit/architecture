@@ -118,3 +118,5 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0103: Publisher transfers link the exact Checkout charge](0103-publisher-transfers-link-exact-checkout-charge.md)
 - [0104: One interaction root has one settlement and heavy server attribution](0104-one-root-settlement-and-heavy-server-attribution.md)
 - [0105: Conservative application cost estimates and one spoken root](0105-conservative-application-cost-estimates-and-one-spoken-root.md)
+- [0106: Live billing requires single-use closed-beta admission](0106-live-billing-requires-single-use-closed-beta-admission.md)
+- [0107: Pre-launch resets advance an external-event cutoff](0107-prelaunch-resets-advance-an-external-event-cutoff.md)

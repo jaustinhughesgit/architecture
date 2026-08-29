@@ -230,6 +230,8 @@ Deployment privately maintains separate platform and Connect Stripe event destin
 
 Initial live-money activation is additionally bounded by single-use closed-beta admission. Operators deploy only invitation-code SHA-256 digests; the canonical account-creation transaction claims one digest together with the new entity and session. The gate grants no later authority, while existing passkey accounts authenticate without another invitation. Production Stripe setup independently requires a live credential before installing separately signed platform and Connect webhook destinations. See [decision 0106](../decisions/0106-live-billing-requires-single-use-closed-beta-admission.md).
 
+Before public launch, operators may create a clean production data generation without rebuilding infrastructure. The same private MFA-gated reset primitive used in development is synthesized in production only through an explicit temporary pre-launch flag and distinct confirmation. It first advances a durable external-event cutoff outside the erasable runtime store and purges pending Stripe and schedule queues, then removes mutable 1var runtime rows and generated packages. Stripe's historical transactions remain external evidence and are neither deleted nor refunded; verified events created before the cutoff cannot enter the new generation. Deployed code, infrastructure, core catalog, pricing policy, secrets, and webhook destinations remain. The production reset flag and resources must be removed before general availability. See [decision 0107](../decisions/0107-prelaunch-resets-advance-an-external-event-cutoff.md).
+
 ## 3. Builder and end-user layers
 
 1var serves multiple layers of participation:
@@ -266,7 +268,7 @@ A provider protocol can be represented using entities and lineage for workflow, 
 13. An ordinary data assertion or correction must not be promoted into executable entity creation when a typed graph transaction fully represents the intent.
 14. A capability repair must preserve its declared semantic contract; a contract addition or change requires an explicit fork, child, or successor rather than silent mutation.
 15. Reusing a capability definition must not merge users' data, configuration, permissions, or protected assets.
-16. A destructive test operation must be authorized by the target server and scoped to an explicitly identified non-production environment; client confirmation alone is never authority.
+16. A destructive test operation must be authorized by the target server and scoped to an exact development or explicitly enabled pre-launch production stage; production additionally requires MFA-gated operator authority and a distinct confirmation, and client confirmation alone is never authority.
 17. A word, alias, or lemma can address entity candidates but is never itself proof of entity identity, ownership, meaning, or permission.
 18. Dynamic local entity or user-authored script source executes in `fileWorker`, never on the browser main thread; worker output receives no authority until a trusted module validates and handles it.
 19. Permitted cross-user facts should converge on the canonical entity, word, relationship, version, and access substrate. A synchronization sidecar may support migration, but it must not become an undocumented parallel ontology.
