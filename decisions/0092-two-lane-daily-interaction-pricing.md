@@ -9,7 +9,7 @@
 - **Standard lane:** an interaction completes in at most five seconds and uses at most 5,000 total OpenAI input plus output tokens. The user pays the frozen standard rate for the active 5:00 AM-to-5:00 AM `America/New_York` block. That rate is calculated from the preceding completed block: `(standard platform cost × 140% + standard model cost × 120%) / completed standard interactions`, rounded up to the configured credit unit.
 - **Heavy lane:** exceeding either threshold requires exact itemized cost evidence for that interaction. Platform costs use 140%, model costs use 120%, and a 1var-managed provider cost uses 110%. Heavy cost never enters the standard average.
 
-The active standard rate never changes inside its block. A source block with incomplete cost coverage may expose its available raw evidence, but the effective next-rate estimate must remain the explicit bootstrap rate. It must not present an incomplete lower calculation as publishable. This prevents a missing AWS, model, storage, or bandwidth feed from lowering the price.
+The active standard rate never changes inside its block. Under decision 0105, a source block is complete for launch pricing when it includes the versioned conservative per-root platform allowance and exact model usage aggregate. Delayed cloud-invoice coverage remains separately inspectable and cannot lower or rewrite the application-estimate rate.
 
 Local-only ContextDB, Path, and presentation work is free because it consumes no 1var server resources. Billing and pricing inspection are also free. Marketplace user-to-user value transfer remains a separate 3% policy and must not be mixed into runtime cost pricing.
 
@@ -25,5 +25,5 @@ The CLI exposes `pricing today`, `pricing next estimate`, `pricing history`, and
 
 - Typical server interactions have predictable, cheap charging and bounded billing storage.
 - Slow or token-heavy work cannot externalize its cost into the normal-user average.
-- Production activation still fails closed until authoritative platform and resource cost coverage is complete.
+- Production activation fails closed until the versioned application-estimate platform policy and exact model pricing are loaded; delayed invoice allocation is diagnostic.
 - The initial sandbox bootstrap rate is configuration, not a production price or a claim of complete cost coverage.

@@ -312,7 +312,8 @@ A terminal Convert build response also carries `convertArtifacts` v1 with the ac
 Before a configured campaign's first billable boundary for one account, the API attempts one idempotent production promotional-grant journal keyed by campaign version and exact owner entity ID. That balanced issuance contains no cash or publisher posting. It lets clean-reset acceptance traverse the real production-credit gate without a privileged test bypass; absent explicit configuration, no grant exists. See [decision 0096](../decisions/0096-versioned-promotional-credits-use-production-ledger.md).
 
 ```text
-Browser or schedule submits one exact server interaction identity
+Browser reserves one exact interaction identity before ordinary voice upload
+  → transcription segments, local Context, Convert, and Compute retain that root
   → runtime executes under one authenticated owner and immutable operation
   → authoritative elapsed time and OpenAI usage classify the interaction
   → <= 5 seconds AND <= 5,000 total tokens selects the frozen daily rate
@@ -322,7 +323,7 @@ Browser or schedule submits one exact server interaction identity
   → retry with the same interaction identity returns duplicate, never a second debit
 ```
 
-The standard aggregate covers a 5 AM-to-5 AM `America/New_York` block and retains only count, platform cost, and model cost. Its next customer rate applies the declared multipliers and becomes authoritative only with complete source coverage. Heavy interaction evidence is excluded from that aggregate. Local-only ContextDB/Path work and billing/pricing inspection do not enter the flow. See [decision 0092](../decisions/0092-two-lane-daily-interaction-pricing.md).
+The standard aggregate covers a 5 AM-to-5 AM `America/New_York` block and retains only count, platform cost, and model cost. Platform cost uses a conservative versioned per-root AWS allowance; model cost uses exact provider usage. Its next customer rate applies the declared multipliers. Heavy interaction evidence is excluded from that aggregate. Cost Explorer remains diagnostic and can tune a later allowance, but cannot rewrite existing receipts. Local-only ContextDB/Path work and billing/pricing inspection do not enter the flow. See [decisions 0092](../decisions/0092-two-lane-daily-interaction-pricing.md) and [0105](../decisions/0105-conservative-application-cost-estimates-and-one-spoken-root.md).
 
 ## Per-request model cost inspection
 
