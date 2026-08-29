@@ -10,7 +10,7 @@ Accepted for the closed-beta launch candidate on 2026-08-28.
 
 ## Decision
 
-The launch candidate prices from conservative application-measured estimates. Every billable interaction root receives a versioned raw AWS overhead allowance covering API Gateway, DynamoDB, S3, CloudFront, queues, KMS, logs, and monitoring. Heavy roots additionally meter Lambda requests, duration, configured memory/architecture/region, and response transfer. Exact model usage and reviewed 1var-managed provider costs remain separate raw evidence. Cost Explorer and Stripe reconciliation remain diagnostic accounting feeds; they do not gate or rewrite the launch price.
+The launch candidate prices from conservative application-measured estimates. Every billable interaction root receives a versioned raw AWS overhead allowance covering API Gateway, DynamoDB, S3, CloudFront, queues, KMS, logs, and monitoring. A standard root writes one idempotent aggregate `interaction_root` meter for that allowance so account cost reporting and the daily pricing aggregate contain the same raw amount without creating per-service rows or a second charge. Heavy roots include the allowance inside their server-operation meter and additionally meter Lambda requests, duration, configured memory/architecture/region, and response transfer. Exact model usage and reviewed 1var-managed provider costs remain separate raw evidence. Cost Explorer and Stripe reconciliation remain diagnostic accounting feeds; they do not gate or rewrite the launch price.
 
 One spoken request reserves one `int_*` root before ordinary audio leaves the browser. All ordinary transcription segments, ContextDB evidence, Convert authoring, Compute invocation, and final response reuse that root. Transcription records model cost but does not independently debit. The terminal server operation settles the root, or the browser calls the idempotent finalizer when the answer was completed locally. A root has at most one pricing receipt and one debit.
 
@@ -36,4 +36,3 @@ The standard lane remains at most five seconds and at most 5,000 total model tok
 - Promotional credits can fund 1var platform work but cannot become publisher cash.
 - Delayed AWS and Stripe reconciliation can reveal policy error and inform the next version without changing prior receipts.
 - Closed-beta access control remains an independent identity/admission boundary; a pricing variable alone must never be represented as access enforcement.
-
