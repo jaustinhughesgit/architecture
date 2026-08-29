@@ -14,7 +14,7 @@ The system must not create duplicate transfers, repeatedly poll from every brows
 
 Withdrawal admission atomically moves exact publisher cash from withdrawable to pending and writes one versioned withdrawal record before contacting Stripe. The record pins owner, connected account, amount, payout policy, optional Checkout/charge provenance, immutable withdrawal identity, attempt count, retry time, revision, and safe failure classification.
 
-An insufficient platform balance is a transient `pending_settlement` outcome. It does not release cash. One stage-level scheduled worker queries a sharded due index and retries with the immutable withdrawal ID as Stripe's idempotency key. Browser replay returns the same durable state and does not contact Stripe before the due time. Retry delay grows exponentially from fifteen minutes and is capped at one day. A definitive provider failure changes the record to terminal `failed` and atomically releases the exact reservation. Success atomically writes transfer evidence and moves pending cash to connected cash.
+An insufficient platform balance is a transient `pending_settlement` outcome. It does not release cash. One stage-level scheduled worker shares the existing scheduling heartbeat, skips four of every five one-minute ticks, queries a sharded due index, and retries with the immutable withdrawal ID as Stripe's idempotency key. Reusing that heartbeat avoids another EventBridge rule and does not change the fixed per-stage scaling model. Browser replay returns the same durable state and does not contact Stripe before the due time. Retry delay grows exponentially from fifteen minutes and is capped at one day. A definitive provider failure changes the record to terminal `failed` and atomically releases the exact reservation. Success atomically writes transfer evidence and moves pending cash to connected cash.
 
 Transfer success still does not prove bank payout. Signed connected-account payout events retain that separate boundary.
 
@@ -48,4 +48,4 @@ New withdrawals use the durable record. Earlier failed requests that released th
 
 ## Verification
 
-Contract tests reject inconsistent pending/transfer evidence. Service tests prove reservation retention, quiet idempotent browser replay, scheduled retry after the due time, exact one-time transfer, and the final pending-to-connected ledger transition. Infrastructure synthesis proves the private stage-level worker and its schedule.
+Contract tests reject inconsistent pending/transfer evidence. Service tests prove reservation retention, quiet idempotent browser replay, scheduled retry after the due time, exact one-time transfer, and the final pending-to-connected ledger transition. Infrastructure synthesis proves the private stage-level worker shares the existing heartbeat and creates no additional EventBridge rule.
