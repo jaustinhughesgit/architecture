@@ -39,6 +39,8 @@ Entities can have parent/child lineage. Entity middleware v1 resolves one determ
 
 An entity may also expose a materialized output for a safe fast response, but it remains subject to the same current authorization. Cache keys, inputs, dependencies, freshness, invalidation, version, and permission scope must be explicit before that output can be authoritative. See [entity middleware, composition, and governance](entity-middleware-composition-and-governance.md).
 
+An ordinary file is an artifact entity whose stable identity is separate from every immutable byte version. Exact metadata, hashes, owner/recipient access pointers, and execution receipts remain bounded persistence records; bytes remain in a separate private object plane and move through short checksum-bound requests. Protected browser-only files and executable capability packages are different trust planes and cannot be selected through an ordinary file grant. A generated file must cite one reviewed operation plus exact input/output versions and hashes. See [decision 0114](../decisions/0114-ordinary-artifacts-separate-bytes-authority-and-execution.md).
+
 ### Entity relationships
 
 `map`, `extend`, `link`, `use`, and `substitute` are general-purpose composition and control primitives. They are not assigned one permanent business meaning.
