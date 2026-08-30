@@ -59,6 +59,10 @@ Exact profile lookup is canonical-first and still includes compatibility/legacy 
 
 New Position writes use `AB2` keys whose partition key contains the anchor shard. Search performs bounded reads from all configured v2 shards and the old v1 partition during migration. It unions tenant and global candidates, reloads subdomains, derives public/private policy from server state, applies owner/grant authorization, and ranks only the authorized set. Anchor rows carry the canonical entity revision and content hash so later stale-row cleanup can compare them.
 
+## Same-name referent retrieval
+
+Public profile-name postings are derived candidate indexes, never person identity. The clean runtime writes each profile into one of 64 deterministic owner shards and performs bounded reads per shard plus the legacy unsharded partition during migration. Exact IDs from identity-scoped referent memory or recent hydrated Context bypass broad lookup but are reloaded and reauthorized. Candidate profiles are then filtered by the complete requested graph path before relevance ranking. This prevents one popular name from becoming a hot partition or an unbounded user-facing list. Query-specific multi-hop/Position postings remain a later recall optimization and may not replace canonical path or authority checks.
+
 ## Deferred gates
 
 - Phase 13: backfill old sidecar data, compare read parity, cut over, and retire the sidecar.

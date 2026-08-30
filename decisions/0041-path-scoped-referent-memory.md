@@ -1,6 +1,6 @@
 # 0041 — Paths retain identity-scoped referent memory after governed resolution
 
-Status: accepted — direct qualified-referent foundation implemented
+Status: accepted — direct qualified-referent and minimum-question foundation implemented
 
 ## Context
 
@@ -34,7 +34,7 @@ Path referent memory is an identity-scoped overlay. It must not enter a shared f
 
 The implemented foundation covers one unambiguous qualified possessive referent, including “Austin's register status report.” Exact authorized profile hydration installs the canonical entity in ContextDB; a name-property value node is not counted as a second person candidate; recent successful compute referent evidence can break a local same-name tie; the original compute equation persists its referent memory and ContextDB subject ID; and later local execution prefers that ID while revalidating the graph. Every explicit named cross-user question refreshes that profile's authorized public component, using the remembered ID for exact validation when available, so newer facts arrive without another candidate search or clarification.
 
-Joint multi-edge candidate ranking, Position-backed same-name tournaments, frequency/decay updates, explicit correction updates, generalized non-person referents, effect-risk thresholds, and model-generated minimum distinguishing questions remain incomplete.
+Decision 0116 adds deterministic complete-path filtering, 64-shard same-name retrieval, identity-scoped browser referent memory for ordinary and protected cross-user queries, public-anchor ranking, and two-to-five-choice minimum questions. Arbitrary multi-hop Position-backed tournaments, learned frequency/decay and correction updates, generalized non-person referents, and effect-risk thresholds remain incomplete.
 
 ## Consequences
 
