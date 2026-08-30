@@ -1,6 +1,6 @@
 # Email Platform
 
-**Status:** Legacy safeguards plus a clean outbound fallback candidate; deployment acceptance pending
+**Status:** Legacy safeguards plus a clean outbound fallback deployed in development; user acceptance pending
 
 Email is both a communication transport and an entity-addressing capability. An entity may publish an address such as `<entity>@email.1var.com`, allowing people and systems to interact with reusable work through familiar email while the entity remains governed by ordinary 1var permissions and behavior.
 
@@ -19,7 +19,7 @@ The compute layer builds and sends raw messages through Amazon SES and includes 
 
 These controls align with important parts of [Amazon SES reputation guidance](https://docs.aws.amazon.com/ses/latest/dg/faqs-enforcement.html), [configuration sets](https://docs.aws.amazon.com/ses/latest/dg/using-configuration-sets.html), [subscription management](https://docs.aws.amazon.com/ses/latest/dg/sending-email-subscription-management.html), and [suppression lists](https://docs.aws.amazon.com/ses/latest/dg/sending-email-suppression-list.html).
 
-The clean `onevar-platform` implementation does not import that legacy mail runtime. Its first bounded channel supports a six-digit verified, version-consented contact; a rotating KMS-encrypted address and unsubscribe token; five verification starts per account per 24 hours; one delayed generic approval reminder latch; RFC 8058 one-click and authenticated unsubscribe; and idempotent SES delivery, bounce, and complaint feedback through a stage configuration set. The API can encrypt and enqueue but cannot decrypt or send. The delivery worker can decrypt and send fixed templates but cannot enlarge the notification. SES feeds an encrypted SNS topic and buffered SQS suppression worker directly, so feedback consumes no additional EventBridge rule. The feedback worker can suppress but cannot decrypt. See [durable notifications](durable-notifications.md) and [decision 0115](../../decisions/0115-durable-notifications-precede-generic-email.md).
+The clean `onevar-platform` implementation does not import that legacy mail runtime. Its first bounded channel supports a six-digit verified, version-consented contact; a rotating KMS-encrypted address and unsubscribe token; five verification starts per account per 24 hours; one delayed generic approval reminder latch; RFC 8058 one-click and authenticated unsubscribe; and idempotent SES delivery, bounce, and complaint feedback through a stage configuration set. The API can encrypt and enqueue but cannot decrypt or send. The delivery worker can decrypt and send fixed templates but cannot enlarge the notification. SES feeds an encrypted SNS topic and buffered SQS suppression worker directly, so feedback consumes no additional EventBridge rule. The feedback worker can suppress but cannot decrypt. Development release `aed5c4f2ac8c1f36f64972b75f5d2bbde48d97c9` deployed successfully through workflow run `33315680472` on 2026-08-30; cross-browser and live mailbox acceptance remain pending. See [durable notifications](durable-notifications.md) and [decision 0115](../../decisions/0115-durable-notifications-precede-generic-email.md).
 
 ## Platform fit
 
