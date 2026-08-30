@@ -1,6 +1,6 @@
 # Decision 0113: Time-bucketed due pointers scale schedule dispatch
 
-**Status:** Accepted and implemented in the clean platform; deployed scale proof remains pending.
+**Status:** Accepted, implemented, and deployed to development. Structural multi-schedule and live governed-schedule proofs pass; sustained large-load certification remains pending.
 
 Schedule meaning, immutable definitions, exact targets, and deterministic occurrence identities remain unchanged. Physical dispatch moves from indexing complete schedule/occurrence rows in a permanent fixed-shard GSI to a separate versioned v2 due-pointer projection.
 
@@ -10,4 +10,4 @@ Chronological owner-list pointers avoid complete owner-partition reads. Operatio
 
 The storage layout carries its own version, so a future physical projection can be dual-written without changing schedule IDs, definitions, Paths, installations, or execution semantics. The former `ScheduleDueIndex` remains only for the separate publisher-withdrawal retry lifecycle.
 
-Tests prove pointer distribution, 64 unique minute-shard dispatch tasks, time-bucket catch-up planning, transactional pointer creation, exact target loading without a GSI, infrastructure fan-out/partial-failure contracts, and three independent same-minute schedules claimed and executed through the scalable collection path. This is a structural scale proof, not a sustained million-execution throughput claim.
+Tests prove pointer distribution, 64 unique minute-shard dispatch tasks, time-bucket catch-up planning, transactional pointer creation, exact target loading without a GSI, infrastructure fan-out/partial-failure contracts, and three independent same-minute schedules claimed and executed through the scalable collection path. Development release `f5491f60671fe8e50064221bc99341f9c1eb3196` and workflow [33292749505](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33292749505) also passed the full repository gate, reset-gated deployed browser acceptance, CloudFormation promotion of the coordinator/shard/occurrence queues, and the live EventBridge/SQS governed-schedule canary. This is structural and low-volume live proof, not a sustained million-execution throughput claim.
