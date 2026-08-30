@@ -8,4 +8,4 @@ Editing a schedule never mutates the meaning under an existing definition number
 
 Pause, resume, and cancel affect lifecycle only. Resume computes the next future occurrence from the current immutable definition. Exact capability, installation, package, program, inputs, permissions, price ceiling, and per-occurrence reauthorization remain unchanged.
 
-This decision covers Phase 5.4's calendar and schedule-edit foundation. ArrayLogic scheduling, downstream result channels, and production load proof remain separate work and must not be inferred from calendar support.
+Ordinary ArrayLogic scheduling and natural lifecycle addressing are specified separately by [decision 0112](0112-scheduled-arraylogic-retains-browser-context-authority.md). Calendar and revisioned edit support do not imply additional result channels or production load proof.
