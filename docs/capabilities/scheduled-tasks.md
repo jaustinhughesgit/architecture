@@ -1,6 +1,6 @@
 # Scheduled Entity Tasks
 
-**Status:** Clean Phase 4F foundation implemented and live-proven in development. Legacy POC behavior remains historical evidence.
+**Status:** Clean Phase 4F foundation implemented and live-proven in development. Phase 5.4 calendar and immutable-edit candidate implemented locally; deployment proof pending. Legacy POC behavior remains historical evidence.
 
 Scheduled tasks make time another way to invoke reusable 1var work. A task targets an entity; the entity remains the unit of behavior, lineage, permissions, and reuse.
 
@@ -32,6 +32,8 @@ This is distinct from an entity's internal `automation` queue. A scheduled task 
 
 ## Known gaps
 
-The clean contract initially supports one-time and fixed-rate triggers with a browser inbox. Development release `46d4f39b8c6b066a983024c4c1681eb605b54bf5` and immutable workflow `33004519407` passed 20 deployed browser scenarios plus a real EventBridge/SQS scheduled Compute mutation. A post-canary private hard reset removed 253 runtime records and 3 generated packages, and a separate inventory observed zero. Calendar rules, edit/version migration, downstream notification/email/entity channels, protected owner-local execution while a browser is absent, ArrayLogic automation scheduling, load proof, and production deployment remain incomplete. The older portal/EventBridge Scheduler implementation is not imported into the clean runtime.
+The clean contract supports one-time and fixed-rate triggers with a browser inbox. The Phase 5.4 candidate adds daily, weekday, weekly, and monthly calendar rules in an exact IANA time zone plus bounded immutable definition history for natural schedule edits. Operational revisions remain separate from definition versions, and every occurrence pins both. Development release `46d4f39b8c6b066a983024c4c1681eb605b54bf5` and immutable workflow `33004519407` passed 20 deployed browser scenarios plus a real EventBridge/SQS scheduled Compute mutation. A post-canary private hard reset removed 253 runtime records and 3 generated packages, and a separate inventory observed zero. Deployment proof for the calendar candidate, downstream notification/email/entity channels, protected owner-local execution while a browser is absent, ArrayLogic automation scheduling, load proof, and production deployment remain incomplete. The older portal/EventBridge Scheduler implementation is not imported into the clean runtime.
+
+See [decision 0111](../../decisions/0111-calendar-schedules-use-zoned-rules-and-immutable-definitions.md).
 
 See [decision 0077](../../decisions/0077-clean-governed-schedules-pin-exact-compute.md).

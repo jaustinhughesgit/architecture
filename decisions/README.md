@@ -122,3 +122,5 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0107: Pre-launch resets advance an external-event cutoff](0107-prelaunch-resets-advance-an-external-event-cutoff.md)
 - [0108: Publisher withdrawals remain reserved through Stripe settlement](0108-publisher-withdrawals-retry-after-settlement.md)
 - [0109: Owner-local files, schedules, and monotonic ArrayLogic](0109-owner-local-files-schedules-and-monotonic-arraylogic.md)
+- [0110: Advanced execution is signed, exact, and explicitly reversible](0110-advanced-execution-is-signed-exact-and-explicitly-reversible.md)
+- [0111: Calendar schedules use zoned rules and immutable definitions](0111-calendar-schedules-use-zoned-rules-and-immutable-definitions.md)
