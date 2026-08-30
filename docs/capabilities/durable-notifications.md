@@ -1,6 +1,6 @@
 # Durable Notifications and Email Fallback
 
-**Status:** Implemented foundation; deployment and cross-browser acceptance pending
+**Status:** Implemented candidate in `onevar-platform`; deployment and cross-browser acceptance pending
 
 Notifications are persistent interaction records, not transient alerts. The authenticated recipient's browser polls a generic inbox, renders supported records in the interaction rail, and acknowledges only records a trusted surface accepted. Acknowledgement means delivery; it does not resolve an approval request. Requests remain available across reloads until approved or denied. Informational confirmations remain until dismissed.
 
@@ -10,11 +10,11 @@ Every email-eligible notification enters a delayed SQS queue for one minute. If 
 
 The account record continues to store only the email hash. Email verification also stages the normalized address as KMS ciphertext in a dedicated contact table; the ciphertext becomes active only when the same hash is verified. Reminder processing decrypts it only inside the SES delivery boundary and observes global bounce/suppression records. Existing verified accounts cannot be backfilled from a hash and must verify again before fallback email is available.
 
-The v1 executable boundary is [notification lifecycle](../../contracts/notification-lifecycle.v1.schema.json). Future notification kinds must add a bounded payload schema; arbitrary HTML, text, URLs, and client-authored recipient publication are not accepted.
+The clean v1 executable boundary is the strict communications contract in `onevar-platform/packages/contracts/src/communications.ts`; the earlier architecture schema remains historical design evidence. Future notification kinds must add a bounded payload schema; arbitrary HTML, text, URLs, and client-authored recipient publication are not accepted. See [decision 0115](../../decisions/0115-durable-notifications-precede-generic-email.md).
 
 ## Remaining work
 
 - Deployed two-user approval, denial, reload, suppression, bounce, and SQS/DLQ acceptance.
 - Semantic discovery of a requestable protected fact when a requester does not already hold its opaque reference.
 - Device/key rotation and multi-device rewrap UX.
-- Rate limits, abuse reporting, organization approval queues, and push transport beyond polling.
+- Organization approval queues and push transport beyond the existing four-mode sync plane.

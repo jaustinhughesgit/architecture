@@ -188,7 +188,7 @@ The browser also includes sound production and analysis and real-time audio/vide
 
 ### Identity and communication
 
-Account bootstrap, email verification, device-key enrollment, WebAuthn, protected assets, and email entity addresses connect identity to governed interaction. Enrollment is not the same as assertion-time hardware authorization, and anti-spam code is not by itself proof of deployed email compliance. See [identity and encryption](capabilities/identity-encryption.md) and [the email platform](capabilities/email-platform.md).
+Account bootstrap, email verification, device-key enrollment, WebAuthn, protected assets, and email entity addresses connect identity to governed interaction. Enrollment is not the same as assertion-time hardware authorization, and anti-spam code is not by itself proof of deployed email compliance. Durable notification delivery is also distinct from protected approval: the inbox and generic fallback may identify an exact request but cannot decide it or carry protected content. See [identity and encryption](capabilities/identity-encryption.md), [durable notifications](capabilities/durable-notifications.md), and [the email platform](capabilities/email-platform.md).
 
 ### Mindsets, thoughts, and moods
 
