@@ -125,3 +125,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0110: Advanced execution is signed, exact, and explicitly reversible](0110-advanced-execution-is-signed-exact-and-explicitly-reversible.md)
 - [0111: Calendar schedules use zoned rules and immutable definitions](0111-calendar-schedules-use-zoned-rules-and-immutable-definitions.md)
 - [0112: Scheduled ArrayLogic retains browser Context authority](0112-scheduled-arraylogic-retains-browser-context-authority.md)
+- [0113: Time-bucketed due pointers scale schedule dispatch](0113-time-bucketed-due-pointers-scale-schedule-dispatch.md)
