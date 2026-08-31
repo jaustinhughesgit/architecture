@@ -1,6 +1,6 @@
 # Sunburst context projection and marketplace templates
 
-**Status:** Partial — source foundation implemented. The clean-platform source has automated contract, runtime, browser component/unit, repository, and API-service proof. It does not yet have thin or deployed browser proof, durable activation and acknowledgement, live category-aware ContextDB selection, employer/group authority, topic/facet Position integration, or the complete shared-marketplace lifecycle.
+**Status:** Partial — development foundation deployed. The clean platform has automated contract, runtime, browser component/unit, local Chromium, repository, and API-service proof. Development workflow [33362677833](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33362677833) deployed exact release `4ef01a7a36e0e8816c61b044f2be69bf7dfa09a4` after the complete repository gate passed. It does not yet have authenticated deployed Sunburst interaction proof, durable activation and acknowledgement, live category-aware ContextDB selection, employer/group authority, topic/facet Position integration, or the complete shared-marketplace lifecycle.
 
 ## Purpose
 
@@ -150,7 +150,7 @@ The feature should be implemented as a removable, versioned subsystem with share
 
 ## Clean-platform implementation snapshot
 
-`onevar-platform` source now contains the strict shared contracts, deterministic resolver and authorized 100/10/100/100 selector over prepartitioned candidate buckets, trusted 20-by-5 browser renderer, gesture/editor/widget and neutral input-tint integration, browser-local active/recent cache, immutable overlay materialization, typed marketplace command/API clients, local signature and package verification, immutable S3 artifact store, metadata-only Dynamo repository, signed publication, exact zero-cost owner installation, paid buyer installation, search, upgrade, package fetch, cursor paging, exact `listingId` lookup, and an active pointer carrying release and package identity for constant-time same-account hydration. Automated tests prove these source boundaries; they are not evidence that the release is deployed or live-proven in a browser.
+`onevar-platform` now contains the strict shared contracts, deterministic resolver and authorized 100/10/100/100 selector over prepartitioned candidate buckets, trusted 20-by-5 browser renderer, gesture/editor/widget and neutral input-tint integration, browser-local active/recent cache, immutable overlay materialization, typed marketplace command/API clients, local signature and package verification, immutable S3 artifact store, metadata-only Dynamo repository, signed publication, exact zero-cost owner installation, paid buyer installation, search, upgrade, package fetch, cursor paging, exact `listingId` lookup, and an active pointer carrying release and package identity for constant-time same-account hydration. Automated tests prove these boundaries, and workflow `33362677833` proves deployment of exact release `4ef01a7`; neither is a substitute for authenticated deployed Sunburst interaction proof.
 
 The current authenticated API surface is:
 
