@@ -10,7 +10,7 @@ The current baseline uses twenty fixed rainbow slots. A ray is a user-facing cat
 
 ## Permanent 1var system ray
 
-Ray zero, fixed at the top and colored purple, is reserved for 1var. The trusted application shell injects it outside every marketplace template. A user, employer, publisher, template, overlay, or Compute entity cannot remove, hide, reorder, recolor, replace, or impersonate it.
+Ray zero, initially aligned at the top and colored purple, is reserved for 1var. The trusted application shell injects it outside every marketplace template. A user, employer, publisher, template, overlay, or Compute entity cannot remove, hide, reorder, recolor, replace, or impersonate it. The complete wheel may rotate, so screen-top is the current selection coordinate rather than a permanent physical location for slot zero.
 
 The system ray is the stable route for:
 
@@ -114,7 +114,9 @@ An entity can consequently appear green under an Individual Transportation lens,
 ## Gesture and widget behavior
 
 - **Default:** show a compact Sunburst on the right while the four-button slider is retracted.
-- **Wheel surface:** a one-percent-opacity black circular grabber sits behind the burst. Circular movement beginning on that surface or through any pointer-transparent activity dot rotates through fixed slots and selects the exact category for the next input.
+- **Wheel surface:** a one-percent-opacity black circular grabber sits behind the burst. Circular movement beginning on that surface or through any pointer-transparent activity dot rotates the complete wheel.
+- **Top-ray selection:** the ray nearest twelve o'clock is the exact preview/selection source. Its fixed slot color drives the center, while a temporary white-on-dark pill above the burst names that group only during active spin motion.
+- **Release:** commit the same top ray, preserve the nearest equivalent exact wheel rotation, and remove the pill without resetting the wheel or flashing the prior group.
 - **Activity dots:** display category, widget, and activity state only; they do not own clicks, action drags, keyboard-button behavior, identity, or authority.
 - **Center control:** the larger `1var` logo circle adopts the previewed or selected group color and is the only action surface.
 - **Center tap:** open the full widget-style dashboard.
@@ -193,6 +195,6 @@ Paid installation and upgrade use a durable, mutually exclusive saga receipt. Th
 - Switching among Individual, employer, and custom templates reprojects the same exact entities without a model call.
 - An employer grant installs one shared package, supports a governed overlay, and revokes or upgrades without scanning all users.
 - Thousands of installed template records do not require loading thousands of packages at startup.
-- A marketplace template cannot alter, cover, reorder, recolor, or impersonate the top purple 1var system ray.
+- A marketplace template cannot alter, cover, reorder, recolor, or impersonate the purple logical-slot-zero 1var system ray; wheel rotation may move that ray away from the screen-top selection coordinate.
 - Category selection changes neither protected-data handling nor any action-specific grant.
 - Protected values, another user's placements, and notification contents never enter public template packages or Position documents.
