@@ -6,7 +6,22 @@
 
 The 1var sunburst is a compact projection of the user's changing world. Its colored rays group applications, entities, communications, completed work, data use, financial changes, alerts, access attempts, connection requests, and other activations without reducing that world to one notification count.
 
-The current baseline uses twenty fixed rainbow slots. A ray is a user-facing category lens, not a canonical ontology partition. The trusted renderer owns slot colors; templates and local customization move topic occupants between those colors. Each visible category has one transparent placeholder dot, and additional full-color dots exist only for projected widgets. Dot size communicates bounded local activity: `1–3` small, `4–19` medium, and `20+` large. No presentation field changes entity identity, facts, permissions, or execution authority.
+The current baseline uses the original twenty-color 1var palette: `#735099`, `#8a3b8e`, `#a7328a`, `#cb3089`, `#da3278`, `#dd5163`, `#e57d48`, `#efaa42`, `#e5bf47`, `#cad050`, `#9dc555`, `#6eb557`, `#37ab74`, `#1fac96`, `#18b0b9`, `#08b4d7`, `#0faadf`, `#3296d0`, `#3e80be`, and `#5766a9`. These are fixed rainbow slots, not editable topic properties. A ray is a user-facing category lens, not a canonical ontology partition. The trusted renderer owns slot colors; templates and local customization move topic occupants between those colors. Each visible category has one transparent placeholder dot, and additional full-color dots exist only for projected widgets. Dot size communicates bounded local activity: `1–3` small, `4–19` medium, and `20+` large. No presentation field changes entity identity, facts, permissions, or execution authority.
+
+## Sunburst, ray-group, and widget-entity hierarchy
+
+```text
+Sunburst presentation entity/package
+  -> twenty fixed-color ray-group entities
+       -> one widget-space page per ray group
+            -> five projectable entity positions
+```
+
+A widget position contains an entity reference, not arbitrary page-specific JSON. The referenced entity may be an application or calculator, an ordinary or shared document, a chart, a schedule, a notification/control entity, or another authorized projectable entity kind. The ray-group entity owns the ordered collection of at most five references for that installed Sunburst. Its widget page is the visual projection of that exact group and collection; it is not one global dashboard filtered after opening.
+
+A Sunburst is the distributable collection of those groups. Personal and work lenses can cover broad worlds, while an employer or product publisher can distribute a focused world such as an Apple employee Sunburst or a game composed of capabilities across several groups. Installing or switching a Sunburst changes the presentation collection and its placements without copying the referenced entities, changing their grants, or changing their canonical identity.
+
+**Partial:** the current browser proves twenty separately selectable group pages, five positions per page, app-backed local entity projections, trusted system controls, group-colored surfaces, and blank positions. The v1 package has exact category entity IDs and projectable-reference contracts, but does not yet persist an ordered five-reference collection for every ray-group entity across devices or populate every projectable entity kind.
 
 ## Permanent 1var system ray
 
@@ -119,13 +134,13 @@ An entity can consequently appear green under an Individual Transportation lens,
 - **Release:** commit the same top ray, preserve the nearest equivalent exact wheel rotation, and remove the pill without resetting the wheel or flashing the prior group.
 - **Activity dots:** display category, widget, and activity state only; they do not own clicks, action drags, keyboard-button behavior, identity, or authority.
 - **Center control:** the larger `1var` logo circle adopts the previewed or selected group color and is the only action surface.
-- **Center tap:** open the full widget-style dashboard.
+- **Center tap:** open the selected top ray's widget-space page. There are twenty independently selectable pages, including the trusted 1var group, and each page contains exactly five entity positions.
 - **Center stationary hold:** speak a request to customize the installed template or its permitted user overlay.
 - **Center drag left:** retract the ray dots, open the input, and transition the right-side control into the four-button slider with Essence button 2 at its center.
 - **Close or ephemeral submit:** animate back to the Sunburst.
 - **Center drag up:** open the full Sunburst management surface. This is where the person edits the active draft, retains and swaps ray groups through the identity-level bank, browses installed templates, searches the signed Sunburst marketplace, and reviews create/publish/install/activate operations.
 
-The widget surface is a full-page, scrollable responsive grid. It renders five baseline square or rectangular cards: exact app-backed widgets first and blank placeholders for unused positions. A filtered category may show the same entity that appears under another category. An unfiltered view should normally render one primary tile with secondary-category indicators to avoid visual duplication. The current browser records exact app focus as a bounded local widget/activity projection; a durable cross-device activation feed does not yet populate this behavior cross-layer.
+The widget surface is a full-page, scrollable responsive grid for one exact ray-group entity. Its header is the ray-group name—never the template name or a generic `Sunburst` title. Its border uses the fixed ray-slot color and its dark background carries a transparent tint of that same color. It renders five baseline square or rectangular entity cards: exact app-backed widgets first and blank placeholders for unused positions. The cards use the same group color for their borders and transparent tint. The same entity may be referenced from more than one group without being copied. The current browser records exact app focus as a bounded local widget/activity projection; a durable ordered five-entity group record and cross-device activation feed do not yet populate this behavior cross-layer.
 
 ## Input and app presentation
 
