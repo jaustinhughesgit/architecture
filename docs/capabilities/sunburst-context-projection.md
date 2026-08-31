@@ -114,12 +114,14 @@ An entity can consequently appear green under an Individual Transportation lens,
 ## Gesture and widget behavior
 
 - **Default:** show a compact Sunburst on the right while the four-button slider is retracted.
-- **Circular spin:** rotate through fixed slots and select the exact category for the next input.
-- **Tap:** open the full widget-style dashboard.
-- **Stationary hold:** speak a request to customize the installed template or its permitted user overlay.
-- **Drag left:** retract the ray dots, open the input, and transition the right-side control into the four-button slider with Essence button 2 at its center.
+- **Wheel surface:** a one-percent-opacity black circular grabber sits behind the burst. Circular movement beginning on that surface or through any pointer-transparent activity dot rotates through fixed slots and selects the exact category for the next input.
+- **Activity dots:** display category, widget, and activity state only; they do not own clicks, action drags, keyboard-button behavior, identity, or authority.
+- **Center control:** the larger `1var` logo circle adopts the previewed or selected group color and is the only action surface.
+- **Center tap:** open the full widget-style dashboard.
+- **Center stationary hold:** speak a request to customize the installed template or its permitted user overlay.
+- **Center drag left:** retract the ray dots, open the input, and transition the right-side control into the four-button slider with Essence button 2 at its center.
 - **Close or ephemeral submit:** animate back to the Sunburst.
-- **Drag up:** open the full widget dashboard.
+- **Center drag up:** open the full widget dashboard.
 
 The widget surface is a full-page, scrollable responsive grid. It renders five baseline square or rectangular cards: exact app-backed widgets first and blank placeholders for unused positions. A filtered category may show the same entity that appears under another category. An unfiltered view should normally render one primary tile with secondary-category indicators to avoid visual duplication. The current browser records exact app focus as a bounded local widget/activity projection; a durable cross-device activation feed does not yet populate this behavior cross-layer.
 

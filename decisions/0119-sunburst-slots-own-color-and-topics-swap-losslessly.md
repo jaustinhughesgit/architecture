@@ -14,7 +14,7 @@ The visible Sunburst is bounded and the topic bank is conceptually unbounded. A 
 
 Every visible category renders one transparent placeholder dot. Additional dots exist only for projected widgets. Dot size represents bounded activity counts: `1–3`, `4–19`, and `20+`; zero remains transparent. The responsive widget page always offers five baseline cards or placeholders and can scroll as widgets grow.
 
-The compact Sunburst is the default right-side control. Circular motion selects a category, upward drag opens the widget dashboard, and left drag transitions into the existing four-button slider and input with Essence button 2 at its center. Closing or submitting the ephemeral input returns to the Sunburst. These gestures emit typed interaction intents and cannot modify trust lanes or grants.
+The compact Sunburst is the default right-side control. A one-percent-opacity black circle behind the complete burst is the wheel grabber. Circular motion beginning on the grabber or through a pointer-transparent activity dot selects a category. The larger center `1var` circle adopts the selected slot color and is the only action surface: tapping or dragging it upward opens the widget dashboard, stationary hold customizes the selected group, and dragging it left transitions into the existing four-button slider and Essence input. Activity dots own no click, action-drag, or keyboard-button behavior. Closing or submitting the ephemeral input returns to the Sunburst. These gestures emit typed interaction intents and cannot modify trust lanes or grants.
 
 The current bank, active assignment overlay, widget list, and activity counts are identity-scoped browser-local projections. The durable design must use bounded records and cursor paging. It must not create one DynamoDB table per topic or one unbounded account record.
 
@@ -23,5 +23,6 @@ The current bank, active assignment overlay, widget list, and activity counts ar
 - Categories can be replaced or restored without losing prior work.
 - The rainbow retains stable spatial meaning even when template topics differ.
 - Widget/activity visuals correspond to real projections instead of a decorative one-hundred-dot matrix.
+- Display state and action controls cannot be mistaken for one another; dots remain information while the center and grabber have separate typed gesture ownership.
 - Cross-device bank and activation recovery remain an explicit later persistence boundary.
 - Color, dot size, focus, and bank membership never grant authority or become entity identity.
