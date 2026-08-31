@@ -1,6 +1,6 @@
 # Sunburst context projection and marketplace templates
 
-**Status:** Partial — development foundation deployed, with the fixed-slot control and browser-local widget projection implemented in source. The clean platform has automated contract, runtime, browser component/unit, local Chromium, repository, and API-service proof. Authenticated deployed proof of the new control, durable activation and acknowledgement, cross-device topic-bank/widget state, live category-aware ContextDB selection, employer/group authority, topic/facet Position integration, and the complete shared-marketplace lifecycle remain pending.
+**Status:** Partial — development foundation deployed, with the fixed-slot control and browser-local widget projection proven on the development release. The clean platform has automated contract, runtime, browser component/unit, local Chromium, repository, API-service, and deployed default-browser presentation proof. Authenticated signed-package interaction, durable activation and acknowledgement, cross-device topic-bank/widget state, live category-aware ContextDB selection, employer/group authority, topic/facet Position integration, and the complete shared-marketplace lifecycle remain pending.
 
 ## Purpose
 
@@ -174,6 +174,10 @@ The current authenticated API surface is:
 The cryptographic envelope check is intentionally product-neutral: `verifyMarketplaceReleaseAttestation` validates the canonical payload hash, active pinned trust root, key identity, algorithm, and P-256 signature for any payload that its caller has already strictly parsed. App and Sunburst callers must still apply their own schemas, review state, compatibility, provenance, package, license, and authority checks. A valid marketplace signature alone does not admit a product.
 
 The current server intentionally accepts marketplace installation authority only. It rejects arbitrary built-in, fork, and employer pointers. Employer/group delivery, durable activation records and acknowledgement, live category-aware ContextDB candidate retrieval, and topic/facet Position integration remain explicit later gates. Documentation must not describe those later gates as deployed merely because their contracts or pure rules exist.
+
+## Development release evidence
+
+Release `1bab807c3eb97e80b64ea50049bdcf7c48ae6afa` reached the development CloudFront site through immutable GitHub Actions run `33367354061`. The complete local browser matrix passed with 30 tests and 10 environment-gated skips. A post-deployment Chromium inspection of a fresh entity measured the default Sunburst mode with no open composer, a 192-pixel control at an 8-pixel right inset, twenty transparent category placeholders, and a scrollable dashboard containing five placeholder cards. This is deployed default-browser presentation proof; authenticated signed-template delivery, durable activation, and cross-device bank/widget recovery remain unproven.
 
 Paid installation and upgrade use a durable, mutually exclusive saga receipt. The exact idempotency key can resolve to a successful installation receipt or to terminal rollback evidence, never both. A retry of terminal rollback evidence completes any interrupted idempotent compensation and remains failed; only a new idempotency key may begin another charged attempt. Publishers may always install, activate, and upgrade their own exact approved release at zero price even while a private or staged rollout excludes buyers.
 
