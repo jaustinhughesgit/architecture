@@ -182,6 +182,8 @@ The feature should be implemented as a removable, versioned subsystem with share
 
 The current local attention slice uses strict content-free events, exact-subject aggregates, retry deduplication, weighted severity, unresolved state, and read-time decay. It projects app creation, focused-app improvement, and committed focused-app effects. Opening or focusing only registers a widget and never changes attention. Durable cross-device event projection from schedules, communications, requests, security, billing, and provider subsystems remains Partial.
 
+Development release `b4267bcc2c1c5b2e1b3340cbc098310281fd3e54` was promoted by immutable GitHub Actions run `33440205828` without resetting test state after CI run `33439483841` passed. The release proves the browser-local meaningful-event boundary and its zero-attention navigation behavior; it does not upgrade the remaining durable cross-device adapters or acknowledgement lifecycle from Partial.
+
 The current authenticated API surface is:
 
 - `POST /api/v1/marketplace/sunbursts` for publication;
