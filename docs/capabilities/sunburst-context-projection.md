@@ -1,12 +1,12 @@
 # Sunburst context projection and marketplace templates
 
-**Status:** Partial — development foundation deployed. The clean platform has automated contract, runtime, browser component/unit, local Chromium, repository, and API-service proof. Development workflow [33362677833](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33362677833) deployed exact release `4ef01a7a36e0e8816c61b044f2be69bf7dfa09a4` after the complete repository gate passed. It does not yet have authenticated deployed Sunburst interaction proof, durable activation and acknowledgement, live category-aware ContextDB selection, employer/group authority, topic/facet Position integration, or the complete shared-marketplace lifecycle.
+**Status:** Partial — development foundation deployed, with the fixed-slot control and browser-local widget projection implemented in source. The clean platform has automated contract, runtime, browser component/unit, local Chromium, repository, and API-service proof. Authenticated deployed proof of the new control, durable activation and acknowledgement, cross-device topic-bank/widget state, live category-aware ContextDB selection, employer/group authority, topic/facet Position integration, and the complete shared-marketplace lifecycle remain pending.
 
 ## Purpose
 
 The 1var sunburst is a compact projection of the user's changing world. Its colored rays group applications, entities, communications, completed work, data use, financial changes, alerts, access attempts, connection requests, and other activations without reducing that world to one notification count.
 
-The intended baseline preserves the legacy visual idea of five circles along each of twenty rays, for 100 independently activatable circles. A ray is a user-facing category lens, not a canonical ontology partition. Current v1 templates may change category meanings and color tokens. Package-controlled widget layout or animation is target behavior that requires a later reviewed schema version and compatibility rules. No presentation field changes entity identity, facts, permissions, or execution authority.
+The current baseline uses twenty fixed rainbow slots. A ray is a user-facing category lens, not a canonical ontology partition. The trusted renderer owns slot colors; templates and local customization move topic occupants between those colors. Each visible category has one transparent placeholder dot, and additional full-color dots exist only for projected widgets. Dot size communicates bounded local activity: `1–3` small, `4–19` medium, and `20+` large. No presentation field changes entity identity, facts, permissions, or execution authority.
 
 ## Permanent 1var system ray
 
@@ -45,7 +45,7 @@ Each account keeps three separate concepts:
 
 1. **Semantic memberships:** the many topics and facets associated with an exact entity or activation, with provenance.
 2. **Home category:** the user's default ray for presenting that entity under one installed template.
-3. **Interaction category:** the temporary ray selected by focus, navigation, or an explicit vertical drag for the current input or activation.
+3. **Interaction category:** the temporary ray selected by focus, navigation, or an explicit wheel spin for the current input or activation. Legacy `vertical_drag` provenance remains readable for prior records.
 
 The same entity may project into several category views without being copied. A single activation may have one primary and several secondary category projections. Several rays may animate with different emphasis, but one exact activation ID owns acknowledgement, so reading it in one view clears it everywhere.
 
@@ -77,13 +77,19 @@ The target immutable template package contains:
 
 - exact template ID, release, schema, compatibility, publisher, and provenance;
 - nineteen template-controlled ray definitions and stable category IDs;
-- color tokens, animation parameters, and the widget layout;
+- fixed slot assignments, animation policy references, and widget-layout policy;
 - topic/facet lens rules and a neutral category;
 - default focus and presentation policies;
 - optional references to reviewed customization capabilities;
 - bounded employer policy declarations.
 
-The current v1 payload implements the template identity and metadata plus nineteen exact ray/category/color/lens definitions. Animation parameters, widget layout, default focus/presentation policy, customization-capability references, and employer policy declarations remain target fields rather than accepted v1 package bytes.
+The current v1 payload implements the template identity and metadata plus nineteen exact ray/category/color/lens definitions. Color fields remain parseable for package compatibility, but the renderer selects the trusted fixed slot color. Animation parameters, package-controlled widget layout, default focus/presentation policy, customization-capability references, and employer policy declarations remain target fields rather than accepted v1 package bytes.
+
+## Active slots and topic bank
+
+The twenty visible slots are bounded; the user's inactive topic bank is conceptually unbounded. A lossless swap moves a selected bank topic into an editable slot and moves the displaced occupant into the bank. It changes the active presentation lens only. It cannot delete a topic or widget, recolor a slot, change an entity, or grant authority. The trusted `system.1var` slot never participates.
+
+The current implementation stores active assignments, the bank, widget projections, and activity counts in identity-scoped browser storage. Publishing freezes the active slot assignments into an immutable user-owned package while excluding the bank and local activation history. Cross-device recovery and cursor-paged canonical bank storage remain pending; an implementation must not use one DynamoDB table per topic or one unbounded account item.
 
 The package never contains the trusted purple system ray. Full immutable packages belong in the object/package plane and are addressed by content hash. In the target lifecycle, DynamoDB retains compact canonical release, listing, grant, installation, active-pointer, overlay, lifecycle, and routing records. The current slice stores the bounded release/listing/license/installation/transaction/library/active-pointer subset. Position postings remain derived and rebuildable.
 
@@ -107,12 +113,15 @@ An entity can consequently appear green under an Individual Transportation lens,
 
 ## Gesture and widget behavior
 
-- **Tap:** open the widget-style page containing the activations and micro-app projections relevant to the current template.
+- **Default:** show a compact Sunburst on the right while the four-button slider is retracted.
+- **Circular spin:** rotate through fixed slots and select the exact category for the next input.
+- **Tap:** open the full widget-style dashboard.
 - **Stationary hold:** speak a request to customize the installed template or its permitted user overlay.
-- **Drag left:** open the visual sunburst editor.
-- **Drag up or down:** move through category colors; release to lock the interaction category for the current input.
+- **Drag left:** retract the ray dots, open the input, and transition the right-side control into the four-button slider with Essence button 2 at its center.
+- **Close or ephemeral submit:** animate back to the Sunburst.
+- **Drag up:** open the full widget dashboard.
 
-The intended activation-backed widget surface filters and ranks exact entity and activation IDs through the active template. A filtered category may show the same entity that appears under another category. An unfiltered view should normally render one primary tile with secondary-category indicators to avoid visual duplication. The current browser component renders the widget surface, but a durable activation feed does not yet populate this behavior cross-layer.
+The widget surface is a full-page, scrollable responsive grid. It renders five baseline square or rectangular cards: exact app-backed widgets first and blank placeholders for unused positions. A filtered category may show the same entity that appears under another category. An unfiltered view should normally render one primary tile with secondary-category indicators to avoid visual duplication. The current browser records exact app focus as a bounded local widget/activity projection; a durable cross-device activation feed does not yet populate this behavior cross-layer.
 
 ## Input and app presentation
 
@@ -150,7 +159,7 @@ The feature should be implemented as a removable, versioned subsystem with share
 
 ## Clean-platform implementation snapshot
 
-`onevar-platform` now contains the strict shared contracts, deterministic resolver and authorized 100/10/100/100 selector over prepartitioned candidate buckets, trusted 20-by-5 browser renderer, gesture/editor/widget and neutral input-tint integration, browser-local active/recent cache, immutable overlay materialization, typed marketplace command/API clients, local signature and package verification, immutable S3 artifact store, metadata-only Dynamo repository, signed publication, exact zero-cost owner installation, paid buyer installation, search, upgrade, package fetch, cursor paging, exact `listingId` lookup, and an active pointer carrying release and package identity for constant-time same-account hydration. Automated tests prove these boundaries, and workflow `33362677833` proves deployment of exact release `4ef01a7`; neither is a substitute for authenticated deployed Sunburst interaction proof.
+`onevar-platform` now contains the strict shared contracts, deterministic resolver and authorized 100/10/100/100 selector over prepartitioned candidate buckets, trusted fixed-slot browser renderer, Sunburst/slider transition, wheel gesture, full dashboard, lossless local bank, activity-sized widget dots and neutral input-tint integration, browser-local active/recent cache, immutable active-assignment materialization, typed marketplace command/API clients, local signature and package verification, immutable S3 artifact store, metadata-only Dynamo repository, signed publication, exact zero-cost owner installation, paid buyer installation, search, upgrade, package fetch, cursor paging, exact `listingId` lookup, and an active pointer carrying release and package identity for constant-time same-account hydration. Automated tests prove these source boundaries; they are not a substitute for authenticated deployed Sunburst interaction proof.
 
 The current authenticated API surface is:
 
