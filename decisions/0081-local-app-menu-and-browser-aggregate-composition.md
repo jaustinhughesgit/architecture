@@ -8,7 +8,7 @@ Represent an app as immutable bundle releases and a user's access to it as a sep
 
 Resolution is ordered: existing exact Path; matching open-app entities; the rest of the user's active menu; authorized global discovery. Focused ContextDB entity IDs may break an otherwise-equal lexical tie only after ownership and semantic compatibility are proved. Opening a view and invoking a capability are separate intents.
 
-Repeated plain Convert builds may create different immutable capability IDs and model-generated property vocabulary for one unchanged request. An equal-scoring tie is resolved by most recent registration or explicit open only when every tied candidate is a root-only app built and owned by that same local user and either its normalized contract matches or substantial locally retained Convert requirements prove the same repeated authoring request. Releases remain immutable and inspectable. Different publishers, marketplace installations, unrelated requests, supporting entities, or ArrayLogic compositions continue to fail closed as real ambiguity.
+Repeated plain Convert builds may create different immutable capability IDs and model-generated property vocabulary for one unchanged request. Equivalent owner-built root-only builds now advance one stable app lineage and one active menu projection while retaining each immutable package and bundle release. Different publishers, marketplace installations, unrelated requests, supporting entities, or ArrayLogic compositions continue to fail closed as real ambiguity. [Decision 0121](0121-equivalent-owner-convert-builds-advance-one-app-lineage.md) refines the original most-recent tie-break into this explicit version lifecycle.
 
 Natural app-surface commands are recognized before a currently selected Convert lane decorates text. `menu`, `open`, and inspection commands remain local navigation even when Convert is visible; an explicit `convert:` prefix remains capability authoring.
 
@@ -27,7 +27,7 @@ Focused composition does not require a builder to invoke a new root capability f
 - Removing a menu entry does not delete source entities or history.
 - App-authored analytics replace fixed platform analytics.
 - Builders can extend an app immediately after Convert without a synthetic first execution.
-- Persistent users can repeat an equivalent plain Convert build without resetting local state or manually opening one of several indistinguishable roots.
+- Persistent users can repeat an equivalent plain Convert build without resetting local state; the existing app advances to a new immutable bundle version instead of adding an indistinguishable active root.
 - Marketplace apps, unrelated authoring requests, and composed apps do not inherit this convenience tie-break.
 - Cross-device menu synchronization and direct collaborative write grants need independent authorized transport contracts.
 
