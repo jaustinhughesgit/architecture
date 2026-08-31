@@ -126,3 +126,8 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0111: Calendar schedules use zoned rules and immutable definitions](0111-calendar-schedules-use-zoned-rules-and-immutable-definitions.md)
 - [0112: Scheduled ArrayLogic retains browser Context authority](0112-scheduled-arraylogic-retains-browser-context-authority.md)
 - [0113: Time-bucketed due pointers scale schedule dispatch](0113-time-bucketed-due-pointers-scale-schedule-dispatch.md)
+- [0114: Ordinary artifacts separate bytes, authority, and execution](0114-ordinary-artifacts-separate-bytes-authority-and-execution.md)
+- [0115: Durable notifications precede generic email fallback](0115-durable-notifications-precede-generic-email.md)
+- [0116: Authorized referent positioning ranks complete paths before asking](0116-authorized-referent-positioning-ranks-complete-paths.md)
+- [0117: Consent-governed email fallback fails closed](0117-consent-governed-email-fallback-fails-closed.md)
+- [0118: Sunbursts are marketplace lenses with a trusted system ray](0118-sunbursts-are-marketplace-lenses-with-a-trusted-system-ray.md)

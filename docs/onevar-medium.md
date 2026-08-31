@@ -112,6 +112,8 @@ Supporting components give entities their platform behavior:
 - **Access grants** govern permitted actions.
 - **Entity bundles** contain data, JPL, functions, menus, commands, calls, automations, templates, assignments, and presentation definitions.
 
+**Partial:** the dynamic sunburst is one such presentation entity. The target lifecycle distributes signed Sunburst templates through the existing entity marketplace and maps many semantic facets into interchangeable user or employer category lenses without copying or reclassifying underlying entities. The current source uses a strict Sunburst-specific marketplace family while reusing shared publisher, billing, signing-root, and attestation primitives; a fully unified entity-marketplace lifecycle is still pending. One account may retain thousands of installations while loading only active or recent immutable packages. The trusted shell permanently owns the top purple 1var ray for communications, settings, governance, security, billing, device, sync, status, and support; no template or overlay can replace it. Source tests cover the immutable signed package and browser switching modules, but not deployed browser behavior, durable activation feeds, employer group authority, or topic/facet Position integration. See [Sunburst context projection](capabilities/sunburst-context-projection.md).
+
 The general composition primitives `map`, `extend`, `link`, `use`, and `substitute` allow entities and capabilities to be combined without copying or hard-coding one business domain into the platform.
 
 ## Entity middleware

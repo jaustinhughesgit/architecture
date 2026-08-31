@@ -1,0 +1,181 @@
+# Sunburst context projection and marketplace templates
+
+**Status:** Partial — source foundation implemented. The clean-platform source has automated contract, runtime, browser component/unit, repository, and API-service proof. It does not yet have thin or deployed browser proof, durable activation and acknowledgement, live category-aware ContextDB selection, employer/group authority, topic/facet Position integration, or the complete shared-marketplace lifecycle.
+
+## Purpose
+
+The 1var sunburst is a compact projection of the user's changing world. Its colored rays group applications, entities, communications, completed work, data use, financial changes, alerts, access attempts, connection requests, and other activations without reducing that world to one notification count.
+
+The intended baseline preserves the legacy visual idea of five circles along each of twenty rays, for 100 independently activatable circles. A ray is a user-facing category lens, not a canonical ontology partition. Current v1 templates may change category meanings and color tokens. Package-controlled widget layout or animation is target behavior that requires a later reviewed schema version and compatibility rules. No presentation field changes entity identity, facts, permissions, or execution authority.
+
+## Permanent 1var system ray
+
+Ray zero, fixed at the top and colored purple, is reserved for 1var. The trusted application shell injects it outside every marketplace template. A user, employer, publisher, template, overlay, or Compute entity cannot remove, hide, reorder, recolor, replace, or impersonate it.
+
+The system ray is the stable route for:
+
+- 1var communications and important platform announcements;
+- account, settings, sync, device, and passkey controls;
+- permissions, protected-data requests, and failed-access evidence;
+- credits, billing, marketplace installation, and publisher controls;
+- platform status, updates, support, and other trusted 1var operations.
+
+Tapping the ray opens the 1var control center. Holding it may open voice control for the same bounded settings and commands. Users may acknowledge events and govern eligible notification preferences, but cannot remove the ray. Template validation reserves its exact category ID, position, and color token and rejects any collision.
+
+## Semantic membership is not color
+
+An entity may have many simultaneous semantic facets. Useful facets include domain, activity, object, purpose, life or organizational context, and capability type. For example:
+
+```text
+"I went to school for biology"
+  activity: education
+  subject: biology
+  context: personal history
+
+car-wash capability
+  domain: transportation
+  activity: vehicle care
+  capability type: service
+  context: personal or fleet operations
+```
+
+Education and biology are therefore not competing single classifications. Exact graph relations remain canonical evidence. Topic and facet Position documents are derived candidates. Explicit user classification is a governed user preference. No embedding or color becomes an entity identity.
+
+Each account keeps three separate concepts:
+
+1. **Semantic memberships:** the many topics and facets associated with an exact entity or activation, with provenance.
+2. **Home category:** the user's default ray for presenting that entity under one installed template.
+3. **Interaction category:** the temporary ray selected by focus, navigation, or an explicit vertical drag for the current input or activation.
+
+The same entity may project into several category views without being copied. A single activation may have one primary and several secondary category projections. Several rays may animate with different emphasis, but one exact activation ID owns acknowledgement, so reading it in one view clears it everywhere.
+
+## Placement and correction
+
+The category resolver ranks evidence in this order:
+
+1. explicit session category selected by the user;
+2. an exact user placement or correction for the active template;
+3. the focused app and its exact installed entities;
+4. exact ContextDB relations matching a category lens;
+5. an employer overlay where its governed policy applies;
+6. publisher-declared ordinary topic metadata;
+7. the versioned shared topic/facet catalog;
+8. bounded lexical and Position candidates;
+9. an LLM proposal only for unresolved ambiguity, constrained to supplied exact candidates.
+
+Authority and classification remain separate. A focus, category, embedding, model result, employer template, or presentation placement grants no entity action.
+
+If a new item has no reasonable category, it enters the template's neutral `new.unsorted` category. The platform does not silently create a permanent category for one entity. Repeated related items may produce a suggestion, such as creating a Transportation category, which the user may accept, rename, map, or reject. A user drag or spoken correction is durable, template-scoped evidence and outranks later inference. Inferred placements may decay or be recomputed; explicit placements do not silently move.
+
+The old `i_<domain>` tables and breadcrumb embeddings may be imported as versioned seed knowledge for the shared topic/facet catalog. Their table-per-domain storage and forced single domain/subdomain result are not retained. New topic growth is records and derived postings behind the canonical persistence port, never new physical DynamoDB tables.
+
+## Templates are marketplace entities
+
+A sunburst template is a signed, immutable marketplace entity release, not a separate marketplace or a DynamoDB table. In the target product experience, the existing entity marketplace filters presentation entities as `Sunbursts` alongside applications, files, automations, and providers. The current source still exposes a Sunburst-specific route and record family behind that intended shared product surface.
+
+The target immutable template package contains:
+
+- exact template ID, release, schema, compatibility, publisher, and provenance;
+- nineteen template-controlled ray definitions and stable category IDs;
+- color tokens, animation parameters, and the widget layout;
+- topic/facet lens rules and a neutral category;
+- default focus and presentation policies;
+- optional references to reviewed customization capabilities;
+- bounded employer policy declarations.
+
+The current v1 payload implements the template identity and metadata plus nineteen exact ray/category/color/lens definitions. Animation parameters, widget layout, default focus/presentation policy, customization-capability references, and employer policy declarations remain target fields rather than accepted v1 package bytes.
+
+The package never contains the trusted purple system ray. Full immutable packages belong in the object/package plane and are addressed by content hash. In the target lifecycle, DynamoDB retains compact canonical release, listing, grant, installation, active-pointer, overlay, lifecycle, and routing records. The current slice stores the bounded release/listing/license/installation/transaction/library/active-pointer subset. Position postings remain derived and rebuildable.
+
+The target product lifecycle reuses marketplace publisher identity, signing, review, pricing, licensing, collaboration, deprecation, user-selected release/version rollback, revocation, upgrade, refund, and attribution rather than creating a second marketplace. The current clean-platform slice is narrower: Sunbursts have a separate strict release/listing/license/installation/transaction contract family and Sunburst-specific repository/API routes, while reusing account, publisher, billing, signing-root, and product-neutral attestation primitives. Collaboration, deprecation, user-selected release/version rollback, revocation, refund, employer/group delivery, and a unified polymorphic marketplace feed remain later lifecycle work. The implemented terminal rollback marker is payment-saga compensation after a failed install or upgrade; it is not user-facing release/version rollback. A receiving browser verifies the exact package and creates a caller-local installation. It never receives another user's active Paths, Context, protected data, placements, or notification history.
+
+## Employer distribution and switching
+
+In the target employer lifecycle, an employer can acquire or publish one template release and grant it to an exact organization group. Employees share the immutable package; the platform does not copy the package per employee. Each employee retains a small installation record and permitted overlay. An employer may pin a version, stage an upgrade, revoke a grant, require governed categories, or allow a user fork without mutating the source release. This authority is not implemented in the current server slice.
+
+An account may own or receive thousands of template installations. The browser loads the active package and caches only active or recent packages on demand. A cached marketplace body is not offline authority: startup must revalidate the exact account pointer, signed release, pinned trust root, and content address before activation. When that evidence is unavailable or invalid, the browser opens its deterministic code-shipped Individual lens. One exact, version-checked active-installation pointer selects the current marketplace sunburst. Switching templates changes the lens, not the underlying entities or semantic memberships, and therefore requires no new classification or model request.
+
+Rendering layers are applied in order:
+
+1. trusted 1var system ray;
+2. immutable marketplace template;
+3. governed employer overlay;
+4. permitted user overlay;
+5. current session and interaction emphasis.
+
+An entity can consequently appear green under an Individual Transportation lens, blue under a Business Operations lens, and orange under a Fleet Maintenance lens while retaining one exact entity ID.
+
+## Gesture and widget behavior
+
+- **Tap:** open the widget-style page containing the activations and micro-app projections relevant to the current template.
+- **Stationary hold:** speak a request to customize the installed template or its permitted user overlay.
+- **Drag left:** open the visual sunburst editor.
+- **Drag up or down:** move through category colors; release to lock the interaction category for the current input.
+
+The intended activation-backed widget surface filters and ranks exact entity and activation IDs through the active template. A filtered category may show the same entity that appears under another category. An unfiltered view should normally render one primary tile with secondary-category indicators to avoid visual duplication. The current browser component renders the widget surface, but a durable activation feed does not yet populate this behavior cross-layer.
+
+## Input and app presentation
+
+The four input lanes retain their purpose and trust meanings, but permanent lane colors must not compete with category colors. Neutral input presentation uses white, black, gray, and transparent tokens. When an app or interaction category is focused, transparent tint, border, and focus tokens use that category's color. Color is presentation context and never indicates protected status or permission.
+
+An entity has two presentation modes:
+
+- **Inherited mode:** when no custom UI was requested, it uses the standard dark, mostly transparent 1var surface with category tinting.
+- **Authored mode:** once the user explicitly requests visual styling, it receives an opaque or white authoring canvas and versioned presentation definition so requested typography, layout, and colors do not have to conform to the transparent inherited surface.
+
+The underlying capability, data, and grants do not change when presentation mode changes.
+
+## Context selection
+
+The implemented pure bounded selector keeps focused exact app entities first and consumes four caller-prepartitioned candidate buckets:
+
+- up to 100 permitted focused entities;
+- up to 10 recent permitted inputs;
+- up to 100 generally related permitted entities;
+- up to 100 additional permitted entities selected through the active category lens.
+
+Candidates are deduplicated by exact ID and the lists refill after authorization filtering. These numbers are versioned retrieval-policy parameters, not identity or security boundaries. The current selector's `categoryCandidates` bucket carries only exact entity IDs and ranks; it does not yet carry a typed installation, selected category, or category-evidence provenance. Its caller must therefore prepartition that bucket, and no source claim treats that partition as authoritative category retrieval. The pure selector has automated runtime tests; live ContextDB candidate retrieval does not yet call it. Local compact category memberships should eventually answer ordinary category filtering without local RAG. Global lexical/Position retrieval is intended for new discovery and unresolved placement, followed by canonical reload and action-specific authorization.
+
+## Ownership boundaries
+
+- **Contracts:** template, ray, lens, installation, overlay, placement, activation projection, and system-ray invariants.
+- **Shared deterministic runtime (`@1var/runtime`):** category resolution, overlay composition, bounded authorization/deduplication over caller-prepartitioned context buckets, and inherited/authored surface selection.
+- **Browser state and coordination:** local membership cache, active pointer, focus, gesture state, acknowledgement, and interaction-envelope integration.
+- **Browser presentation:** sunburst renderer, widget page, input tint, inherited/authored entity surfaces, and accessible non-color indicators.
+- **Marketplace/API target:** signed template releases, listings, group grants, licenses, upgrades, revocation, refund, and bounded delta sync. The current slice implements publication, search, installation, upgrade, exact package retrieval, paged library reads, and exact active-pointer reads/writes.
+- **Canonical persistence:** exact entity, release, installation, group, overlay, and explicit preference records through the persistence port.
+- **Derived retrieval:** shared topic/facet and template Position postings; never fact, placement, or permission authority.
+
+The feature should be implemented as a removable, versioned subsystem with shared contracts and pure resolution rules, not as unrelated scripts distributed across input, notification, marketplace, and entity pages.
+
+## Clean-platform implementation snapshot
+
+`onevar-platform` source now contains the strict shared contracts, deterministic resolver and authorized 100/10/100/100 selector over prepartitioned candidate buckets, trusted 20-by-5 browser renderer, gesture/editor/widget and neutral input-tint integration, browser-local active/recent cache, immutable overlay materialization, typed marketplace command/API clients, local signature and package verification, immutable S3 artifact store, metadata-only Dynamo repository, signed publication, exact zero-cost owner installation, paid buyer installation, search, upgrade, package fetch, cursor paging, exact `listingId` lookup, and an active pointer carrying release and package identity for constant-time same-account hydration. Automated tests prove these source boundaries; they are not evidence that the release is deployed or live-proven in a browser.
+
+The current authenticated API surface is:
+
+- `POST /api/v1/marketplace/sunbursts` for publication;
+- `POST /api/v1/marketplace/sunbursts/search`;
+- `POST /api/v1/marketplace/sunbursts/installations`;
+- `POST /api/v1/marketplace/sunbursts/upgrades`;
+- `POST /api/v1/marketplace/sunbursts/package` for exact package retrieval;
+- `POST /api/v1/marketplace/sunbursts/library` for cursor-paged metadata;
+- `GET|PUT /api/v1/marketplace/sunbursts/active` for the exact active pointer.
+
+The cryptographic envelope check is intentionally product-neutral: `verifyMarketplaceReleaseAttestation` validates the canonical payload hash, active pinned trust root, key identity, algorithm, and P-256 signature for any payload that its caller has already strictly parsed. App and Sunburst callers must still apply their own schemas, review state, compatibility, provenance, package, license, and authority checks. A valid marketplace signature alone does not admit a product.
+
+The current server intentionally accepts marketplace installation authority only. It rejects arbitrary built-in, fork, and employer pointers. Employer/group delivery, durable activation records and acknowledgement, live category-aware ContextDB candidate retrieval, and topic/facet Position integration remain explicit later gates. Documentation must not describe those later gates as deployed merely because their contracts or pure rules exist.
+
+Paid installation and upgrade use a durable, mutually exclusive saga receipt. The exact idempotency key can resolve to a successful installation receipt or to terminal rollback evidence, never both. A retry of terminal rollback evidence completes any interrupted idempotent compensation and remains failed; only a new idempotency key may begin another charged attempt. Publishers may always install, activate, and upgrade their own exact approved release at zero price even while a private or staged rollout excludes buyers.
+
+## Required proof before the capability moves from Partial to Implemented
+
+- A car-wash app is projected into a reasonable existing category or neutral unsorted without creating a domain-specific core rule.
+- One biology-education fact appears through both category lenses while retaining one entity and one acknowledgement.
+- A user correction persists, survives reload, and outranks Position.
+- Switching among Individual, employer, and custom templates reprojects the same exact entities without a model call.
+- An employer grant installs one shared package, supports a governed overlay, and revokes or upgrades without scanning all users.
+- Thousands of installed template records do not require loading thousands of packages at startup.
+- A marketplace template cannot alter, cover, reorder, recolor, or impersonate the top purple 1var system ray.
+- Category selection changes neither protected-data handling nor any action-specific grant.
+- Protected values, another user's placements, and notification contents never enter public template packages or Position documents.
