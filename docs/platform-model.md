@@ -287,3 +287,4 @@ A provider protocol can be represented using entities and lineage for workflow, 
 20. Every middleware node requires current action authorization; relationship membership, visibility, retrieval ranking, or a previous node's grant cannot authorize the next node.
 21. Revoked or deleted canonical state wins over stale grants and materialized output. Lifecycle mutations require an expected version and append immutable, sanitized audit evidence.
 22. A customer price is not raw cost evidence. Standard aggregated pricing, heavy itemized pricing, app/provider economics, and user-to-user fees are independently versioned; incomplete cost coverage cannot silently publish a lower authoritative rate.
+23. A background worker receives only the configuration, service graph, and IAM authority required for its declared job. Shared structured policy must be strictly versioned and bounded; importing the browser API bootstrap is not an acceptable shortcut.

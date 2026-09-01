@@ -136,3 +136,5 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0121: Equivalent owner Convert builds advance one app lineage](0121-equivalent-owner-convert-builds-advance-one-app-lineage.md)
 - [0122: Journals store growing facts as indexed records](0122-journals-store-growing-facts-as-indexed-records.md)
 - [0123: Journal subjects use exact local bindings and resumable clarification](0123-journal-subjects-use-exact-local-bindings.md)
+- [0124: Interaction Automations are local runs and protected speech never leaves the device](0124-interaction-automations-are-local-runs-and-protected-speech-never-leaves-the-device.md)
+- [0125: Lambda workers use minimal bounded environment contracts](0125-lambda-workers-use-minimal-bounded-environment-contracts.md)
