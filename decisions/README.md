@@ -131,3 +131,7 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0116: Authorized referent positioning ranks complete paths before asking](0116-authorized-referent-positioning-ranks-complete-paths.md)
 - [0117: Consent-governed email fallback fails closed](0117-consent-governed-email-fallback-fails-closed.md)
 - [0118: Sunbursts are marketplace lenses with a trusted system ray](0118-sunbursts-are-marketplace-lenses-with-a-trusted-system-ray.md)
+- [0119: Sunburst slots own color and topics swap losslessly](0119-sunburst-slots-own-color-and-topics-swap-losslessly.md)
+- [0120: Sunburst attention is event-derived, not navigation-derived](0120-sunburst-attention-is-event-derived-not-navigation-derived.md)
+- [0121: Equivalent owner Convert builds advance one app lineage](0121-equivalent-owner-convert-builds-advance-one-app-lineage.md)
+- [0122: Journals store growing facts as indexed records](0122-journals-store-growing-facts-as-indexed-records.md)
