@@ -9,6 +9,7 @@ The sound module gives entities and the browser interaction runtime a shared way
 - Browser Web Audio context lifecycle
 - Generated tones
 - MP3 and base64/array-buffer playback
+- Gesture-time preparation and `AudioBuffer` decoding for delayed hosted speech
 - Stop and cleanup behavior
 - Analyzer access for visual or signal-driven experiences
 - Event-bus integration with other front-end modules
@@ -22,5 +23,4 @@ The sound module gives entities and the browser interaction runtime a shared way
 
 ## Required work
 
-Formalize the audio-source contract, device selection, autoplay/user-gesture requirements, mixing and interruption policy, streaming/buffering, accessibility controls, recording consent, encrypted local media, retention, and safe cleanup. Entity code should receive scoped audio operations rather than direct unrestricted access to the audio context.
-
+Formalize the complete audio-source contract, device selection, mixing policy, streaming/buffering, accessibility controls, recording consent, encrypted local media, retention, and safe cleanup. The clean runtime now proves the ordinary-response autoplay boundary by preparing one scoped reusable Web Audio context during the initiating gesture, while protected synthesis remains local-only. Entity code should receive scoped audio operations rather than direct unrestricted access to the audio context.
