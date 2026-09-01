@@ -1,6 +1,6 @@
 # 0124: Interaction Automations are local runs and protected speech never leaves the device
 
-**Status:** Accepted and implemented in the clean platform; deployment verification pending.
+**Status:** Accepted, implemented, and verified in the clean platform development deployment on 2026-09-01.
 
 ## Context
 

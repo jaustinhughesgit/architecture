@@ -1,6 +1,6 @@
 # 0125: Lambda workers use minimal bounded environment contracts
 
-**Status:** Accepted and implemented in the clean platform; development deployment verification pending.
+**Status:** Accepted, implemented, and verified in the clean platform development deployment on 2026-09-01.
 
 ## Context
 
