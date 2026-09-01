@@ -18,7 +18,7 @@ Canonical semantic evidence is multi-facet and independent of presentation. An e
 
 Explicit user placement outranks focus, exact graph evidence, employer defaults, publisher metadata, shared catalog candidates, Position, and bounded model proposals. A missing match enters a neutral unsorted category; the platform does not silently create a category. Position and imported legacy taxonomy embeddings nominate candidates only. Old `i_<domain>` contents may seed a versioned topic/facet catalog, but their table-per-domain layout and forced singular classification are retired.
 
-The input surface is visually neutral unless an exact focused app or selected category supplies a tint. Purpose/trust lane semantics remain independent of color. Entities without requested UI inherit the dark transparent 1var surface; an explicit style request creates a separately versioned authored presentation on an opaque or white canvas.
+The input surface is visually neutral unless an exact focused app or selected category supplies a tint. An explicit category selection persists across accepted inputs until another ray replaces it; the category remains typed presentation/context metadata and never transcript content. Legacy one-input selections remain readable and consume once. Purpose/trust lane semantics remain independent of color. Entities without requested UI inherit the dark transparent 1var surface; an explicit style request creates a separately versioned authored presentation on an opaque or white canvas.
 
 ## Consequences
 

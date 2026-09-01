@@ -132,7 +132,7 @@ An entity can consequently appear green under an Individual Transportation lens,
 - **Wheel surface:** a one-percent-opacity black circular grabber sits behind the burst. Circular movement beginning on that surface or through any pointer-transparent activity dot rotates the complete wheel.
 - **Top-ray selection:** the ray nearest twelve o'clock is the exact preview/selection source. Its fixed slot color drives the center, while a temporary white-on-dark pill above the burst names that group only during active spin motion.
 - **Release:** commit the same top ray, preserve the nearest equivalent exact wheel rotation, and remove the pill without resetting the wheel or flashing the prior group.
-- **Attention dots:** display category and meaningful attention state only. Opening, focusing, rendering, or downloading an entity never creates attention, and dots do not own clicks, action drags, keyboard-button behavior, identity, or authority.
+- **Attention dots:** display category and meaningful attention state only. Every successful app execution contributes one event keyed by its exact invocation ID, including a successful idempotent execution, while a retry of that same invocation cannot double count. Opening, focusing, rendering, or downloading an entity never creates attention. Event-count floors render `1–3` small, `4–19` medium, and `20+` large; weighted unresolved severity may promote urgent work sooner. Dots do not own clicks, action drags, keyboard-button behavior, identity, or authority.
 - **Center control:** the enlarged circle adopts the previewed or selected group color, projects the canonical vector 1var logo with a bounded margin, and is the only action surface. The compact control has no explanatory caption below it; accessible names carry the instructions.
 - **Center tap:** open the selected top ray's widget-space page. There are twenty independently selectable pages, including the trusted 1var group, and each page contains exactly five entity positions.
 - **Center stationary hold:** start ordinary Essence speech; release or cancellation stops the same capture. Customizing the selected category remains an explicit action within its widget page.
@@ -144,7 +144,7 @@ The widget surface is a full-page, scrollable responsive grid for one exact ray-
 
 ## Input and app presentation
 
-The four input lanes retain their purpose and trust meanings, but permanent lane colors must not compete with category colors. Neutral input presentation uses white, black, gray, and transparent tokens. When an app or interaction category is focused, transparent tint, border, and focus tokens use that category's color. Color is presentation context and never indicates protected status or permission.
+The four input lanes retain their purpose and trust meanings, but permanent lane colors must not compete with category colors. Neutral input presentation uses white, black, gray, and transparent tokens. When an app or interaction category is focused, transparent tint, border, and focus tokens use that category's color. An explicit wheel or command selection persists across accepted inputs until the person selects another ray; it is exact interaction metadata rather than transcript text. Legacy `next_input` records remain readable and consume after one accepted interaction. Color is presentation context and never indicates protected status or permission.
 
 An entity has two presentation modes:
 
