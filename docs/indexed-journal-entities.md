@@ -49,5 +49,4 @@ Sharing a Journal app shares its definition, not another user's records or Paths
 
 ## Current boundary
 
-The clean source implementation includes strict contracts, unit conversion, a pure parser/query algebra, content-addressed browser-local packages, worker-owned indexed persistence, deterministic Vehicle Logbook authoring, exact-subject resolution, idempotent writes, temporal queries, app versioning, and mutation-derived Sunburst attention. Development deployment and clean browser proof are required before the status becomes deployed.
-
+The deployed development implementation includes strict contracts, unit conversion, a pure parser/query algebra, content-addressed browser-local packages, worker-owned indexed persistence, deterministic Vehicle Logbook authoring, exact-subject resolution, idempotent writes, temporal queries, app versioning, and mutation-derived Sunburst attention. Development workflow [33472701692](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33472701692) deployed exact release `76573fc59f870fe0a1f111e8f2b74b1a413934cd`, passed the full repository gate and 26 reset-gated browser scenarios, and was followed by an independent deployed Transport Journal proof that passed in 9.8 seconds. The current vocabulary is versioned and bounded; unfamiliar concepts still require an app release rather than unconstrained model writes.

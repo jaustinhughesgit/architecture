@@ -1,6 +1,6 @@
 # 0122: Journals store growing facts as indexed records
 
-**Status:** Accepted and implemented in source; development deployment proof pending.
+**Status:** Accepted, implemented, and deployed to development.
 
 ## Context
 
@@ -28,7 +28,7 @@ Repeated equivalent builds advance one app lineage. Mutations emit deduplicated 
 - Existing wording is free and local after package installation.
 - New concepts are versioned app evolution, not core changes.
 - App packages and marketplace distribution contain definitions only; records remain separately governed user data.
-- Deployment and a clean browser journey are still required to prove worker storage, widget placement, attention, reload, and idempotency.
+- The deployed browser journey proves worker storage, widget placement, mutation-derived attention, reload, and retry-safe identity.
 
 ## Affected repositories
 
@@ -41,5 +41,4 @@ The server receives no Journal record in the initial browser-local implementatio
 
 ## Verification
 
-Contract tests reject loose identities and executable vocabulary fields. Runtime tests cover the requested vehicle sentences, unit conversion, time ranges, recurrence, detail filtering, and 25,001 records. Compute tests prove content addressing and immutable lineage. Browser tests prove bounded authoring package construction; deployed browser proof remains the release gate.
-
+Contract tests reject loose identities and executable vocabulary fields. Runtime tests cover the requested vehicle sentences, unit conversion, time ranges, recurrence, detail filtering, and 25,001 records. Compute tests prove content addressing and immutable lineage. Development workflow [33472701692](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33472701692) deployed exact release `76573fc59f870fe0a1f111e8f2b74b1a413934cd`, passed the repository gate and 26 reset-gated browser scenarios, and an independent deployed Transport Journal run passed in 9.8 seconds.
