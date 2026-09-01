@@ -1,6 +1,6 @@
 # Sentence, Essence, Path, Command, Menu, and Automation Runtime
 
-**Status:** Implemented foundation; partial formal specification
+**Status:** Implemented bounded interaction and Automation foundation; broader action catalog remains partial
 
 These components form one interaction runtime. They let natural input become reusable local behavior instead of requiring a model call for every repeated request.
 
@@ -154,7 +154,9 @@ Entities publish commands into a registry. Menus determine which commands are me
 
 Execution-envelope v1 is now the preferred interaction handoff. Browser Path execution returns requested navigation/automation effects to the main-thread registry, requested presentation effects to Message, and requested communication effects to Message/Automation. Legacy command, answer, and response-sentence fields remain fallback transport for cached or older producers. `fileWorker` can request an effect but cannot mark it applied.
 
-Message routes a proven answer from a voice-originated request into that same Automation queue as an ephemeral speech step. It prefers the Path's `responseSentence` and falls back to the canonical answer. Automation preserves ordering and delegates synthesis and playback to Speak and Sound. Typed requests do not unexpectedly speak, and unverified model interpretations or protected results never enter the server-backed text-to-speech channel.
+Message routes a proven answer from a voice-originated request into that same Automation queue as an ephemeral speech step. Typed requests do not unexpectedly speak. Immutable local Automation definitions contain ordered offsets and ordinary actions; separate bounded run records own pending, running, completed, failed, and cancelled state. A dedicated worker schedules one step at a time for no more than fifteen minutes. Longer or absent-browser work remains a governed schedule.
+
+Ordinary speech uses the configured OpenAI speech model first and browser synthesis as fallback. Its strict endpoint has no protected mode and returns transient audio. Starting microphone capture interrupts hosted and local playback. Protected Reveal/Speak bypasses that endpoint entirely and synthesizes only after local decryption under exact presentation authority. See [decision 0124](../../decisions/0124-interaction-automations-are-local-runs-and-protected-speech-never-leaves-the-device.md).
 
 ## Derived arithmetic query rows
 
@@ -176,4 +178,4 @@ For each distinct bound record, the operator contributes its one finite numeric 
 
 ## Required formalization
 
-Versioned schemas are still needed for Essence operations, signature types, Path transforms, command targets, menu transitions, automation event payloads, and sequences. Execution and intent envelopes now freeze the common plane/effect and jurisdiction fields; the remaining schemas must add module-specific permissions, test fixtures, migration rules, and observable failure stages.
+Versioned schemas are still needed for the broader Automation action catalog, command targets, menu transitions, and reusable game/timer templates. The implemented schemas already freeze Automation definitions, steps, actions, runs, ordinary speech requests, and trust boundaries; additional actions must enter through explicit contracts rather than arbitrary callbacks.

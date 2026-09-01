@@ -59,6 +59,8 @@ The Phase 4A slice originally stopped at exact owner-local presentation. Phase 4
 
 Starting microphone capture cancels Automation speech, pending or active TTS playback, and browser-local synthesis before recording begins, preventing platform greetings or approval prompts from being re-ingested as user speech.
 
+Ordinary and protected speech are separate trust paths. A voice-originated proven ordinary response may send only its bounded ordinary response text and exact interaction ID to the configured speech provider; returned audio is transient and is not persisted by 1var. If that provider fails, the browser may synthesize the same ordinary text locally. Protected plaintext can never enter that request because the server request schema has no privacy selector or protected variant. An authorized protected presentation decrypts and synthesizes only inside the owner's or recipient's browser. Typed ordinary requests do not speak automatically.
+
 ## Recipient-specific sharing
 
 Zero-trust sharing requires both a cryptographic recipient wrap and an authorization grant. The creator's device may encrypt the payload once and create an independent ECDH/HKDF wrap for each recipient's public-key version. Salts and ephemeral public keys may be stored with ciphertext; recipient private keys and plaintext may not.
