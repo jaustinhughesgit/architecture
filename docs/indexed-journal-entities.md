@@ -20,6 +20,8 @@ One Journal app release carries a bounded, versioned vocabulary contract. That c
 
 Each accepted fact becomes one immutable `journal_record` with exact owner, app, subject, interaction, concept, type, occurrence time, and recording time. Measurement records store a canonical value and unit while retaining the supplied unit as safe provenance. Events retain bounded detail. Recurrence rules remain separate records. Corrections and supersession have explicit fields rather than silently changing history.
 
+Each owner/app pair also has at most one browser-local `journal_subject_binding`. This is the Journal form of exact-ID `using`: it binds the app's subject parameter to one owned ContextDB entity ID. The runtime validates the binding against current ownership and subject vocabulary before every use. Labels help discover or clarify a subject but never become execution authority, and rebuilding the app can advance its version without silently moving the binding to another entity.
+
 Journal records live in their own browser-worker IndexedDB object store, one row per fact, indexed by exact owner/app/subject/concept identity. They do not accumulate inside one large Compute state blob and do not become one entity or app per fact. This removes the existing browser aggregate state's fixed 20,000-event ceiling and permits indexed reads constrained by the user's browser quota. “Unbounded” means the app can grow without a vocabulary-specific code release or in-memory list ceiling; it does not mean infinite physical storage.
 
 ## Execution flow
@@ -28,14 +30,17 @@ Journal records live in their own browser-worker IndexedDB object store, one row
 ordinary Essence input
   -> deterministic Journal package discovery
   -> focused app wins; otherwise exactly one compatible Journal is required
-  -> exact owned subject resolution in ContextDB
+  -> validate an existing exact-ID subject binding
+  -> otherwise rank owned candidates from focus, recent graph evidence, and identity specificity
+  -> if still tied, persist the original typed command and bounded exact-ID choices
+  -> resume that same command after an ordinal, exact-ID, or unique-name clarification
   -> typed Journal mutation or query command
   -> indexed browser-worker write/read
   -> deterministic response projection
   -> mutation-only Sunburst attention event
 ```
 
-Known Journal input is local-only: no model, API, DynamoDB, or S3 request is required. The same interaction ID makes a retried mutation idempotent. Query execution cannot create or mutate a fact. Ambiguous Journal apps or subjects fail closed and require focus or clarification.
+Known Journal input is local-only: no model, API, DynamoDB, or S3 request is required. The same original interaction ID survives clarification and makes a retried mutation idempotent. Query execution cannot create or mutate a fact. Ambiguous Journal apps or subjects fail closed. A subject clarification is resumable rather than being swallowed as an unrelated utterance; duplicate display labels remain separate exact choices and never merge merely because their words match.
 
 The Journal is still a Compute entity: Convert creates a content-addressed package with a browser-local `journal` primitive, normal app bundle, menu entry, immutable lineage, and Sunburst widget placement. Rebuilding an equivalent Journal advances that app lineage. The selected Sunburst ray determines presentation and context placement but grants no storage or execution authority.
 
