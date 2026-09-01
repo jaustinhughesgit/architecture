@@ -1,6 +1,6 @@
 # 0123: Journal subjects use exact local bindings and resumable clarification
 
-**Status:** Accepted and implemented.
+**Status:** Accepted, implemented, and deployed to development.
 
 ## Context
 
@@ -39,4 +39,4 @@ The binding proves only local selection among already owned ContextDB entities. 
 
 ## Verification
 
-Contract tests bound the binding and pending-selection envelopes. Runtime tests prove specificity, exact binding priority, same-label ambiguity, and ordinal selection. Browser regression proves duplicate vehicle shells resolve once, the record commits, the binding survives reload, and a later owned vehicle does not move the Journal.
+Contract tests bound the binding and pending-selection envelopes. Runtime tests prove specificity, exact binding priority, same-label ambiguity, and ordinal selection. Browser regression proves duplicate vehicle shells resolve once, the record commits, the binding survives reload, and a later owned vehicle does not move the Journal. Development workflow [33478648489](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33478648489) deployed exact release `bc0f6fd210b4e1f5c28a8e29d307ffadd91fcbb3`, passed the repository gate and 28 reset-gated browser scenarios, and an independent deployed exact-binding run passed in 7.4 seconds.
