@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted — development implementation candidate
+Accepted — development live-proven
 
 ## Decision
 

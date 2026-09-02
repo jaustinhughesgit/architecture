@@ -1,6 +1,6 @@
 # Real-Time Audio and Video Conferencing
 
-**Status:** Clean-room source implementation candidate; legacy POC reference remains available
+**Status:** Implemented and live-proven in development; legacy POC reference remains available
 
 The current 1var design separates conferencing into three layers:
 
@@ -38,4 +38,4 @@ Amazon Chime SDK Meetings is the first reviewed provider adapter in `onevar-plat
 - Recording, transcription, protected media, moderation, retention, dial-in, billing, and multi-party rooms require separate versioned contracts.
 - WebRTC transport encryption must not be described as application-level end-to-end encryption.
 
-Source tests prove the initial two-user lifecycle and authorization boundary. Development deployment and real two-browser media acceptance are the next status gates; broad production reliability remains incomplete.
+Source tests prove the initial two-user lifecycle and authorization boundary. Development release `47e0d4f40767119b7561e5c575515b9589cb9754` and workflow [33596790583](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33596790583) live-prove two exact browsers joining one Chime meeting, remote-presence projection, third-user denial, call-surface persistence across a UI projection change, and organizer termination. Broad production reliability remains incomplete.
