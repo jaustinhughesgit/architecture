@@ -21,6 +21,8 @@ A device with no saved choice defaults to **real-time** so incoming calls, gover
 
 Only one visible tab per primary entity owns the lease for intervals and WebSocket transport. Hidden tabs release leadership. A newly created schedule receives bounded due-time catch-up checks independent of the general mode. Network failure cannot block local input.
 
+Real-time hints are coalesced while an ordinary interaction is active. A delta that already started settles before the interaction enters the local worker, and a hint that arrives during the interaction runs after its response. This prevents synchronization from racing local Compute state while preserving immediate catch-up. Collaboration grants are applied only after their exact marketplace installation exists, and the verified grant—not merely a projected menu permission—is retained in local Compute state so later app use cannot silently downgrade delegated authority.
+
 Real-time tickets are opaque, one-use, short-lived, session-authenticated capabilities. API Gateway connection rows expire and identify only recipient/transport. The WebSocket payload is a constant hint; the HTTP delta remains the authorization boundary.
 
 Execution, credit, settlement, and provider receipts remain internal platform evidence. They are not projected into a fixed user-facing analytics entity. Analytics is built through explicit ordinary data/query capabilities and ArrayLogic composition.
@@ -30,6 +32,7 @@ Execution, credit, settlement, and provider receipts remain internal platform ev
 - Users no longer request schedule delivery manually while an eligible browser is active.
 - Light and medium avoid per-minute polling; heavy is explicit; WebSockets are reserved for real-time.
 - Multiple tabs do not multiply periodic or socket traffic.
+- Repeated hints collapse into bounded catch-up work and cannot interleave with one local interaction.
 - Sync does not create undeclared publisher data on every invocation.
 - A socket message cannot broaden authority, apply an effect, or carry plaintext.
 - When every device is closed, browser-local effects wait durably for the next authorized sync.
