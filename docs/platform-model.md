@@ -188,7 +188,7 @@ Commands, menus, calls, automations, and sequences turn Path results and entity 
 
 ### Browser capability modules
 
-The browser also includes sound production and analysis plus a persistent real-time conference surface. Conferencing is a layered capability: exact provider-neutral sessions, invitations, and participant grants live beneath user-authored Compute/ArrayLogic composition, while the browser owns permission and media controls. The first clean adapter uses Amazon Chime SDK Meetings and never gives user apps AWS credentials or durable attendee tokens. See [sound](capabilities/sound.md), [conferencing](capabilities/realtime-streaming.md), and [decision 0127](../decisions/0127-conferencing-is-a-core-session-primitive-composed-by-compute.md).
+The browser also includes sound production and analysis plus a persistent real-time conference surface. Conferencing is a layered capability: exact provider-neutral sessions, invitations, and participant grants live beneath user-authored Compute/ArrayLogic composition, while the browser owns permission and media controls. Every terminal lifecycle path converges on an idempotent local teardown that explicitly releases selected camera and microphone inputs; provider session stop or hidden UI is not sufficient evidence. The first clean adapter uses Amazon Chime SDK Meetings and never gives user apps AWS credentials or durable attendee tokens. See [sound](capabilities/sound.md), [conferencing](capabilities/realtime-streaming.md), and [decision 0127](../decisions/0127-conferencing-is-a-core-session-primitive-composed-by-compute.md).
 
 ### Identity and communication
 
