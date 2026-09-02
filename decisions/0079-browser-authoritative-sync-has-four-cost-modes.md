@@ -17,6 +17,8 @@ Each device selects one mode:
 - **heavy** synchronizes on load, after a completed input response, and every visible minute; and
 - **real-time** keeps a short-lived-ticket WebSocket and pulls a cursor delta after a `sync_available` hint, with load/focus/reconnect catch-up.
 
+A device with no saved choice defaults to **real-time** so incoming calls, governed communication, schedule results, and other addressed activity feel immediate. An explicit selection of any mode remains a device-local preference and is not overwritten by a later default change.
+
 Only one visible tab per primary entity owns the lease for intervals and WebSocket transport. Hidden tabs release leadership. A newly created schedule receives bounded due-time catch-up checks independent of the general mode. Network failure cannot block local input.
 
 Real-time tickets are opaque, one-use, short-lived, session-authenticated capabilities. API Gateway connection rows expire and identify only recipient/transport. The WebSocket payload is a constant hint; the HTTP delta remains the authorization boundary.
