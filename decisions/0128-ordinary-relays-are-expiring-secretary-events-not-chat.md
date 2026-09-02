@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted — implementation source-proven; deployed two-user proof pending
+Accepted — development live-proven
 
 ## Decision
 
