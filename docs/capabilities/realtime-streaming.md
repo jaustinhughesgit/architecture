@@ -16,15 +16,17 @@ Amazon Chime SDK Meetings is the first reviewed provider adapter in `onevar-plat
 2. The API freezes the exact invitee entity ID, creates one provider-neutral `conf_` session and exact `cinv_` invitation, and creates a Chime meeting under a narrow service role.
 3. Sync carries only safe invitation/session state.
 4. Acceptance creates exact participant authority.
-5. Each authenticated participant requests a distinct short-lived attendee token. The token is returned only in that response and is never persisted, synchronized, put in ContextDB, or given to Compute.
-6. The persistent browser surface joins both participants to the same media placement and survives app/Sunburst navigation.
-7. Leave deletes that participant's provider attendee; organizer-only end deletes the meeting and closes the session.
+5. Each authenticated participant requests a distinct short-lived attendee token. Issuing it records `authorized`, not presence. The token is returned only in that response and is never persisted, synchronized, put in ContextDB, or given to Compute.
+6. Only after the browser media session starts does an exact acknowledgment advance that participant to `joined`. The server stores value-free liveness—not media, device details, or provider credentials—and the call surface may read it on a bounded in-call cadence when WebRTC callbacks are unavailable.
+7. The persistent browser surface joins both participants to the same media placement and survives app/Sunburst navigation.
+8. Leave deletes that participant's provider attendee; organizer-only end deletes the meeting and closes the session.
 
 ## Platform fit
 
 - Conferencing is a reusable raw capability beneath support, consultation, class, game, collaboration, and other user-authored apps.
 - Compute may create invitations or sequence pre/post-call actions only through reviewed exact operations.
 - A name, presence record, Path, app installation, or discovered session ID is not join authority.
+- Presence is evidence that an already-authorized participant started its media session; it never grants authority.
 - Provider replacement does not replace 1var session identity.
 
 ## Required invariants
