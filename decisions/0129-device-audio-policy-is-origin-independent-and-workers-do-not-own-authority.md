@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted — implemented and source-proven
+Accepted — implemented and development-live-proven
 
 ## Decision
 
@@ -23,3 +23,9 @@ The sound runtime separates authority from signal processing. The trusted browse
 - Real-time sample work no longer needs to contend with React rendering on the main thread.
 - The old proof-of-concept audio-worker idea is retained as a bounded module boundary, not copied as an accumulating script.
 - Advanced instruments, game sounds, streaming, effects, and saved compositions require reviewed typed source/effect/artifact contracts rather than arbitrary worker messages.
+
+## Evidence
+
+- Platform release `f66525071d5fafbcb4829383217accb6290b0506` passed CI run `33704538009`, including the complete browser acceptance suite.
+- Deployment run `33705100404` promoted that immutable release to the development CloudFront surface without resetting user state.
+- Deployed browser acceptance proved persisted typed-response audio policy and exact queued incoming-relay audio.
