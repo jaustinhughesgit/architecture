@@ -18,9 +18,10 @@ Amazon Chime SDK Meetings is the first reviewed provider adapter in `onevar-plat
 4. Acceptance creates exact participant authority.
 5. Each authenticated participant requests a distinct short-lived attendee token. Issuing it records `authorized`, not presence. The token is returned only in that response and is never persisted, synchronized, put in ContextDB, or given to Compute.
 6. Only after the browser media session starts does an exact acknowledgment advance that participant to `joined`. The server stores value-free liveness—not media, device details, or provider credentials—and the call surface may read it on a bounded in-call cadence when WebRTC callbacks are unavailable.
-7. The persistent browser surface joins both participants to the same media placement and survives app/Sunburst navigation.
-8. Leave deletes that participant's provider attendee; organizer-only end deletes the meeting and closes the session.
-9. Leave, organizer end, remote end, failure, and page teardown converge on one idempotent browser cleanup. It stops bound tracks and explicitly awaits the selected camera and microphone inputs before the browser reports completion. Cleanup repeats after an in-flight device-selection promise settles so a late permission result cannot reacquire media.
+7. The persistent browser surface joins both participants to the same media placement and survives app/Sunburst navigation. Camera and screen content are distinct attendee modalities and bind to distinct video surfaces. Shared content becomes the primary stage while participant cameras remain independently available as thumbnails.
+8. Native browser share-stop, the visible Stop share control, leave, organizer end, remote end, failure, and page teardown all clear the content tile and stop its captured tracks. Camera teardown remains independent from content-share teardown.
+9. Leave deletes that participant's provider attendee; organizer-only end deletes the meeting and closes the session.
+10. Leave, organizer end, remote end, failure, and page teardown converge on one idempotent browser cleanup. It stops bound tracks and explicitly awaits the selected camera and microphone inputs before the browser reports completion. Cleanup repeats after an in-flight device-selection promise settles so a late permission result cannot reacquire media.
 
 ## Platform fit
 
@@ -34,6 +35,8 @@ Amazon Chime SDK Meetings is the first reviewed provider adapter in `onevar-plat
 ## Required invariants
 
 - Camera and microphone use require browser permission and visible controls.
+- A screen-share capture indicator proves only that the sender captured content. Release acceptance requires a second authorized participant to receive and render nonzero content-video frames. Two browser contexts on the same physical device are a valid two-participant topology.
+- Content-share tiles must never replace or be mistaken for participant camera tiles. The browser must follow provider share-start and share-stop events, including the browser's native Stop sharing control.
 - Stopping the provider session is not device cleanup. Every terminal browser path must release selected video/audio inputs, bound streams, observers, and media elements before it discards ephemeral join material.
 - Browsers and user-authored apps never receive AWS credentials.
 - Attendee tokens are ephemeral and exact-participant scoped.
@@ -41,4 +44,4 @@ Amazon Chime SDK Meetings is the first reviewed provider adapter in `onevar-plat
 - Recording, transcription, protected media, moderation, retention, dial-in, billing, and multi-party rooms require separate versioned contracts.
 - WebRTC transport encryption must not be described as application-level end-to-end encryption.
 
-Source tests prove the initial two-user lifecycle and authorization boundary. Development release `47e0d4f40767119b7561e5c575515b9589cb9754` and workflow [33596790583](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33596790583) live-prove two exact browsers joining one Chime meeting, remote-presence projection, third-user denial, call-surface persistence across a UI projection change, and organizer termination. A later browser proof additionally requires every captured organizer and invitee track to reach `ended` after termination; hiding the dock alone is not success. Broad production reliability remains incomplete.
+Source tests prove the initial two-user lifecycle and authorization boundary. Development release `47e0d4f40767119b7561e5c575515b9589cb9754` and workflow [33596790583](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33596790583) live-prove two exact browsers joining one Chime meeting, remote-presence projection, third-user denial, call-surface persistence across a UI projection change, and organizer termination. A later browser proof additionally requires every captured organizer and invitee track to reach `ended` after termination; hiding the dock alone is not success. Development release `e114d8e2b9d6ed6774368b5ff12c6933c6255866` and workflow [33710883532](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33710883532) live-prove a same-device caller publishing screen content, the second participant rendering nonzero content frames on a dedicated surface, share-stop camera restoration, and terminal track release. Broad production reliability remains incomplete.
