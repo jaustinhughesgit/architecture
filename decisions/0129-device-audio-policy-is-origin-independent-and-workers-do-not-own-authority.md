@@ -29,3 +29,5 @@ The sound runtime separates authority from signal processing. The trusted browse
 - Platform release `f66525071d5fafbcb4829383217accb6290b0506` passed CI run `33704538009`, including the complete browser acceptance suite.
 - Deployment run `33705100404` promoted that immutable release to the development CloudFront surface without resetting user state.
 - Deployed browser acceptance proved persisted typed-response audio policy and exact queued incoming-relay audio.
+- Platform release `e7a599a3ac127b210bf4e1cf66c9d212dcf0bd9d` passed CI run `33706421571`; deployment run `33706979803` promoted that exact immutable release without resetting user state.
+- Post-deploy browser acceptance proved that conference invitations and secretary relays share the ordinary incoming-event audio queue: invitation audio obeys on/off and volume policy, is keyed by exact invitation identity, and does not replay on repeated sync.
