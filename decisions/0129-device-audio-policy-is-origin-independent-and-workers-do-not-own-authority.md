@@ -10,6 +10,8 @@ Ordinary output audio is controlled by one browser-local device policy, not by w
 
 Every accepted ordinary response, short automation speech step, and incoming ordinary secretary relay consults the current setting at release time. OpenAI speech remains the preferred ordinary renderer and browser synthesis remains its explicit fallback. A result cannot speak before it is accepted and required effects commit. Turning audio off cancels prepared and active ordinary playback. Incoming relays are queued by exact relay-derived interaction identity rather than matching their rendered words.
 
+Immediate response and incoming-relay playback are ephemeral post-commit projections and never create retained Interaction Automation state. Only explicitly requested delayed or sequenced audio uses the Automation timing worker. Speech delivery therefore cannot block command completion, ContextDB mutation, or the next input.
+
 Protected plaintext is excluded from hosted synthesis regardless of the audio setting. It may be spoken only through the existing locally authorized protected presentation path.
 
 The sound runtime separates authority from signal processing. The trusted browser coordinator owns policy, authorization, billing identity, queueing, decoding, and persistence requests. A dedicated `AudioWorkletProcessor` receives transferable PCM and owns only bounded real-time mixing, volume, stop, and completion. Future procedural sound, synthesis, decoding, blending, and encoding may use additional typed media-worker operations, but workers receive neither unrestricted network/storage authority nor direct ownership of entity state. Saved audio must cross the governed artifact boundary.
