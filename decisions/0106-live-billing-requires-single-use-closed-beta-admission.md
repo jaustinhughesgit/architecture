@@ -10,6 +10,8 @@ Production billing is admitted only behind single-use closed-beta invitation cod
 
 Production Stripe setup must prove an `sk_live_` credential before it creates separate platform and connected-account webhook destinations. Non-production Stripe setup must prove an `sk_test_` credential. Runtime Checkout and webhook processing retain their independent authoritative `livemode`, amount, currency, owner, pack, signature, and idempotency checks.
 
+Pre-launch clean-room development may install a separately configured reusable tester-code digest. It creates no admission claim and may therefore create multiple fresh test accounts across resets, but grants no authority after creation. Infrastructure permits this exception only when admission is closed and the temporary production pre-launch reset flag is enabled. The reusable path cannot remain when that flag is removed for general availability; normal invitations retain their atomic one-use claims.
+
 ## Consequences
 
 - Enabling live billing cannot accidentally make account creation generally public.
