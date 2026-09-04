@@ -26,8 +26,8 @@ Discovery is bounded and progressive. It is not a global people list, and profil
 - marketplace candidates begin as small disconnected dashed points and reveal locally with nearby exploration;
 - visible relation lines use the target point's color, remain attached during point drag, and disappear when another visible point occludes the segment;
 - background drag pans the world, while points themselves drag freely for the current session and never persist coordinates;
-- points scale from 100% at viewport center to a 60% edge floor;
-- a bounded spatially hashed collision pass runs after a drag, pan, reveal, or progressive append and then stops;
+- points stay at 100% throughout a wide center plateau, then ease continuously to a 20% edge floor;
+- a bounded spatially hashed collision pass computes one target after a drag, pan, reveal, or progressive append; the browser animates to it for 320 milliseconds and then stops;
 - opening a point expands it into a mobile-sized rounded work surface and moves attention to that entity;
 - clicking the Sunburst center enters the Inspector for the selected ray instead of opening a separate widget page;
 - the existing Sunburst, input composer, activity feed, and conference dock remain stable system surfaces above the projection.
@@ -38,4 +38,4 @@ Color, position, size, focus, reveal state, and candidate ranking never grant ac
 
 Shared strict contracts own the discovery request and response. Context publication derives bounded facets. The canonical repository owns current public records and derived facet postings. The API owns authentication and exact revalidation. The browser Inspector module owns projection, panning, transient point position, collision settling, reveal, level-of-detail, and detail presentation. It materializes at most one bounded visual window and only nearby exact edges. Canonical Context and marketplace records remain authoritative.
 
-See [decision 0130](../../decisions/0130-inspector-renders-local-state-before-progressive-authorized-discovery.md).
+See [decision 0130](../../decisions/0130-inspector-renders-local-state-before-progressive-authorized-discovery.md) and [decision 0132](../../decisions/0132-inspector-keeps-a-wide-focus-plateau-and-animates-settling.md).

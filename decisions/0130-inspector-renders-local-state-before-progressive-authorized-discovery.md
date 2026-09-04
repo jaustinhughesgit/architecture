@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted
+Superseded in part by [decision 0132](0132-inspector-keeps-a-wide-focus-plateau-and-animates-settling.md)
 
 ## Decision
 
