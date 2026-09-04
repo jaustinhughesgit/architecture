@@ -24,17 +24,18 @@ Discovery is bounded and progressive. It is not a global people list, and profil
 - authorized other-user points use a dark category tint with a solid category border;
 - protected summaries use a solid lock presentation;
 - marketplace candidates begin as small disconnected dashed points and reveal locally with nearby exploration;
-- visible relation lines use the target point's color;
-- background drag pans the world, while throwing a point upward creates a local shortcut;
-- a shortcut centers its point without opening it;
+- visible relation lines use the target point's color, remain attached during point drag, and disappear when another visible point occludes the segment;
+- background drag pans the world, while points themselves drag freely for the current session and never persist coordinates;
+- points scale from 100% at viewport center to a 60% edge floor;
+- a bounded spatially hashed collision pass runs after a drag, pan, reveal, or progressive append and then stops;
 - opening a point expands it into a mobile-sized rounded work surface and moves attention to that entity;
 - clicking the Sunburst center enters the Inspector for the selected ray instead of opening a separate widget page;
 - the existing Sunburst, input composer, activity feed, and conference dock remain stable system surfaces above the projection.
 
-Color, position, size, focus, shortcuts, and candidate ranking never grant access or alter entity identity.
+Color, position, size, focus, reveal state, and candidate ranking never grant access or alter entity identity.
 
 ## Ownership and lifecycle
 
-Shared strict contracts own the discovery request and response. Context publication derives bounded facets. The canonical repository owns current public records and derived facet postings. The API owns authentication and exact revalidation. The browser Inspector module owns projection, panning, reveal, shortcuts, and detail presentation. Shortcuts are local presentation preferences; canonical Context and marketplace records remain authoritative.
+Shared strict contracts own the discovery request and response. Context publication derives bounded facets. The canonical repository owns current public records and derived facet postings. The API owns authentication and exact revalidation. The browser Inspector module owns projection, panning, transient point position, collision settling, reveal, level-of-detail, and detail presentation. It materializes at most one bounded visual window and only nearby exact edges. Canonical Context and marketplace records remain authoritative.
 
 See [decision 0130](../../decisions/0130-inspector-renders-local-state-before-progressive-authorized-discovery.md).

@@ -1,6 +1,6 @@
 # 0120: Sunburst attention is event-derived, not navigation-derived
 
-**Status:** Accepted
+**Status:** Superseded by [0131](0131-explicit-app-opens-add-daily-sunburst-presence.md)
 
 ## Decision
 
