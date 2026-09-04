@@ -51,4 +51,8 @@ Shared strict contracts own the discovery request and response. Context publicat
 
 The V2 scene contract admits at most 96 nodes and 160 edges. Its compiler currently budgets up to 40 owner-local entities, 28 authorized peer entities, and 16 marketplace candidates, leaving room for protected and collapsed-summary points. A collapsed point is a resumable retrieval boundary, not a synthetic relation. These budgets can evolve in later scene-contract versions without changing ContextDB or migrating canonical entity data.
 
+## Release evidence
+
+Release `227388bc4c3a8cb27c24a6267c57b560da89bfb6` passed the complete repository gate and 43 applicable browser scenarios in [CI workflow 33916536587](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33916536587). [Development deployment 33917296242](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33917296242) published that exact immutable release through CloudFront without resetting user data. The regression proof covers stable automatic Transport placement while the selected ray changes, exact user placement precedence, reversible return to automatic Position, and correct selected-ray filtering after an override.
+
 See [decision 0130](../../decisions/0130-inspector-renders-local-state-before-progressive-authorized-discovery.md), [decision 0132](../../decisions/0132-inspector-keeps-a-wide-focus-plateau-and-animates-settling.md), [decision 0134](../../decisions/0134-inspector-point-moats-distinguish-edge-incidence.md), [decision 0135](../../decisions/0135-inspector-v2-compiles-bounded-semantic-scenes.md), and [decision 0136](../../decisions/0136-inspector-colors-follow-entity-ray-placement.md).

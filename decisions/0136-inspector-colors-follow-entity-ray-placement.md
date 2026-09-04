@@ -22,3 +22,7 @@ Category placement affects presentation and retrieval relevance only. It grants 
 - User corrections are exact, template-scoped, durable on the device, and reversible.
 - Automatic categories may change only when the safe source facts or active template changes.
 - Classification requires no model call, server request, protected plaintext, or continuously running process.
+
+## Verification
+
+Release `227388bc4c3a8cb27c24a6267c57b560da89bfb6` passed the complete repository gate and 43 applicable browser scenarios in [CI workflow 33916536587](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33916536587). [Development deployment 33917296242](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33917296242) published the identical release through CloudFront with reset disabled.
