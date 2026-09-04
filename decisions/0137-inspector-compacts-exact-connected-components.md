@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted
+Superseded by [decision 0138](./0138-inspector-optimizes-relevance-preserving-slots.md)
 
 ## Context
 
