@@ -149,3 +149,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0134: Inspector point moats distinguish edge incidence](0134-inspector-point-moats-distinguish-edge-incidence.md)
 - [0135: Inspector V2 compiles bounded semantic scenes](0135-inspector-v2-compiles-bounded-semantic-scenes.md)
 - [0136: Inspector colors follow entity ray placement](0136-inspector-colors-follow-entity-ray-placement.md)
+- [0139: Inspector spatial workbench reuses exact bindings and ArrayLogic](0139-inspector-spatial-workbench-reuses-exact-bindings-and-arraylogic.md)

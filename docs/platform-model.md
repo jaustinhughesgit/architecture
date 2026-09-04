@@ -269,6 +269,8 @@ A provider protocol can be represented using entities and lineage for workflow, 
 
 ## 5. Architectural invariants
 
+Inspector spatial authoring is a projection of existing composition primitives, not a new execution plane. Explicit data-to-app binding and app-to-app composition freeze exact caller-local identities; ordinary app surfaces run only through the existing ArrayLogic coordinator. Zoom, proximity and visibility confer no authority. See [decision 0139](../decisions/0139-inspector-spatial-workbench-reuses-exact-bindings-and-arraylogic.md).
+
 1. A successful local Path should not require OpenAI, API Gateway, or compute.
 2. A Path match must not discard captured ordinary inputs before entity execution.
 3. An entity must not silently reinterpret missing inputs as supplied inputs.

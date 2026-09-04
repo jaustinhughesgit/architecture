@@ -52,7 +52,17 @@ Shared strict contracts own the discovery request and response. Context publicat
 
 The V2 scene contract admits at most 96 nodes and 160 edges. Its compiler currently budgets up to 40 owner-local entities, 28 authorized peer entities, and 16 marketplace candidates, leaving room for protected and collapsed-summary points. A collapsed point is a resumable retrieval boundary, not a synthetic relation. These budgets can evolve in later scene-contract versions without changing ContextDB or migrating canonical entity data.
 
-## Release evidence
+## Spatial workbench and semantic surfaces
+
+V2 now implements a bounded ordinary workbench over the existing entity model. A local zoom control reveals dot, label and summary levels; an opened point displays current owned or authorized-public facts in a scrollable keyboard-accessible phone-sized surface. Ordinary app surfaces show declared inputs, exact data bindings and the latest workflow result.
+
+Dropping owned data onto an app only proposes a binding. Apply rechecks exact app/installation identity, dependency compatibility, owner and subject/relation versions. Dropping one plain app onto another proposes a two-step composition; Create produces a separate app bundle with independently cloned caller-local bindings and preserved marketplace attribution. Run remains explicit and uses the existing workflow coordinator, costs, effect commit, audio and failure behavior. Repeated single-app runs reuse the executable definition. Source-app rebinding cannot retarget a composed app, and opening a plain source app cannot accidentally run the composition.
+
+No coordinate, name, public proximity or protected placeholder is authority. Protected/provider actions stay in their dedicated surface; nested visual workflows, peer writes, arbitrary renderer generation and specialized surfaces for all entity classes remain outside this slice. See [decision 0139](../../decisions/0139-inspector-spatial-workbench-reuses-exact-bindings-and-arraylogic.md).
+
+## Verified releases
+
+Release `b6cc1e09a5778f0850665c26b0986f4770b91a37` passed the complete repository gate and 44 applicable browser scenarios (12 live-only scenarios intentionally skipped) in [CI workflow 33928738271](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33928738271). [Development deployment 33929331674](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33929331674) published the identical release without a reset or paid live canaries. The public development health endpoint reports that release, and the served entity assets match the verified build. Proof covers exact data-to-app drag preview, explicit binding and normal workflow execution, updated facts/results, duplicate-name selection, independent two-app composition bindings, stale/revoked authority rejection, semantic zoom, keyboard access and mobile sizing. Production was unchanged.
 
 Release `227388bc4c3a8cb27c24a6267c57b560da89bfb6` passed the complete repository gate and 43 applicable browser scenarios in [CI workflow 33916536587](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33916536587). [Development deployment 33917296242](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33917296242) published that exact immutable release through CloudFront without resetting user data. The regression proof covers stable automatic Transport placement while the selected ray changes, exact user placement precedence, reversible return to automatic Position, and correct selected-ray filtering after an override.
 
