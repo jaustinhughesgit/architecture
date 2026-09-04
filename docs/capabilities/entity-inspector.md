@@ -10,6 +10,8 @@ Inspector V1 remains an intact selectable renderer for comparison and rollback. 
 
 V2 compiles a fresh bounded semantic scene around one exact focus entity. It assigns every admitted point a relevance role and reason, collapses overflow, and renders only exact relationship evidence. Semantic similarity, selected-ray membership, public-facet proximity, and marketplace usefulness may place points near one another, but they cannot create a line.
 
+Every point also resolves its own ray category. An exact active user placement for one owned Context entity or installed app outranks a bounded browser-local Position candidate derived from safe labels, type, exact relation terms, and neighbor labels. The active slot supplies the category color. Spinning to another ray filters and prioritizes the scene; it never repaints all points. The person can explicitly place one owned point in the selected ray or clear that correction to resume automatic Position.
+
 ## Projection order
 
 1. The browser renders the owner's current Context snapshot and installed Sunburst widgets immediately. These owned points require no discovery request and remain usable offline.
@@ -49,4 +51,4 @@ Shared strict contracts own the discovery request and response. Context publicat
 
 The V2 scene contract admits at most 96 nodes and 160 edges. Its compiler currently budgets up to 40 owner-local entities, 28 authorized peer entities, and 16 marketplace candidates, leaving room for protected and collapsed-summary points. A collapsed point is a resumable retrieval boundary, not a synthetic relation. These budgets can evolve in later scene-contract versions without changing ContextDB or migrating canonical entity data.
 
-See [decision 0130](../../decisions/0130-inspector-renders-local-state-before-progressive-authorized-discovery.md), [decision 0132](../../decisions/0132-inspector-keeps-a-wide-focus-plateau-and-animates-settling.md), [decision 0134](../../decisions/0134-inspector-point-moats-distinguish-edge-incidence.md), and [decision 0135](../../decisions/0135-inspector-v2-compiles-bounded-semantic-scenes.md).
+See [decision 0130](../../decisions/0130-inspector-renders-local-state-before-progressive-authorized-discovery.md), [decision 0132](../../decisions/0132-inspector-keeps-a-wide-focus-plateau-and-animates-settling.md), [decision 0134](../../decisions/0134-inspector-point-moats-distinguish-edge-incidence.md), [decision 0135](../../decisions/0135-inspector-v2-compiles-bounded-semantic-scenes.md), and [decision 0136](../../decisions/0136-inspector-colors-follow-entity-ray-placement.md).

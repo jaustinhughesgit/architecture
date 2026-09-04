@@ -82,6 +82,8 @@ Authority and classification remain separate. A focus, category, embedding, mode
 
 If a new item has no reasonable category, it enters the template's neutral `new.unsorted` category. The platform does not silently create a permanent category for one entity. Repeated related items may produce a suggestion, such as creating a Transportation category, which the user may accept, rename, map, or reject. A user drag or spoken correction is durable, template-scoped evidence and outranks later inference. Inferred placements may decay or be recomputed; explicit placements do not silently move.
 
+The current interaction category and an entity's home placement are intentionally different. Spinning the Sunburst changes the active viewing and input lens, not the category or color of every point in the Inspector. Inspector V2 uses the exact user placement for an owned subject when one exists, otherwise bounded browser-local Position, and then colors the point from that category's fixed active slot. Clearing the user placement returns only that subject to automatic Position.
+
 The old `i_<domain>` tables and breadcrumb embeddings may be imported as versioned seed knowledge for the shared topic/facet catalog. Their table-per-domain storage and forced single domain/subdomain result are not retained. New topic growth is records and derived postings behind the canonical persistence port, never new physical DynamoDB tables.
 
 ## Templates are marketplace entities
