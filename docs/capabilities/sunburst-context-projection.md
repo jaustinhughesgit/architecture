@@ -188,6 +188,8 @@ Development release `b4267bcc2c1c5b2e1b3340cbc098310281fd3e54` was promoted by i
 
 Development release `45a223f712cd8385c0f9d191a37d859ff88e95ec` was promoted by immutable GitHub Actions run `33889555165` after the full repository gate and reset-gated deployed browser acceptance passed. It adds content-free, interaction-deduplicated daily presence for accepted ordinary ContextDB mutations under the exact selected ray; it does not make ray attention durable across devices.
 
+Development release `f6889991315f7ea0684deb05e78d291a4523d573` was promoted without a data reset by immutable GitHub Actions run `33894367679` after CI run `33893566681` passed 43 browser scenarios. It makes the browser shell own the freshly persisted ray aggregate and pass that controlled value into both full and compact Sunburst projections, so an accepted mutation repaints today's selected-ray circle in the same render lifecycle. Browser-local persistence still restores the aggregate after reload; the browser event remains only a compatibility notification rather than the sole live-update path.
+
 The current authenticated API surface is:
 
 - `POST /api/v1/marketplace/sunbursts` for publication;
