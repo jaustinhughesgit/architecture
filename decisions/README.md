@@ -144,3 +144,7 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0129: Device audio policy is origin-independent and workers do not own authority](0129-device-audio-policy-is-origin-independent-and-workers-do-not-own-authority.md)
 - [0130: Inspector renders local state before progressive authorized discovery](0130-inspector-renders-local-state-before-progressive-authorized-discovery.md)
 - [0131: Explicit app opens add daily Sunburst presence](0131-explicit-app-opens-add-daily-sunburst-presence.md)
+- [0132: Inspector keeps a wide focus plateau and animates settling](0132-inspector-keeps-a-wide-focus-plateau-and-animates-settling.md)
+- [0133: Selected-ray Context mutations add daily presence](0133-selected-ray-context-mutations-add-daily-presence.md)
+- [0134: Inspector point moats distinguish edge incidence](0134-inspector-point-moats-distinguish-edge-incidence.md)
+- [0135: Inspector V2 compiles bounded semantic scenes](0135-inspector-v2-compiles-bounded-semantic-scenes.md)

@@ -66,6 +66,7 @@ The architecture is available at three levels of detail so the same platform mod
    - [Recipient-specific zero-trust sharing](docs/capabilities/recipient-protected-sharing.md)
    - [Durable notifications and email fallback](docs/capabilities/durable-notifications.md)
    - [Sunburst context projection and marketplace templates](docs/capabilities/sunburst-context-projection.md)
+   - [Entity Inspector](docs/capabilities/entity-inspector.md)
 20. [Shared contracts](contracts/README.md)
 21. [Architecture decisions](decisions/README.md)
 
