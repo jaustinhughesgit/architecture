@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted
+Superseded by [decision 0140](0140-inspector-folds-classifications-and-groups-focus-branches.md). Retained as historical rationale; whole-ring permutation could not group a large same-parent branch.
 
 ## Context
 

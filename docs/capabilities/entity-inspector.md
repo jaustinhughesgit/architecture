@@ -26,6 +26,8 @@ A public peer candidate may be suggested by shared exact ordinary facets such as
 
 Within owner-local Context, V2 ranks by bounded breadth-first distance from the exact focus rather than label length or storage order. Direct relations are primary, second-degree relations are secondary, and farther or disconnected state is ambient or collapsed. Public peers and marketplace extensions arrive in independent streams after that local scene is usable.
 
+Terminal classification-only values are presented inside their subject's facts rather than as extra possession points. This folds an object and its kind at the visual level only: original entity IDs, records and relations remain unchanged. Separate same-name objects remain separate. Values used by another semantic relation or with outgoing structure remain inspectable points. The same rule applies only to already-authorized peer slices. Folded classification records do not create hidden relevance shortcuts between objects that share a kind.
+
 Discovery is bounded and progressive. It is not a global people list, and profile names are not indexed as ambient matching facets. DynamoDB uses one shared facet-index record family rather than physical tables per topic or user. Stale derived postings are harmless because current canonical revision, audience, and facets are rechecked before response.
 
 ## Interaction model
@@ -38,13 +40,16 @@ Discovery is bounded and progressive. It is not a global people list, and profil
 - V2 lines exist only for exact active local Context relations or exact authorized public Context relations, terminate at both endpoint borders, and use an edge-specific SVG mask to cut a black gap at every unrelated point without breaking the edge at either exact endpoint;
 - background drag pans the world, while points themselves drag freely for the current session and never persist coordinates;
 - points stay at 100% throughout a wide center plateau, then ease continuously to a 20% edge floor;
-- three deterministic exact-neighbor ordering passes exchange only compatible positions inside the same relevance band during initial compilation or a graph-topology change, accepting only arrangements that shorten rank-weighted connections or route non-focus lines away from the center;
+- bounded exact-edge branch sectors keep related descendants on their parent's side while preserving every point's relevance radius; previous session positions seed orientation when focus changes, cycles choose a deterministic shortest-path parent, and disconnected candidates keep their separate placement;
+- unreadable endpoints and long non-focus connections do not draw distracting lines; local exploration or explicit endpoint dragging can reveal exact wiring, and overlapping endpoints draw no inverted segments;
 - pan, reveal, and point-drag completion run only spatially hashed collision separation, after which the browser animates to one target for 320 milliseconds and all layout work stops;
 - opening a point expands it into a mobile-sized rounded work surface and moves attention to that entity;
 - clicking the Sunburst center enters the Inspector for the selected ray instead of opening a separate widget page;
 - the existing Sunburst, input composer, activity feed, and conference dock remain stable system surfaces above the projection.
 
 Color, position, size, focus, reveal state, and candidate ranking never grant access or alter entity identity.
+
+The branch layout replaces whole-ring slot permutation, which could not group many children of the same parent. Exact local evidence between admitted nodes can guide layout even when the rendered-edge degree budget omits that relation. It adds no line, schema, server request, persistent coordinate or continuous force simulation. See [decision 0140](../../decisions/0140-inspector-folds-classifications-and-groups-focus-branches.md).
 
 ## Ownership and lifecycle
 
@@ -61,6 +66,8 @@ Dropping owned data onto an app only proposes a binding. Apply rechecks exact ap
 No coordinate, name, public proximity or protected placeholder is authority. Protected/provider actions stay in their dedicated surface; nested visual workflows, peer writes, arbitrary renderer generation and specialized surfaces for all entity classes remain outside this slice. See [decision 0139](../../decisions/0139-inspector-spatial-workbench-reuses-exact-bindings-and-arraylogic.md).
 
 ## Verified releases
+
+Release `95a7042382e3011e97af38f05e13bcbe26fddfbb` passed the repository gate and all 45 applicable browser scenarios (12 live-only scenarios intentionally skipped) in [CI workflow 33932600118](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33932600118). [Development deployment 33933113738](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33933113738) published that identical release with resets and paid live canaries disabled. The public health endpoint reports the exact release; the served entity entry and Inspector JavaScript/CSS are byte-identical to the verified build. Proof covers classification-only folding without data mutation, separate same-name possessions, preserved detail facts, shared-classifier shortcut rejection, branch locality and radius preservation, deterministic dense-graph ordering, readable focus wiring and the existing spatial-workbench behavior. Whole-ring slot permutation is superseded by branch sectors. Production was unchanged, and existing accounts require only a refresh, not a reset.
 
 Release `b6cc1e09a5778f0850665c26b0986f4770b91a37` passed the complete repository gate and 44 applicable browser scenarios (12 live-only scenarios intentionally skipped) in [CI workflow 33928738271](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33928738271). [Development deployment 33929331674](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33929331674) published the identical release without a reset or paid live canaries. The public development health endpoint reports that release, and the served entity assets match the verified build. Proof covers exact data-to-app drag preview, explicit binding and normal workflow execution, updated facts/results, duplicate-name selection, independent two-app composition bindings, stale/revoked authority rejection, semantic zoom, keyboard access and mobile sizing. Production was unchanged.
 
