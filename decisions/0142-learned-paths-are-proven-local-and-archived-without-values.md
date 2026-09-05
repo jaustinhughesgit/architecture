@@ -10,7 +10,7 @@ The clean-room runtime had fixed ordinary grammar and exact Compute frames, but 
 
 Reuse Context/Essence. One bounded model response nominates an allowlisted fact operation and source-token spans. The browser compiles a value-free template, checks semantic/grammar constraints and proves its current graph effect/answer before atomic activation. Failed proof never becomes a successful Path. Exact frames admit Compute invocations; similarity is candidate retrieval only.
 
-Inactive templates use content-addressed storage in the existing private artifact bucket, not per-user/topic tables. Only closed grammar literals and capture/operation metadata persist. Concrete LocalPath evidence, source sentences, values, personal IDs and executable source are excluded. Bounded indexed lookup offers matches; explicit acceptance reproves locally. `create new` invokes the adviser instead.
+Inactive templates use content-addressed storage in the existing private artifact bucket, not per-user/topic tables. Compiler v1 retains closed grammar literals; compiler v2 retains normalized bounded capture-free structural syntax plus capture/operation metadata. Concrete LocalPath evidence, full source sentences, captured values, personal IDs and executable source are excluded. Bounded indexed lookup offers matches; explicit acceptance reproves locally. `create new` invokes the adviser instead. Decision 0143 governs compiler-v2 syntax and bounded repair.
 
 Acknowledged templates are archived during learning or explicit archival. Operator resets inventory/preserve that prefix while clearing runtime data and advancing the epoch. New active libraries are empty except the core catalog. Unuploaded device-only templates cannot be recovered remotely and must not be claimed as preserved.
 
@@ -26,4 +26,4 @@ Copying legacy model graph generation would restore its expensive multi-stage de
 
 ## Verification
 
-Thirty constructions across twelve operations with held-out local replays; semantic safety failures; exact-state/idempotent execution; archive lifecycle and HTTP/auth/storage/reset tests. Live timings, deployed version and final reset counts are reported separately from fixture tests. See [implementation details](../../onevar-platform/docs/architecture/path-learning.md).
+Thirty original constructions plus an independently supplied ten-construction generalization suite across twelve operations with held-out local replays; semantic safety failures; exact-state/idempotent execution; archive lifecycle and HTTP/auth/storage/reset tests. Live timings, deployed version and final reset counts are reported separately from fixture tests. See [implementation details](../../onevar-platform/docs/architecture/path-learning.md).

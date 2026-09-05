@@ -2,7 +2,7 @@
 
 ## Clean-room ordinary Path learning
 
-The replacement runtime has a bounded ordinary cold-miss foundation: a model nominates a typed fact operation and grounded token spans; trusted browser code compiles/proves the caller-local Path before commit. Inactive value-free templates are searched first and offered explicitly; “create new” tests fresh generation. Prelaunch hard reset clears active runtime libraries but preserves acknowledged generalized templates in private storage. Core catalog Paths remain installed. This is not a port of the unrestricted legacy graph-proposal loop. See [decision 0142](../decisions/0142-learned-paths-are-proven-local-and-archived-without-values.md).
+The replacement runtime has a bounded ordinary cold-miss foundation: a model nominates a typed fact operation and grounded token spans; trusted browser code compiles/proves the caller-local Path before commit. Inactive capture-free templates are searched first and offered explicitly; “create new” tests fresh generation. Compiler v2 accepts bounded normalized structural syntax while semantic operands remain captures. A failed proposal may be repaired internally through at most three attempts using only a coarse compiler category; intermediate diagnostics never become user responses and no attempt can mutate before proof. Prelaunch hard reset clears active runtime libraries but preserves acknowledged generalized templates in private storage. Core catalog Paths remain installed. This is not a port of the unrestricted legacy graph-proposal loop. See [decision 0142](../decisions/0142-learned-paths-are-proven-local-and-archived-without-values.md) and [decision 0143](../decisions/0143-learned-path-repair-is-bounded-and-compiler-directed.md).
 
 ## 1. System objective
 
