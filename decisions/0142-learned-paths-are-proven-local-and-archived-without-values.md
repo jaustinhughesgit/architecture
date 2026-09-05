@@ -14,6 +14,8 @@ Inactive templates use content-addressed storage in the existing private artifac
 
 Acknowledged templates are archived during learning or explicit archival. Operator resets inventory/preserve that prefix while clearing runtime data and advancing the epoch. New active libraries are empty except the core catalog. Unuploaded device-only templates cannot be recovered remotely and must not be claimed as preserved.
 
+Reset purges same-stage email feedback queues alongside existing deferred-work queues. Delayed email feedback must condition its receipt on the exact current owner/contact; an event for a deleted or replaced contact cannot recreate old runtime metadata after reset. This does not change consent or suppression rules for a current contact.
+
 ## Alternatives and consequences
 
 Copying legacy model graph generation would restore its expensive multi-stage dependency. Archiving concrete Paths would leak data/stale identity. A globally active library would defeat fresh-generation tests and silently adopt another interpretation. The bounded typed kernel is cheaper to validate and removable but admits only its fact algebra, not arbitrary language or temporal/provider actions.
