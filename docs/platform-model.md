@@ -1,5 +1,9 @@
 # Platform Model
 
+## Clean-room ordinary Path learning
+
+The replacement runtime has a bounded ordinary cold-miss foundation: a model nominates a typed fact operation and grounded token spans; trusted browser code compiles/proves the caller-local Path before commit. Inactive value-free templates are searched first and offered explicitly; “create new” tests fresh generation. Prelaunch hard reset clears active runtime libraries but preserves acknowledged generalized templates in private storage. Core catalog Paths remain installed. This is not a port of the unrestricted legacy graph-proposal loop. See [decision 0142](../decisions/0142-learned-paths-are-proven-local-and-archived-without-values.md).
+
 ## 1. System objective
 
 1var turns human intent and protected or ordinary data into governed, reusable interactions. It is intended to let builders create the structured foundation once and let other users invoke it naturally through messages, voice, or other interfaces.
