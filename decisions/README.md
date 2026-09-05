@@ -154,3 +154,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0139: Inspector spatial workbench reuses exact bindings and ArrayLogic](0139-inspector-spatial-workbench-reuses-exact-bindings-and-arraylogic.md)
 - [0140: Inspector folds classifications and groups focus branches](0140-inspector-folds-classifications-and-groups-focus-branches.md)
 - [0145: Identity properties address owned objects](0145-identity-properties-address-owned-objects.md)
+- [0146: Shared-subject compound facts commit atomically](0146-shared-subject-compound-facts-commit-atomically.md)

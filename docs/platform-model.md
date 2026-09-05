@@ -8,6 +8,8 @@ A proved assertive property mutation may also materialize one missing owned subj
 
 An active identity-bearing property (`name`, `nickname`, `alias`, or `callsign`) supplies a lexical address for its same exact owned object during later local resolution. It never replaces canonical identity or ownership, grants authority, merges namesakes, or promotes unrelated property values into aliases. The bounded adviser may represent a one-subject description, tendency, preference, habit, or ability as one grounded property fact; situational or seasonal words inside its value do not create a schedule. See [decision 0145](../decisions/0145-identity-properties-address-owned-objects.md).
 
+Two to four affirmative property facts about one explicitly possessed subject may enter one browser-local compound Essence operation. Pronoun continuations bind only to that exact subject; the subject and every property are staged and committed in one ContextDB revision. This bounded core grammar is not arbitrary text splitting and does not expand the model into a multi-effect executor. See [decision 0146](../decisions/0146-shared-subject-compound-facts-commit-atomically.md).
+
 ## 1. System objective
 
 1var turns human intent and protected or ordinary data into governed, reusable interactions. It is intended to let builders create the structured foundation once and let other users invoke it naturally through messages, voice, or other interfaces.
