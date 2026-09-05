@@ -26,4 +26,4 @@ Copying legacy model graph generation would restore its expensive multi-stage de
 
 ## Verification
 
-Thirty original constructions plus an independently supplied ten-construction generalization suite across twelve operations with held-out local replays; semantic safety failures; exact-state/idempotent execution; archive lifecycle and HTTP/auth/storage/reset tests. Live timings, deployed version and final reset counts are reported separately from fixture tests. See [implementation details](../../onevar-platform/docs/architecture/path-learning.md).
+Thirty original constructions plus a ten-construction post-corpus generalization suite—including eight independently reported failures—across twelve operations with held-out local replays; semantic safety failures; exact-state/idempotent execution; archive lifecycle and HTTP/auth/storage/reset tests. Live timings, deployed version and final reset counts are reported separately from fixture tests. See [implementation details](../../onevar-platform/docs/architecture/path-learning.md).
