@@ -1,6 +1,6 @@
 # 0144 — Possessive property assertions materialize missing owned subjects
 
-Status: accepted; implemented in source with development release proof pending.
+Status: accepted; implemented and live-proven in development release `a0fc528ecfbbcf6316d4e5235871678d73452333`.
 
 ## Context
 
@@ -23,3 +23,5 @@ The rule generalizes across object types, attributes and values without adding d
 ## Verification
 
 Tests must prove the original missing-subject count assertion, a different subject/property pair, dotted-version assignment and readback, ambiguous-subject refusal, non-possessive refusal, read-only missing-subject refusal, one-revision publication and held-out local replay with no adviser request. Live evidence must be recorded separately and may not be replaced by fixture proposals.
+
+Development workflow [33960113350](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33960113350) deployed the exact release without resetting test state. A fresh browser test passed 1/1 in 25.3 seconds across cold house and sensor constructions plus held-out greenhouse and router reuse; held-out executions made no additional adviser requests.
