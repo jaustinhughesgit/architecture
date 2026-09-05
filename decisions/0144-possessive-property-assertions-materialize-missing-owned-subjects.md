@@ -18,6 +18,8 @@ The matcher admits a bounded captured numeric dotted value such as a semantic ve
 
 The compiler also treats a trailing possessive `'s` on a subject or target and an adjacent linking `is` or `are` between explicit property and value spans as mechanical grammar boundaries. It removes those tokens from operand captures without inventing a word, role, scope or operation. Matching quarantines an older active template whenever it would consume the same boundary grammar as entity or value data, so malformed local Paths cannot intercept the corrected cold-learning route. Existing template bytes and hashes remain immutable.
 
+The bundled core possessive-property Path applies the same trusted materialization rule. A grammar already known locally must not reject a missing subject before the cold adviser can be considered; it stages the implied object, ownership/kind relations and property in one atomic revision with no model call. Ambiguity remains non-constructive.
+
 ## Consequences
 
 The rule generalizes across object types, attributes and values without adding domain vocabulary. One assertion can create its implied subject and fact, while publication observes one atomic revision. Read paths remain mutation-free, and typos without explicit possessive evidence cannot silently create objects.
