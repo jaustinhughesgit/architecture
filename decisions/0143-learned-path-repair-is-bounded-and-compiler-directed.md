@@ -8,7 +8,7 @@ The first clean-room acceptance corpus proved its thirty known constructions but
 
 ## Decision
 
-Compiler v1 remains immutable for existing content addresses. Compiler v2 accepts normalized lowercase structural words within strict length and character bounds. Digits, identifiers, URLs, paths, punctuation-bearing values and later uncovered capitalized words cannot enter that channel. Names, entity references, explicit properties, values and relation targets remain grounded captures. Required roles, operator evidence, negation, complete matching and isolated effect proof remain authoritative.
+Compiler v1 remains immutable for existing content addresses. Compiler v2 accepts normalized lowercase structural words within strict length and character bounds. Digits, identifiers, URLs, paths, punctuation-bearing values and later uncovered capitalized words cannot enter that channel. Names, entity references, explicit properties, values and relation targets remain grounded captures. Required roles, operator evidence, negation, complete matching and isolated effect proof remain authoritative. For a two-endpoint relation, the compiler rejects an endpoint bridge captured as the link label and rejects a label introducer absorbed into a following label; meaningful spatial relation phrases remain valid.
 
 One ordinary cold miss may make at most three sequential structured advisory requests. After local rejection, the next request receives only an attempt number and one coarse category such as capture, grounding, speech act or operator evidence. Detailed local errors, graph state and prior provider content never cross that boundary. Each attempt has independent transient idempotency while all actual usage meters join the original pricing root.
 
@@ -22,4 +22,4 @@ The archive stores the exact capture-free syntax shell, not the full utterance o
 
 ## Verification
 
-The independent failure phrases and held-out value variants must pass compiler, matching and graph-effect proof. A browser fault-injection test must reject attempt one, send only the coarse category on attempt two, display one successful result and expose no intermediate diagnostic. Live model evaluation is reported separately and must never be replaced by oracle proposals.
+The independent failure phrases and held-out value variants must pass compiler, matching and graph-effect proof. A browser fault-injection test must reject attempt one, send only the coarse category on attempt two, display one successful result and expose no intermediate diagnostic. A real-model evaluation must also treat a semantically empty but structurally valid relation label as repairable rather than accepting it. Live model evaluation is reported separately and must never be replaced by oracle proposals.
