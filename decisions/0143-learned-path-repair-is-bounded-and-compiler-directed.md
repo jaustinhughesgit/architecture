@@ -1,6 +1,6 @@
 # 0143 — Learned Path repair is bounded and compiler-directed
 
-Status: accepted; implemented candidate in `onevar-platform`.
+Status: accepted; implemented and live-proven in development.
 
 ## Context
 
@@ -23,3 +23,5 @@ The archive stores the exact capture-free syntax shell, not the full utterance o
 ## Verification
 
 The independent failure phrases and held-out value variants must pass compiler, matching and graph-effect proof. A browser fault-injection test must reject attempt one, send only the coarse category on attempt two, display one successful result and expose no intermediate diagnostic. A real-model evaluation must also treat a semantically empty but structurally valid relation label as repairable rather than accepting it. Live model evaluation is reported separately and must never be replaced by oracle proposals.
+
+Development release `a992f66c2907ba011e8302c52b90063a127bbd42` passed all ten cold real-model generations and all ten held-out local replays in workflow [33946643764](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/33946643764). Eight cold inputs were independently reported failures; two were post-corpus expansions. Two earlier 9/10 runs were retained as failures during correction rather than reclassified as passes.
