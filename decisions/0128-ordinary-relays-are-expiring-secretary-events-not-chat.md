@@ -8,6 +8,8 @@ Accepted — development live-proven
 
 1var will interpret “Tell Austin that I have arrived” as a request for the system to inform one exact person. It will not create direct-message conversations, permanent peer transcripts, or a second messaging database.
 
+Self-directed language is not a relay. `Tell me`, `tell myself`, `tell us`, and `tell ourselves` remain ordinary local inputs rather than attempting public-profile resolution for a person named by the pronoun. This keeps the secretary shortcut from preempting local questions that naturally begin with “Tell me…”.
+
 The sender is authenticated and named. An authorized public profile label nominates a recipient, but the shared referent-positioning primitive must resolve and freeze one exact recipient entity ID. Safe contextual ranking or structured clarification handles same-name candidates; names never become authority. Trusted code performs a bounded first-person-to-third-person rewrite, so routine delivery does not require an LLM.
 
 An ordinary relay is a closed durable-notification variant containing exact sender/recipient identity, one ordinary source statement, deterministic rendered text, lifecycle state, and a seven-day expiry. A sender-created exact relay ID makes retries idempotent. Persistence atomically enforces 30 relays per sender per minute. The recipient's existing real-time socket receives only a constant change hint and retrieves the relay through the authenticated sync delta. Rendering followed by acknowledgement resolves the delivery, while protected approval notifications retain their independent acknowledged/unresolved lifecycle.
