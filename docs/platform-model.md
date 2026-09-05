@@ -6,6 +6,8 @@ The replacement runtime has a bounded ordinary cold-miss foundation: a model nom
 
 A proved assertive property mutation may also materialize one missing owned subject when exact compiled grammar supplies the possessive evidence `my`. The object, ownership/kind relations and property commit atomically; the model cannot grant this behavior. Ambiguity and non-possessive absence still fail, while reads, removals, comparisons and adjustments remain non-constructive. See [decision 0144](../decisions/0144-possessive-property-assertions-materialize-missing-owned-subjects.md).
 
+An active identity-bearing property (`name`, `nickname`, `alias`, or `callsign`) supplies a lexical address for its same exact owned object during later local resolution. It never replaces canonical identity or ownership, grants authority, merges namesakes, or promotes unrelated property values into aliases. The bounded adviser may represent a one-subject description, tendency, preference, habit, or ability as one grounded property fact; situational or seasonal words inside its value do not create a schedule. See [decision 0145](../decisions/0145-identity-properties-address-owned-objects.md).
+
 ## 1. System objective
 
 1var turns human intent and protected or ordinary data into governed, reusable interactions. It is intended to let builders create the structured foundation once and let other users invoke it naturally through messages, voice, or other interfaces.
