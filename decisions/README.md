@@ -155,3 +155,7 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0140: Inspector folds classifications and groups focus branches](0140-inspector-folds-classifications-and-groups-focus-branches.md)
 - [0145: Identity properties address owned objects](0145-identity-properties-address-owned-objects.md)
 - [0146: Shared-subject compound facts commit atomically](0146-shared-subject-compound-facts-commit-atomically.md)
+- [0147: Inspector top pills separate Filters from Quick Links](0147-inspector-top-pills-separate-filters-from-quick-links.md)
+- [0148: Named possessions use one exact identity object](0148-named-possessions-use-one-exact-identity-object.md)
+- [0149: Direct named-owner facts are core local operations](0149-direct-named-owner-facts-are-core-local-operations.md)
+- [0150: Descriptive possessions create nested objects](0150-descriptive-possessions-create-nested-objects.md)
