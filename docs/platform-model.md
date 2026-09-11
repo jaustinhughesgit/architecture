@@ -1,5 +1,9 @@
 # Platform Model
 
+## Addressable ordinary relationship details
+
+The clean-room ordinary graph now supports exact property/collection occurrence entities via optional relation `facetEntityId` and entity `graphRole`. The same subject/property/value fact remains authoritative; Inspector may project it as a straight chain with compact, expandable intermediate points. Selected points can receive subsequent ordinary input without changing authority. A bounded composition primitive stages complete multi-clause assertions and collection naming atomically. Publication, canonical remapping, hydration and discovery preserve these references. This supersedes descriptor folding for the new projection, but does not establish unrestricted language understanding or a measured 95% success rate. See [decision 0151](../decisions/0151-addressable-facets-and-atomic-graph-composition.md).
+
 ## Clean-room ordinary Path learning
 
 The replacement runtime has a bounded ordinary cold-miss foundation: a model nominates a typed fact operation and grounded token spans; trusted browser code compiles/proves the caller-local Path before commit. Inactive capture-free templates are searched first and offered explicitly; “create new” tests fresh generation. Compiler v2 accepts bounded normalized structural syntax while semantic operands remain captures. A failed proposal may be repaired internally through at most three attempts using only a coarse compiler category; intermediate diagnostics never become user responses and no attempt can mutate before proof. Prelaunch hard reset clears active runtime libraries but preserves acknowledged generalized templates in private storage. Core catalog Paths remain installed. This is not a port of the unrestricted legacy graph-proposal loop. See [decision 0142](../decisions/0142-learned-paths-are-proven-local-and-archived-without-values.md) and [decision 0143](../decisions/0143-learned-path-repair-is-bounded-and-compiler-directed.md).
