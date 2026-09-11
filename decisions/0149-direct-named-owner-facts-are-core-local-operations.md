@@ -15,6 +15,6 @@ Inactive archive templates remain interpretations rather than authority. This ch
 ## Consequences
 
 - `April has two cats` stores `cats = two` on the exact April entity.
-- `April has a red car` creates an exact related object labelled `red car` rather than storing `car = red` on April.
+- `April has a big car` creates an exact noun-labelled `car` with a separate descriptor rather than storing `car = big` on April.
 - A malformed or unknown direct subject cannot create a person or owned object by implication.
 - The primitive is vocabulary-neutral and introduces no people, animal, vehicle or color-specific branch.
