@@ -2,6 +2,8 @@
 
 ## Addressable ordinary relationship details
 
+Ordinary composition also retains one typed, revision-bound device-local conversational frame. Failed inputs do not erase the last successful referents; selected focus and grammatical roles are resolved against current authorized identities, and scalar counts cannot masquerade as possessors. Canonical acknowledgement remaps those local references without publishing conversation state. See [decision 0152](../decisions/0152-conversation-references-retain-typed-local-identities.md).
+
 The clean-room ordinary graph now supports exact property/collection occurrence entities via optional relation `facetEntityId` and entity `graphRole`. The same subject/property/value fact remains authoritative; Inspector may project it as a straight chain with compact, expandable intermediate points. Selected points can receive subsequent ordinary input without changing authority. A bounded composition primitive stages complete multi-clause assertions and collection naming atomically. Publication, canonical remapping, hydration and discovery preserve these references. This supersedes descriptor folding for the new projection, but does not establish unrestricted language understanding or a measured 95% success rate. See [decision 0151](../decisions/0151-addressable-facets-and-atomic-graph-composition.md).
 
 ## Clean-room ordinary Path learning
