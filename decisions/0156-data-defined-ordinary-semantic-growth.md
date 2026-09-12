@@ -17,6 +17,8 @@ Composition advice uses low reasoning with the existing token/time ceiling after
 
 The next live round drove an explicit exclusive-end token contract, abstract compiler-tested role/event examples, and directed-edge-independent object/facet connectivity. Scalar and classification values cannot bridge orphaned objects. Invalid local plans can trigger a bounded typed repair without exposing graph errors to the adviser; missing or ambiguous references remain user clarifications.
 
+Further live replay repaired a general identity bug: an outgoing object relation cannot make its subject an alias for its target. Connectivity feedback is separately typed; abstract compound-reference/context examples preserve the complete owner scope and address created objects through registers, not scalar labels. Context assertions may be scalar values or structured noun/descriptor branches; evaluation checks meaning on the exact branch rather than requiring one display label.
+
 Fresh users automatically prove unambiguous shared one-operation Paths as well. Explicitly archived local Paths retain the restore/new-generation choice. The automatic semantic tier is limited to affirmative ordinary graph statements; external actions, negation, uncertainty, arbitrary reads, deletion, protected execution and new interpreter primitives remain unsupported. Pattern and logic are fields in one artifact; independently shared semantic subprograms, stronger quality promotion/revocation, exhaustive retrieval and broad multilingual coverage remain incomplete.
 
 ## Status
