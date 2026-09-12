@@ -1,5 +1,7 @@
 # 0156: Data-defined ordinary semantic growth
 
+[Decision 0157](0157-learned-query-compositions-read-current-facts.md) subsequently extends this write-only foundation with bounded generated read programs. The original limits/evidence below describe the first release.
+
 - Status: Accepted, bounded implementation
 - Date: 2026-09-11
 

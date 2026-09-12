@@ -1,6 +1,6 @@
 # Platform Model
 
-The clean implementation now includes a bounded [ordinary semantic-growth tier](../decisions/0156-data-defined-ordinary-semantic-growth.md): Paths may bind immutable data-defined compositions of existing graph primitives instead of only one source-defined operation. Local proof and atomic persistence precede cross-user definition sharing; exact IDs, facts and authority are rebound per recipient. This is an Implemented affirmative ordinary-graph foundation, while general capability growth, semantic quality promotion and broad language coverage remain Partial.
+The clean implementation includes a bounded [ordinary semantic-growth tier](../decisions/0156-data-defined-ordinary-semantic-growth.md) and [learned query compositions](../decisions/0157-learned-query-compositions-read-current-facts.md): Paths bind immutable data-defined programs rather than only one source-defined operation. Writes compose existing graph primitives; reads join current authorized facts into witnessed entity sets/counts without mutation. Local proof/persistence precede cross-user definition sharing; exact IDs, facts and authority are rebound per recipient. This is an Implemented bounded ordinary-graph foundation, while general capability growth, semantic quality promotion and broad language coverage remain Partial.
 
 ## Composable ordinary descriptions
 
