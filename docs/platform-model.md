@@ -2,6 +2,8 @@
 
 ## Addressable ordinary relationship details
 
+Reverse ordinary descriptor/count questions compile to bounded typed browser-local queries over exact current owner-local facts. They return subject IDs and versioned relation witnesses without modifying graph, publication or discourse state; descriptors do not propagate through adjacent entities. See [decision 0153](../decisions/0153-reverse-ordinary-queries-are-exact-local-reads.md).
+
 Ordinary composition also retains one typed, revision-bound device-local conversational frame. Failed inputs do not erase the last successful referents; selected focus and grammatical roles are resolved against current authorized identities, and scalar counts cannot masquerade as possessors. Canonical acknowledgement remaps those local references without publishing conversation state. See [decision 0152](../decisions/0152-conversation-references-retain-typed-local-identities.md).
 
 The clean-room ordinary graph now supports exact property/collection occurrence entities via optional relation `facetEntityId` and entity `graphRole`. The same subject/property/value fact remains authoritative; Inspector may project it as a straight chain with compact, expandable intermediate points. Selected points can receive subsequent ordinary input without changing authority. A bounded composition primitive stages complete multi-clause assertions and collection naming atomically. Publication, canonical remapping, hydration and discovery preserve these references. This supersedes descriptor folding for the new projection, but does not establish unrestricted language understanding or a measured 95% success rate. See [decision 0151](../decisions/0151-addressable-facets-and-atomic-graph-composition.md).
