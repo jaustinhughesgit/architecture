@@ -1,5 +1,10 @@
 # Platform Model
 
+The clean app surface now composes a marketplace listing and its installed app
+into one navigable entity, keeping exact release/install/license authority below
+the projection. CLI and Inspector share app resolution; recipient version changes
+and removal are separate from publisher lifecycle. See [decision 0162](../decisions/0162-one-user-facing-app-over-exact-marketplace-records.md).
+
 The clean Inspector's Filter collection includes exact authorized public publisher/record pairs. It retains publisher-to-filter connectors and descendants without manufacturing caller relationships or importing foreign facts. Reference-only saved pills revalidate current public access independently of later queries, and remain disabled/removable when unavailable. See [decision 0161](../decisions/0161-public-inspector-filters-preserve-exact-authority.md); private/protected sharing, cross-device filter sync and unbounded graph projection remain separate.
 
 Ordinary public identity resolution now precedes answer availability. An ambiguous name asks for identifying context; a narrowed public candidate requires confirmation, and unavailable remembered identities never redirect to namesakes. Count/description Paths use an isolated authorized publisher read view. [Decision 0159](../decisions/0159-public-identity-is-resolved-before-answer-availability.md) supersedes the older ordinary target-path-first selection below; general conversational/graph resolution remains Partial.

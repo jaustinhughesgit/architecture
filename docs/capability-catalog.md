@@ -1,5 +1,10 @@
 # Capability Catalog
 
+The clean-platform unified app-management slice is Implemented: one Inspector app
+point and CLI address compose exact marketplace provenance, selected release,
+current-license usage and recipient removal. See [decision 0162](../decisions/0162-one-user-facing-app-over-exact-marketplace-records.md)
+for evidence, authorization boundaries and bounded reporting limits.
+
 This catalog prevents future work from assuming a capability is absent merely because it is unfamiliar. It is intentionally incomplete and must grow as the platform is inspected and discussed.
 
 | Capability | Status | Current or intended ownership | Notes / next documentation work |
