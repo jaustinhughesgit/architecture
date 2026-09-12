@@ -1,5 +1,9 @@
 # Platform Model
 
+## Composable ordinary descriptions
+
+The clean-room description slice composes data-defined request, ownership/reference and field-selection subpatterns into a fully covered, typed `graph.describe` read. Exact current owner-local facts and versioned witnesses supply bounded multi-fact responses; templates format those facts locally without a model or fact mutation. Learned description openings reuse the same subject/projection network and preserve the existing explicit archive/proof lifecycle. Older mutation and reverse-query grammar remains unmigrated, so broader compositional language coverage is still Partial. See [decision 0154](../decisions/0154-clean-composable-read-paths-and-descriptions.md).
+
 ## Addressable ordinary relationship details
 
 Reverse ordinary descriptor/count questions compile to bounded typed browser-local queries over exact current owner-local facts. They return subject IDs and versioned relation witnesses without modifying graph, publication or discourse state; descriptors do not propagate through adjacent entities. See [decision 0153](../decisions/0153-reverse-ordinary-queries-are-exact-local-reads.md).
