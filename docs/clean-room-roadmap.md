@@ -6,6 +6,17 @@ This is the hard implementation order for the replacement platform. Phase status
 
 ## Non-negotiable flow
 
+### Open follow-up — natural graph summaries
+
+- [ ] Replace internal “Recorded connection: …” summary output with natural,
+  fact-grounded relationship and event sentences through reusable response
+  templates/projections. For example, render a recorded friend relationship as
+  “Tom is your friend” and a fully witnessed meeting event as “You met Tom in
+  college.” Preserve exact participant, role and context evidence; do not infer
+  missing details or ask a model to invent summary facts. Cover learned and core
+  graph shapes, different names/activities, incomplete events, reload and
+  read-only behavior. Status: requested, not implemented (2026-09-12).
+
 ```text
 voice or text
   -> immutable Interaction Evidence
