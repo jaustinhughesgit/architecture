@@ -26,3 +26,7 @@ Fresh users automatically prove unambiguous shared one-operation Paths as well. 
 ## Status
 
 Implemented bounded graph-composition foundation; general capability growth remains Partial. Initial policy grammar is English. No 95% claim. Ten deterministic multi-step scenarios, atomic failure, hash/identity/auth boundaries and browser cross-account/offline/outbox behavior have tests. Actual provider/deployment evidence must be recorded separately from fixture results in the capability catalog and `onevar-platform/docs/testing/semantic-growth.md`.
+
+Development release `f8ad6ef42b104c13ce65e4be99f8ffefa2027f41` passed ten fresh real-provider cases on their first composition attempts, ten shared-recipient/local replays and a non-fixture real-browser normal-dispatch/reuse canary on 2026-09-12. The full gate passed 857 automated tests and the local browser suite passed 23 scenarios. Earlier live failures drove general compiler, graph-connectivity and reference-identity repairs and remain recorded separately. These results establish the bounded slice, not arbitrary semantic correctness or a representative 95% benchmark.
+
+[Development workflow 34672203445](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34672203445) published the same release and passed all 17 deployed graph/publication/focus scenarios without a shared-state reset. Production was not changed.
