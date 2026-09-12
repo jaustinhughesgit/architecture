@@ -19,6 +19,8 @@ The next live round drove an explicit exclusive-end token contract, abstract com
 
 Further live replay repaired a general identity bug: an outgoing object relation cannot make its subject an alias for its target. Connectivity feedback is separately typed; abstract compound-reference/context examples preserve the complete owner scope and address created objects through registers, not scalar labels. Context assertions may be scalar values or structured noun/descriptor branches; evaluation checks meaning on the exact branch rather than requiring one display label.
 
+A bare unresolved reference used exclusively as a non-owning contextual target can materialize as a new ordinary local context object connected by the stated link. Typed resolver evidence excludes missing owner paths, pronouns, ambiguous candidates, actors and update subjects. This grants neither external identity nor ownership of the context; it closes the gap between a captured literal and an explicitly asserted context object without domain-specific recognition.
+
 Fresh users automatically prove unambiguous shared one-operation Paths as well. Explicitly archived local Paths retain the restore/new-generation choice. The automatic semantic tier is limited to affirmative ordinary graph statements; external actions, negation, uncertainty, arbitrary reads, deletion, protected execution and new interpreter primitives remain unsupported. Pattern and logic are fields in one artifact; independently shared semantic subprograms, stronger quality promotion/revocation, exhaustive retrieval and broad multilingual coverage remain incomplete.
 
 ## Status
