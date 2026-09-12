@@ -32,6 +32,15 @@ This is the hard implementation order for the replacement platform. Phase status
   plus reload, cross-account and model-free reuse. Queries must never mutate
   facts. Status: requested, not implemented (2026-09-12).
 
+### Open follow-up — clickable public/private header status
+
+- [ ] Allow users to toggle their public/private visibility by clicking the
+  existing public/private text in the header at the top of the page. Reuse the
+  existing authorized visibility-change flow; protected data must remain
+  protected. Make the control keyboard-accessible, show pending/failure states,
+  and reflect the confirmed visibility after reload. Status: requested, not
+  implemented (2026-09-12).
+
 ## Non-negotiable flow
 
 ```text
