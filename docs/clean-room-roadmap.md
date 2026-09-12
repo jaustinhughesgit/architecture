@@ -52,7 +52,7 @@ Release `18c27b0a232ce9d48a86d88e692b882a06794d6d`: 877 automated checks,
 two-account checks passed. The 18 unrelated opt-in browser tests were not run.
 [CI](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34695444957)
 and [development deployment](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34695444812)
-both succeeded. Production and shared test state were not reset or changed.
+both succeeded. Production was unchanged; shared test state was not reset.
 
 ## Non-negotiable flow
 
