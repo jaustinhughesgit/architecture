@@ -12,6 +12,8 @@ An uncovered ordinary question enters the existing browser semantic-learning flo
 
 Answers use the existing `graph.query` contract with package hash/bindings, read revision, exact subjects and versioned relation witnesses. The query cannot introduce missing references, mutate facts, change publication/discourse state, access protected values or execute providers. Local proof/persistence precede the existing authenticated exact-candidate acknowledgement and durable sharing outbox. Recipients bind their own facts; warm queries compute fresh answers without model/network calls. Canonical graph persistence, API graph transport and Compute/JPL authority are unchanged.
 
+Structural concepts address a logical storage-compatible read view. Proven event/actor edges supply their schema-equivalent inverse view with the original relation and occurrence-kind witnesses. Generic context reads include location/time; role-specific context reads retain legacy unspecified context without inferring its geographical/temporal type or including the opposite explicit role. Captured user property keys do not gain aliases. No new canonical edges are persisted.
+
 Bounds: 16 steps, 4,096 intermediate rows, 100,000 work visits, eight visible matches and 32 relation witnesses per match. No arbitrary code, recursion, unbounded scans or inferred authority. Invalid/ambiguous definitions fail rather than being chosen by rank. Existing library/search limits remain.
 
 ## Status and limitations
