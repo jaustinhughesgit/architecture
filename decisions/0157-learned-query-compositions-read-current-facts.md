@@ -14,6 +14,8 @@ Answers use the existing `graph.query` contract with package hash/bindings, read
 
 Structural concepts address a logical storage-compatible read view. Proven event/actor edges supply their schema-equivalent inverse view with the original relation and occurrence-kind witnesses. Generic context reads include location/time; role-specific context reads retain legacy unspecified context without inferring its geographical/temporal type or including the opposite explicit role. Captured user property keys do not gain aliases. No new canonical edges are persisted.
 
+Known facet registers cannot satisfy event/object/value filters; such contradictory definitions fail structural proof before promotion. Historical structurally invalid artifacts are retained but excluded from execution/discovery, and incompatible pending shares retire locally without promotion. This prevents one invalid shared candidate from blocking every matching syntax lookup. Query null interpretations may consume the remaining three-attempt repair budget; they do not establish that a primitive is missing. General semantic truth validation, scoring and operator revocation remain incomplete.
+
 Bounds: 16 steps, 4,096 intermediate rows, 100,000 work visits, eight visible matches and 32 relation witnesses per match. No arbitrary code, recursion, unbounded scans or inferred authority. Invalid/ambiguous definitions fail rather than being chosen by rank. Existing library/search limits remain.
 
 ## Status and limitations
