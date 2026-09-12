@@ -1,5 +1,7 @@
 # Architecture Decisions
 
+- [0159: Public identity is resolved before answer availability](0159-public-identity-is-resolved-before-answer-availability.md)
+
 Use one Markdown file per durable cross-layer decision:
 
 ```text

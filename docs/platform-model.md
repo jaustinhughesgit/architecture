@@ -1,5 +1,7 @@
 # Platform Model
 
+Ordinary public identity resolution now precedes answer availability. An ambiguous name asks for identifying context; a narrowed public candidate requires confirmation, and unavailable remembered identities never redirect to namesakes. Count/description Paths use an isolated authorized publisher read view. [Decision 0159](../decisions/0159-public-identity-is-resolved-before-answer-availability.md) supersedes the older ordinary target-path-first selection below; general conversational/graph resolution remains Partial.
+
 The clean implementation includes a bounded [ordinary semantic-growth tier](../decisions/0156-data-defined-ordinary-semantic-growth.md) and [learned query compositions](../decisions/0157-learned-query-compositions-read-current-facts.md): Paths bind immutable data-defined programs rather than only one source-defined operation. Writes compose existing graph primitives; reads join current authorized facts into witnessed entity sets/counts without mutation. Local proof/persistence precede cross-user definition sharing; exact IDs, facts and authority are rebound per recipient. This is an Implemented bounded ordinary-graph foundation, while general capability growth, semantic quality promotion and broad language coverage remain Partial.
 
 ## Composable ordinary descriptions
