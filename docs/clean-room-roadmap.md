@@ -4,7 +4,7 @@
 
 This is the hard implementation order for the replacement platform. Phase status describes the clean `onevar-platform` implementation, not capability evidence that remains in the proof-of-concept repositories.
 
-## Non-negotiable flow
+## Open follow-ups
 
 ### Open follow-up — natural graph summaries
 
@@ -16,6 +16,23 @@ This is the hard implementation order for the replacement platform. Phase status
   missing details or ask a model to invent summary facts. Cover learned and core
   graph shapes, different names/activities, incomplete events, reload and
   read-only behavior. Status: requested, not implemented (2026-09-12).
+
+### Open follow-up — learnable intent recognition
+
+- [ ] Generalize read/write intent recognition so unfamiliar request structures
+  can reach the correct grey-area learning tier. “Tell me who I met” and “Tell
+  me who I met in college.” currently select statement learning, while “Who did
+  I meet?” selects query learning. Reuse known Path/subpattern structures first;
+  on a genuine miss, allow a bounded LLM proposal of typed intent and reusable
+  recognition logic, subject to local compiler proof and existing authority
+  boundaries. Do not fix this by adding individual phrases to source-code word
+  lists. Save and share validated definitions without user facts. Test equivalent
+  direct/embedded questions with and without punctuation, optional context,
+  held-out wording, statements, ambiguity and protected/negated boundaries,
+  plus reload, cross-account and model-free reuse. Queries must never mutate
+  facts. Status: requested, not implemented (2026-09-12).
+
+## Non-negotiable flow
 
 ```text
 voice or text
