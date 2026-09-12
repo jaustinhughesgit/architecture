@@ -159,3 +159,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0148: Named possessions use one exact identity object](0148-named-possessions-use-one-exact-identity-object.md)
 - [0149: Direct named-owner facts are core local operations](0149-direct-named-owner-facts-are-core-local-operations.md)
 - [0150: Descriptive possessions create nested objects](0150-descriptive-possessions-create-nested-objects.md)
+- [0158: Typed intent learning and witnessed summary projections](0158-typed-intent-and-witnessed-summary-projections.md)

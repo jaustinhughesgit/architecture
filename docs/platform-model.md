@@ -4,6 +4,8 @@ The clean implementation includes a bounded [ordinary semantic-growth tier](../d
 
 ## Composable ordinary descriptions
 
+The implemented bounded follow-up uses typed intent proposals for uncovered speech acts and complete learned assertion patterns as read-side summary projections. Existing local Paths/apps still win; exact current witnesses, not historical utterances, support natural event/role prose. A header visibility gesture reuses the ordinary publication contract and cannot publish protected data. General language coverage remains Partial. See [decision 0158](../decisions/0158-typed-intent-and-witnessed-summary-projections.md).
+
 The bounded two-endpoint extension describes a recorded direct relationship through the same read primitive and composable library. Edge direction, exact endpoints and versioned role labels supply the answer; inverse kinship, shared-value connections and arbitrary indirect paths are not inferred. Role labels also remain visible in ordinary entity summaries. See [decision 0155](../decisions/0155-description-paths-project-recorded-relationships.md).
 
 The clean-room description slice composes data-defined request, ownership/reference and field-selection subpatterns into a fully covered, typed `graph.describe` read. Exact current owner-local facts and versioned witnesses supply bounded multi-fact responses; templates format those facts locally without a model or fact mutation. Learned description openings reuse the same subject/projection network and preserve the existing explicit archive/proof lifecycle. Older mutation and reverse-query grammar remains unmigrated, so broader compositional language coverage is still Partial. See [decision 0154](../decisions/0154-clean-composable-read-paths-and-descriptions.md).

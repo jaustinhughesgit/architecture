@@ -4,22 +4,25 @@
 
 This is the hard implementation order for the replacement platform. Phase status describes the clean `onevar-platform` implementation, not capability evidence that remains in the proof-of-concept repositories.
 
-## Open follow-ups
+## Completed follow-ups — 2026-09-12
 
-### Open follow-up — natural graph summaries
+### Completed — natural graph summaries
 
-- [ ] Replace internal “Recorded connection: …” summary output with natural,
+- [x] Replace internal “Recorded connection: …” summary output with natural,
   fact-grounded relationship and event sentences through reusable response
   templates/projections. For example, render a recorded friend relationship as
   “Tom is your friend” and a fully witnessed meeting event as “You met Tom in
   college.” Preserve exact participant, role and context evidence; do not infer
   missing details or ask a model to invent summary facts. Cover learned and core
   graph shapes, different names/activities, incomplete events, reload and
-  read-only behavior. Status: requested, not implemented (2026-09-12).
+  read-only behavior. Status: bounded speaker-rooted implementation and local
+  tests complete; deployed and live-proven (2026-09-12). Complete
+  learned patterns supply grammar and current witnesses supply facts; broader
+  narrative generation remains Partial. See decision 0158.
 
-### Open follow-up — learnable intent recognition
+### Completed — learnable intent recognition
 
-- [ ] Generalize read/write intent recognition so unfamiliar request structures
+- [x] Generalize read/write intent recognition so unfamiliar request structures
   can reach the correct grey-area learning tier. “Tell me who I met” and “Tell
   me who I met in college.” currently select statement learning, while “Who did
   I meet?” selects query learning. Reuse known Path/subpattern structures first;
@@ -30,16 +33,26 @@ This is the hard implementation order for the replacement platform. Phase status
   direct/embedded questions with and without punctuation, optional context,
   held-out wording, statements, ambiguity and protected/negated boundaries,
   plus reload, cross-account and model-free reuse. Queries must never mutate
-  facts. Status: requested, not implemented (2026-09-12).
+  facts. Status: implemented with typed intent proposals and complete learned
+  read patterns; local/CI and live development tests pass (2026-09-12).
+  General semantic quality remains Partial; no 95% claim. See decision 0158.
 
-### Open follow-up — clickable public/private header status
+### Completed — clickable public/private header status
 
-- [ ] Allow users to toggle their public/private visibility by clicking the
+- [x] Allow users to toggle their public/private visibility by clicking the
   existing public/private text in the header at the top of the page. Reuse the
   existing authorized visibility-change flow; protected data must remain
   protected. Make the control keyboard-accessible, show pending/failure states,
-  and reflect the confirmed visibility after reload. Status: requested, not
-  implemented (2026-09-12).
+  and reflect the confirmed visibility after reload. Status: implemented through
+  the existing ordinary publication flow; local/CI and live tests pass
+  (2026-09-12). See decision 0158.
+
+Release `18c27b0a232ce9d48a86d88e692b882a06794d6d`: 877 automated checks,
+75 enabled browser tests, 17 deployed graph checks and two additional live
+two-account checks passed. The 18 unrelated opt-in browser tests were not run.
+[CI](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34695444957)
+and [development deployment](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34695444812)
+both succeeded. Production and shared test state were not reset or changed.
 
 ## Non-negotiable flow
 
