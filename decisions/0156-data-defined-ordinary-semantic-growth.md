@@ -15,6 +15,8 @@ Cross-layer changes include an optional composition tier/semantic package on the
 
 Composition advice uses low reasoning with the existing token/time ceiling after the first live medium-reasoning attempt exhausted the output budget. Optional fixed-text compiler diagnostics and typed repair categories return no captured values or local graph details. One-operation advice remains unchanged. The failed live round is retained as failure evidence, not successful coverage.
 
+The next live round drove an explicit exclusive-end token contract, abstract compiler-tested role/event examples, and directed-edge-independent object/facet connectivity. Scalar and classification values cannot bridge orphaned objects. Invalid local plans can trigger a bounded typed repair without exposing graph errors to the adviser; missing or ambiguous references remain user clarifications.
+
 Fresh users automatically prove unambiguous shared one-operation Paths as well. Explicitly archived local Paths retain the restore/new-generation choice. The automatic semantic tier is limited to affirmative ordinary graph statements; external actions, negation, uncertainty, arbitrary reads, deletion, protected execution and new interpreter primitives remain unsupported. Pattern and logic are fields in one artifact; independently shared semantic subprograms, stronger quality promotion/revocation, exhaustive retrieval and broad multilingual coverage remain incomplete.
 
 ## Status
