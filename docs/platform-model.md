@@ -1,5 +1,7 @@
 # Platform Model
 
+The clean implementation now includes a bounded [ordinary semantic-growth tier](../decisions/0156-data-defined-ordinary-semantic-growth.md): Paths may bind immutable data-defined compositions of existing graph primitives instead of only one source-defined operation. Local proof and atomic persistence precede cross-user definition sharing; exact IDs, facts and authority are rebound per recipient. This is an Implemented affirmative ordinary-graph foundation, while general capability growth, semantic quality promotion and broad language coverage remain Partial.
+
 ## Composable ordinary descriptions
 
 The bounded two-endpoint extension describes a recorded direct relationship through the same read primitive and composable library. Edge direction, exact endpoints and versioned role labels supply the answer; inverse kinship, shared-value connections and arbitrary indirect paths are not inferred. Role labels also remain visible in ordinary entity summaries. See [decision 0155](../decisions/0155-description-paths-project-recorded-relationships.md).
