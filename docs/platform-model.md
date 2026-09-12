@@ -2,6 +2,8 @@
 
 ## Composable ordinary descriptions
 
+The bounded two-endpoint extension describes a recorded direct relationship through the same read primitive and composable library. Edge direction, exact endpoints and versioned role labels supply the answer; inverse kinship, shared-value connections and arbitrary indirect paths are not inferred. Role labels also remain visible in ordinary entity summaries. See [decision 0155](../decisions/0155-description-paths-project-recorded-relationships.md).
+
 The clean-room description slice composes data-defined request, ownership/reference and field-selection subpatterns into a fully covered, typed `graph.describe` read. Exact current owner-local facts and versioned witnesses supply bounded multi-fact responses; templates format those facts locally without a model or fact mutation. Learned description openings reuse the same subject/projection network and preserve the existing explicit archive/proof lifecycle. Older mutation and reverse-query grammar remains unmigrated, so broader compositional language coverage is still Partial. See [decision 0154](../decisions/0154-clean-composable-read-paths-and-descriptions.md).
 
 ## Addressable ordinary relationship details
