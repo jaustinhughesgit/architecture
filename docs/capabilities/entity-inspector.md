@@ -1,5 +1,7 @@
 # Entity Inspector
 
+The single-open-system projection is implemented and locally verified (922 tests and 78 applicable browser scenarios; development deployment pending). Only the chosen owner's admitted dots are laid out/rendered; other owners are small named circles in the second outside orbit, with relevant marketplace suggestions in the first. Opening uses a finite outward animation and outside clicks reset manual exploration, preserving exact focus and filters. See [decision 0165](../../decisions/0165-one-open-solar-system-and-discovery-orbits.md), superseding earlier all-expanded geometry without changing authorization or graph semantics.
+
 The bounded focus/attention repair is implemented, locally/CI verified and deployed to development. It separates explicit owner selection from day/ray navigation and refresh. Owner-rooted topic bearings follow default Sunburst slots; selected boundaries are 100% white and others 25%, with 20% connection lines. Current attention uses large seeds, medium one-hop neighbors, small two-hop neighbors and hidden deeper nodes, retaining explicit exploration. Memory-only public display replacement is atomic during a ten-second bounded refresh, with fail-closed denial/error/timeout removal. See [decision 0164](../../decisions/0164-solar-focus-and-bounded-public-display-refresh.md) for immutable release and test evidence.
 
 ## Purpose
