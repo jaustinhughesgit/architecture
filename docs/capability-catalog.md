@@ -1,5 +1,7 @@
 # Capability Catalog
 
+Owner solar systems and contract-based marketplace suggestions are **Implemented as a bounded slice; verification in progress**. Dotted growing boundaries separate exact owners; portal diamonds list only recorded relations and verified install-publisher evidence. Filters constrain local applicability matching, installed listings stay unified, and installation retains exact lifecycle/price checks. This is not unbounded graph layout, complete marketplace recall or a new permission system. See [decision 0163](../decisions/0163-owner-solar-systems-and-marketplace-contract-suggestions.md).
+
 The clean-platform unified app-management slice is Implemented: one Inspector app
 point and CLI address compose exact marketplace provenance, selected release,
 current-license usage and recipient removal. See [decision 0162](../decisions/0162-one-user-facing-app-over-exact-marketplace-records.md)

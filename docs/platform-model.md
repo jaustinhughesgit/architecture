@@ -1,5 +1,7 @@
 # Platform Model
 
+The clean Inspector now partitions its admitted graph into exact owner/publisher solar systems. Dotted boundaries fit full-size dots while remaining separated. Evidence-only portals count recorded cross-owner relations and currently verified install-to-publisher connections, never public-read relevance. Filter-preserving navigation and contract-matched marketplace satellites reuse existing graph, permission and marketplace lifecycle primitives; no new authority is introduced. See [decision 0163](../decisions/0163-owner-solar-systems-and-marketplace-contract-suggestions.md).
+
 The clean app surface now composes a marketplace listing and its installed app
 into one navigable entity, keeping exact release/install/license authority below
 the projection. CLI and Inspector share app resolution; recipient version changes

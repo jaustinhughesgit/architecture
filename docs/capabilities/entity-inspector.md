@@ -33,6 +33,10 @@ Discovery is bounded and progressive. It is not a global people list, and profil
 
 ## Interaction model
 
+Owner solar systems now enclose each admitted owner/publisher graph in a translucent dotted white circle. Circles grow around full-size visible dots and remain separated during dragging/expansion. Navigation preserves exact filters. Cross-system connector diamonds enumerate only exact recorded relations and verified installed-app publisher provenance; suggestions, queries and similar values do not count. A signed publisher-only point has no implied public graph. See [decision 0163](../../decisions/0163-owner-solar-systems-and-marketplace-contract-suggestions.md).
+
+Marketplace suggestions are yellow-dashed satellites outside the matching system. An opt-in verified root-package summary provides declared aliases, dependency states/access and transition targets for bounded local applicability matching after filtering. Installed apps with exact bindings to admitted owned data may remain under filters, superseding the former blanket exclusion of all apps and marketplace suggestions. Explicit installation confirms price and routes by exact listing ID. No matching or visualization grants authority; full graph/marketplace recall remains bounded.
+
 - owned points are fully colored;
 - authorized other-user points use a dark category tint with a solid category border;
 - protected summaries use a solid lock presentation;
