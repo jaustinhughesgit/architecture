@@ -1,7 +1,7 @@
 # 0164 — Solar focus and bounded public display refresh
 
 Date: 2026-09-12
-Status: Implemented; local verification complete, development deployment pending
+Status: Implemented; locally and CI verified, deployed to development
 
 Inspector entity focus, selected owner system, day/ray attention and camera are
 independent presentation state. Explicit entity/pill/system selection chooses the
@@ -33,4 +33,26 @@ projection repair, not persistent coordinates, historical snapshots, new graph
 semantics, or an unlimited layout service. Local verification passed 915 tests,
 build/type/bundle gates and all 77 applicable Chromium cases (18 explicit live
 gates skipped); final public-query/filter/day checks passed again. Hosted CI
-and development deployment evidence remain pending.
+also passed all 77 applicable browser scenarios on the first attempt.
+
+## Development evidence
+
+Release `a7b26cd43af80c4a0cefe75aa61aeb8b02cbf6b5` was deployed by
+[immutable release run 34734707203](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34734707203).
+All reset, paid/live and shared-state acceptance switches were explicitly false.
+The same immutable SHA passed
+[CI run 34734697860](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34734697860)
+in 12m51s, including the full nine-minute hosted browser suite (77 passed,
+18 explicit live-service gates skipped, no retries).
+No existing user data was reset. `/api/v1/health` reports this exact release;
+served entry, Inspector JavaScript/CSS and shared API assets match the locally
+tested build byte-for-byte. A fresh read-only browser loaded `/newentity1/` with
+HTTP 200, its Create control visible and no page errors; it created no account.
+
+Manual acceptance on an existing account: select an Austin-owned dot and verify
+Austin's boundary is fully white while Gavin's is 25%; step through days without
+changing the chosen system or pan/zoom; allow a background public refresh without
+DOM removal or navigation; select a Gavin-owned dot to choose Gavin explicitly.
+Check owner-centered default topic bearings, day/ray attention sizes, two-hop
+compact points, deeper hiding and near-click/relationship expansion. Revocation
+or refresh failure must still remove the affected public display.

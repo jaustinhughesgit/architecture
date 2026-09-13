@@ -1,6 +1,6 @@
 # Entity Inspector
 
-The new bounded focus/attention repair separates explicit owner selection from day/ray navigation and refresh. Owner-rooted topic bearings follow default Sunburst slots; selected boundaries are 100% white and others 25%, with 20% connection lines. Current attention uses large seeds, medium one-hop neighbors, small two-hop neighbors and hidden deeper nodes, retaining explicit exploration. Memory-only public display replacement is atomic during a ten-second bounded refresh, with fail-closed denial/error/timeout removal. See [decision 0164](../../decisions/0164-solar-focus-and-bounded-public-display-refresh.md); verification is pending.
+The bounded focus/attention repair is implemented, locally/CI verified and deployed to development. It separates explicit owner selection from day/ray navigation and refresh. Owner-rooted topic bearings follow default Sunburst slots; selected boundaries are 100% white and others 25%, with 20% connection lines. Current attention uses large seeds, medium one-hop neighbors, small two-hop neighbors and hidden deeper nodes, retaining explicit exploration. Memory-only public display replacement is atomic during a ten-second bounded refresh, with fail-closed denial/error/timeout removal. See [decision 0164](../../decisions/0164-solar-focus-and-bounded-public-display-refresh.md) for immutable release and test evidence.
 
 ## Purpose
 
