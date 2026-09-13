@@ -1,5 +1,7 @@
 # Entity Inspector
 
+The new bounded focus/attention repair separates explicit owner selection from day/ray navigation and refresh. Owner-rooted topic bearings follow default Sunburst slots; selected boundaries are 100% white and others 25%, with 20% connection lines. Current attention uses large seeds, medium one-hop neighbors, small two-hop neighbors and hidden deeper nodes, retaining explicit exploration. Memory-only public display replacement is atomic during a ten-second bounded refresh, with fail-closed denial/error/timeout removal. See [decision 0164](../../decisions/0164-solar-focus-and-bounded-public-display-refresh.md); verification is pending.
+
 ## Purpose
 
 The Inspector is a replaceable visual projection over ContextDB, installed entities, protected summaries, authorized public context, and marketplace candidates. It is not a second graph, a transcript, or an authorization system. It turns the exact local state already used by Essence and Compute into a navigable spatial surface while remote relevance arrives progressively.
@@ -16,7 +18,7 @@ Every point also resolves its own ray category. An exact active user placement f
 
 1. The browser renders the owner's current Context snapshot and installed Sunburst widgets immediately. These owned points require no discovery request and remain usable offline.
 2. The browser submits a bounded set of non-protected ordinary anchors to authenticated discovery. The API searches compact hashed facet postings, reloads each current canonical public Context record, revalidates its current audience and revision, and returns a bounded one-hop slice.
-3. Successful public reads independently provide the exact authorized publisher view, even without shared discovery facets. The queried publisher and its exact relations/facets receive priority within the 28-peer budget. Only a thirty-minute account-scoped tab reference persists; payloads are memory-only and revalidated on entry, reload, window focus and every sixty seconds while visible. Hide the peer view during revalidation and on failure; revocation never selects a namesake. This is separate from owned Context and from protected sharing.
+3. Successful explicit public reads independently provide the exact authorized publisher view, even without shared discovery facets. Its exact relations/facets receive priority within the 28-peer budget. Only a thirty-minute account-scoped tab reference persists; payloads are memory-only and revalidated on entry, reload, focus and every sixty seconds while visible. Initial disclosure requires fresh authorization; an existing display remains during a bounded ten-second check and swaps atomically. Failure/denial/timeout removes it, never selects a namesake or reactivates navigation. This display is separate from owned Context, fresh query execution and protected sharing.
 4. Marketplace search runs independently from public-context discovery. Neither remote stream delays, clears, or repositions the owned graph merely because it is pending or unavailable.
 
 Protected ciphertext, protected labels, keys, grants, and plaintext are never discovery anchors. The Inspector may show only a local protected summary and must route inspection through the existing protected authorization ceremony.

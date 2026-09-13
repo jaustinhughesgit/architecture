@@ -1,5 +1,7 @@
 # Platform Model
 
+Inspector selection, attention and camera state are separate: days and refreshes cannot choose another owner. Default Sunburst bearings organize owner-rooted topics. Last-authorized ordinary public displays may remain for a bounded ten-second exact refresh, with failure/revocation removal and no query or execution authority. See [decision 0164](../decisions/0164-solar-focus-and-bounded-public-display-refresh.md).
+
 The clean Inspector now partitions its admitted graph into exact owner/publisher solar systems. Dotted boundaries fit full-size dots while remaining separated. Evidence-only portals count recorded cross-owner relations and currently verified install-to-publisher connections, never public-read relevance. Filter-preserving navigation and contract-matched marketplace satellites reuse existing graph, permission and marketplace lifecycle primitives; no new authority is introduced. See [decision 0163](../decisions/0163-owner-solar-systems-and-marketplace-contract-suggestions.md).
 
 The clean app surface now composes a marketplace listing and its installed app

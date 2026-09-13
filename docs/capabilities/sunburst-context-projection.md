@@ -4,6 +4,8 @@
 
 ## Purpose
 
+Inspector solar-system attention now separates the selected entity/owner and camera from the selected day/ray. The day lens changes dot readability, not navigation; default template slot bearings govern owner-centered topic layout. See decision 0164 for bounded depth, public-display refresh and verification status.
+
 The 1var sunburst is a compact projection of the user's changing world. Its colored rays group applications, entities, communications, completed work, data use, financial changes, alerts, access attempts, connection requests, and other activations without reducing that world to one notification count.
 
 The current baseline uses the original twenty-color 1var palette: `#735099`, `#8a3b8e`, `#a7328a`, `#cb3089`, `#da3278`, `#dd5163`, `#e57d48`, `#efaa42`, `#e5bf47`, `#cad050`, `#9dc555`, `#6eb557`, `#37ab74`, `#1fac96`, `#18b0b9`, `#08b4d7`, `#0faadf`, `#3296d0`, `#3e80be`, and `#5766a9`. These are fixed rainbow slots, not editable topic properties. A ray is a user-facing category lens, not a canonical ontology partition. The trusted renderer owns slot colors; templates and local customization move topic occupants between those colors. Each ray has up to five activity circles: today, yesterday, and the three preceding local calendar days in that order. A zero bucket renders no circle, so an inactive ray can have no dots at all. Each non-empty day's circle is full color and grows at `1–3` small, `4–19` medium, and `20+` large, with bounded weighted urgency allowed to promote it sooner. The five daily circles are independent of the five entity positions on the group's widget page. No presentation field changes entity identity, facts, permissions, or execution authority.

@@ -1,5 +1,7 @@
 # Capability Catalog
 
+Solar focus/attention separation and bounded atomic public-display refresh are **Implemented; verification pending**. Exact owner selection survives day/ray changes and refresh; topic bearings derive from default Sunburst slots, with depth-based readability. See [decision 0164](../decisions/0164-solar-focus-and-bounded-public-display-refresh.md) for presentation-only scope and revocation/timeout boundaries.
+
 Owner solar systems and contract-based marketplace suggestions are **Implemented as a bounded slice; verified locally and in CI, deployed to development**. Dotted growing boundaries separate exact owners; portal diamonds list only recorded relations and verified install-publisher evidence. Filters constrain local applicability matching, installed listings stay unified, and installation retains exact lifecycle/price checks. Release `cf5271c34a26e6bf58cdb9aee3bfb9e05127f589` passed 910 unit/contract/infrastructure tests and hosted browser acceptance (76 first-pass scenarios, one audio-relay retry, 18 explicit live/paid skips); deployment and served-release byte checks passed without a reset. This is not unbounded graph layout, complete marketplace recall or a new permission system. See [decision 0163](../decisions/0163-owner-solar-systems-and-marketplace-contract-suggestions.md).
 
 The clean-platform unified app-management slice is Implemented: one Inspector app
