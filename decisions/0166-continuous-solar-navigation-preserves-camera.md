@@ -38,3 +38,23 @@ without retries, with 18 explicit live-service/paid gates skipped. Final focused
 checks cover rapid reversal, late wiring, camera/scroll stability, reduced motion,
 public filters and revocation. Desktop/mobile captures were inspected. Immutable
 development release evidence will follow; no data reset or migration is required.
+
+Product commit `1f7598869c3fc715f6a6ff8cc2cc19eef62dcfce` is pushed.
+[CI run 34738311054](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34738311054)
+and [development deployment 34738317819](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34738317819)
+were dispatched with all reset/paid acceptance inputs disabled. Both remained
+queued for GitHub-hosted runners at the initial handoff; this is not deployment
+or CI success evidence. A thread follow-up will verify the served release and
+asset bytes before recording publication.
+
+## Manual acceptance
+
+Refresh an existing account and use Fit systems to bring the owner circles into
+view. Open another circle: the prior dots must contract and disappear while the
+new dots launch in distance order, with no connecting lines until arrival and no
+rectangular focus outline. The world transform and chosen circle center remain
+unchanged, while neighboring circles move outward. Reverse the switch before it
+finishes and check that the motion continues from the current positions. Pan or
+use a non-default zoom before switching and confirm it is retained. Reset zoom
+is the explicit way to center the selected owner. Repeat with reduced motion,
+day changes, public refresh and saved filters; none may restore excluded data.
