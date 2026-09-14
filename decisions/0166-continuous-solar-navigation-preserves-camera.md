@@ -1,7 +1,7 @@
 # 0166 — Continuous solar navigation preserves camera
 
 Date: 2026-09-13
-Status: Implemented bounded presentation slice; verified locally, deployment pending
+Status: Implemented bounded presentation slice; verified locally and in CI, deployed to development
 
 An owner opens at its last displayed world center rather than replacing the
 previous owner at the canvas origin. Pan and zoom remain unchanged. Growing
@@ -36,16 +36,16 @@ Full local verification passed 926 unit/contract/infrastructure tests, type chec
 builds and bundle budgets. The full Chromium suite passed 78 applicable scenarios
 without retries, with 18 explicit live-service/paid gates skipped. Final focused
 checks cover rapid reversal, late wiring, camera/scroll stability, reduced motion,
-public filters and revocation. Desktop/mobile captures were inspected. Immutable
-development release evidence will follow; no data reset or migration is required.
+public filters and revocation. Desktop/mobile captures were inspected. Corrected
+immutable development release evidence follows; no data reset or migration was required.
 
 Product commit `1f7598869c3fc715f6a6ff8cc2cc19eef62dcfce` is pushed.
 [CI run 34738311054](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34738311054)
 and [development deployment 34738317819](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34738317819)
 were dispatched with all reset/paid acceptance inputs disabled. Both remained
 queued for GitHub-hosted runners at the initial handoff; this is not deployment
-or CI success evidence. A thread follow-up will verify the served release and
-asset bytes before recording publication.
+or CI success evidence. The controlled retry and served-release verification
+are recorded below.
 
 On 2026-09-14, after almost 21 hours without an assigned runner, the user
 authorized cancelling both queued first attempts and one controlled retry.
@@ -66,8 +66,31 @@ verification passed 927 tests, builds and budgets. The updated full Chromium
 suite passed 79 scenarios without retries, with 18 optional gates skipped.
 Corrected product commit `7997b9524a38852785b4b979d75139e1c33e4d95` is pushed;
 [CI run 34797737001](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34797737001)
-received a runner on 2026-09-14 at 02:00 UTC. The corrected release must pass this
-hosted CI before a new development dispatch with reset/paid gates disabled.
+received a runner on 2026-09-14 at 02:00 UTC and succeeded at 02:13:51 UTC.
+Hosted verification passed all 927 core tests, typechecks, builds, budgets and
+infrastructure synthesis; Chromium passed 79 scenarios without retries, with
+18 explicit optional gates skipped.
+
+After verifying remote main still identified that exact corrected commit,
+[development deployment 34798766469](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34798766469)
+was dispatched once with every optional reset/paid acceptance input explicitly
+false. It succeeded at 2026-09-14 02:23:33 UTC, including exact release deployment
+and CloudFront publication. The reset-gated and optional live/paid scenarios were
+confirmed skipped; no existing development account or fact data was reset.
+
+Post-deployment verification at 02:24 UTC confirmed `/api/v1/health` was healthy
+and identified `7997b9524a38852785b4b979d75139e1c33e4d95`. The live signup HTML
+and all seven matching Inspector/entity/API/newentity1 JS/CSS assets were
+byte-identical to the tested local build. In particular, Inspector JS SHA-256
+was `bcd2358c9fe117519d314fc52334e26fc5e898c06430b521b1e428adfac0831b`
+and Inspector CSS SHA-256 was
+`e0c9e4f900580201e6d332a3da280b3199ed585b723dcb12081afed4e5645c2c`.
+A clean read-only Chromium check of
+[the development entry page](https://d3byneo87fybgf.cloudfront.net/newentity1/)
+returned HTTP 200, displayed Create and continue, and reported no page errors.
+It did not create an account or modify facts. Interactive animation acceptance
+is evidenced by the local and hosted deterministic browser scenarios above,
+not by the anonymous live smoke check alone. Production was not changed.
 
 ## Manual acceptance
 
