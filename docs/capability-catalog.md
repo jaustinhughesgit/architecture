@@ -1,5 +1,13 @@
 # Capability Catalog
 
+Scoped read exceptions and ordinary action entitlements are **Implemented as a bounded
+slice; release verification pending** in `onevar-platform`. Shared branch/fact policy
+evaluation, composable Path commands, indexed memberships and exact quota/capacity
+transactions have source/test coverage. Native action groups remain separate from
+the bounded read-sharing roster; automatic reclamation, payments/provider integration
+and ten-million-user load proof are **Partial**, not implied by indexing. See
+[decision 0169](../decisions/0169-scoped-read-policy-and-atomic-use-grants.md).
+
 Sharing audience solar navigation is **Implemented as a bounded presentation slice;
 verified locally and live; deployed to development**. The existing solar packing and motion primitives serve
 draggable named audience circles, one open at a time, over only the owner's current

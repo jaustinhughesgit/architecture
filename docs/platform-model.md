@@ -1,5 +1,15 @@
 # Platform Model
 
+## Scoped micro-access
+
+The clean-room implementation now supports branch-scoped ordinary read rules with
+person exceptions and time windows, composed through Path-library data. Separate
+indexed ordinary-use grants implement exact principal checks, child-group exceptions,
+quota/capacity and atomic reserve/commit/release with historical retry receipts.
+Read permission is not execution, payment, marketplace or protected-key authority.
+Ordinary roster migration, automatic expired-hold reclamation and ten-million-user
+scale proof remain Partial. See [decision 0169](../decisions/0169-scoped-read-policy-and-atomic-use-grants.md).
+
 ## Granular ordinary sharing
 
 The clean-room source slice adds exact people/groups and per-relation read rules
