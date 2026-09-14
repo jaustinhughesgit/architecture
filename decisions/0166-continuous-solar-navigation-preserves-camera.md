@@ -47,6 +47,13 @@ queued for GitHub-hosted runners at the initial handoff; this is not deployment
 or CI success evidence. A thread follow-up will verify the served release and
 asset bytes before recording publication.
 
+On 2026-09-14, after almost 21 hours without an assigned runner, the user
+authorized cancelling both queued first attempts and one controlled retry.
+Both first attempts were cancelled before any step executed. CI attempt 2
+received a runner and began verification at 01:30 UTC on the same commit.
+Deployment remains cancelled until that CI attempt passes; a deployment rerun
+must retain the original disabled reset/paid acceptance inputs.
+
 ## Manual acceptance
 
 Refresh an existing account and use Fit systems to bring the owner circles into
