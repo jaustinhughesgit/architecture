@@ -1,10 +1,12 @@
 # Capability Catalog
 
-Granular ordinary people/group read sharing is **Partial: bounded source implementation
-and initial local proof, not yet deployed**. Exact relation policies, current group
+Granular ordinary people/group read sharing is **Implemented as a bounded read-sharing slice;
+verified locally and deployed to development**. Exact relation policies, current group
 membership and a common server/owner-preview evaluator support Sharing circles.
-Protected, artifact and marketplace grants remain separate. Full release and demo
-reset/seeding proof are pending. See [decision 0167](../decisions/0167-ordinary-sharing-projects-current-exact-read-authority.md).
+Protected, artifact and marketplace grants remain separate. Release `8b6d2a0` passed
+local core checks and a final 80-scenario browser run (18 optional gates skipped).
+Development deploy and live byte/release checks passed. Hosted browser CI and demo
+reset/seeding proof remain pending; the operator AWS session expired. See [decision 0167](../decisions/0167-ordinary-sharing-projects-current-exact-read-authority.md).
 
 Continuous solar navigation is **Implemented as a bounded presentation slice; verified locally and in CI, deployed to development**. The selected circle retains its remembered world center and pan/zoom. Old dots collapse, new dots launch farthest-first at one cruising speed with late braking, and lines return after landing. Neighbor circles move outward; reduced motion is immediate and revoked/excluded departing IDs are removed immediately. Corrected release `7997b9524a38852785b4b979d75139e1c33e4d95` passed 927 core tests and 79 hosted browser scenarios without retries (18 optional gates skipped), development deployment, exact live asset/release checks and a read-only browser smoke check. The release also repairs drag/drop hit testing before the next animation frame. Existing data was preserved. See [decision 0166](../decisions/0166-continuous-solar-navigation-preserves-camera.md), superseding forced-origin and simultaneous opening behavior without changing graph or execution authority.
 
