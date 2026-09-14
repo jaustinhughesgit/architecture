@@ -1,5 +1,15 @@
 # Platform Model
 
+## Granular ordinary sharing
+
+The clean-room source slice adds exact people/groups and per-relation read rules
+to canonical Context publication. One evaluator drives server reads and the owner's
+one-open-audience Sharing circles. Profile discovery is separate from fact permission;
+the header pauses/resumes outward access without granting protected or app execution
+authority. Authenticated owner restoration cannot overwrite pending local edits.
+See [decision 0167](../decisions/0167-ordinary-sharing-projects-current-exact-read-authority.md)
+for bounded scope and pending release/reset evidence.
+
 Inspector solar navigation preserves the selected owner's remembered world center and the camera. A bounded transition collapses the old dots, launches new dots farthest-first at a shared cruise speed with late braking, and reveals lines only after landing. Neighbor systems move outward. Departing geometry is inert and immediately filtered by current admission/revocation. See [decision 0166](../decisions/0166-continuous-solar-navigation-preserves-camera.md), superseding forced-origin selection and simultaneous interpolation below without changing graph or execution authority.
 
 Inspector now opens only the selected owner system. Relevant marketplace candidates occupy the nearer outside orbit and collapsed named owners the next; inactive interiors skip layout/attention/rendering after authorized bounded admission. Opening uses a reduced-motion-aware finite outward animation; outside clicks clear manual exploration while keeping focus and filters. See [decision 0165](../decisions/0165-one-open-solar-system-and-discovery-orbits.md), superseding earlier all-expanded packing.
