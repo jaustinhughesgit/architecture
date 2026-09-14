@@ -1,7 +1,7 @@
 # 0170 — Organization records and delegated human approval
 
 Date: 2026-09-14
-Status: Implemented bounded simulation slice; local targeted verification; broader Inspector regression remains; deployment pending
+Status: Implemented bounded simulation slice; locally and live verified; deployed to development; broader Inspector regression remains
 
 ## Decision
 
@@ -60,3 +60,12 @@ Local full verification passed 993 core tests and build/type/budget gates. The f
 browser run passed 81 and skipped 18 optional scenarios; one unrelated existing
 delayed-frame Inspector dialog-position assertion failed. The new four-account
 company workflow scenario passed. Full-browser and hosted CI success are not claimed.
+
+Release `ce521c0c7467a1cb4d1e44552d6f075826bbbfdb` deployed to development in
+[run 34892103236](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34892103236)
+without resetting existing accounts. The health response verified the exact SHA.
+The opt-in live four-account CLI scenario passed in 50.8 seconds, covering
+attendance, timesheets, source-linked payroll drafts, benefits, independent
+approval, stale-version denial, reload, unknown-account denial, offboarding and
+value-free retry. No real financial or benefits action occurred. Runtime CI
+34892091611 was still running when this evidence was recorded.

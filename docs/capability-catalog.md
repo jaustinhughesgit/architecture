@@ -1,13 +1,14 @@
 # Capability Catalog
 
 Organization-scoped records and delegated approval are **Implemented as a bounded
-simulation slice; targeted local verification complete; deployment pending** in
+simulation slice; locally and live verified; deployed to development** in
 `onevar-platform`. Distinct account approvals, exact source/content versions,
 membership/permission revocation, immutable history and paged storage reuse existing
 governance persistence. Employee templates are data, not domain-specific executors.
 Real payroll/401(k) providers, calculations, company protected-key management,
 fine-grained HR policies and scale proof remain **Partial / Product intent**.
-See [decision 0170](../decisions/0170-organization-records-and-delegated-approval.md).
+Release `ce521c0` passed the four-account live CLI canary; one broader local
+Inspector regression remains. See [decision 0170](../decisions/0170-organization-records-and-delegated-approval.md).
 
 Scoped read exceptions and ordinary action entitlements are **Implemented as a bounded
 slice; verified locally and live; deployed to development** in `onevar-platform`. Shared branch/fact policy
