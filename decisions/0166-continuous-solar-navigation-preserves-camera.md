@@ -51,8 +51,23 @@ On 2026-09-14, after almost 21 hours without an assigned runner, the user
 authorized cancelling both queued first attempts and one controlled retry.
 Both first attempts were cancelled before any step executed. CI attempt 2
 received a runner and began verification at 01:30 UTC on the same commit.
-Deployment remains cancelled until that CI attempt passes; a deployment rerun
-must retain the original disabled reset/paid acceptance inputs.
+CI attempt 2 completed with 77 browser scenarios passing, 18 optional gates
+skipped and one drag-to-app preview failure (including its built-in retry).
+Deployment stayed cancelled; the original commit is not approved for publication.
+
+The failure was reproduced by holding animation callbacks while delivering
+pointer movement and release. Hit testing had used the last painted source
+position. The repair uses release-event coordinates relative to the grabbed
+world-space center, keeping local-layout coordinates separate and preserving
+zoom and off-center grabs. Only current admitted installed-app targets can
+receive a preview; Apply/Run authority is unchanged. Normal and delayed-frame
+drag/bind/run checks passed three times each without retries. Updated full core
+verification passed 927 tests, builds and budgets. The updated full Chromium
+suite passed 79 scenarios without retries, with 18 optional gates skipped.
+Corrected product commit `7997b9524a38852785b4b979d75139e1c33e4d95` is pushed;
+[CI run 34797737001](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34797737001)
+received a runner on 2026-09-14 at 02:00 UTC. The corrected release must pass this
+hosted CI before a new development dispatch with reset/paid gates disabled.
 
 ## Manual acceptance
 
