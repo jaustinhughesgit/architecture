@@ -35,9 +35,8 @@ overlapping grants, individual fact edits, revocation, pause, remapping and rest
 Core verification and unchanged bundle budgets passed. Targeted browser checks
 passed after repairing cached-startup transport handling, collapsed-neighbor spacing
 and manual-sync completion interrupting incoming announcements. Release evidence
-follows; development hard reset, persistent company/family/user/app seed and
-authenticated test-account handoff remain pending. The operator AWS session is
-expired; no reset or persistent seed has run.
+follows. The development hard reset completed; persistent company/family/user/app
+seeding and a populated authenticated test-account handoff remain pending.
 
 ## Release evidence
 
@@ -49,6 +48,19 @@ isolated repeats and the final full run without another code change. Development
 succeeded. Live health identifies this release; entry assets and Sharing module
 match local built bytes, with a read-only entry-page browser check. Hosted
 [CI 34805897111](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34805897111)
-is finishing browser tests at this checkpoint. The AWS operator session remains
-expired. No development hard reset, persistent demo seed, authenticated demo-account
-handoff, live selective-sharing fixture or production change has occurred.
+was cancelled. Documentation-head
+[CI 34806402229](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34806402229)
+passed core verification and synthesis, but its browser gate ended with 79 passed,
+18 skipped and one failed delayed-animation-frame spatial drag case, including a
+failed retry. Five further isolated local repetitions passed. The hosted
+discrepancy remains unresolved; CI is not green.
+
+After login renewal, authorized development reset `reset-20260914T044309Z-72113`
+succeeded: 85,493 runtime items and 29 generated artifacts deleted, 63 generalized
+Path archives preserved. Normal account creation in the user's in-app browser
+created `ent_cac0632c-ba72-431e-ab43-ab2367ca4bff` with its ordinary HttpOnly session.
+The account remains empty. Seed preflight was denied CloudFormation stack-read
+access before any additional accounts, apps or graph writes. Reset authority does
+not imply table-seeding authority; an authorized operator profile is required.
+Do not rerun the reset to resume. No persistent demo seed, populated account handoff,
+live selective-sharing fixture or production change is claimed.
