@@ -1,7 +1,7 @@
 # Capability Catalog
 
 Sharing audience solar navigation is **Implemented as a bounded presentation slice;
-verified locally; publication pending**. The existing solar packing and motion primitives serve
+verified locally and live; deployed to development**. The existing solar packing and motion primitives serve
 draggable named audience circles, one open at a time, over only the owner's current
 authorized read projection. Permission editing and source ownership remain unchanged.
 See [decision 0168](../decisions/0168-sharing-audiences-are-solar-view-projections.md).

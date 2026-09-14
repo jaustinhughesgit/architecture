@@ -1,7 +1,7 @@
 # 0168 — Sharing audiences are solar view projections
 
 Date: 2026-09-14
-Status: Implemented bounded presentation slice; verified locally, publication pending
+Status: Implemented bounded presentation slice; verified locally and live, deployed to development
 
 Sharing uses the existing solar-system geometry and finite motion primitives rather
 than a separate diagram/grid. Exact people, groups, public and owner scopes each
@@ -31,3 +31,15 @@ Source and test details: product decision 0110 and `sharing-universe-projection`
 Local verification passed 939 code tests/build/type/bundle gates and 25 browser
 scenarios, with one explicit live-only canary skipped. This does not claim a fix
 for the older hosted ordinary spatial-drag discrepancy.
+
+Development run 34809236031 successfully deployed exact product release
+`ed9b16d1f66ae5799cc5161826875277121bb787`, with reset explicitly disabled. The
+complete local browser suite passed 80 scenarios (18 optional gates skipped).
+Live health and module bytes match. The original signed-in 100-fact demo proved
+draggable audience circles, one open Gavin view (40 facts/73 dots), Morgan 60,
+Family 40 and camera stability, without changing data or permissions.
+
+Hosted CI 34809228840 passed core gates and Sharing acceptance (79 browser passes,
+18 optional skips), but the pre-existing delayed-paint ordinary Inspector app-drag
+scenario failed again at `routes.spec.ts:130`, including its retry. Full hosted
+suite parity remains unresolved and is not claimed by this deployed Sharing slice.
