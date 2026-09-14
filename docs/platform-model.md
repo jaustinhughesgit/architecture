@@ -331,6 +331,13 @@ A provider protocol can be represented using entities and lineage for workflow, 
 
 ## 5. Architectural invariants
 
+Sharing's audience circles reuse the solar universe as view projections: one exact
+person/group opens with the existing supernova/collapse motion and shows only the
+owner's currently permitted ordinary facts. Audience-scoped render IDs preserve
+exact source identities and never make those facts recipient-owned. Dragging,
+selection and camera movement confer no authority; revocation removes even
+departing animated points. See [decision 0168](../decisions/0168-sharing-audiences-are-solar-view-projections.md).
+
 Inspector spatial authoring is a projection of existing composition primitives, not a new execution plane. Explicit data-to-app binding and app-to-app composition freeze exact caller-local identities; ordinary app surfaces run only through the existing ArrayLogic coordinator. Zoom, proximity and visibility confer no authority. See [decision 0139](../decisions/0139-inspector-spatial-workbench-reuses-exact-bindings-and-arraylogic.md).
 
 Inspector V2 folds terminal classification-only values into subject details without merging identities or changing Context records. Exact-connected descendants share bounded angular sectors while retaining relevance depth, and unreadable peripheral wiring stays hidden until exploration. This remains browser-only presentation over the bounded scene. See [decision 0140](../decisions/0140-inspector-folds-classifications-and-groups-focus-branches.md).

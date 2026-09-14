@@ -1,5 +1,11 @@
 # Capability Catalog
 
+Sharing audience solar navigation is **Implemented as a bounded presentation slice;
+verified locally; publication pending**. The existing solar packing and motion primitives serve
+draggable named audience circles, one open at a time, over only the owner's current
+authorized read projection. Permission editing and source ownership remain unchanged.
+See [decision 0168](../decisions/0168-sharing-audiences-are-solar-view-projections.md).
+
 Granular ordinary people/group read sharing is **Implemented as a bounded read-sharing slice;
 verified locally and deployed to development**. Exact relation policies, current group
 membership and a common server/owner-preview evaluator support Sharing circles.
