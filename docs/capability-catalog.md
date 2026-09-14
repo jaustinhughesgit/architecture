@@ -1,7 +1,7 @@
 # Capability Catalog
 
 Scoped read exceptions and ordinary action entitlements are **Implemented as a bounded
-slice; release verification pending** in `onevar-platform`. Shared branch/fact policy
+slice; verified locally and live; deployed to development** in `onevar-platform`. Shared branch/fact policy
 evaluation, composable Path commands, indexed memberships and exact quota/capacity
 transactions have source/test coverage. Native action groups remain separate from
 the bounded read-sharing roster; automatic reclamation, payments/provider integration

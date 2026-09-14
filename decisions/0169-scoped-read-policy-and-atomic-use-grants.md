@@ -1,7 +1,7 @@
 # 0169 — Scoped read policy and atomic use grants
 
 Date: 2026-09-14
-Status: Implemented bounded slice; release verification pending
+Status: Implemented bounded slice; verified locally and live; deployed to development
 
 The clean-room platform extends its existing exact principal/resource/grant and
 reservation concepts rather than importing the old runtimes or executing dynamic
@@ -50,3 +50,20 @@ expiry, descendant inheritance, canonical remapping, 100 competing last-use clai
 idempotency races, child-group exclusion and exact transaction conditions. Browser
 acceptance covers reload, Sharing previews, CLI accounting and independent recipient
 races. Development canaries use isolated new accounts, never reset the existing demo.
+
+Release `2f3a0f0fbe1048795da95165aaa1516a739903f6` passed 964 core checks and
+the final local browser suite (81 passed, 18 explicit optional/live gates skipped,
+no retries). Development deployment
+[34880767649](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34880767649)
+succeeded with resets disabled; live health confirmed that exact release. The
+isolated live governance canary passed: actual recipient dinner exclusion/restore,
+unchanged Family membership, persistent effective UI preview, quota accounting,
+reservation release and revocation. Twelve concurrent last-use claims produced
+one success. The existing Austin/Gavin demo was preserved, and only the temporary
+test owner was paused afterward. See product decision 0111 for detailed evidence.
+
+Hosted CI 34880768210 passed core verification but hit its former 15-minute job
+limit in the full browser suite; the Inspector drag-to-app case passed only on
+retry. Broader hosted acceptance is not yet clean. The product CI follow-up keeps
+all individual test limits/assertions, increases the whole-suite time envelope,
+and retains progress and failure artifacts for diagnosis.
