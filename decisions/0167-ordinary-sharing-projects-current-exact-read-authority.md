@@ -35,8 +35,8 @@ overlapping grants, individual fact edits, revocation, pause, remapping and rest
 Core verification and unchanged bundle budgets passed. Targeted browser checks
 passed after repairing cached-startup transport handling, collapsed-neighbor spacing
 and manual-sync completion interrupting incoming announcements. Release evidence
-follows. The development hard reset completed; persistent company/family/user/app
-seeding and a populated authenticated test-account handoff remain pending.
+follows. The development hard reset and persistent company/family/user/app demo
+seeding completed, with a populated authenticated browser account available.
 
 ## Release evidence
 
@@ -59,8 +59,21 @@ After login renewal, authorized development reset `reset-20260914T044309Z-72113`
 succeeded: 85,493 runtime items and 29 generated artifacts deleted, 63 generalized
 Path archives preserved. Normal account creation in the user's in-app browser
 created `ent_cac0632c-ba72-431e-ab43-ab2367ca4bff` with its ordinary HttpOnly session.
-The account remains empty. Seed preflight was denied CloudFormation stack-read
-access before any additional accounts, apps or graph writes. Reset authority does
-not imply table-seeding authority; an authorized operator profile is required.
-Do not rerun the reset to resume. No persistent demo seed, populated account handoff,
-live selective-sharing fixture or production change is claimed.
+Seed preflight initially lacked CloudFormation stack-read access. After the user
+explicitly authorized the root-backed profile and completed normal CLI login, the
+fixture was seeded without another reset. One interrupted composer attempt's six
+exact disposable public graphs were validated and removed before retrying; empty
+account shells remain, not duplicate public users. The loader now uses the tested
+current composer helper and reports non-secret partial setup identities.
+
+Austin has 100 ordinary facts; six named sample users, Family and Cedar Studio ·
+Work (overlapping at Morgan), and three signed zero-price marketplace apps are
+available. Six real authenticated recipient reads matched current authority:
+Morgan 60 facts and the other five 40. The owner's actual browser showed owner
+100 / public 20 / Gavin 40 / Family 40 / Work 40 / Morgan 60. A single Family grant
+was saved and verified at canonical revision 11 (41 facts), then revoked and
+verified at revision 12 (original 40). The tab remains authenticated in Sharing
+with original rules and no unsaved edits. The local Sharing browser regression
+passed again. Product `docs/testing/sharing-demo-live-evidence.md` records exact
+account/listing identities and test scope. No production changes or full-green
+hosted CI claim; the delayed-frame drag discrepancy remains open.

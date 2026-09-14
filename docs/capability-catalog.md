@@ -5,8 +5,10 @@ verified locally and deployed to development**. Exact relation policies, current
 membership and a common server/owner-preview evaluator support Sharing circles.
 Protected, artifact and marketplace grants remain separate. Release `8b6d2a0` passed
 local core checks and a final 80-scenario browser run (18 optional gates skipped).
-Development deploy, live byte/release checks and the authorized development reset
-passed. Persistent seeding awaits an authorized operator profile. Hosted CI passed
+Development deploy, live byte/release checks, the authorized reset and persistent
+100-fact demo seed passed. Six authenticated recipient projections and a live
+owner UI grant/revoke were verified; Family/Work/individual views and three signed
+zero-price marketplace apps are available. Hosted CI passed
 79 browser scenarios but failed the delayed-frame drag case; its discrepancy with
 passing local repeats remains unresolved. See [decision 0167](../decisions/0167-ordinary-sharing-projects-current-exact-read-authority.md).
 

@@ -8,8 +8,8 @@ one-open-audience Sharing circles. Profile discovery is separate from fact permi
 the header pauses/resumes outward access without granting protected or app execution
 authority. Authenticated owner restoration cannot overwrite pending local edits.
 See [decision 0167](../decisions/0167-ordinary-sharing-projects-current-exact-read-authority.md)
-for bounded scope, completed development deployment/reset, pending seed authority
-and the unresolved hosted drag-test discrepancy.
+for bounded scope, completed development deployment/reset/demo seeding, live
+sharing proof and the unresolved hosted drag-test discrepancy.
 
 Inspector solar navigation preserves the selected owner's remembered world center and the camera. A bounded transition collapses the old dots, launches new dots farthest-first at a shared cruise speed with late braking, and reveals lines only after landing. Neighbor systems move outward. Departing geometry is inert and immediately filtered by current admission/revocation. See [decision 0166](../decisions/0166-continuous-solar-navigation-preserves-camera.md), superseding forced-origin selection and simultaneous interpolation below without changing graph or execution authority.
 
