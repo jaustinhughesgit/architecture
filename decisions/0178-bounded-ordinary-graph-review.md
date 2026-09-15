@@ -6,6 +6,10 @@ An ordinary local parser must not publish an unproven structural guess merely
 because syntax matched. Unproven identity-frame replacements and unresolved possessive
 attribute/object roles stage a memory-only candidate. Automatic handling first
 searches the semantic library, then requests bounded AI advice if necessary.
+Candidates are dry-run locally before comparing meanings; unsuitable historical
+definitions do not block one uniquely valid interpretation. Dry runs do not
+persist, consume checkpoints, or share. Attribute review preserves established
+kinds unless the original selected modification included a type change.
 Simple facts and identity frames filling empty fields remain local. Explicit
 recent-change review always asks AI, including additive changes below the
 automatic suspicion threshold.
