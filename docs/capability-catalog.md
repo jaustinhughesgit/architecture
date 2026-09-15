@@ -1,5 +1,10 @@
 # Capability Catalog
 
+The shared-universe correction is **Implemented in source; release verification
+in progress**: managed owners appear alongside personal/public systems in one
+Inspector, with tilde-ring wormholes and separate private data scopes. See
+[decision 0176](../decisions/0176-managed-owners-share-one-solar-universe.md).
+
 Managed-owner wormholes and named administration are an **Implemented bounded
 slice; verified locally and live; deployed to development**. A manager can enter a promoted
 entity's private ordinary Context, create facts using the existing worker and
