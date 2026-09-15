@@ -1,5 +1,15 @@
 # Platform Model
 
+## Managed-owner workspaces
+
+A promoted entity's `~` shell opens its own ordinary solar system without switching
+the signed-in person. Manager-authorized scoped Context reuses the canonical
+publication primitive; exact actor and owner remain distinct. Named selection
+and existing protected controls avoid copying IDs while preserving ambiguity
+checks, scoped rights and device keys. Current implementation is private and
+online-authorized; company marketplace purchases are browse-only, not implemented.
+See [decision 0175](../decisions/0175-managed-workspaces-use-exact-owner-wormholes.md).
+
 ## Managed protected assets
 
 Promoted entities can own protected assets while authenticated people act on their

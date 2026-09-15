@@ -1,5 +1,15 @@
 # Capability Catalog
 
+Managed-owner wormholes and named administration are an **Implemented bounded
+source slice; local code and targeted browser verification passed**. A manager can enter a promoted
+entity's private ordinary Context, create facts using the existing worker and
+return without changing account identity. Exact revision checks and actor evidence
+separate authority from names/labels. The existing protected panel adds named
+member selection. Granular managed Context sharing, scoped offline authority,
+company-owned marketplace purchase/licensing and managed execution remain
+**Partial / Product intent**; marketplace search is explicitly browse-only.
+See [decision 0175](../decisions/0175-managed-workspaces-use-exact-owner-wormholes.md).
+
 Managed-entity protected text ownership is an **Implemented bounded slice;
 verified locally, in CI and live; deployed to development**. Exact actor/owner separation,
 stewardship, per-asset permissions, independent device keys, encrypted recipient
