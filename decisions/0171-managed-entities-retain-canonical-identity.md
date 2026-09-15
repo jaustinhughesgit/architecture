@@ -1,7 +1,7 @@
 # 0171 — Managed entities retain canonical identity
 
 Date: 2026-09-14
-Status: Implemented bounded foundation; locally verified; deployment proof recorded separately
+Status: Implemented bounded foundation; locally and live verified; deployed to development
 
 ## Decision
 
@@ -74,3 +74,13 @@ legacy ID preservation, approval, source, revocation and Dynamo conditions.
 The four-account browser test uses the real CLI, ordinary entity creation and
 custom schemas, including delegation and archive/restore. Live acceptance creates
 isolated private synthetic accounts without resetting the shared environment.
+
+Product release `647b4d906b4134b4d6664180686194521259fe82` deployed successfully in
+[run 34916459786](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34916459786),
+and the live health endpoint verified that exact identity. All 1,011 local tests
+plus type/build/budget gates passed. The four-account CLI scenario passed locally
+and live (1.0 minute), including custom definitions, delegation, revocation and
+archive/restore. The supplied DemoCompany was migrated through the authenticated
+website; its three original workflow IDs were verified unchanged. Full independent
+browser CI was still running at this checkpoint, not claimed green. No shared
+environment reset occurred.

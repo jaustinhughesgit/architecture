@@ -1,14 +1,17 @@
 # Capability Catalog
 
 Entity-based delegated management is **Implemented as a bounded foundation;
-locally verified; new deployment evidence pending** in `onevar-platform`. Promotion
+locally and live verified; deployed to development** in `onevar-platform`. Promotion
 retains an owned entity's canonical ID. Accepted members, multiple managers,
 last-manager protection, parent links without authority inheritance, archive/restore
 and custom definition authoring replace separate organization creation and bundled
 HR templates. Existing exact simulation approvals and history are retained, with
 explicit legacy migration. Shared Context editing, collective app ownership,
 inherited row/field policies, protected-key management, production effects and scale
-proof remain **Partial / Product intent**. See
+proof remain **Partial / Product intent**. Release `647b4d9` passed 1,011 local tests
+and the four-account live CLI canary; the existing DemoCompany migration preserved
+all three original workflow IDs. Full independent browser CI was still running
+at the evidence checkpoint. See
 [decision 0171](../decisions/0171-managed-entities-retain-canonical-identity.md).
 
 Scoped read exceptions and ordinary action entitlements are **Implemented as a bounded
