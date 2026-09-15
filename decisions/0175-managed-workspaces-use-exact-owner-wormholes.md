@@ -1,6 +1,6 @@
 # 0175 — Managed workspaces use exact-owner wormholes
 
-Status: Implemented bounded clean-room source slice; local code and targeted browser verification passed.
+Status: Implemented bounded clean-room slice; verified locally and live; deployed to development.
 
 Promoted ordinary entities retain identity. Their personal Inspector shell is a
 `~` wormhole into a separate, ordinary owner-rooted solar system, with a return
@@ -29,3 +29,12 @@ payer/purchasing contract is unresolved. No business-domain features are install
 See the implementation decision
 [`onevar-platform/docs/decisions/0117-managed-workspaces-use-exact-owner-wormholes.md`](../../onevar-platform/docs/decisions/0117-managed-workspaces-use-exact-owner-wormholes.md)
 for contract, verification and rollout evidence. No reset or production update.
+
+Development release `441ecdb35743b7ce0f474c969b0b131dc103ecac` passed 1,038 code
+checks and a fresh-account two-scenario live canary: named promotion/invitations,
+private accepted-member names, management, exact company-owned data, wormhole
+return and revocation; plus three-account protected key/permission separation and
+creator departure. Live testing found and repaired stale local identity after
+sync and transient conditional-read contention. Reads retry only with fresh
+authorization and a strict bound; permission changes are never auto-retried.
+Hosted CI completion and full final browser totals are recorded in decision 0117.

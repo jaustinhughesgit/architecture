@@ -1,7 +1,7 @@
 # Capability Catalog
 
 Managed-owner wormholes and named administration are an **Implemented bounded
-source slice; local code and targeted browser verification passed**. A manager can enter a promoted
+slice; verified locally and live; deployed to development**. A manager can enter a promoted
 entity's private ordinary Context, create facts using the existing worker and
 return without changing account identity. Exact revision checks and actor evidence
 separate authority from names/labels. The existing protected panel adds named
