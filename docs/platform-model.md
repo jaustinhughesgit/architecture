@@ -1,16 +1,16 @@
 # Platform Model
 
-## Entity-based management and work records
+## Entity-based management
 
-The clean-room implementation promotes existing owned ordinary entities in place,
+Promotion adds domain-neutral management to an existing owned ordinary entity,
 retaining canonical identity. Accepted memberships, separately delegated management,
-parent links and archive/restore extend the existing exact workflow approval
-primitive. Custom immutable field definitions replace bundled HR templates.
-Parent links do not implicitly inherit membership, permissions or sharing. The
-authenticated human remains the actor, and promotion neither copies personal facts
-nor grants app/protected authority. Explicit legacy migration preserves old record
-and history identities. This is a simulation-only ordinary-data foundation; see
-[decision 0171](../decisions/0171-managed-entities-retain-canonical-identity.md).
+parent links and archive/restore apply equally to families, companies, teams,
+departments and other entities. It installs no business functionality. User-requested
+features belong in data entities, Paths, Compute entities and their existing
+composition system. The separate work-definition/approval engine has been removed
+from source; existing management state is retained and old workflow bytes remain
+stored but inactive. Parent links confer no implicit sharing, app or protected
+authority. See [decision 0172](../decisions/0172-promotion-is-management-not-business-features.md).
 
 ## Scoped micro-access
 

@@ -1,5 +1,9 @@
 # 0171 — Managed entities retain canonical identity
 
+Work-feature implementation and tests below are historical and superseded by
+[the removal decision](0172-promotion-is-management-not-business-features.md). Entity promotion and management remain;
+the separate definition, record and approval engine is removed.
+
 Date: 2026-09-14
 Status: Implemented bounded foundation; locally and live verified; deployed to development
 

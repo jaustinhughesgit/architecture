@@ -1,18 +1,17 @@
 # Capability Catalog
 
-Entity-based delegated management is **Implemented as a bounded foundation;
-locally and live verified; deployed to development** in `onevar-platform`. Promotion
-retains an owned entity's canonical ID. Accepted members, multiple managers,
-last-manager protection, parent links without authority inheritance, archive/restore
-and custom definition authoring replace separate organization creation and bundled
-HR templates. Existing exact simulation approvals and history are retained, with
-explicit legacy migration. Shared Context editing, collective app ownership,
-inherited row/field policies, protected-key management, production effects and scale
-proof remain **Partial / Product intent**. Release `647b4d9` passed 1,011 local tests
-and the four-account live CLI canary; the existing DemoCompany migration preserved
-all three original workflow IDs. Full independent browser CI was still running
-at the evidence checkpoint. See
-[decision 0171](../decisions/0171-managed-entities-retain-canonical-identity.md).
+Entity-based delegated management remains an **Implemented bounded foundation** in
+`onevar-platform`: canonical identity promotion, exact accepted membership,
+multiple managers, last-manager protection, independent parent links and archive/
+restore. This source revision removes the separate definition/record/approval
+engine; earlier evidence that it executed simulations is historical, not a current
+capability claim. Business features must be user-authored through normal Path/
+Compute composition. Legacy management identities remain usable and retired
+workflow bytes stay stored but inactive. Local/live release evidence is recorded
+in [decision 0172](../decisions/0172-promotion-is-management-not-business-features.md).
+Collective app ownership, shared Context editing, protected-key management and
+scale proof remain **Partial / Product intent**. This removal does not expand
+what the current capability compiler can generate.
 
 Scoped read exceptions and ordinary action entitlements are **Implemented as a bounded
 slice; verified locally and live; deployed to development** in `onevar-platform`. Shared branch/fact policy
