@@ -21,6 +21,9 @@ is not decryption. The creator is initial custodian; ownership stays with the
 managed entity. Custodians hold read/share/update/retire/audit for their asset.
 Other members receive scoped actions and optional expiry as data, not coded jobs.
 Self-grants are refused. Permissions bind current membership revisions.
+An exact asset action permits its non-sensitive metadata to be listed, not its
+plaintext. Audit/retirement can be granted without read; update and key delivery
+additionally require read permission and a current recipient wrap.
 
 One bounded delegation hop cannot exceed the issuer's ceiling or pass share onward;
 current parent revision, expiry and membership are rechecked. Parent revocation
