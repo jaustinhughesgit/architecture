@@ -1,6 +1,6 @@
 # 0176 — Managed owners share one solar universe
 
-Status: Implemented bounded slice; verified locally and live; deployed to development. CI drag repair locally verified; follow-up release in progress.
+Status: Implemented bounded slice; verified locally and live; deployed to development including the drag repair. Final hosted regression verification in progress.
 
 Correct the presentation in decision 0175: promoted entities are additional owner
 solar systems in the same mounted Inspector universe. Entering does not replace
@@ -35,3 +35,20 @@ position. A follow-up freezes painted owner-local positions during the grab;
 both drag variants, 343 web tests, typechecks and existing bundle budgets pass.
 Full-suite and follow-up release verification remain in progress; the original
 failed CI is retained as evidence.
+
+Follow-up `0e8da8e891b720cb7bcfaedc2e7b2213fd028382` deployed successfully
+(34944114989) and passed both fresh-account live checks without retries (58.4s).
+The later local full rerun was stopped after 18 timing/focus failures (31 passed,
+one interrupted, 11 skipped, 41 not run); it is not claimed as a clean suite.
+Hosted CI 34944116413 passed core verification and finished with 82 browser passes,
+18 skips, one flaky drag check and one failed Convert/install scenario. The latter
+correctly rejected several public wash fixtures as ambiguous. Follow-up tests use
+the existing exact-invocation contract to isolate that release and sample drag
+positions in the pointerdown capture phase. Production ambiguity/authority guards
+are unchanged; the next hosted regression remains pending.
+
+Final local test isolation passes both drag variants and the cross-browser
+author/install scenario, including the exact published capability identity (1.9m,
+no retries). The two-account scenario has a 120-second total budget while individual
+assertion/response bounds stay unchanged. Only tests/docs changed; the deployed
+runtime remains the live-verified `0e8da8e`. The test-only push reruns hosted CI.
