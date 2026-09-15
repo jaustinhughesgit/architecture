@@ -1,14 +1,15 @@
 # Capability Catalog
 
-Organization-scoped records and delegated approval are **Implemented as a bounded
-simulation slice; locally and live verified; deployed to development** in
-`onevar-platform`. Distinct account approvals, exact source/content versions,
-membership/permission revocation, immutable history and paged storage reuse existing
-governance persistence. Employee templates are data, not domain-specific executors.
-Real payroll/401(k) providers, calculations, company protected-key management,
-fine-grained HR policies and scale proof remain **Partial / Product intent**.
-Release `ce521c0` passed the four-account live CLI canary; one broader local
-Inspector regression remains. See [decision 0170](../decisions/0170-organization-records-and-delegated-approval.md).
+Entity-based delegated management is **Implemented as a bounded foundation;
+locally verified; new deployment evidence pending** in `onevar-platform`. Promotion
+retains an owned entity's canonical ID. Accepted members, multiple managers,
+last-manager protection, parent links without authority inheritance, archive/restore
+and custom definition authoring replace separate organization creation and bundled
+HR templates. Existing exact simulation approvals and history are retained, with
+explicit legacy migration. Shared Context editing, collective app ownership,
+inherited row/field policies, protected-key management, production effects and scale
+proof remain **Partial / Product intent**. See
+[decision 0171](../decisions/0171-managed-entities-retain-canonical-identity.md).
 
 Scoped read exceptions and ordinary action entitlements are **Implemented as a bounded
 slice; verified locally and live; deployed to development** in `onevar-platform`. Shared branch/fact policy

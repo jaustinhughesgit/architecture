@@ -1,14 +1,16 @@
 # Platform Model
 
-## Organization work records
+## Entity-based management and work records
 
-The clean-room organization slice introduces accepted memberships and exact
-workflow-scoped submit/review/advance permissions independently of personal Context.
-Immutable definitions and versioned records reuse the governance transaction
-primitive; distinct author, reviewer and operator accounts act on exact content
-and approved source versions. This is simulation-only ordinary test data, not
-real payroll, benefits execution or company zero-trust key management. See
-[decision 0170](../decisions/0170-organization-records-and-delegated-approval.md).
+The clean-room implementation promotes existing owned ordinary entities in place,
+retaining canonical identity. Accepted memberships, separately delegated management,
+parent links and archive/restore extend the existing exact workflow approval
+primitive. Custom immutable field definitions replace bundled HR templates.
+Parent links do not implicitly inherit membership, permissions or sharing. The
+authenticated human remains the actor, and promotion neither copies personal facts
+nor grants app/protected authority. Explicit legacy migration preserves old record
+and history identities. This is a simulation-only ordinary-data foundation; see
+[decision 0171](../decisions/0171-managed-entities-retain-canonical-identity.md).
 
 ## Scoped micro-access
 

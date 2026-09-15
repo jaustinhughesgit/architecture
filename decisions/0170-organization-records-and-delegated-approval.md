@@ -3,6 +3,10 @@
 Date: 2026-09-14
 Status: Implemented bounded simulation slice; locally and live verified; deployed to development; broader Inspector regression remains
 
+Superseded in part by [0171](0171-managed-entities-retain-canonical-identity.md):
+separate organization creation and bundled templates are removed. The approval
+engine and existing historical records remain. This document records the old design.
+
 ## Decision
 
 Extend the reusable governance primitives with a separate organization principal,

@@ -166,3 +166,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0158: Typed intent learning and witnessed summary projections](0158-typed-intent-and-witnessed-summary-projections.md)
 - [0163: Owner solar systems and marketplace contract suggestions](0163-owner-solar-systems-and-marketplace-contract-suggestions.md)
 - [0169: Scoped read policy and atomic use grants](0169-scoped-read-policy-and-atomic-use-grants.md)
+- [0171: Managed entities retain canonical identity](0171-managed-entities-retain-canonical-identity.md)
