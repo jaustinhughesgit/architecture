@@ -5,6 +5,10 @@ publication and offers explicit AI review of recent modifications. It reuses
 semantic composition, shared definitions, local proof and exact publication;
 the model has no authority to mutate or inspect protected/managed data. See
 [decision 0178](../decisions/0178-bounded-ordinary-graph-review.md).
+Manual reviews carry up to three ordinary input/response pairs and bounded
+exact-checkpoint clarification continuations. Replies resume the original review
+under fresh local proof; Inspector uses changed-dot star badges rather than
+additional review lines. No automatic per-input model call is introduced.
 
 Inspector's ray-aligned neighbors, marketplace stars and temporary whole-system
 dragging extend the existing solar projection. Focused chains get clear space;

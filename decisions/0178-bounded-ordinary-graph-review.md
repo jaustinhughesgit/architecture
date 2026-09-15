@@ -34,12 +34,26 @@ unimplemented; ordinary AI review grants no new access or external side effects.
 This is neither universal undo nor a demonstrated 95% semantic success rate.
 
 Inspector projects recent interaction targets as temporary draggable charcoal
-shooting-star dots, linked visually to admitted ordinary-owned changed entities
-and relation endpoints/facets. These guides are not stored relationships and
+shooting-star dots, with upper-right star badges on admitted ordinary-owned changed entities
+and relation endpoints/facets, rather than extra lines. These badges are not stored relationships and
 cannot bypass filters or owner/protected boundaries. Confirmation lives in
 Inspector; CLI and double-click use the existing guarded review coordinator.
 Presentation expires after three subsequent inputs and never survives a reload
 without its session checkpoint. Dragging changes only a temporary visual offset.
+
+Manual review includes at most three recent ordinary worker input/response pairs,
+including failures; automatic review omits them. Foreign, hydrated/network-backed
+and sealed evidence is excluded without backfill. A model clarification retains
+the exact checkpoint and bounded conversation in memory, scoped to the current
+worker/focus, for ten minutes and at most three answered questions. Ordinary
+replies (including quoted choices) resume this review instead of becoming new
+facts. Cancel/reload/client replacement ends the continuation. Re-preparation and
+local proof recheck freshness and authority; the model compiles the original
+utterance, not the reply. Graph evidence remains capped at 10,000 characters;
+complete transient context at 24,000. All context participates in request
+fingerprinting and never enters shared definitions or protected processing.
+Displayed ordinary responses may replace preliminary worker diagnostics only
+when a recent same-owner ordinary trace corroborates their adjacent input.
 
 Implementation and test evidence:
 `onevar-platform/docs/decisions/0126-bounded-ordinary-graph-review.md` and
