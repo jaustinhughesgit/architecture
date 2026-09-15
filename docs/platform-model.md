@@ -1,5 +1,11 @@
 # Platform Model
 
+Bounded ordinary graph review stages unproven structural interpretations before
+publication and offers explicit AI review of recent modifications. It reuses
+semantic composition, shared definitions, local proof and exact publication;
+the model has no authority to mutate or inspect protected/managed data. See
+[decision 0178](../decisions/0178-bounded-ordinary-graph-review.md).
+
 Inspector's ray-aligned neighbors, marketplace stars and temporary whole-system
 dragging extend the existing solar projection. Focused chains get clear space;
 outside clicks quiet the other planets without changing facts or permissions.
