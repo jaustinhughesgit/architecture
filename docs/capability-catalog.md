@@ -1,5 +1,11 @@
 # Capability Catalog
 
+Ray-aligned solar neighborhoods, marketplace stars, temporary system dragging
+and quiet/focused exploration are **Implemented in source with targeted local
+proofs; development verification pending**. They extend existing Inspector
+primitives without new graph or permission authority. See
+[decision 0177](../decisions/0177-ray-neighborhoods-and-quiet-solar-exploration.md).
+
 The shared-universe correction is an **Implemented bounded slice; verified locally
 and live; deployed to development** (including the drag repair; hosted regression passed): managed owners appear alongside personal/public systems in one
 Inspector, with twisted-ring entry/return controls, solid owner-system boundaries,

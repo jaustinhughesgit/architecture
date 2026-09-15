@@ -1,5 +1,11 @@
 # Platform Model
 
+Inspector's ray-aligned neighbors, marketplace stars and temporary whole-system
+dragging extend the existing solar projection. Focused chains get clear space;
+outside clicks quiet the other planets without changing facts or permissions.
+Connection evidence moves from canvas diamonds to navigation. See
+[decision 0177](../decisions/0177-ray-neighborhoods-and-quiet-solar-exploration.md).
+
 ## Managed-owner workspaces
 
 Managed owners now share one Inspector universe and camera with the person's other
