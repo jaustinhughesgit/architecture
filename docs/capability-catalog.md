@@ -1,5 +1,12 @@
 # Capability Catalog
 
+Removal of organization/work compatibility is **Implemented in source and locally
+verified; development deployment/reset pending**. Current collective contracts and
+storage retain domain-neutral promotion and management without old routes, IDs,
+aliases, migration or receipt adapters. The private reset preflight encountered an
+expired operator session; no deletion or live cutover is claimed. See
+[decision 0173](../decisions/0173-fresh-collective-management-without-work-compatibility.md).
+
 Entity-based delegated management remains an **Implemented bounded foundation;
 verified locally and live; deployed to development** in
 `onevar-platform`: canonical identity promotion, exact accepted membership,

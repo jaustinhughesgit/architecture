@@ -2,6 +2,14 @@
 
 ## Entity-based management
 
+The next development cutover removes the remaining organization/work compatibility
+layer: no legacy ID aliases, migration commands, work routes or old receipt codecs.
+Domain-neutral entity promotion remains, using strict collective contracts and a
+fresh storage namespace. This is locally verified source; deployment and the full
+authorized development reset are pending operator authentication. See
+[decision 0173](../decisions/0173-fresh-collective-management-without-work-compatibility.md).
+The retention evidence below describes the preceding deployed release.
+
 Promotion adds domain-neutral management to an existing owned ordinary entity,
 retaining canonical identity. Accepted memberships, separately delegated management,
 parent links and archive/restore apply equally to families, companies, teams,
