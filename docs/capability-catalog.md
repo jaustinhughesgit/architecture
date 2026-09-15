@@ -1,7 +1,7 @@
 # Capability Catalog
 
-The shared-universe correction is **Implemented in source; release verification
-in progress**: managed owners appear alongside personal/public systems in one
+The shared-universe correction is an **Implemented bounded slice; verified locally
+and live; deployed to development** (CI drag repair locally verified; follow-up release in progress): managed owners appear alongside personal/public systems in one
 Inspector, with tilde-ring wormholes and separate private data scopes. See
 [decision 0176](../decisions/0176-managed-owners-share-one-solar-universe.md).
 
