@@ -1,7 +1,7 @@
 # 0174: Managed protected assets separate policy and key custody
 
-Status: Implemented bounded slice in `onevar-platform`; local verification;
-development publication pending. No reset or production change authorized.
+Status: Implemented bounded slice in `onevar-platform`; verified locally, in CI
+and live; published to development on 2026-09-15. No reset or production change.
 
 ## Decision
 
@@ -76,3 +76,18 @@ quorum/threshold approvals, denied-attempt auditing, durable pending-operation
 recovery, managed app execution and production scale/security assurance remain
 Partial / Product intent. Clearing browser data can lose access; use synthetic
 development data, not the sole copy of real organizational secrets.
+
+## Release evidence
+
+Runtime `ff8c15a03689b227751753ac56dd50221220c680` passed 1,024 core checks and
+83 enabled local browser scenarios without retries (18 optional gates skipped).
+[CI 34926529456](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34926529456)
+passed with 82 first-attempt browser passes plus one existing delayed-frame
+Inspector drag retry; the new protected-asset scenario passed first attempt.
+[Development deployment 34927402662](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34927402662)
+passed with reset-gated acceptance disabled/skipped; live health matched the exact
+release. The three-account live canary passed in 37.9 seconds after its selection
+assertion was synchronized with the panel's completed metadata refresh. Runtime
+code was unchanged by that test repair. Product decision 0116 retains the earlier
+test-environment failures, live wait failure and remaining limitations. Production
+and existing user data were not reset; only isolated private test accounts were added.

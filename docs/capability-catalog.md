@@ -1,7 +1,7 @@
 # Capability Catalog
 
 Managed-entity protected text ownership is an **Implemented bounded slice;
-verified locally; development publication pending**. Exact actor/owner separation,
+verified locally, in CI and live; deployed to development**. Exact actor/owner separation,
 stewardship, per-asset permissions, independent device keys, encrypted recipient
 delivery, revocation, expiry, update, retirement and acknowledged custody handoff
 reuse the existing worker and revisioned collective store. Three-account acceptance
@@ -9,6 +9,10 @@ tests include creator departure and plaintext exclusion from HTTP/ordinary Conte
 Managed key recovery/rotation, multiple devices, group roles, quorum, managed app
 execution and production scale/security proof remain **Partial / Product intent**.
 See [decision 0174](../decisions/0174-managed-protected-assets-separate-policy-and-key-custody.md).
+Release `ff8c15a` passed 1,024 core checks, 83 local browser scenarios and a
+three-account live canary. Hosted CI passed with one unrelated Inspector drag
+retry. No reset or production update occurred; exact evidence and limitations
+are retained in the decision.
 
 Removal of organization/work compatibility is **Implemented; verified locally and
 live; deployed and reset in development**. Current collective contracts and
