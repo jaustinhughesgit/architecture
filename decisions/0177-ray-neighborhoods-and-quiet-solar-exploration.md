@@ -31,14 +31,19 @@ outside this bounded presentation slice.
 
 ## Status
 
-Release `46a4ea64f3d451c2354ba14a28ef460871444964` is deployed to development.
-All 354 web unit tests and eight targeted browser scenarios passed on the final
-source. The deployed managed-wormhole scenario passed without retries in 25.2
+Release `2a53e232a5f81483fc8496e366d8de88be865b5f` is deployed to development.
+Final verification includes all 354 web unit tests and the full local browser
+suite: 85 passed, 18 gated live-only scenarios skipped, with retries disabled.
+Twenty repeated drag/focus checks passed. The deployed managed-wormhole scenario
+passed without retries in 23.4
 seconds using fresh synthetic accounts. The health release and website asset
 names match the tested build. No shared-state reset or production deployment
 was performed.
 
-[Development deployment](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34997156582)
+[Development deployment](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34999325844)
 completed successfully. The broader
-[hosted CI run](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34997145356)
-is tracked separately from these completed targeted proofs.
+[hosted CI rerun](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34999315075)
+is still in progress at handoff, separately from these completed proofs. The
+prior full run exposed an outdated 20% focused-line assertion and drag flakes;
+the follow-up corrects the expectation, freezes the painted layout during a grab,
+and checks stable pointer targeting without relaxing timing/distance assertions.
