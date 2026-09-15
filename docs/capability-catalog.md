@@ -1,8 +1,8 @@
 # Capability Catalog
 
 The shared-universe correction is an **Implemented bounded slice; verified locally
-and live; deployed to development** (including the drag repair; final hosted regression pending): managed owners appear alongside personal/public systems in one
-Inspector, with tilde-ring wormholes and separate private data scopes. See
+and live; deployed to development** (including the drag repair; hosted regression passed): managed owners appear alongside personal/public systems in one
+Inspector, with twisted-ring wormholes and separate private data scopes. See
 [decision 0176](../decisions/0176-managed-owners-share-one-solar-universe.md).
 
 Managed-owner wormholes and named administration are an **Implemented bounded

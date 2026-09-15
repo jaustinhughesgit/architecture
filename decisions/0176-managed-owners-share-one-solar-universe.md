@@ -1,13 +1,15 @@
 # 0176 — Managed owners share one solar universe
 
-Status: Implemented bounded slice; verified locally and live; deployed to development including the drag repair. Final hosted regression verification in progress.
+Status: Implemented bounded slice; verified locally/live and deployed to development; hosted regression passed. Approved decorative border revision in verification.
 
 Correct the presentation in decision 0175: promoted entities are additional owner
 solar systems in the same mounted Inspector universe. Entering does not replace
 the universe, change the authenticated actor or merge ownership. Personal/public
 neighbors remain collapsed in the same scene; camera, remembered positions and
 solar collapse/supernova motion remain shared. Wormhole entry/return borders are
-literal repeated `~` marks; the opened owner's solar boundary looks normal.
+the approved twisted-cylinder design: three fading circles and eight curved ribs.
+This presentation-only revision replaces the initial literal `~` marks; the opened
+owner's solar boundary still looks normal. No identity or navigation contract changes.
 
 The scoped private Context controller supplies ordinary data and manager controls
 to the existing renderer. A separate exact-owner render namespace preserves source
@@ -52,3 +54,14 @@ author/install scenario, including the exact published capability identity (1.9m
 no retries). The two-account scenario has a 120-second total budget while individual
 assertion/response bounds stay unchanged. Only tests/docs changed; the deployed
 runtime remains the live-verified `0e8da8e`. The test-only push reruns hosted CI.
+
+Test-only `c3ebf4d` passed hosted CI 34954456412 (84 browser passes, 18 skips).
+The September 15 approved twisted-ring drawing changes only the decorative shared
+component. Entry, collapsed-system and return symbols use three fading circles and
+eight curved ribs; all existing navigation, actor/owner, protected and marketplace
+boundaries remain unchanged. See product decision 0118 for verification evidence.
+
+The decorative revision passes product `npm run verify` (346 web tests and unchanged
+startup budgets) and the fresh-account local wormhole browser scenario (10.7s,
+no retries). Entry and return screenshots match the approved design. Development
+deployment and live verification are pending.

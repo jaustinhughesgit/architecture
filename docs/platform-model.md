@@ -5,7 +5,8 @@
 Managed owners now share one Inspector universe and camera with the person's other
 solar systems. The separate full-screen managed renderer is removed; private
 exact-owner render scopes reuse the existing scene compiler and solar motion.
-Entry/return borders are repeated tilde marks. See [decision 0176](../decisions/0176-managed-owners-share-one-solar-universe.md).
+Entry/return borders use the approved twisted-cylinder symbol (three fading circles
+and eight curved ribs). See [decision 0176](../decisions/0176-managed-owners-share-one-solar-universe.md).
 
 A promoted entity's `~` shell opens its own ordinary solar system without switching
 the signed-in person. Manager-authorized scoped Context reuses the canonical
