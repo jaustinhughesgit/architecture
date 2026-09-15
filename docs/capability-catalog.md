@@ -1,5 +1,15 @@
 # Capability Catalog
 
+Managed-entity protected text ownership is an **Implemented bounded slice;
+verified locally; development publication pending**. Exact actor/owner separation,
+stewardship, per-asset permissions, independent device keys, encrypted recipient
+delivery, revocation, expiry, update, retirement and acknowledged custody handoff
+reuse the existing worker and revisioned collective store. Three-account acceptance
+tests include creator departure and plaintext exclusion from HTTP/ordinary Context.
+Managed key recovery/rotation, multiple devices, group roles, quorum, managed app
+execution and production scale/security proof remain **Partial / Product intent**.
+See [decision 0174](../decisions/0174-managed-protected-assets-separate-policy-and-key-custody.md).
+
 Removal of organization/work compatibility is **Implemented; verified locally and
 live; deployed and reset in development**. Current collective contracts and
 storage retain domain-neutral promotion and management without old routes, IDs,
@@ -19,8 +29,9 @@ Compute composition. Legacy management identities and retired workflow bytes
 were cleared from development by the subsequent reset in decision 0173.
 Historical local/live release evidence is recorded
 in [decision 0172](../decisions/0172-promotion-is-management-not-business-features.md).
-Collective app ownership, shared Context editing, protected-key management and
-scale proof remain **Partial / Product intent**. This removal does not expand
+Collective app ownership, shared Context editing, complete protected-key lifecycle
+and scale proof remain **Partial / Product intent**. Decision 0174 adds only the
+bounded managed protected-assets slice. This removal does not expand
 what the current capability compiler can generate.
 
 Scoped read exceptions and ordinary action entitlements are **Implemented as a bounded

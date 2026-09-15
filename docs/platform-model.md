@@ -1,5 +1,18 @@
 # Platform Model
 
+## Managed protected assets
+
+Promoted entities can own protected assets while authenticated people act on their
+behalf. General management, protected stewardship, per-asset actions and key
+custody are distinct. Explicit permission plus current recipient key delivery is
+required; public/group/parent visibility does not grant protected access. Reuse
+the existing local protected worker and atomic revisioned collective store.
+Source ownership is proven at promotion, not used as a lifetime dependency after
+explicit creator handoff. The bounded implementation supports text capture,
+recipient Reveal, update, retirement and separate steward/custody handoffs.
+Recovery, quorum and managed app execution remain Partial / Product intent. See
+[decision 0174](../decisions/0174-managed-protected-assets-separate-policy-and-key-custody.md).
+
 ## Entity-based management
 
 The completed development cutover removed the remaining organization/work compatibility

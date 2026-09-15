@@ -1,5 +1,9 @@
 # 0171 — Managed entities retain canonical identity
 
+Later clarification: [decision 0174](0174-managed-protected-assets-separate-policy-and-key-custody.md)
+preserves source validation at promotion but removes the creator's personal
+source shell as a lifetime dependency for managed membership and protected custody.
+
 Work-feature implementation and tests below are historical and superseded by
 [the removal decision](0172-promotion-is-management-not-business-features.md). Entity promotion and management remain;
 the separate definition, record and approval engine is removed.

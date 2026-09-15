@@ -167,3 +167,4 @@ Do not use decision records for routine implementation details. Use them when a 
 - [0163: Owner solar systems and marketplace contract suggestions](0163-owner-solar-systems-and-marketplace-contract-suggestions.md)
 - [0169: Scoped read policy and atomic use grants](0169-scoped-read-policy-and-atomic-use-grants.md)
 - [0171: Managed entities retain canonical identity](0171-managed-entities-retain-canonical-identity.md)
+- [0174: Managed protected assets separate policy and key custody](0174-managed-protected-assets-separate-policy-and-key-custody.md)

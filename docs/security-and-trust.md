@@ -1,5 +1,19 @@
 # Security and Trust
 
+## Managed-owner protection
+
+Managed protected ownership does not make a company an authenticating account.
+Current actor membership, exact action policy, stewardship and recipient key
+delivery are separate gates checked atomically. No general manager, parent or
+ordinary sharing rule gains decryption authority. Content remains worker-encrypted;
+the server sees safe metadata, ciphertext and recipient wraps only. Fresh local
+one-use hardware authorization binds actor, managed owner and exact operation.
+Steward and key-custodian handoffs precede departure; membership removal blocks
+future delivery, not previously copied plaintext. The first slice has no managed
+device-key recovery, multi-device rotation or quorum; clearing device storage may
+lose access. See [decision 0174](../decisions/0174-managed-protected-assets-separate-policy-and-key-custody.md)
+for trust boundaries, one-hop delegation, evidence and unimplemented capabilities.
+
 ## Trust modes
 
 1var should make the trust mode visible for every protected operation.
