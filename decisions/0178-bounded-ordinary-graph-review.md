@@ -33,6 +33,14 @@ Reload/reset discard checkpoints. Managed-owner and protected review remain
 unimplemented; ordinary AI review grants no new access or external side effects.
 This is neither universal undo nor a demonstrated 95% semantic success rate.
 
+Inspector projects recent interaction targets as temporary draggable charcoal
+shooting-star dots, linked visually to admitted ordinary-owned changed entities
+and relation endpoints/facets. These guides are not stored relationships and
+cannot bypass filters or owner/protected boundaries. Confirmation lives in
+Inspector; CLI and double-click use the existing guarded review coordinator.
+Presentation expires after three subsequent inputs and never survives a reload
+without its session checkpoint. Dragging changes only a temporary visual offset.
+
 Implementation and test evidence:
 `onevar-platform/docs/decisions/0126-bounded-ordinary-graph-review.md` and
 `onevar-platform/docs/testing/graph-review.md`.
