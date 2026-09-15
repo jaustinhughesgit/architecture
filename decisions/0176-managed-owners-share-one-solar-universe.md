@@ -1,6 +1,6 @@
 # 0176 — Managed owners share one solar universe
 
-Status: Implemented bounded slice; approved decorative border deployed and verified locally/live/hosted. Follow-up solar-boundary and typography refinement is in verification.
+Status: Implemented bounded slice; solid-boundary, deeper-return and dot-typography refinement deployed and verified locally/live. Prior hosted regression passed; the follow-up hosted browser regression is running.
 
 Correct the presentation in decision 0175: promoted entities are additional owner
 solar systems in the same mounted Inspector universe. Entering does not replace
@@ -84,5 +84,13 @@ owner identity, camera, graph, permissions or protected/marketplace authority.
 Local verification passes 348 web tests, all workspace checks/builds and unchanged
 startup budgets. Focused managed-wormhole, Sharing-boundary and two Transport-contrast
 browser scenarios pass without retries (10.8s, 14.8s and 14.8s). Desktop/mobile and
-live-size screenshots were inspected. Development deployment/live verification of
-this follow-up remain pending; the status is not inferred from local presentation.
+live-size screenshots were inspected before deployment.
+
+Product release `05bc1489e29449b78928858e1567a568fc8af159` deployed
+successfully to development in run 34983374513 with reset disabled. Health and the
+hosted/local `entity-fcHgpzFp.js` entry match. The fresh-account live managed test
+passes without retries (23.3s), covering solid open/closed boundaries, no ring on
+the closed system, the deeper return variant, normal label weight, navigation,
+authority and revocation. Deployed screenshots were inspected. CI 34983357519
+passed core verification and is running the broader browser suite. Production and
+existing user data were unchanged.
