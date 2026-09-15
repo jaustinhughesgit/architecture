@@ -1,6 +1,7 @@
 # Capability Catalog
 
-Entity-based delegated management remains an **Implemented bounded foundation** in
+Entity-based delegated management remains an **Implemented bounded foundation;
+verified locally and live; deployed to development** in
 `onevar-platform`: canonical identity promotion, exact accepted membership,
 multiple managers, last-manager protection, independent parent links and archive/
 restore. This source revision removes the separate definition/record/approval

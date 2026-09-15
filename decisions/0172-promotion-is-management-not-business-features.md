@@ -1,7 +1,7 @@
 # Entity promotion does not install business features
 
 Date: 2026-09-14
-Status: Implemented in source; release verification recorded below.
+Status: Implemented bounded foundation; verified locally and live; deployed to development.
 
 ## Decision
 
@@ -67,3 +67,18 @@ Context editing remain Partial.
 
 Cross-layer source: `onevar-platform/docs/decisions/0114-entity-promotion-does-not-install-business-features.md`.
 Supersedes the work-feature portions of decisions 0170 and 0171; entity promotion remains.
+
+## Development release evidence
+
+Release `af36650f2b7268cfc3973635066737dd0753bbc6` was published by successful
+[deployment 34919184167](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34919184167)
+with shared-state reset disabled. Health and website asset checks independently
+verified the exact release. The fresh-account three-browser acceptance test passed
+live without retries (22.9 seconds).
+
+The existing signed-in owner's DemoCompany retained canonical ID
+`ent_8adecdd6-fcd7-4d80-9d82-df45f71fc585` and its manager membership at revision 2.
+Its current `collective show` result contained management records and no retired
+workflow features. Existing entities, sharing state and historical records were not
+reset or physically deleted. Broader GitHub browser CI is separate from this
+targeted acceptance evidence.
