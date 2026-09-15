@@ -31,5 +31,14 @@ outside this bounded presentation slice.
 
 ## Status
 
-Source implementation and targeted local proofs exist. Development release
-verification will be recorded after publishing; no reset is required.
+Release `46a4ea64f3d451c2354ba14a28ef460871444964` is deployed to development.
+All 354 web unit tests and eight targeted browser scenarios passed on the final
+source. The deployed managed-wormhole scenario passed without retries in 25.2
+seconds using fresh synthetic accounts. The health release and website asset
+names match the tested build. No shared-state reset or production deployment
+was performed.
+
+[Development deployment](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34997156582)
+completed successfully. The broader
+[hosted CI run](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34997145356)
+is tracked separately from these completed targeted proofs.

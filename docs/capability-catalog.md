@@ -1,8 +1,8 @@
 # Capability Catalog
 
 Ray-aligned solar neighborhoods, marketplace stars, temporary system dragging
-and quiet/focused exploration are **Implemented in source with targeted local
-proofs; development verification pending**. They extend existing Inspector
+and quiet/focused exploration are an **Implemented bounded slice; verified locally
+and live; deployed to development**. They extend existing Inspector
 primitives without new graph or permission authority. See
 [decision 0177](../decisions/0177-ray-neighborhoods-and-quiet-solar-exploration.md).
 
