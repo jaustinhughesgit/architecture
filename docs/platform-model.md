@@ -6,7 +6,12 @@ Managed owners now share one Inspector universe and camera with the person's oth
 solar systems. The separate full-screen managed renderer is removed; private
 exact-owner render scopes reuse the existing scene compiler and solar motion.
 Entry/return borders use the approved twisted-cylinder symbol (three fading circles
-and eight curved ribs). See [decision 0176](../decisions/0176-managed-owners-share-one-solar-universe.md).
+and eight curved ribs), with a deeper inner warp around the small return icon.
+User and managed-owner solar boundaries are ordinary solid white circles in open
+and collapsed states; a closed managed system is not a wormhole. Filled entity
+labels use normal, smaller typography. Only `#e5bf47` and `#cad050` use black text;
+all other Sunburst fills use white. See
+[decision 0176](../decisions/0176-managed-owners-share-one-solar-universe.md).
 
 A promoted entity's `~` shell opens its own ordinary solar system without switching
 the signed-in person. Manager-authorized scoped Context reuses the canonical
@@ -76,7 +81,7 @@ Inspector now opens only the selected owner system. Relevant marketplace candida
 
 Inspector selection, attention and camera state are separate: days and refreshes cannot choose another owner. Default Sunburst bearings organize owner-rooted topics. Last-authorized ordinary public displays may remain for a bounded ten-second exact refresh, with failure/revocation removal and no query or execution authority. See [decision 0164](../decisions/0164-solar-focus-and-bounded-public-display-refresh.md).
 
-The clean Inspector now partitions its admitted graph into exact owner/publisher solar systems. Dotted boundaries fit full-size dots while remaining separated. Evidence-only portals count recorded cross-owner relations and currently verified install-to-publisher connections, never public-read relevance. Filter-preserving navigation and contract-matched marketplace satellites reuse existing graph, permission and marketplace lifecycle primitives; no new authority is introduced. See [decision 0163](../decisions/0163-owner-solar-systems-and-marketplace-contract-suggestions.md).
+The clean Inspector now partitions its admitted graph into exact owner/publisher solar systems. Solid white boundaries fit full-size dots while remaining separated. Evidence-only portals count recorded cross-owner relations and currently verified install-to-publisher connections, never public-read relevance. Filter-preserving navigation and contract-matched marketplace satellites reuse existing graph, permission and marketplace lifecycle primitives; no new authority is introduced. See [decision 0163](../decisions/0163-owner-solar-systems-and-marketplace-contract-suggestions.md).
 
 The clean app surface now composes a marketplace listing and its installed app
 into one navigable entity, keeping exact release/install/license authority below
