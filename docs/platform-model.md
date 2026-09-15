@@ -2,13 +2,13 @@
 
 ## Entity-based management
 
-The next development cutover removes the remaining organization/work compatibility
+The completed development cutover removed the remaining organization/work compatibility
 layer: no legacy ID aliases, migration commands, work routes or old receipt codecs.
 Domain-neutral entity promotion remains, using strict collective contracts and a
-fresh storage namespace. This is locally verified source; deployment and the full
-authorized development reset are pending operator authentication. See
+fresh storage namespace. Release `100ccc6` passed CI, deployment and live acceptance;
+the authorized full development reset and subsequent zero-record/zero-artifact
+inventory completed. Production is unchanged. See
 [decision 0173](../decisions/0173-fresh-collective-management-without-work-compatibility.md).
-The retention evidence below describes the preceding deployed release.
 
 Promotion adds domain-neutral management to an existing owned ordinary entity,
 retaining canonical identity. Accepted memberships, separately delegated management,
@@ -16,8 +16,8 @@ parent links and archive/restore apply equally to families, companies, teams,
 departments and other entities. It installs no business functionality. User-requested
 features belong in data entities, Paths, Compute entities and their existing
 composition system. The separate work-definition/approval engine has been removed
-from source; existing management state is retained and old workflow bytes remain
-stored but inactive. Parent links confer no implicit sharing, app or protected
+from source; prior development management state and old workflow bytes were
+erased by the authorized reset. Parent links confer no implicit sharing, app or protected
 authority. See [decision 0172](../decisions/0172-promotion-is-management-not-business-features.md).
 
 ## Scoped micro-access

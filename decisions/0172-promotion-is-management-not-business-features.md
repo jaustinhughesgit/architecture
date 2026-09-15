@@ -1,8 +1,8 @@
 # Entity promotion does not install business features
 
 Compatibility retention below is historical for release `af36650`. Decision 0173
-removes it in source for an authorized fresh development cutover; deployment/reset
-of that successor remains separately gated.
+removed it in the authorized fresh development cutover. Release `100ccc6` and
+the private development reset are complete; see that decision for evidence.
 
 Date: 2026-09-14
 Status: Implemented bounded foundation; verified locally and live; deployed to development.

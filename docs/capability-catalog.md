@@ -1,10 +1,11 @@
 # Capability Catalog
 
-Removal of organization/work compatibility is **Implemented in source and locally
-verified; development deployment/reset pending**. Current collective contracts and
+Removal of organization/work compatibility is **Implemented; verified locally and
+live; deployed and reset in development**. Current collective contracts and
 storage retain domain-neutral promotion and management without old routes, IDs,
-aliases, migration or receipt adapters. The private reset preflight encountered an
-expired operator session; no deletion or live cutover is claimed. See
+aliases, migration or receipt adapters. Release `100ccc6` passed CI and live acceptance;
+the authorized private reset completed, followed by a zero-record/zero-artifact
+inventory. Production is unchanged. See
 [decision 0173](../decisions/0173-fresh-collective-management-without-work-compatibility.md).
 
 Entity-based delegated management remains an **Implemented bounded foundation;
@@ -14,8 +15,9 @@ multiple managers, last-manager protection, independent parent links and archive
 restore. This source revision removes the separate definition/record/approval
 engine; earlier evidence that it executed simulations is historical, not a current
 capability claim. Business features must be user-authored through normal Path/
-Compute composition. Legacy management identities remain usable and retired
-workflow bytes stay stored but inactive. Local/live release evidence is recorded
+Compute composition. Legacy management identities and retired workflow bytes
+were cleared from development by the subsequent reset in decision 0173.
+Historical local/live release evidence is recorded
 in [decision 0172](../decisions/0172-promotion-is-management-not-business-features.md).
 Collective app ownership, shared Context editing, protected-key management and
 scale proof remain **Partial / Product intent**. This removal does not expand

@@ -1,7 +1,7 @@
 # Fresh collective management without work compatibility
 
 Date: 2026-09-14
-Status: Implemented in source; locally verified. Deployment and authorized reset pending.
+Status: Implemented; verified locally and live; deployed and reset in development.
 
 ## Decision
 
@@ -47,9 +47,9 @@ inactive value-free learned grammar archives remain. External Stripe history and
 device-local protected files are not deleted by a server reset. Production is not
 in scope. A browser must not republish old data under a new account.
 
-No reset has occurred as of this source verification: the operator AWS session
-expired during the non-destructive preflight. Scope confirmation and renewed
-operator authentication are required before deleting development data.
+The initial preflight was blocked by expired operator authentication. The user
+subsequently confirmed the full development scope and renewed the IAM session;
+publication, live acceptance and the private reset then completed as recorded below.
 
 ## Verification
 
@@ -66,8 +66,33 @@ request retries. The three-account browser canary passed locally without retries
 parent non-inheritance, reload, archive/restore, removed-route 404 and rejected
 old API requests. Existing governance tests also pass.
 
-Deployment, live acceptance and actual reset evidence must be appended separately;
-local test success is not evidence that the live environment has been cleared.
+## Development publication and reset evidence
+
+Completed on 2026-09-15 UTC (2026-09-14 America/New_York).
+
+- Release: `100ccc63de833447626dfd3c8290f616e2eae5bc`.
+- [GitHub CI](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34921465616)
+  passed verification and all 82 enabled browser scenarios; 18 optional live gates
+  were skipped. The previously failing delayed-paint drag scenario passed in this
+  run and in a separate local rerun.
+- [Development deployment](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/34922362420)
+  succeeded with automatic reset-gated acceptance disabled. Health and the served
+  website entrypoint were verified.
+- The opt-in three-account live collective browser canary passed without retries
+  in 23.7 seconds. All its browser contexts closed before reset.
+- The user explicitly confirmed the full development reset and authenticated the
+  IAM operator. The existing MFA-gated workflow
+  `reset-20260915T025111Z-89686` succeeded: 3,589 runtime records and 3 generated
+  artifacts deleted; external-event epoch advanced; configured queues purged;
+  63 inactive value-free grammar archives preserved.
+- A probe session authenticated before reset. Its entity and account-passkey reads
+  both returned 401 afterward. Its cookie remained in process memory only.
+- A subsequent non-destructive inventory,
+  `reset-20260915T025258Z-89826`, reported zero runtime records and zero
+  reset-target artifacts, with all 63 inactive grammar archives still present.
+- No accounts were created or demo data seeded after reset. Production was not
+  deployed or reset. The user starts at
+  [Create your first entity](https://d3byneo87fybgf.cloudfront.net/newentity1/).
 
 Cross-layer source: `onevar-platform/docs/decisions/0115-fresh-collective-management-without-work-compatibility.md`.
 Supersedes the compatibility retention in decision 0172 for the authorized development cutover.
