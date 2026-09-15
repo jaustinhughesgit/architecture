@@ -1,6 +1,6 @@
 # 0176 — Managed owners share one solar universe
 
-Status: Implemented bounded slice; verified locally/live and deployed to development; hosted regression passed. Approved decorative border revision in verification.
+Status: Implemented bounded slice; approved decorative border deployed and verified locally/live. Prior hosted regression passed; new release's hosted browser regression is pending.
 
 Correct the presentation in decision 0175: promoted entities are additional owner
 solar systems in the same mounted Inspector universe. Entering does not replace
@@ -63,5 +63,11 @@ boundaries remain unchanged. See product decision 0118 for verification evidence
 
 The decorative revision passes product `npm run verify` (346 web tests and unchanged
 startup budgets) and the fresh-account local wormhole browser scenario (10.7s,
-no retries). Entry and return screenshots match the approved design. Development
-deployment and live verification are pending.
+no retries). Entry and return screenshots match the approved design. Release
+`e069d5119c891f05f18c9f9a62f75bfd76511605` deployed successfully to development
+(34978453438), with reset explicitly disabled. Health and website entry
+`entity-DcZ0bFFj.js` match the release. The live fresh-account wormhole scenario
+passes without retries (24.3s); deployed screenshots were inspected. Hosted CI
+34978441239 passed core verification and is still running its broader browser
+regression; this is not yet claimed as a complete passing suite. No production
+deployment or existing-user data reset occurred.
