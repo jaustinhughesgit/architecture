@@ -19,3 +19,9 @@ Subsequent drags remain ephemeral and cannot overlap other closed summaries.
 This extends the solar projection, not discovery, graph persistence, authority or
 protected execution. Marketplace candidates remain in the open system's outer
 orbit until closure. See product decision 0130 and solar layout/browser tests.
+
+Development verification: product release `de27900864b9e0640f7000ec557f68c15bb6663f`
+deployed successfully in workflow run `35113896346` with reset disabled. Full local
+verification and 24 focused browser tests passed. A fresh-account hosted browser
+check also passed all three stages, unchanged camera, reduced motion and reopening
+from a name-answer response. No existing account data was reset.

@@ -1,7 +1,7 @@
 # Capability Catalog
 
 Staged solar dismissal and compact all-closed overview are an **Implemented
-bounded slice; verified locally** in the browser-local Inspector. They reuse solar packing/motion,
+bounded slice; verified locally and live; deployed to development** in the browser-local Inspector. They reuse solar packing/motion,
 preserve reversible expansion state and enforce existing managed leave guards;
 no new data or execution authority is added. See decision 0182.
 
