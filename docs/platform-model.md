@@ -1,5 +1,12 @@
 # Platform Model
 
+Inspector's outside gesture is now staged: dim interior dots to 30%, shrink,
+then close the system and animate admitted owner summaries into a compact
+non-overlapping overview at the visible center. The first two stages preserve
+expansions for an inside-click restore. Camera, filters, current permissions and
+managed-workspace leave guards remain authoritative. This supersedes earlier
+immediate outside-click reset behavior below. See decision 0182.
+
 Ordinary response provenance includes bounded exact versioned entity/relation
 references, allowing direct reads and unchanged results to spotlight their graph
 subjects without parsing prose or calling AI. Current authority, scene admission
