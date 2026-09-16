@@ -24,8 +24,10 @@ witnesses and old sessions do not create attention. Manual dismissal, permission
 scene admission, camera and graph remain unchanged. This supersedes decision
 0179's blanket read exclusion, not the daily Sunburst activity policy.
 
-Status: implemented and verified locally (1,100 tests, build/budgets, 29 focused
-browser tests). Runtime, API, contract and browser regression
-evidence lives in `onevar-platform` decision 0128; deployment evidence follows
-verification. General language coverage, cross-owner model context and arbitrary
+Status: implemented and verified locally (1,100 tests, build/budgets, 30 focused
+browser tests) and deployed to development as `7104ff72fc94610a4ff652dc24425d15f32d5d58`
+by successful no-reset workflow `35107306951`. Three fresh-account deployed tests
+passed, including real query advice (two proposals, zero additional calls after
+reload). Runtime, API, contract and browser regression evidence lives in
+`onevar-platform` decision 0128. General language coverage, cross-owner model context and arbitrary
 query correctness remain outside this bounded slice.
