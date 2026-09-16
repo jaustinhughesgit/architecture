@@ -2,6 +2,11 @@
 
 Status: Implemented bounded slice.
 
+Verified locally and live; deployed to development as
+`c28127d9269b39b600c74aaae8cafb6144111be8` (run `35116414096`, no reset).
+Full verification passed with 1,108 tests, plus ten focused browser regressions
+and a fresh-account live day/topic scenario.
+
 The existing Sunburst day control now supplies two bounded exact-ID sets to
 Inspector: selected-ray activity and all activity recorded for the same local
 day/install. Topic points remain large/bright, other same-day points sit nearby
