@@ -1,5 +1,10 @@
 # Platform Model
 
+Ordinary response provenance includes bounded exact versioned entity/relation
+references, allowing direct reads and unchanged results to spotlight their graph
+subjects without parsing prose or calling AI. Current authority, scene admission
+and protected boundaries remain unchanged. See decision 0181.
+
 Bounded ordinary query evidence supports the existing local-proof learning and
 repair loop. Current read witnesses and applied ordinary Compute effects also
 drive temporary Inspector attention. See [decision 0180](../decisions/0180-query-evidence-and-result-attention.md).
