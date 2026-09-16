@@ -2,8 +2,9 @@
 
 Combined day/topic Inspector attention is an **Implemented bounded slice;
 verified locally and live; deployed to development**:
-selected-topic points are emphasized, other recorded same-day points remain
-nearby, and inactive admitted points occupy the perimeter. It reuses exact local
+selected-topic points and their exact chains are emphasized, unrelated recorded
+same-day points remain closed nearby, and inactive admitted points occupy the
+perimeter. It reuses exact local
 recency, current filtering and owner admission. See decision 0183.
 
 Staged solar dismissal and compact all-closed overview are an **Implemented
