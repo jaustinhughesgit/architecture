@@ -1,5 +1,10 @@
 # Platform Model
 
+Inspector foreground chains now form straight topic rays. Exact shared entities
+retain one dot with curved secondary references; fork-aware spacing and chain
+cohesion supersede per-dot foreground packing without changing categories,
+canonical facts, permissions or day tiers. See decision 0184.
+
 Sunburst day selection separates selected-topic activity from other activity
 recorded that day: the selected ray and its exact graph branches open, unrelated
 same-day points remain closed nearby, and inactive admitted points move to the
