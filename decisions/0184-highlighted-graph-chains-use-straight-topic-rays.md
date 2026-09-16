@@ -1,6 +1,6 @@
 # 0184: Highlighted graph chains use straight topic rays
 
-Status: Implemented bounded slice; verified locally. Deployment proof pending.
+Status: Implemented bounded slice; verified locally and live; deployed to development.
 
 The clean browser Inspector generalizes its existing exact-edge branch layout.
 The active, admitted owner graph has one deterministic presentation home per
@@ -22,3 +22,21 @@ contract changes. No LLM or label-specific layout rule is introduced. Pure and
 browser tests prove the bounded rendering behavior. See clean-platform decision
 0132 for implementation and acceptance evidence. Arbitrary graph optimality and
 unbounded projection remain outside this slice.
+
+## Acceptance evidence — 2026-09-16
+
+Clean-platform release `3bb05218939f91ac4aa2f49372dae7f0f7582bd1` passed
+`npm run verify` (1,115 unit tests, type checking, builds and unchanged bundle
+budgets) and the complete local browser suite (93 passed, 20 live-only skips).
+[Development deployment 35127609371](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35127609371)
+published that exact release without resetting shared development data; the
+deployed health endpoint reports the same SHA.
+
+Two fresh-account deployed Chromium checks passed: `ray-chains.spec.ts` with
+`ONEVAR_RUN_RAY_ACCEPTANCE=true` (straight facet chains, one shared value,
+curved reuse, collision clearance, solar containment and temporary dragging),
+and the existing Sunburst day-lens scenario with
+`ONEVAR_RUN_DAY_LENS_ACCEPTANCE=true` (topic/day tiers, focus preservation,
+collapsed same-day neighbors, older perimeter activity and reload). Screenshots
+were visually inspected. This is the deployment evidence following the local
+proof recorded in clean-platform decision 0132.

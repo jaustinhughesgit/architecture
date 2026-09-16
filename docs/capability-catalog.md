@@ -1,7 +1,7 @@
 # Capability Catalog
 
 Straight topic rays with curved shared-entity references are an **Implemented
-bounded slice; verified locally; deployment proof pending** in the clean browser Inspector.
+bounded slice; verified locally and live; deployed to development** in the clean browser Inspector.
 Exact chains stay together without merging identities or recoloring facets.
 Day/background attention, authority and scene budgets remain unchanged. See
 decision 0184 and clean-platform decision 0132.
