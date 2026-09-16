@@ -1,5 +1,9 @@
 # Platform Model
 
+Bounded ordinary query evidence supports the existing local-proof learning and
+repair loop. Current read witnesses and applied ordinary Compute effects also
+drive temporary Inspector attention. See [decision 0180](../decisions/0180-query-evidence-and-result-attention.md).
+
 Committed ordinary mutations can spotlight exact changed Inspector dots while
 untouched admitted dots shrink to 30%. This local presentation reuses existing
 receipts and manual exploration; it adds no interpretation or authority. See

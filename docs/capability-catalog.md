@@ -1,5 +1,10 @@
 # Capability Catalog
 
+Bounded ordinary query evidence, empty-query repair signals and read/Compute
+Inspector spotlight are an **Implemented bounded slice in source**. They extend
+existing semantic Paths and receipt-based presentation, not domain-specific
+question handlers. See [decision 0180](../decisions/0180-query-evidence-and-result-attention.md).
+
 Ray-aligned solar neighborhoods, marketplace stars, temporary system dragging
 and quiet/focused exploration are an **Implemented bounded slice; verified locally
 and live; deployed to development**. They extend existing Inspector
