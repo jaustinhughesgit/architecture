@@ -16,5 +16,9 @@ no permission, daily activity, model call or graph mutation is implied. Generic
 responses without graph referents do not invent entities. Session dismissal and
 reload continue to suppress historical attention.
 
-Status: implemented in source; see clean-platform decision 0129 for verification
-and release evidence. This supersedes decision 0180's exclusion of no-op results.
+Status: implemented, verified locally and on development, and deployed as release
+`74e7fea99e6ff650a6d252ea298b01b92f73cbc3` through successful workflow 35111505825
+with reset disabled. Local verification passed 1,102 tests and 23 focused browser
+scenarios; a fresh-account live name/unchanged-response attention test passed.
+See clean-platform decision 0129 for additional checks and the wider-CI caveat.
+This supersedes decision 0180's exclusion of no-op results.
