@@ -1,5 +1,11 @@
 # Platform Model
 
+Ordinary semantic learning now distinguishes repairable syntax/type failures from
+proven missing or ambiguous references. Candidate applicability is proved locally
+before selection; generated mutation Paths can resolve existing children within
+earlier exact parent registers. See decision 0185. This is a bounded source repair,
+not a live-model accuracy or deployment claim.
+
 Inspector foreground chains now form straight topic rays. Exact shared entities
 retain one dot with curved secondary references; fork-aware spacing and chain
 cohesion supersede per-dot foreground packing without changing categories,

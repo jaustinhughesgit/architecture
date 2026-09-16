@@ -1,5 +1,15 @@
 # Capability Catalog
 
+Repairable assertion interpretation is an **Implemented bounded slice; verified
+locally; not yet verified with a live model or deployed** in the clean platform.
+Incompatible learned type guards and unresolved compositional syntax can reenter
+bounded semantic learning. Scoped register resolution is locally proven against
+existing children, shared candidates are dry-run before ambiguity comparison,
+and missing exact references/authority failures remain terminal. Deterministic
+tests cover cold repair, warm/reloaded replay and cross-account definition reuse;
+they do not establish a general language success rate. See decision 0185 and
+clean-platform decision 0133.
+
 Straight topic rays with curved shared-entity references are an **Implemented
 bounded slice; verified locally and live; deployed to development** in the clean browser Inspector.
 Exact chains stay together without merging identities or recoloring facets.
