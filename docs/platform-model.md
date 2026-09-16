@@ -1,5 +1,10 @@
 # Platform Model
 
+Committed ordinary mutations can spotlight exact changed Inspector dots while
+untouched admitted dots shrink to 30%. This local presentation reuses existing
+receipts and manual exploration; it adds no interpretation or authority. See
+[decision 0179](../decisions/0179-committed-mutations-drive-visual-attention.md).
+
 Bounded ordinary graph review stages unproven structural interpretations before
 publication and offers explicit AI review of recent modifications. It reuses
 semantic composition, shared definitions, local proof and exact publication;
