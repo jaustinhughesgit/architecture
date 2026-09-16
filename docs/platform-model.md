@@ -1,5 +1,11 @@
 # Platform Model
 
+Sunburst day selection separates selected-topic activity from other activity
+recorded that day: the topic is emphasized, other used points stay nearby, and
+inactive admitted points move to the perimeter. This extends the existing local
+exact-ID recency/Inspector projection without new history, authority or model
+calls. Explicit focus, chosen owner and camera remain unchanged. See decision 0183.
+
 Inspector's outside gesture is now staged: dim interior dots to 30%, shrink,
 then close the system and animate admitted owner summaries into a compact
 non-overlapping overview at the visible center. The first two stages preserve

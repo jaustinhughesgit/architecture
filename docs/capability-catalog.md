@@ -1,5 +1,10 @@
 # Capability Catalog
 
+Combined day/topic Inspector attention is an **Implemented bounded slice**:
+selected-topic points are emphasized, other recorded same-day points remain
+nearby, and inactive admitted points occupy the perimeter. It reuses exact local
+recency, current filtering and owner admission. See decision 0183.
+
 Staged solar dismissal and compact all-closed overview are an **Implemented
 bounded slice; verified locally and live; deployed to development** in the browser-local Inspector. They reuse solar packing/motion,
 preserve reversible expansion state and enforce existing managed leave guards;
