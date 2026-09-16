@@ -18,4 +18,9 @@ permissions and mutation/publication contracts are unchanged. UI-only operations
 without ordinary mutation receipts do not claim changed facts.
 
 Implementation and verification are recorded in `onevar-platform` decision 0127.
-Status: Implemented in source; development deployment verification is separate.
+Status: Implemented and development-verified on 2026-09-16. Source release
+`ebf8262b7396ab15819604cadae234f176f57632`, deployment `35102637076` succeeded
+without a reset; personal and managed fresh-account live acceptance both passed.
+Local verification passed 1,096 code tests and 25 focused browser tests (one
+opt-in live-AI canary skipped). Full CI was still running when recorded; this
+status does not claim a complete browser-suite pass or production deployment.
