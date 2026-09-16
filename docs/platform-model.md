@@ -1,5 +1,18 @@
 # Platform Model
 
+Failed ordinary requests can highlight tentative owned context and accept extra
+Inspector stars for explicit bounded AI review. Stars are neither facts nor
+authority. Read repairs stay read-only; writes preserve selected-subject bounds
+and local proof. See decision 0187 and product decision 0135 (not yet deployed).
+
+Material descriptions and component references now have separate ordinary graph
+roles: the first records material, while a subsequent scoped reference can
+create an uncounted constituent collection. Short owner replies narrow an exact,
+expiring device-local clarification and resume its original atomic assertion.
+Neither morphology nor descriptive scalar values merge object identities.
+See decision 0186; this is a locally verified bounded slice, not a deployment
+or broad ontology-learning claim.
+
 Ordinary semantic learning now distinguishes repairable syntax/type failures from
 proven missing or ambiguous references. Candidate applicability is proved locally
 before selection; generated mutation Paths can resolve existing children within

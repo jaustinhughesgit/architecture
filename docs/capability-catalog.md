@@ -1,5 +1,20 @@
 # Capability Catalog
 
+Selectable failed-request review is an **Implemented bounded slice; not deployed**
+in `onevar-platform`. Tentative matches, explicit stars and bounded ordinary
+evidence reuse the existing adviser and query/mutation algebra. Grounding,
+freshness and read/write boundaries remain local; protected/managed/peer review
+is excluded. See [decision 0187](../decisions/0187-selectable-failed-request-review.md).
+
+Owner-scoped material/constituent references and owner-fragment clarification
+are an **Implemented bounded slice; verified locally; not yet deployed** in
+`onevar-platform`. Starter lexical forms and exact material facts reuse ordinary
+collection primitives; no part count is inferred. Short possessive replies resume
+revision/version-bound pending assertions, including after reload/publication.
+Historical incorrect facts, unknown morphology and unproved newly generated
+programs are not silently repaired or activated. See decision 0186 and
+clean-platform decision 0134.
+
 Repairable assertion interpretation is an **Implemented bounded slice; verified
 locally; not yet verified with a live model or deployed** in the clean platform.
 Incompatible learned type guards and unresolved compositional syntax can reenter

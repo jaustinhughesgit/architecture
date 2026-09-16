@@ -1,5 +1,9 @@
 # Architecture Decisions
 
+- [0187: Selectable context for failed ordinary requests](0187-selectable-failed-request-review.md)
+
+- [0186: Owner-scoped material references and clarification](0186-owner-scoped-material-references-and-clarification.md)
+
 - [0185: Repairable interpretations reenter semantic learning](0185-repairable-interpretations-reenter-semantic-learning.md)
 
 - [0167: Ordinary sharing projects current exact read authority](0167-ordinary-sharing-projects-current-exact-read-authority.md)
