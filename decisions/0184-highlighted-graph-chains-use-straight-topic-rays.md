@@ -40,3 +40,8 @@ and the existing Sunburst day-lens scenario with
 collapsed same-day neighbors, older perimeter activity and reload). Screenshots
 were visually inspected. This is the deployment evidence following the local
 proof recorded in clean-platform decision 0132.
+
+[GitHub CI 35127590405](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35127590405)
+completed successfully for that exact release: 92 browser tests passed first
+attempt, one audio-invitation scenario passed on retry, and 20 live-only checks
+were skipped. The ray layout and Inspector regression scenarios passed.
