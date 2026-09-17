@@ -1,7 +1,8 @@
 # Capability Catalog
 
 Time-qualified measured-event composition is an **Implemented bounded slice;
-focused local proof passed; publication pending**. It reuses occurrence/context/
+verified locally; deployed to development** in release `6205009a5ee93d83ae24c1589bbd8efc89eb97c0`.
+It reuses occurrence/context/
 count/time and prevents guarded flat property templates from replaying. General
 live-model accuracy remains **Partial/Unknown**; saved facts are not migrated.
 See decision 0192 and product 0140.

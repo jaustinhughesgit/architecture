@@ -1,7 +1,14 @@
 # 0192 — Time-qualified assertions use existing composition
 
-Status: Implemented bounded slice in onevar-platform; focused local proof passed;
-development publication pending.
+Status: Implemented bounded slice in onevar-platform; verified locally;
+deployed to development.
+
+Release `6205009a5ee93d83ae24c1589bbd8efc89eb97c0`, workflow `35263320384`,
+published successfully. Live health and byte-identical entity/Inspector/Context
+worker assets confirm the version. Local verification passed 336 runtime, 410 web,
+241 API and two focused browser tests plus affected typechecks/build/budget. Full
+post-publication CI validation is still in progress. No reset or paid live model
+test was run.
 
 Single-operation Path learning must not treat a distinct action's measured amount
 and occurrence time as one scalar property of its actor. Existing graph primitives
