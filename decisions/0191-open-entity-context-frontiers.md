@@ -2,6 +2,11 @@
 
 Status: Implemented browser-local slice; verified locally; deployed to development.
 
+Selection-ring refinement (publication pending): exact detail-ready focus now
+shares its predicate with a white circular selection ring. Open but unfocused
+dots, quiet/departing/collapsed states and active review selection do not advertise
+the popup gesture. Node geometry and double-click expansion remain unchanged.
+
 The focus-first single-click refinement is deployed to development in release
 `a7ddc753448bf01c62c9c72185b64217ffbf5e63` by workflow `35261912130`.
 Live health and byte-identical entity/Inspector assets prove publication;

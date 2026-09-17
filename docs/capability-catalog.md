@@ -1,5 +1,11 @@
 # Capability Catalog
 
+Time-qualified measured-event composition is an **Implemented bounded slice;
+focused local proof passed; publication pending**. It reuses occurrence/context/
+count/time and prevents guarded flat property templates from replaying. General
+live-model accuracy remains **Partial/Unknown**; saved facts are not migrated.
+See decision 0192 and product 0140.
+
 Open-entity Inspector context expansion is an **Implemented browser-local slice;
 verified locally; deployed to development**. Double-click/double-tap advances one exact rendered link beyond
 the visible forward/incoming frontiers, without completing hidden owner paths,

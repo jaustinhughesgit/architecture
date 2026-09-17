@@ -1,5 +1,10 @@
 # Platform Model
 
+Time-qualified assertions that cannot fit one scalar Path defer to existing
+occurrence/graph composition, preserving measured quantity/unit and literal time
+separately. Bounded compiler/matcher guards also cover historical templates; no
+automatic fact migration or authority expansion. See decision 0192.
+
 Conversational plural references have an implemented bounded owner-local set
 resolver in the clean platform. Exact membership, event/member effect separation,
 statement-scoped exclusions and dormant-frame confirmation extend existing graph
