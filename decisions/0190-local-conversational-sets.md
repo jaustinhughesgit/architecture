@@ -3,6 +3,11 @@
 Status: Implemented bounded clean-platform slice; locally verified. Development
 release evidence is recorded separately; general language accuracy remains Partial.
 
+Development release `73609ea42dcd30ea31ccb04aa99a0c1ea66b072a` was published by
+workflow 35254426119 on 2026-09-17. Its served health release matches; 802 local
+tests and a fresh-account deployed Chromium scenario passed. Full post-release
+CI remained in progress at evidence capture. No shared data reset occurred.
+
 ## Decision
 
 Extend Context's local discourse state and existing semantic graph algebra. A

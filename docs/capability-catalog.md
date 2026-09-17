@@ -1,13 +1,18 @@
 # Capability Catalog
 
-Exact conversational sets are an **Implemented bounded slice; verified locally;
-development deployment pending** in `onevar-platform`. People, objects and places
+Exact conversational sets are an **Implemented bounded slice; verified locally
+and in a deployed browser; deployed to development** in `onevar-platform`. People, objects and places
 reuse exact local membership, exclusions/complements, shared-resource resolution,
 event-versus-member effects, atomic learned `resolve.scope`, expiry confirmation,
 and frozen review context. Browser publication/reload proof uses zero adviser
 calls. Unrestricted coreference and live-model accuracy remain **Partial/Unknown**;
 cross-user/protected batch authority is not added. See decision 0190 and product
 decision 0138.
+Release `73609ea42dcd30ea31ccb04aa99a0c1ea66b072a` passed 802 local tests,
+type checks, build/budget checks and the fresh-account live browser scenario;
+workflow [35254426119](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35254426119)
+published successfully. The separate full post-release validation was still
+running when this evidence was recorded. Existing data was not reset.
 
 Directional Column navigation is an **Implemented browser-local slice; not
 deployed** in `onevar-platform`. Desktop sibling columns, mobile single-column
