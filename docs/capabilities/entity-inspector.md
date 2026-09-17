@@ -1,5 +1,16 @@
 # Entity Inspector
 
+Open-entity context expansion is an **Implemented browser-local slice; verified locally; not
+deployed** in `onevar-platform`. Double-click/double-tap on an already-open ordinary
+entity extends its visible chain one rendered link forward and backward. Exact
+admitted IDs, directional frontiers and first-closed-point stops prevent automatic
+whole-branch/owner-path expansion. Single clicks on any open ordinary entity open
+details, independently of selection; doubles cancel that action and never show
+a popup. Empty-space depth cleanup remains distinct. This supersedes double-click details for open
+ordinary points only. No graph, permissions, protected-data or server contract
+changes. See [decision 0191](../../decisions/0191-open-entity-context-frontiers.md)
+and product decision 0139.
+
 Continuous solar navigation is implemented, verified locally and in CI, and deployed to development (927 core tests and 79 hosted browser scenarios without retries; 18 optional browser gates skipped). It preserves pan, zoom and the chosen owner's remembered center; other systems move outward. Old dots collapse while new dots launch farthest-first with equal cruise speed and late braking, followed by the lines. Drag/drop proposals use release-event world coordinates rather than stale animation frames. Current authorization filters every transient departing ID. Live release/asset checks and a read-only browser smoke check passed without resetting user data. See [decision 0166](../../decisions/0166-continuous-solar-navigation-preserves-camera.md), superseding decision 0165's forced recentering and simultaneous opening.
 
 The single-open-system projection is implemented, locally/CI verified and deployed to development (922 tests and 78 applicable hosted browser scenarios without retries; 18 explicit live gates skipped). Only the chosen owner's admitted dots are laid out/rendered; other owners are small named circles in the second outside orbit, with relevant marketplace suggestions in the first. Opening uses a finite outward animation and outside clicks reset manual exploration, preserving exact focus and filters. Live release/asset checks passed without resetting user data. See [decision 0165](../../decisions/0165-one-open-solar-system-and-discovery-orbits.md), superseding earlier all-expanded geometry without changing authorization or graph semantics.

@@ -33,8 +33,12 @@ Reload/reset discard checkpoints. Managed-owner and protected review remain
 unimplemented; ordinary AI review grants no new access or external side effects.
 This is neither universal undo nor a demonstrated 95% semantic success rate.
 
-Inspector projects recent interaction targets as temporary draggable charcoal
-shooting-star dots, with upper-right star badges on admitted ordinary-owned changed entities
+Inspector projects only the latest eligible interaction target as one temporary
+draggable charcoal shooting-star dot. Its upper-right star badges and failed-request
+selection use that same latest target; newer opportunities replace all three
+together. Earlier input/response message stars and worker checkpoints keep their
+existing history/expiry. The latest-only projection is implemented locally, not
+yet deployed. Badges appear on admitted ordinary-owned changed entities
 and relation endpoints/facets, rather than extra lines. These badges are not stored relationships and
 cannot bypass filters or owner/protected boundaries. Confirmation lives in
 Inspector; CLI and double-click use the existing guarded review coordinator.

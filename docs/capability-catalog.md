@@ -1,5 +1,10 @@
 # Capability Catalog
 
+Open-entity Inspector context expansion is an **Implemented browser-local slice;
+verified locally; not deployed**. Double-click/double-tap advances one exact rendered link beyond
+the visible forward/incoming frontiers, without completing hidden owner paths,
+opening a popup or changing graph/authority. See decision 0191 and product 0139.
+
 Exact conversational sets are an **Implemented bounded slice; verified locally
 and in a deployed browser; deployed to development** in `onevar-platform`. People, objects and places
 reuse exact local membership, exclusions/complements, shared-resource resolution,
