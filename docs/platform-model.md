@@ -1,5 +1,10 @@
 # Platform Model
 
+Pre-launch release delivery now builds and publishes a pinned commit first, then
+runs exact-commit validation automatically. Publication and validation status are
+separate; failures produce evidence for a fix or explicit rollback. Routine releases
+preserve manual test data. Runtime proof and authority are unchanged. See decision 0189.
+
 The clean-room Column surface is another authorized graph projection beside CLI
 and Inspector. Forward/reverse traversal uses exact active relationships; response
 witnesses select a leaf or the lowest common parent of changed branches. Managed
