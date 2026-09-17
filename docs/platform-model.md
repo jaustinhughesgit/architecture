@@ -1,5 +1,11 @@
 # Platform Model
 
+The clean-room Column surface is another authorized graph projection beside CLI
+and Inspector. Forward/reverse traversal uses exact active relationships; response
+witnesses select a leaf or the lowest common parent of changed branches. Managed
+scope, peer reads, app execution and protected authority remain unchanged. See
+decision 0188 and product decision 0136 (implemented locally, not deployed).
+
 Failed ordinary requests can highlight tentative owned context and accept extra
 Inspector stars for explicit bounded AI review. Stars are neither facts nor
 authority. Read repairs stay read-only; writes preserve selected-subject bounds

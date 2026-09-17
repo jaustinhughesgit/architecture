@@ -1,5 +1,11 @@
 # Capability Catalog
 
+Directional Column navigation is an **Implemented browser-local slice; not
+deployed** in `onevar-platform`. Desktop sibling columns, mobile single-column
+navigation, exact incoming counts, leaf guards and witnessed response landing
+reuse the current Inspector/runtime graph and execution authority. No new model
+or protected-data projection. See [decision 0188](../decisions/0188-column-is-an-exact-response-projection.md).
+
 Selectable failed-request review is an **Implemented bounded slice; not deployed**
 in `onevar-platform`. Tentative matches, explicit stars and bounded ordinary
 evidence reuse the existing adviser and query/mutation algebra. Grounding,
