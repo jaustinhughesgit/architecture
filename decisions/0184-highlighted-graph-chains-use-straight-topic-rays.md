@@ -23,6 +23,16 @@ browser tests prove the bounded rendering behavior. See clean-platform decision
 0132 for implementation and acceptance evidence. Arbitrary graph optimality and
 unbounded projection remain outside this slice.
 
+## Compact-layout source refinement — 2026-09-16
+
+Implemented locally; deployment of this refinement is pending. Per-chain displayed
+radii and bounded lateral packing replace multiplicative fork stretching and global
+scene scaling. Each fork can borrow lateral room around its preferred topic bearing;
+shared-reference facet clearance adjusts only that arc. Straight chains, exact IDs,
+camera position, attention and authority remain unchanged. See product decision
+0132's compact-layout addendum for bounds and local test evidence. The deployment
+evidence below applies to the earlier ray release, not this refinement.
+
 ## Acceptance evidence — 2026-09-16
 
 Clean-platform release `3bb05218939f91ac4aa2f49372dae7f0f7582bd1` passed
