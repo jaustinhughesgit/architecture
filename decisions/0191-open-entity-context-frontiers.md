@@ -2,6 +2,9 @@
 
 Status: Implemented browser-local slice; verified locally; deployed to development.
 
+The focus-first single-click refinement is implemented locally, not yet deployed;
+double-click context expansion remains unchanged.
+
 Release `fccebad233bb5741d4ec6a201a13a51b6c72a6c1` was published by
 [workflow 35258724778](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35258724778).
 Live health identifies the release; served entity, Inspector and review-star
@@ -22,8 +25,10 @@ Prune current admission, remap publication IDs and clear on new response/day/own
 focus or explicit exploration. Existing solar geometry and finite animation handle
 the extra context without moving the camera or persisting coordinates.
 
-Single clicks on any open ordinary entity and keyboard activation open details.
-Selection is not required. The shared pointer arbitration captures openness at
+Single clicks on an unfocused entity focus it without a popup, even when open.
+A separate single click on the exact focused entity opens details; keyboard
+activation retains immediate detail access. The shared pointer arbitration captures
+focus before the delayed single-click action and openness at
 the first tap and cancels the single-click details action on double gestures;
 double-click expansion never opens a popup, even at a chain end. Small dots,
 special app/protected/wormhole surfaces, review selection, quiet scans, drag/drop
@@ -36,4 +41,4 @@ Implementation and proof: `onevar-platform` decision 0139,
 Local proof passed 410 web unit tests, web typecheck and build/bundle budget. The
 corrected single/double gesture and review-star suites passed eight browser
 scenarios (one paid live canary explicitly skipped), including real mouse/touch,
-no transient popup, unselected-open single-click details and prior quiet gestures.
+no transient popup, focus-then-details single clicks/taps and prior quiet gestures.

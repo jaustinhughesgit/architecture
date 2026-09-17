@@ -4,9 +4,10 @@ Open-entity context expansion is an **Implemented browser-local slice; verified 
 deployed to development** in `onevar-platform`. Double-click/double-tap on an already-open ordinary
 entity extends its visible chain one rendered link forward and backward. Exact
 admitted IDs, directional frontiers and first-closed-point stops prevent automatic
-whole-branch/owner-path expansion. Single clicks on any open ordinary entity open
-details, independently of selection; doubles cancel that action and never show
-a popup. Empty-space depth cleanup remains distinct. This supersedes double-click details for open
+whole-branch/owner-path expansion. The locally implemented, not-yet-deployed
+single-click refinement focuses an unfocused entity first, even when open; a
+separate single click on that exact focused entity opens details. Doubles cancel
+the single-click action and never show a popup. Empty-space depth cleanup remains distinct. This supersedes double-click details for open
 ordinary points only. No graph, permissions, protected-data or server contract
 changes. See [decision 0191](../../decisions/0191-open-entity-context-frontiers.md)
 and product decision 0139.
