@@ -1,7 +1,7 @@
 # Capability Catalog
 
 Open-entity Inspector context expansion is an **Implemented browser-local slice;
-verified locally; not deployed**. Double-click/double-tap advances one exact rendered link beyond
+verified locally; deployed to development**. Double-click/double-tap advances one exact rendered link beyond
 the visible forward/incoming frontiers, without completing hidden owner paths,
 opening a popup or changing graph/authority. See decision 0191 and product 0139.
 

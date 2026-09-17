@@ -1,6 +1,12 @@
 # 0191 — Open-entity double-click extends bounded context
 
-Status: Implemented browser-local slice; verified locally; not deployed.
+Status: Implemented browser-local slice; verified locally; deployed to development.
+
+Release `fccebad233bb5741d4ec6a201a13a51b6c72a6c1` was published by
+[workflow 35258724778](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35258724778).
+Live health identifies the release; served entity, Inspector and review-star
+JavaScript match the locally verified build byte-for-byte. The same workflow
+tracks extensive validation after publication. No shared-state reset was run.
 
 The current Inspector presentation primitive gains progressive exact-chain
 exploration, not another graph or execution capability. Double-click/double-tap

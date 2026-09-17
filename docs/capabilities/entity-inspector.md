@@ -1,7 +1,7 @@
 # Entity Inspector
 
-Open-entity context expansion is an **Implemented browser-local slice; verified locally; not
-deployed** in `onevar-platform`. Double-click/double-tap on an already-open ordinary
+Open-entity context expansion is an **Implemented browser-local slice; verified locally;
+deployed to development** in `onevar-platform`. Double-click/double-tap on an already-open ordinary
 entity extends its visible chain one rendered link forward and backward. Exact
 admitted IDs, directional frontiers and first-closed-point stops prevent automatic
 whole-branch/owner-path expansion. Single clicks on any open ordinary entity open

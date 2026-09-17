@@ -37,8 +37,10 @@ Inspector projects only the latest eligible interaction target as one temporary
 draggable charcoal shooting-star dot. Its upper-right star badges and failed-request
 selection use that same latest target; newer opportunities replace all three
 together. Earlier input/response message stars and worker checkpoints keep their
-existing history/expiry. The latest-only projection is implemented locally, not
-yet deployed. Badges appear on admitted ordinary-owned changed entities
+existing history/expiry. The latest-only projection is locally verified and deployed
+to development in release `fccebad233bb5741d4ec6a201a13a51b6c72a6c1`; publication
+and post-publication validation are recorded in workflow `35258724778`.
+Badges appear on admitted ordinary-owned changed entities
 and relation endpoints/facets, rather than extra lines. These badges are not stored relationships and
 cannot bypass filters or owner/protected boundaries. Confirmation lives in
 Inspector; CLI and double-click use the existing guarded review coordinator.
