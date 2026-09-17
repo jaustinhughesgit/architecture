@@ -5,7 +5,8 @@ verified locally; deployed to development**. Double-click/double-tap advances on
 the visible forward/incoming frontiers, without completing hidden owner paths,
 opening a popup or changing graph/authority. See decision 0191 and product 0139.
 The follow-up single-click refinement (focus first, then open the exact focused
-entity's popup on a separate click) is implemented locally, not yet deployed.
+entity's popup on a separate click) is deployed to development in release
+`a7ddc753448bf01c62c9c72185b64217ffbf5e63`; double-click expansion is unchanged.
 
 Exact conversational sets are an **Implemented bounded slice; verified locally
 and in a deployed browser; deployed to development** in `onevar-platform`. People, objects and places

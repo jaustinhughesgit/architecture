@@ -2,8 +2,11 @@
 
 Status: Implemented browser-local slice; verified locally; deployed to development.
 
-The focus-first single-click refinement is implemented locally, not yet deployed;
-double-click context expansion remains unchanged.
+The focus-first single-click refinement is deployed to development in release
+`a7ddc753448bf01c62c9c72185b64217ffbf5e63` by workflow `35261912130`.
+Live health and byte-identical entity/Inspector assets prove publication;
+exact-commit validation continues after publication in the same workflow.
+Double-click context expansion remains unchanged, and no shared-state reset ran.
 
 Release `fccebad233bb5741d4ec6a201a13a51b6c72a6c1` was published by
 [workflow 35258724778](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35258724778).
