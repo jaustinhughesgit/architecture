@@ -1,5 +1,11 @@
 # Platform Model
 
+Phrase-level discourse resolution distinguishes objects, witnessed occurrences,
+assertion facets and temporal modifiers. Optional semantic `statement` scope and
+singular `event` references extend existing browser-local conversation/composition
+without changing graph authority or server access. See decision 0193 for the
+implemented bounded slice and remaining coreference limitations.
+
 Time-qualified assertions that cannot fit one scalar Path defer to existing
 occurrence/graph composition, preserving measured quantity/unit and literal time
 separately. Bounded compiler/matcher guards also cover historical templates; no

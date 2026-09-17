@@ -1,5 +1,13 @@
 # Capability Catalog
 
+Witnessed event/statement references are an **Implemented bounded slice; verified
+locally; deployment pending**. Phrase-level temporal exclusion, regular/irregular
+event nomination, exact occurrence reuse, assertion-facet qualifiers, object
+possessives and qualified plural sets extend existing local primitives. Review can
+repair only a proven unchanged antecedent; no global merge/migration. Two focused
+browser tests prove publication/reload with zero follow-up adviser calls. General
+coreference and live-model accuracy remain **Partial/Unknown**. See 0193/product 0141.
+
 Time-qualified measured-event composition is an **Implemented bounded slice;
 verified locally; deployed to development** in release `6205009a5ee93d83ae24c1589bbd8efc89eb97c0`.
 It reuses occurrence/context/
