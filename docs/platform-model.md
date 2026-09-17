@@ -1,5 +1,12 @@
 # Platform Model
 
+Conversational plural references have an implemented bounded owner-local set
+resolver in the clean platform. Exact membership, event/member effect separation,
+statement-scoped exclusions and dormant-frame confirmation extend existing graph
+composition and reusable Path resolution. Discourse remains device-local;
+publication remaps identities but does not transmit the frame. Permissions,
+protected execution and Compute/JPL boundaries are unchanged. See decision 0190.
+
 Pre-launch release delivery now builds and publishes a pinned commit first, then
 runs exact-commit validation automatically. Publication and validation status are
 separate; failures produce evidence for a fix or explicit rollback. Routine releases

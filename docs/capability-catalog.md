@@ -1,5 +1,14 @@
 # Capability Catalog
 
+Exact conversational sets are an **Implemented bounded slice; verified locally;
+development deployment pending** in `onevar-platform`. People, objects and places
+reuse exact local membership, exclusions/complements, shared-resource resolution,
+event-versus-member effects, atomic learned `resolve.scope`, expiry confirmation,
+and frozen review context. Browser publication/reload proof uses zero adviser
+calls. Unrestricted coreference and live-model accuracy remain **Partial/Unknown**;
+cross-user/protected batch authority is not added. See decision 0190 and product
+decision 0138.
+
 Directional Column navigation is an **Implemented browser-local slice; not
 deployed** in `onevar-platform`. Desktop sibling columns, mobile single-column
 navigation, exact incoming counts, leaf guards and witnessed response landing
