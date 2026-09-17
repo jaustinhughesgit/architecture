@@ -1,6 +1,11 @@
 # 0193 — Witnessed phrase-level discourse references
 
-Status: Implemented bounded slice; verified locally; deployment pending.
+Status: Implemented bounded slice; verified locally; deployed to development.
+
+Product release `0659449b20d0f8fb84ea174feb301986b1cf1a98` is live, with health
+and served asset digest verification. Publication job in
+[35268133633](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35268133633)
+passed; separate post-release validation was queued/running at evidence capture.
 
 The clean platform extends existing local conversation frames and assertion traces
 instead of introducing domain-specific event handlers or a second memory store.

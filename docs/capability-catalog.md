@@ -1,7 +1,9 @@
 # Capability Catalog
 
 Witnessed event/statement references are an **Implemented bounded slice; verified
-locally; deployment pending**. Phrase-level temporal exclusion, regular/irregular
+locally; deployed to development** in release `0659449b20d0f8fb84ea174feb301986b1cf1a98`.
+Health and served asset digests matched; separate post-release validation was
+queued/running at evidence capture. Phrase-level temporal exclusion, regular/irregular
 event nomination, exact occurrence reuse, assertion-facet qualifiers, object
 possessives and qualified plural sets extend existing local primitives. Review can
 repair only a proven unchanged antecedent; no global merge/migration. Two focused
