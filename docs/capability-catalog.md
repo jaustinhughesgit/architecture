@@ -1,7 +1,9 @@
 # Capability Catalog
 
 Anchored ordinary day parts and incoming-story navigation are an **Implemented
-bounded slice; locally verified; deployment pending**. Optional validated
+bounded slice; locally verified; deployed to development** in release
+`e423be508a5d763399ebb122be3f76ec56edde27` (workflow 35386697770; exact API health
+verified; post-publish CI validation running at evidence capture). Optional validated
 date/part/zone metadata survives ordinary publication and Dynamo storage. Runtime
 fixtures prove same-period reuse, date/zone separation, temporal query matching
 and frozen clocks. Scene and desktop/mobile fixtures prove distinct-story counts,
