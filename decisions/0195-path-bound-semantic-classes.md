@@ -27,11 +27,13 @@ accuracy and privacy are not proven merely by hashing or lexical checks.
 
 Inspector may consolidate authorized instances within an owner into a browseable
 view group while preserving focused/current-response stories and exact edges.
-In explicit group browsing, instances stay folded: first click shows at most three
-outgoing next-link targets, and the numbered dotted control swaps pages. A second
-separate single click lists all exact outgoing relationships with occurrence
-context; selecting a row follows that endpoint's bounded chain, not another same-
-class occurrence. The group uses a solid ray-colored ring with an outside instance
+In the explicit group overview, instances stay folded: first click shows at most
+three story previews, and the numbered dotted control counts/paginates remaining
+stories, not their individual facts. A second separate single click lists one
+preview per exact occurrence with its context. Selecting a preview or row opens
+that occurrence's owner path, relationship facets, sibling facts and bounded
+downstream context; other occurrences stay folded. Shared targets do not authorize
+reverse expansion into another story. The group uses a solid ray-colored ring with an outside instance
 count. Connectors with folded endpoints are witnessed browser display projections,
 never canonical scene facts; the cluster-edge prohibition is unchanged. Stale
 links and revoked managed-owner snapshots cannot be restored by a saved selection.
