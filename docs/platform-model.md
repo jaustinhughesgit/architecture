@@ -1,5 +1,12 @@
 # Platform Model
 
+Recognized day parts extend ordinary calendar values with optional validated
+date/part/recorded-zone metadata. Equal anchored values may serve multiple exact
+stories; Inspector counts and browses current incoming stories while relative
+labels age without mutating identity. Ordinary persistence retains the metadata;
+protected/Compute/Journal boundaries remain unchanged. No historical guessing or
+automatic scheduling. See decision 0196 and product decision 0144.
+
 Path-bound semantic classifiers identify shared meanings, not instance identity.
 The existing ordinary adviser selects/proposes a class during cold learning;
 verified warm Paths execute without classification calls. Optional entity metadata

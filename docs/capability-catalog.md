@@ -1,5 +1,15 @@
 # Capability Catalog
 
+Anchored ordinary day parts and incoming-story navigation are an **Implemented
+bounded slice; locally verified; deployment pending**. Optional validated
+date/part/zone metadata survives ordinary publication and Dynamo storage. Runtime
+fixtures prove same-period reuse, date/zone separation, temporal query matching
+and frozen clocks. Scene and desktop/mobile fixtures prove distinct-story counts,
+exact-context selection and aging labels without identity changes. Existing
+unanchored history and general temporal/model interpretation remain **Partial**;
+there is no migration, new scheduler, timeline index or protected-data access.
+See decision 0196 and product `docs/testing/anchored-day-parts.md`.
+
 Shared Path classifiers and Inspector display consolidation are an **Implemented
 bounded slice; locally verified; deployed to development** in release
 `8063a2790ca9f7c1509dc532fd2bc1b966797778`. Sixteen real-model scenarios passed
