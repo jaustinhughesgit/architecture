@@ -1,5 +1,11 @@
 # Platform Model
 
+Path-bound semantic classifiers identify shared meanings, not instance identity.
+The existing ordinary adviser selects/proposes a class during cold learning;
+verified warm Paths execute without classification calls. Optional entity metadata
+enables owner-scoped Inspector grouping with exact member exploration. No instance
+merge, protected-data access or domain-specific runtime branches. See 0195.
+
 Recognized ordinary calendar-day facts normalize locally to validated ISO day
 values at write time, through the existing scalar/fact contract. Date-only input
 does not imply a UTC timestamp. Bounded missing-year inference is visible, unclear

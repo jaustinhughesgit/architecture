@@ -1,5 +1,13 @@
 # Capability Catalog
 
+Shared Path classifiers and Inspector display consolidation are an **Implemented
+bounded slice; locally verified; development promotion pending**. Sixteen fixture
+scenarios prove eight shared senses, different Path syntax, distinct occurrence
+IDs and model-free warm reuse. Registry, Dynamo and browser persistence tests
+cover the cross-layer contract. General semantic accuracy and unseen synonym
+reconciliation remain **Partial/Unknown**; historical facts/Paths are not migrated.
+See decision 0195 and product decision 0143/testing evidence.
+
 Ordinary calendar-day normalization is an **Implemented bounded slice; verified
 locally; deployed to development** in release `b3d11892777524eb472aac129aae5f24b1bf74e5`.
 Health and served asset digests matched; post-release validation was running at
