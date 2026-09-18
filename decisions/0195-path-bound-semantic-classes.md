@@ -32,7 +32,10 @@ three story previews, and the numbered dotted control counts/paginates remaining
 stories, not their individual facts. A second separate single click lists one
 preview per exact occurrence with its context. Selecting a preview or row opens
 that occurrence's owner path, relationship facets, sibling facts and bounded
-downstream context; other occurrences stay folded. Shared targets do not authorize
+downstream context. The single class circle substitutes for the selected occurrence
+at its exact chain position, rather than appearing as a separate navigation entity
+beside an occurrence dot. Focus then second activation opens one detail surface
+containing ordinary current-story facts and the story switcher. Other occurrences stay folded. Shared targets do not authorize
 reverse expansion into another story. The group uses a solid ray-colored ring with an outside instance
 count. Connectors with folded endpoints are witnessed browser display projections,
 never canonical scene facts; the cluster-edge prohibition is unchanged. Stale
