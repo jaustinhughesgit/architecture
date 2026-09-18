@@ -1,5 +1,12 @@
 # Platform Model
 
+Explicit temporal fact captures can bound neighboring variable phrases through
+shared clock-free calendar syntax. Whole-sentence uniqueness and original capture
+spans remain mandatory; the local atomic writer retains date/time anchoring and
+clarification. Fresh graph objects may use inferred property vocabulary without
+weakening existing-subject guards. No transport, schema, permission or protected
+boundary changes. See decision 0198/product 0146 (locally verified, not deployed).
+
 Ordinary date-clock phrases extend the same temporal primitive and optional
 Context metadata. Paths preserve full clock captures; local validation anchors
 date/HH:mm/zone, clarifies ambiguity and retains original review clocks. Typed
