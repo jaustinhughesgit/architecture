@@ -1,6 +1,6 @@
 # 0198 — Temporal phrase syntax participates in reusable Path binding
 
-Status: Implemented bounded slice; locally verified, not deployed.
+Status: Implemented bounded slice; locally verified and deployed to development.
 
 The clean platform shares lexical calendar syntax between semantic Path matching
 and ordinary date normalization. A captured value explicitly consumed by a
@@ -23,3 +23,7 @@ Product decision 0146 and `docs/testing/temporal-phrase-boundaries.md` record
 runtime/API and desktop/mobile evidence, including offline warm reuse and safety
 regressions. General language/model interpretation, arbitrary interval inference
 and automatic repair of historical flattened values remain Partial/Unknown.
+Release `d06aeeedf21e736559aeef824a6a76a6c8c0e2fa` was published to development
+through workflow
+[35401884268](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35401884268);
+post-publication verification runs after publication.

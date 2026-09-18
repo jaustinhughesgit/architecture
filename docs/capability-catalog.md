@@ -1,12 +1,15 @@
 # Capability Catalog
 
 Temporal phrase boundaries in ordinary mutation Paths are an **Implemented
-bounded slice; locally verified; not deployed**. Shared calendar lexical syntax
+bounded slice; locally verified and deployed to development**. Shared calendar lexical syntax
 disambiguates adjacent typed time and variable name/location captures; complete
 binding and source-span proof remain mandatory. Runtime/API and desktop/mobile
 fixtures prove atomic clarification, independent qualifiers, shared discovery,
 publication/reload and offline warm reuse. General language/model accuracy and
-historical flattened-data repair remain **Partial/Unknown**. See decision 0198.
+historical flattened-data repair remain **Partial/Unknown**. Release
+`d06aeeedf21e736559aeef824a6a76a6c8c0e2fa` was published through development
+workflow [35401884268](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35401884268).
+See decision 0198.
 
 Anchored ordinary date-clock values are an **Implemented bounded slice; locally
 verified**. Runtime, strict-schema, Dynamo and desktop/mobile browser fixtures
