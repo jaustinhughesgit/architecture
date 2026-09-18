@@ -10,6 +10,12 @@ The compiler assigns a content-derived `cls_` ID and binds it to a fixed-concept
 create register in the verified Path. A class ID is not an entity instance ID,
 an access grant, a deduplication key, or an execution capability.
 
+The compiler assigns verified specific occurrence classes a stable groupable
+presentation default; model flags cannot turn the same class off between Paths.
+Generic structural classes cannot group. Missing/value-bearing annotations return
+the content-free `class_policy` repair category. Object/collection view policy
+remains proposed data; no class policy merges or changes instance facts.
+
 ContextEntity gains optional `{classId,label,consolidate}` metadata, retained by
 ordinary local/server persistence. Instances remain independent exact entities.
 Warm local Path execution copies the bound class without further advice/lookup.
