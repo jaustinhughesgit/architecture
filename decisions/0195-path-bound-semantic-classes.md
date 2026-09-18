@@ -35,7 +35,10 @@ that occurrence's owner path, relationship facets, sibling facts and bounded
 downstream context. The single class circle substitutes for the selected occurrence
 at its exact chain position, rather than appearing as a separate navigation entity
 beside an occurrence dot. Focus then second activation opens one detail surface
-containing ordinary current-story facts and the story switcher. Other occurrences stay folded. Shared targets do not authorize
+containing ordinary current-story facts and the story switcher. Double-clicking
+or double-tapping that in-chain class circle returns to the first page of story
+previews, clears the selected story context and focuses the class without opening
+the detail surface. Other occurrences stay folded. Shared targets do not authorize
 reverse expansion into another story. The group uses a solid ray-colored ring with an outside instance
 count. Connectors with folded endpoints are witnessed browser display projections,
 never canonical scene facts; the cluster-edge prohibition is unchanged. Stale
