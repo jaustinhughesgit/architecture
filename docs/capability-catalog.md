@@ -1,9 +1,16 @@
 # Capability Catalog
 
 Shared Path classifiers and Inspector display consolidation are an **Implemented
-bounded slice; locally verified; development promotion pending**. Sixteen fixture
-scenarios prove eight shared senses, different Path syntax, distinct occurrence
-IDs and model-free warm reuse. Registry, Dynamo and browser persistence tests
+bounded slice; locally verified; deployed to development** in release
+`8063a2790ca9f7c1509dc532fd2bc1b966797778`. Sixteen real-model scenarios passed
+eight shared senses across different Path syntax, distinct occurrence IDs and
+zero-model-call warm reuse (3.68–9.81 ms local execution). Offline replay verified
+actor and connected context/time witnesses. A deployed browser check proved
+shared discovery, publication/reload, grouping and exact-member exploration.
+Health and served entry-asset hashes matched; extensive post-publish CI was running
+at evidence capture. Earlier evaluations left duplicate test discovery entries for
+two sample patterns; scoped S3 cleanup permission is pending, and those patterns
+can encounter archive ambiguity. Registry, Dynamo and browser persistence tests
 cover the cross-layer contract. General semantic accuracy and unseen synonym
 reconciliation remain **Partial/Unknown**; historical facts/Paths are not migrated.
 See decision 0195 and product decision 0143/testing evidence.
