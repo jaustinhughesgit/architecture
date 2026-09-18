@@ -1,5 +1,18 @@
 # Platform Model
 
+Exact ordinary shared endpoints now project distinct story counts and reuse
+Inspector navigation. Explicit single-reference/time correction is staged locally,
+requires unchanged-snapshot confirmation and preserves original entities/history.
+Old temporal wording uses original observation dates and a confirmed zone, never
+today's clock. No namesake merge, global alias learning or authority expansion.
+See decision 0200/product 0148 (implemented locally, not deployed).
+
+Complete spoken years and clock-on-date ordering reuse shared calendar syntax and
+the existing typed dateTime writer. Numeric `and` may occur within recognized
+temporal fact/query captures; unique complete bindings and original source spans
+remain required. No transport, persistence, authority or protected-plane change.
+See decision 0199/product 0147 (locally verified, not deployed).
+
 Explicit temporal fact captures can bound neighboring variable phrases through
 shared clock-free calendar syntax. Whole-sentence uniqueness and original capture
 spans remain mandatory; the local atomic writer retains date/time anchoring and

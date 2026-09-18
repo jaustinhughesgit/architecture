@@ -1,5 +1,20 @@
 # Capability Catalog
 
+Shared exact-endpoint story browsing and explicit personal reference/time correction
+are **Implemented as a bounded local slice; not deployed**. Distinct story subjects,
+not role edges, supply counts. Correction previews retain original identity/history,
+revalidate the entire snapshot, and normalize older times only with original
+observation evidence and a confirmed zone. Fuzzy identity merging, automatic alias
+learning and bulk historical repair remain **Partial/Product intent**, not effects
+of this work. See decision 0200 and clean-platform decision 0148.
+
+Spoken English years and clock-first dates are an **Implemented bounded slice;
+locally verified, not deployed**. Century-pair and hundreds/thousands forms reuse
+the shared calendar primitive; typed numeric conjunction, local queries, strict
+reload and offline reuse are covered. Weekdays, relative offsets, conversational
+clock fractions and approximate-time semantics remain **Partial/Unknown** in
+ordinary Context. See decision 0199 and product's spoken-calendar test guide.
+
 Temporal phrase boundaries in ordinary mutation Paths are an **Implemented
 bounded slice; locally verified and deployed to development**. Shared calendar lexical syntax
 disambiguates adjacent typed time and variable name/location captures; complete
