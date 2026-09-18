@@ -1,5 +1,12 @@
 # Platform Model
 
+Ordinary date-clock phrases extend the same temporal primitive and optional
+Context metadata. Paths preserve full clock captures; local validation anchors
+date/HH:mm/zone, clarifies ambiguity and retains original review clocks. Typed
+identity and same-zone date-containment queries remain distinct. Aging labels
+and exact-story browsing reuse existing Inspector projections. No new authority,
+schedule, protected access or historical migration. See decision 0197/product 0145.
+
 Recognized day parts extend ordinary calendar values with optional validated
 date/part/recorded-zone metadata. Equal anchored values may serve multiple exact
 stories; Inspector counts and browses current incoming stories while relative

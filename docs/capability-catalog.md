@@ -1,5 +1,13 @@
 # Capability Catalog
 
+Anchored ordinary date-clock values are an **Implemented bounded slice; locally
+verified**. Runtime, strict-schema, Dynamo and desktop/mobile browser fixtures
+cover spoken/numeric clocks, atomic ambiguity/DST rejection, warm reuse, persistence,
+same-zone date containment and aging labels. Existing day parts remain compatible.
+General temporal language and live-model accuracy remain **Partial/Unknown**;
+no historical migration, new scheduler or protected access. See decision 0197 and
+product `docs/testing/anchored-date-clocks.md` for publication evidence.
+
 Anchored ordinary day parts and incoming-story navigation are an **Implemented
 bounded slice; locally verified; deployed to development** in release
 `e423be508a5d763399ebb122be3f76ec56edde27` (workflow 35386697770; exact API health
