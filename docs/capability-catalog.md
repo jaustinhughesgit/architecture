@@ -1,7 +1,9 @@
 # Capability Catalog
 
 Ordinary calendar-day normalization is an **Implemented bounded slice; verified
-locally; not deployed**. English full month/day ordinals, numeric explicit years,
+locally; deployed to development** in release `b3d11892777524eb472aac129aae5f24b1bf74e5`.
+Health and served asset digests matched; post-release validation was running at
+evidence capture. English full month/day ordinals, numeric explicit years,
 ISO dates and exact relative days normalize to validated ISO scalar values before
 commit, with visible bounded year inference and frozen review clocks. Local runtime
 and browser publication/reload/query fixtures pass; no historical migration, new

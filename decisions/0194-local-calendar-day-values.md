@@ -1,6 +1,6 @@
 # 0194 — Ordinary calendar-day facts use local canonical values
 
-Status: Implemented bounded slice; verified locally; not deployed.
+Status: Implemented bounded slice; verified locally; deployed to development.
 
 ## Decision
 
@@ -27,5 +27,8 @@ precision stays textual. General temporal understanding remains Partial.
 Product decision 0142 documents the shared lazy primitive, lower-level executor
 injection contract, seven runtime tests, and a focused Chromium publication/reload
 and local-query test using package fixtures with zero adviser calls. Production
-web build and unchanged startup-size budgets pass. Live model quality is Unknown;
-this slice is not yet deployed.
+web build and unchanged startup-size budgets pass. Live model quality is Unknown.
+Release `b3d11892777524eb472aac129aae5f24b1bf74e5` was published by
+[run 35357576327](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35357576327).
+Live health and served asset digests matched; post-release validation was running
+at evidence capture. No data reset or historical migration was performed.
