@@ -27,7 +27,11 @@ accuracy and privacy are not proven merely by hashing or lexical checks.
 
 Inspector may consolidate authorized instances within an owner into a browseable
 view group while preserving focused/current-response stories and exact edges.
-The group never replaces entities in ContextDB. CLI/Column retain exact instances.
+The solid ray-colored group outline carries a separate count badge. Activation
+admits at most three exact member chains; a dotted numbered overflow branch swaps
+the visible page rather than accumulating every instance. Fan connectors denote
+presentation-only class membership and never become Context relations. The group
+never replaces entities in ContextDB. CLI/Column retain exact instances.
 Travel, running and processing are fixtures, not platform branches. Generic event
 and person types and repeated names do not imply consolidation; parts of speech
 alone cannot determine identity or presentation policy.
