@@ -1,5 +1,12 @@
 # Platform Model
 
+Recognized ordinary calendar-day facts normalize locally to validated ISO day
+values at write time, through the existing scalar/fact contract. Date-only input
+does not imply a UTC timestamp. Bounded missing-year inference is visible, unclear
+years/invalid dates clarify atomically, and review keeps the original calendar
+anchor. No model is needed to interpret the stored day. See decision 0194 for the
+implemented English slice and unchanged Journal/scheduling/protected boundaries.
+
 Phrase-level discourse resolution distinguishes objects, witnessed occurrences,
 assertion facets and temporal modifiers. Optional semantic `statement` scope and
 singular `event` references extend existing browser-local conversation/composition

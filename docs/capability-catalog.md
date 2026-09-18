@@ -1,5 +1,14 @@
 # Capability Catalog
 
+Ordinary calendar-day normalization is an **Implemented bounded slice; verified
+locally; not deployed**. English full month/day ordinals, numeric explicit years,
+ISO dates and exact relative days normalize to validated ISO scalar values before
+commit, with visible bounded year inference and frozen review clocks. Local runtime
+and browser publication/reload/query fixtures pass; no historical migration, new
+temporal entity type, calendar index or scheduling action is implied. General
+temporal language and live-model accuracy remain **Partial/Unknown**. See 0194 and
+product decision 0142.
+
 Witnessed event/statement references are an **Implemented bounded slice; verified
 locally; deployed to development** in release `0659449b20d0f8fb84ea174feb301986b1cf1a98`.
 Health and served asset digests matched; separate post-release validation was
