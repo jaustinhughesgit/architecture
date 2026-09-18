@@ -27,6 +27,14 @@ accuracy and privacy are not proven merely by hashing or lexical checks.
 
 Inspector may consolidate authorized instances within an owner into a browseable
 view group while preserving focused/current-response stories and exact edges.
+In explicit group browsing, instances stay folded: first click shows at most three
+outgoing next-link targets, and the numbered dotted control swaps pages. A second
+separate single click lists all exact outgoing relationships with occurrence
+context; selecting a row follows that endpoint's bounded chain, not another same-
+class occurrence. The group uses a solid ray-colored ring with an outside instance
+count. Connectors with folded endpoints are witnessed browser display projections,
+never canonical scene facts; the cluster-edge prohibition is unchanged. Stale
+links and revoked managed-owner snapshots cannot be restored by a saved selection.
 The group never replaces entities in ContextDB. CLI/Column retain exact instances.
 Travel, running and processing are fixtures, not platform branches. Generic event
 and person types and repeated names do not imply consolidation; parts of speech
