@@ -1,5 +1,12 @@
 # Capability Catalog
 
+Calendar-story read equations and absolute-date scalar admission are **Implemented
+as a bounded local slice; not deployed**. Relative and explicit dates reach the
+same typed calendar meaning; current owner/event/time joins return distinct
+stories with witnessed details and bounded output. Old malformed records are not
+automatically repaired. Broader date grammar and live-model quality remain
+**Partial/Unknown**. See decision 0201/product 0149 and the calendar-stories tests.
+
 Shared exact-endpoint story browsing and explicit personal reference/time correction
 are **Implemented as a bounded local slice; not deployed**. Distinct story subjects,
 not role edges, supply counts. Correction previews retain original identity/history,

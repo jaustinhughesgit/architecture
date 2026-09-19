@@ -1,5 +1,13 @@
 # Platform Model
 
+Calendar-story questions are bundled equations over the same owner-local query
+algebra and temporal normalization used for writes. Absolute calendar qualifiers
+cannot enter malformed scalar property/value splits, even through archived Paths.
+Exact time identity and day containment remain distinct; current story details
+carry witnesses, and old unanchored words cannot drift into today's date filter.
+No new storage, authority or historical migration. See 0201/product 0149 (local
+verification, not deployment).
+
 Exact ordinary shared endpoints now project distinct story counts and reuse
 Inspector navigation. Explicit single-reference/time correction is staged locally,
 requires unchanged-snapshot confirmation and preserves original entities/history.
