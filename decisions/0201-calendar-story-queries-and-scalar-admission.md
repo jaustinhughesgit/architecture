@@ -1,6 +1,7 @@
 # 0201 — One temporal primitive for admission, storage and story queries
 
-Status: Implemented and locally verified in the clean platform; deployment pending.
+Status: Implemented and locally verified in the clean platform; deployed to development in
+`f6726fb0eefcc28a5826258c767bc51e5f220fc3` through [workflow 35414923608](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35414923608).
 
 An absolute date exposed a gap in the single-property Path tier: an archived
 broad property/fixed-value grammar consumed a date across both operands. The

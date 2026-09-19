@@ -1,14 +1,14 @@
 # Capability Catalog
 
 Calendar-story read equations and absolute-date scalar admission are **Implemented
-as a bounded local slice; not deployed**. Relative and explicit dates reach the
+as a bounded slice, locally verified and deployed to development**. Relative and explicit dates reach the
 same typed calendar meaning; current owner/event/time joins return distinct
 stories with witnessed details and bounded output. Old malformed records are not
 automatically repaired. Broader date grammar and live-model quality remain
 **Partial/Unknown**. See decision 0201/product 0149 and the calendar-stories tests.
 
 Shared exact-endpoint story browsing and explicit personal reference/time correction
-are **Implemented as a bounded local slice; not deployed**. Distinct story subjects,
+are **Implemented as a bounded slice, locally verified and deployed to development**. Distinct story subjects,
 not role edges, supply counts. Correction previews retain original identity/history,
 revalidate the entire snapshot, and normalize older times only with original
 observation evidence and a confirmed zone. Fuzzy identity merging, automatic alias
@@ -16,7 +16,7 @@ learning and bulk historical repair remain **Partial/Product intent**, not effec
 of this work. See decision 0200 and clean-platform decision 0148.
 
 Spoken English years and clock-first dates are an **Implemented bounded slice;
-locally verified, not deployed**. Century-pair and hundreds/thousands forms reuse
+locally verified and deployed to development**. Century-pair and hundreds/thousands forms reuse
 the shared calendar primitive; typed numeric conjunction, local queries, strict
 reload and offline reuse are covered. Weekdays, relative offsets, conversational
 clock fractions and approximate-time semantics remain **Partial/Unknown** in

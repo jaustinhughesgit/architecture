@@ -1,6 +1,7 @@
 # 0199 — Spoken years reuse the shared calendar primitive
 
-Status: Implemented bounded slice; locally verified, not deployed.
+Status: Implemented bounded slice; locally verified and deployed to development in
+`f6726fb0eefcc28a5826258c767bc51e5f220fc3` through [workflow 35414923608](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35414923608).
 
 Product decision 0147 extends shared lexical calendar syntax with complete spoken
 century-pair and hundreds/thousands years and clock-on-date ordering. Source spans

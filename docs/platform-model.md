@@ -1,25 +1,34 @@
 # Platform Model
 
+Current clean-platform development release: `f6726fb0eefcc28a5826258c767bc51e5f220fc3`,
+published through [workflow 35414923608](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35414923608).
+Decisions 0199–0201 are included. Local verification passed 1,305 unit tests and
+121 browser tests without retries, plus type checks, builds, bundle budgets and
+test-stage synthesis. Twenty-one opt-in browser checks were skipped. No reset or
+historical migration was performed; general live-model quality remains unproven.
+The workflow also passed 22 fresh-account graph/public-identity browser checks
+against the deployed development site, without resetting shared state.
+
 Calendar-story questions are bundled equations over the same owner-local query
 algebra and temporal normalization used for writes. Absolute calendar qualifiers
 cannot enter malformed scalar property/value splits, even through archived Paths.
 Exact time identity and day containment remain distinct; current story details
 carry witnesses, and old unanchored words cannot drift into today's date filter.
-No new storage, authority or historical migration. See 0201/product 0149 (local
-verification, not deployment).
+No new storage, authority or historical migration. See 0201/product 0149 (locally
+verified and deployed to development).
 
 Exact ordinary shared endpoints now project distinct story counts and reuse
 Inspector navigation. Explicit single-reference/time correction is staged locally,
 requires unchanged-snapshot confirmation and preserves original entities/history.
 Old temporal wording uses original observation dates and a confirmed zone, never
 today's clock. No namesake merge, global alias learning or authority expansion.
-See decision 0200/product 0148 (implemented locally, not deployed).
+See decision 0200/product 0148 (locally verified and deployed to development).
 
 Complete spoken years and clock-on-date ordering reuse shared calendar syntax and
 the existing typed dateTime writer. Numeric `and` may occur within recognized
 temporal fact/query captures; unique complete bindings and original source spans
 remain required. No transport, persistence, authority or protected-plane change.
-See decision 0199/product 0147 (locally verified, not deployed).
+See decision 0199/product 0147 (locally verified and deployed to development).
 
 Explicit temporal fact captures can bound neighboring variable phrases through
 shared clock-free calendar syntax. Whole-sentence uniqueness and original capture

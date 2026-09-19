@@ -1,6 +1,7 @@
 # 0200 — Shared endpoints and explicit reference correction
 
-Status: Implemented bounded clean-platform slice; local verification, not deployed.
+Status: Implemented bounded clean-platform slice; locally verified and deployed to development in
+`f6726fb0eefcc28a5826258c767bc51e5f220fc3` through [workflow 35414923608](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35414923608).
 
 Inspector's story index groups active references to an exact ordinary endpoint
 by distinct owner-local non-structural object subjects. People, places and typed
