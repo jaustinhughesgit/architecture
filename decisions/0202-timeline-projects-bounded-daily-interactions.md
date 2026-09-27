@@ -38,8 +38,12 @@ and preserves the independently maintained solar camera. Sunburst's existing
 five-day selector scrolls the Timeline to its requested day. Reduced motion skips
 the warp and animated navigation.
 
-A reverse-return follow-up is implemented and locally verified in source, but
-not part of the development release above. Selecting Inspector retains the mounted Timeline
+A reverse-return follow-up is deployed to development as release
+`c0ee5094697f912848fc35ae526bbfb851693cd1` through
+[workflow 36357826020](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/36357826020).
+Read-only checks verified the API's exact release SHA and byte equality of the
+served entity page and 22 JavaScript/CSS assets against the local production build.
+Selecting Inspector retains the mounted Timeline
 through the reverse finite-ring flight. Current painted occurrences, including
 scrolled/zoomed or partly entered frames, converge on current solar geometry;
 the independently retained camera is then revealed. Newest occurrences return
