@@ -1,5 +1,23 @@
 # Capability Catalog
 
+Timeline interaction projection is **Implemented as a bounded browser-local source
+slice, locally verified and deployed to development**. The current
+authorized entity view joins Sunburst's exact references into daily occurrences,
+ordered by latest interaction and sized by known count. Five finite rings flatten
+into independently scrolling date sections; Today initially rests near the bottom.
+Sunburst day selection scrolls to that day, and Timeline has its own standard zoom
+without changing the solar camera. The existing reference index retains older
+days within 2,000 records and 1,000,000 serialized characters, with at most 64 retry
+keys per daily reference. Legacy references count as one known interaction; no
+missing activity is reconstructed. Current owner/filter/public-read admission
+still applies; protected and managed history are excluded. The broader history
+capability remains **Partial**: this slice provides neither lifetime history,
+cross-device activity nor historical entity snapshots. Source evidence includes `timeline-model.test.ts`,
+`timeline-layout.test.ts`, `recent-entities.test.ts`, `store.test.ts` and the new
+`tests/browser/timeline.spec.ts` acceptance suite. See
+[decision 0202](../decisions/0202-timeline-projects-bounded-daily-interactions.md)
+and clean-platform decision 0150.
+
 Calendar-story read equations and absolute-date scalar admission are **Implemented
 as a bounded slice, locally verified and deployed to development**. Relative and explicit dates reach the
 same typed calendar meaning; current owner/event/time joins return distinct

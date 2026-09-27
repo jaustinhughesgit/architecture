@@ -9,6 +9,21 @@ historical migration was performed; general live-model quality remains unproven.
 The workflow also passed 22 fresh-account graph/public-identity browser checks
 against the deployed development site, without resetting shared state.
 
+Timeline is **Implemented as a bounded browser-local source slice, locally
+verified and deployed to development**. It expands Sunburst interaction
+references into one current entity occurrence per recorded day, newest activity
+first and sized by known daily count. The solar border becomes five finite vector
+rings that flatten into date boundaries; five is an animation count, not a history
+limit. Today rests low in the viewport with a little activity visible. Scrolling,
+independent Timeline zoom and Sunburst day navigation reuse current entity actions
+and preserve the solar camera. Retention extends the existing local reference
+index to older days within 2,000 records and 1,000,000 serialized characters;
+legacy presence establishes only one known interaction. Current owner, filters
+and public-read authority still control admission. No protected or managed
+history, old entity values, new backend or cross-device archive is introduced.
+See [decision 0202](../decisions/0202-timeline-projects-bounded-daily-interactions.md)
+and clean-platform decision 0150.
+
 Calendar-story questions are bundled equations over the same owner-local query
 algebra and temporal normalization used for writes. Absolute calendar qualifiers
 cannot enter malformed scalar property/value splits, even through archived Paths.
