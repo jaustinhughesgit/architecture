@@ -38,6 +38,15 @@ and preserves the independently maintained solar camera. Sunburst's existing
 five-day selector scrolls the Timeline to its requested day. Reduced motion skips
 the warp and animated navigation.
 
+A reverse-return follow-up is implemented and locally verified in source, but
+not part of the development release above. Selecting Inspector retains the mounted Timeline
+through the reverse finite-ring flight. Current painted occurrences, including
+scrolled/zoomed or partly entered frames, converge on current solar geometry;
+the independently retained camera is then revealed. Newest occurrences return
+first. Re-selecting Timeline reverses direction, other views cancel the flight,
+and reduced motion skips it. Disposable captured geometry remains intersected
+with current admission and activity; it cannot preserve stale labels or authority.
+
 Extend the existing owner/installation/category/source/day reference index rather
 than adding a transcript, canonical event history or new server service. Keep at
 most 2,000 daily records and 1,000,000 serialized characters. Older days are no
