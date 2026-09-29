@@ -19,14 +19,16 @@ bounded data/runtime work. Existing implementations are distinguished from new
 contracts; neither this proposal nor small concurrency tests prove million-user
 capacity.
 
-Current clean-platform development release: `f6726fb0eefcc28a5826258c767bc51e5f220fc3`,
-published through [workflow 35414923608](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35414923608).
-Decisions 0199–0201 are included. Local verification passed 1,305 unit tests and
-121 browser tests without retries, plus type checks, builds, bundle budgets and
-test-stage synthesis. Twenty-one opt-in browser checks were skipped. No reset or
-historical migration was performed; general live-model quality remains unproven.
-The workflow also passed 22 fresh-account graph/public-identity browser checks
-against the deployed development site, without resetting shared state.
+Current clean-platform development release: `8b2c2af080db462643a61aad457196ec24258eca`,
+published through [workflow 36512909828](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/36512909828).
+Decision 0203 is included. Local verification passed 1,400 unit tests, 139 Chromium
+checks and one WebKit worker check, plus type checks, builds and startup budgets.
+Twenty-one opt-in browser checks were skipped in the full local run. Four fresh
+development-account checks passed, including actual S3 image admission and native
+decode. No shared-state reset or historical receipt backfill occurred. New browser
+Journal indexes use resumable background maintenance. Hosted workflow status and
+scale limitations are recorded in the linked clean-platform acceptance guide;
+million-user capacity and general live-model quality remain unproven.
 
 Timeline is **Implemented as a bounded browser-local source slice, locally
 verified and deployed to development**. It expands Sunburst interaction

@@ -1,6 +1,7 @@
 # 0203 — Experience presentation does not own data or execution authority
 
-Status: Accepted; bounded clean-platform R0–R4 implementation under verification.
+Status: Accepted; bounded clean-platform R0–R4 implemented, locally verified and
+deployed to development as `8b2c2af080db462643a61aad457196ec24258eca`.
 
 ## Context
 

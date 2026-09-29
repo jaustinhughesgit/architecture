@@ -1,6 +1,6 @@
 # Experience platform: implementation and migration plan
 
-**Status: R0–R4 approved and implementation under verification.** Prepared
+**Status: bounded R0–R4 implemented, tested and deployed to development.** Prepared
 2026-09-28. [Decision 0203](../decisions/0203-bounded-installable-experiences.md)
 and the [acceptance/evidence guide](../../onevar-platform/docs/testing/experiences-r0-r4.md)
 record the bounded implementation, measured fixtures and actual rollout status.

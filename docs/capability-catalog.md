@@ -10,7 +10,7 @@ trusted existing renderers. Arbitrary creator code, full original-website parity
 streaming compositions and games remain **Product intent / Proposed** R5–R7.
 
 Paid JPL acceleration and compact install receipts are **Implemented bounded
-adapters, locally tested**: immutable S3 archive, quota-controlled hash-keyed
+adapters, locally tested and deployed to development**: immutable S3 archive, quota-controlled hash-keyed
 database serving copies, byte/entry-bounded process cache and dual-read historical
 receipts. Cache hits never grant execution. Bounded conditional backfill tooling
 exists but no historical backfill has run. Production acceleration/new Experience

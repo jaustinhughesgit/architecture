@@ -8,7 +8,7 @@ small surfaces through full-screen experiences, and always retain the Sunburst.
 Creators can grow these experiences through incremental statements rather than
 having to describe a finished application in one request.
 
-**Partial:** the bounded R0–R4 slice now has implementation and local tests;
+**Partial:** the bounded R0–R4 slice is implemented, locally tested and deployed to development;
 [decision 0203](../decisions/0203-bounded-installable-experiences.md) records the
 actual contracts, rollout controls and verification status. The broader release
 sequence below remains the design target, not a claim of full migration. This
