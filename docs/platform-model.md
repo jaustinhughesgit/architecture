@@ -1,5 +1,19 @@
 # Platform Model
 
+Conversational responsive Experiences are an **implemented bounded source slice,
+locally verified but not deployed or live-model verified**. Ordinary voice/Convert
+proposes incremental declarative drafts over symbolic source candidates; trusted
+code rebinds exact current owner-local facts, validates geometry and saves through
+the existing private signed marketplace. Experiences morph the same admitted
+Inspector entities into responsive arrangements and back, not a separate graph.
+Tree/bracket/timeline formations use only witnessed relations/anchored dates;
+they do not invent competition rules, roles or history. Manual production
+Dashboard/Table constructors are replaced, with fixtures retained only for tests.
+Labels/request text may reach the ordinary adviser; protected data does not.
+Layout and resize stay pure/local, while paid-code serving and execution authority
+remain unchanged. See [decision 0204](../decisions/0204-conversational-experiences-share-inspector-entities.md)
+for bounded sources, privacy, migration and remaining media/game/scale gates.
+
 The bounded R0–R4 Experience implementation is recorded in
 [decision 0203](../decisions/0203-bounded-installable-experiences.md). It adds
 presentation-only signed apps, owner-local read projections, a trusted declarative

@@ -1,13 +1,22 @@
 # Capability Catalog
 
-System and Entity Experiences are **Partial**: the clean R0–R4 implementation
-adds signed presentation-only releases, a bounded declarative host, exact local
-source selections, Dashboard/Table compositions, ordinary raster leases and
-System/Entity discovery. Integration and deployment evidence is tracked in
-[decision 0203](../decisions/0203-bounded-installable-experiences.md), not inferred
-from this catalog. Inspector remains the default; native Timeline/Column are
-trusted existing renderers. Arbitrary creator code, full original-website parity,
-streaming compositions and games remain **Product intent / Proposed** R5–R7.
+System and Entity Experiences remain **Partial**. The deployed R0–R4 foundation
+has signed presentation-only releases, bounded projection/hosting, private
+installation and ordinary raster leases; see decision 0203. The next conversational
+slice is **Implemented locally, not deployed or live-model verified**: voice/Convert
+incremental drafts, preview undo/private immutable save, semantic responsive
+layout, and exact-identity morphing within Inspector replace manual templates and
+source forms. Bounded owner-local witnessed graphs drive tree/bracket/timeline;
+graph-derived table columns declare subject/relationship/value mappings. A graph
+caps 100 nodes/200 edges/1,000 examined edges, exposes partial status and cannot
+create facts, dates, slots, roles, results or authority. Source keys/labels/types,
+not resolved scalar values or graph bodies, are model evidence; protected input
+stays excluded. Resize/runtime rendering does not call a model. See
+[decision 0204](../decisions/0204-conversational-experiences-share-inspector-entities.md).
+Native Timeline/Column remain trusted renderers. Domain competition semantics,
+arbitrary creator code, full original-website parity, streaming compositions,
+game simulation and measured million-user capacity remain **Product intent /
+Proposed / Unknown**, not consequences of layout support.
 
 Paid JPL acceleration and compact install receipts are **Implemented bounded
 adapters, locally tested and deployed to development**: immutable S3 archive, quota-controlled hash-keyed

@@ -10,11 +10,17 @@ having to describe a finished application in one request.
 
 **Partial:** the bounded R0–R4 slice is implemented, locally tested and deployed to development;
 [decision 0203](../decisions/0203-bounded-installable-experiences.md) records the
-actual contracts, rollout controls and verification status. The broader release
+actual contracts, rollout controls and verification status. A subsequent bounded
+conversational authoring/shared-Inspector slice is **implemented in source, with
+local deterministic verification; not deployed and not live-model verified**.
+[Decision 0204](../decisions/0204-conversational-experiences-share-inspector-entities.md)
+supersedes the manual Dashboard/Table creation forms, not their signed-package,
+projection or paid-code foundations. The broader release
 sequence below remains the design target, not a claim of full migration. This
 generalizes existing capabilities; the original website already had entity UI,
-Compute, streaming and messaging. General creator-authored code, game simulation
-and the R5–R7 workflow/media extensions remain proposed.
+Compute, streaming and messaging. General creator-authored code, game simulation,
+domain-specific competition behavior and remaining R5–R7 workflow/media extensions
+remain proposed.
 
 **Implemented / Partial / Unknown:** the source inventory below distinguishes
 original implementations, verified clean replacements, and migration gaps.
@@ -192,9 +198,9 @@ Reuse the existing signed marketplace, release, license, pricing, installation,
 upgrade/rollback and revocation lifecycle. Add System and Entity discovery facets
 to that lifecycle, not independent stores of unverified UI packages.
 
-The current app contract requires a Compute root. Generalize the versioned entry
-point to admit a validated presentation root as well as an executable root, while
-preserving existing app compatibility. Do not invent a no-op Compute root for a
+The original app contract required a Compute root. The bounded R0–R4 contract now
+admits a validated presentation-only root alongside executable releases, while
+preserving their original signed bytes. Do not invent a no-op Compute root for a
 pure presentation. Review and provenance must be appropriate to the payload;
 cryptographic signing alone is neither rendering admission nor code sandboxing.
 
@@ -225,6 +231,83 @@ than inventing data. Revocation unmounts affected instances immediately and cann
 leave departing animation, caches, or bindings as authority.
 
 ## Incremental authoring
+
+### Implemented bounded conversational slice
+
+The Experiences library now offers **Create with voice**, not a template picker
+or manual source/coordinate form. Ordinary voice and Convert text enter the same
+focused authoring controller. A request such as “put my count at the lower left”
+proposes a complete next declarative draft; later requests can add, reposition or
+resize components, or change mobile flow. **Undo preview** discards a staged edit.
+**Save experience privately** uses the existing signed private marketplace release
+and installation flow. Source facts are not changed by preview, save or resize.
+Owner-private free releases advance their own immutable version; editing another
+installed release makes a new private app rather than changing its publisher.
+
+The adviser receives the ordinary request, current portable draft, up to three
+clarification pairs, selected symbolic bindings and at most 64 candidate labels,
+types and cardinalities. Candidate keys are disposable `s0`–`s63`; canonical
+entity/relation/artifact IDs, resolved scalar values and graph bodies are not
+included in candidate metadata and stay browser-local.
+Labels and user-authored text are still ordinary content disclosed to the model,
+not zero-knowledge data. Protected input is rejected before this route. The API
+does not durably persist proposal content; bounded transient replay caching is
+separate, and `store:false` is not a promise about all provider retention. Existing
+authenticated interaction pricing meters the advisory call.
+
+One strict contract serves model proposals, server admission and local validation.
+Unknown or ambiguous sources clarify; unsupported behavior cannot become inert
+controls that pretend to work. No template fallback, arbitrary script/HTML/CSS,
+URL, child-release nomination, governed action or graph write is admitted by this
+authoring slice. The browser rechecks its exact frozen source map and current
+snapshot before preview; it allocates identities and versions itself.
+
+Layout remains pure local data: parent anchors, sibling alignment, fraction/pixel
+sizes, min/max/aspect constraints and row/column/grid flow. One optional
+`scene.mobile` rule overrides named node layouts/container flows below a declared
+safe-width threshold (at most 768px). Both base and mobile dependency graphs are
+validated. Resize resolves these rules locally, without another model call.
+
+Sources are current owner-local ordinary Context labels/scalars, bounded directed
+graphs and graph-derived tables, plus explicitly admitted ordinary raster assets.
+Journal's separate bounded projection primitive remains available; conversational
+Journal selection, managed/hydrated/shared/protected sources and live signals are
+not added here. A graph follows exact active outgoing relations from one root,
+with entity/relation version witnesses: at most 100 nodes, 200 edges and 1,000
+examined edges, with explicit partial status. All selected Context cells together
+fit 256 KiB. Discovery scans only the already bounded local snapshot, not other
+accounts; traversal uses a revision-indexed adjacency map, not a graph scan per
+node. A partial graph is never a complete snapshot or a proven complete total.
+
+Tree and bracket formations arrange these exact relationships; they create no
+teams, ranks, matches, winners, empty slots or reporting meaning. Cycles fail
+closed for these directed formations. Timeline formation uses only stored anchored
+temporal metadata, can repeat a subject for distinct dated relations, and draws
+no connectors. Mixed timezone/precision data is labeled as calendar grouping, not
+an exact global chronology. This is distinct from the native Sunburst-activity
+Timeline. Generated tables map explicit `subject`, `relationship`, and `value`
+fields, never header text, to witnessed relation rows. This is not an arbitrary
+join, standings calculator or spreadsheet engine.
+
+Experience components use the existing Inspector canvas: admitted exact source
+identities supply start/return geometry, and layout supplies destination geometry.
+Namesakes never supply animation anchors. Repeated occurrences may share one exact
+source; absent/offscreen sources fade in place. Only disposable geometry is retained
+during reversal, not old values or permission. Lines appear after entities settle.
+Inspector retains the graph and camera; the shell reserves measured controls and
+Sunburst space above the content. Reduced motion settles immediately.
+
+Definitions remain bounded to 128 nodes, 32 ports, depth 8 and 128 KiB. Diagram
+occurrences count against the declared node budget rather than hiding arbitrary
+work inside one node. At most two saved local image selections retain exact
+artifact/version references; each open re-admits a short-lived raster lease,
+not a permanent grant or a URL embedded in a portable release. Production
+Dashboard/Table constructors now exist only as test fixtures.
+
+See the [conversational test guide](../../onevar-platform/docs/testing/conversational-experiences.md)
+for the current UI and evidence limits. Media synchronization, simulation,
+standings/advancement rules, general actions and million-user qualification remain
+separate work. The earlier design requirements below are not completion claims.
 
 Existing ordinary fact statements continue through Paths, Essence, local proof,
 Context mutation and publication. Adding a fact does not manufacture an app or
@@ -307,11 +390,11 @@ These are **Implemented** bounds or source behaviors, not proposed targets:
   repository reconstructs an owner's whole Context partition, and browser
   runtime commits rewrite the aggregate runtime record. Raising caps alone does
   not create a scalable query/update path.
-- Journal already stores immutable observations as separate indexed local
-  records. However, `journalRecords` currently calls `getAll` for an exact
-  owner/app/subject/concept and then queries that history in memory. Growing
-  history needs occurrence-time range indexes, bounded cursors and aggregates;
-  not one entity/app per sample or repeated whole-history reads per widget.
+- Journal stores immutable observations as separate indexed local records. R0–R4
+  adds occurrence-time/record-ID indexes, bounded pages and resumable index
+  maintenance. The legacy `journalRecords` natural-language evaluator still loads
+  its exact scope with `getAll`; that older path is not a bounded-page guarantee.
+  Conversational Experience source discovery does not yet expose Journal pages.
 - Inspector already has a bounded scene (96 total nodes). Keep that default;
   alternate views virtualize or project larger datasets rather than mounting
   every logical entity simultaneously.
@@ -375,6 +458,11 @@ Distributed or paid load tests require an approved environment and spend budget;
 this proposal runs none and makes no production-capacity assertion.
 
 ## Verified current foundation and gaps
+
+The following table records the **pre-R0 starting inventory**, not current absence
+of the R0–R4 or conversational contracts. Decisions 0203/0204 and the implemented
+slice above supersede its package, host, authoring and navigation gaps. Remaining
+media, game, broad data-adapter and measured-scale gaps remain open.
 
 | Foundation | Evidence in `onevar-platform` | Remaining work |
 | --- | --- | --- |

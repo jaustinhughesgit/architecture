@@ -1,5 +1,7 @@
 # Architecture Decisions
 
+- [0204: Conversational Experiences arrange the same Inspector entities](0204-conversational-experiences-share-inspector-entities.md)
+
 - [0203: Experience presentation does not own data or execution authority](0203-bounded-installable-experiences.md)
 
 - [0187: Selectable context for failed ordinary requests](0187-selectable-failed-request-review.md)

@@ -5,7 +5,12 @@
 and the [acceptance/evidence guide](../../onevar-platform/docs/testing/experiences-r0-r4.md)
 record the bounded implementation, measured fixtures and actual rollout status.
 The remaining phase text defines targets/gates, not a blanket implementation or
-capacity claim. R5–R7 remain proposed.
+capacity claim. The subsequent **R5A conversational responsive presentation slice
+is implemented locally, not deployed or live-model verified**; see decision 0204
+and [the new test guide](../../onevar-platform/docs/testing/conversational-experiences.md).
+It replaces manual templates/source forms with incremental voice/Convert authoring
+and shared Inspector morphing. The remaining R5 domain behavior and R6–R7 remain
+proposed. R0–R4's private signed installation and paid-code serving stay intact.
 It covers System/Entity Experiences and paid marketplace JPL acceleration together.
 The [architecture proposal](system-and-entity-experiences.md) supplies the governing
 model; this document specifies implementation order, decisions and acceptance.
@@ -50,6 +55,10 @@ new execution engine, marketplace, payment system or general database service.
   universal legacy feature parity are later, separately gated capabilities.
 
 ## 2. Verified starting point
+
+This is the **pre-R0 inventory**. It is retained to explain the migration, not to
+claim these gaps still exist. Decisions 0203 and 0204 are the current bounded
+implementation record; the older manual R0–R4 UI is now historical.
 
 | Current behavior | Consequence for this plan |
 | --- | --- |
@@ -234,6 +243,34 @@ follow-on, not an assumed benefit of this migration.
   required side effect. Protected output must remain in its existing trust plane.
 
 ## 5. User flows and navigation
+
+### Current conversational flow (R5A source, not yet deployed)
+
+1. Create ordinary facts through the existing Essence flow. Inspector remains
+   the default, with the same graph and camera throughout presentation changes.
+2. Open **Experiences → Create with voice**. Use ordinary voice or Convert text
+   to describe one small change; there is no Dashboard/Table template picker,
+   coordinate editor, source dropdown or artifact-ID form.
+3. The adviser receives bounded candidate labels/types and symbolic keys. The
+   browser retains the exact source map, proves current identity/type/revision,
+   compiles responsive geometry, and previews the same entities in place. Missing
+   or ambiguous sources ask a question; nothing invents data to satisfy a layout.
+4. **Describe a change** continues the same draft. Node selection can ground
+   “this”; a mobile request adds constrained layout/flow intent, not a second app.
+   Resizing and opening a saved definition use deterministic, model-free layout.
+5. **Undo preview** reverses a staged edit. **Save experience privately** (or
+   ordinary Convert “save experience”) publishes/installs through the original
+   signed private free flow. Editing one's private free release advances its
+   version; editing another release forks a private app. Bound facts are never
+   embedded in the portable definition. Unsaved drafts are in-memory, not durable.
+6. **Inspector** reverses admitted entity occurrences into their exact current
+   solar positions; it does not rebuild or rewrite the graph. Missing/offscreen
+   sources fade in place. **Library → Open** reuses saved exact local connections;
+   recipient installs still need their own compatible data.
+
+The following tournament/open-on-data scenarios remain broader targets where
+they require standings, match semantics, filtering or behavior beyond the bounded
+shared-graph formations. Geometry does not supply those prerequisites.
 
 ### Install an experience
 
@@ -508,6 +545,32 @@ points; keep readers, purchased licenses and data. Do not erase paid purchases.
 
 ### R5 — Incremental creator workflow and real Tree/Bracket experiences
 
+**Implemented subset R5A, not a completed R5 gate:** the strict ordinary adviser,
+current draft/clarification context, preview undo, private immutable save and
+exact source rebinding replace production manual template constructors (now test
+fixtures only). Semantic anchors, sibling alignment, fractions/min/max/aspect,
+flow/grid and one mobile override compile locally. Tree/bracket/timeline are
+deterministic arrangements over bounded witnessed Context graphs; tables select
+explicit subject/relationship/value fields. Individual admitted source entities
+morph within the shared Inspector canvas and return without changing facts.
+
+Authoring admits at most 64 ordinary source candidates, 32 bindings, three
+clarification pairs and a 192 KiB request. No resolved source scalar values/graph
+bodies or canonical source IDs are added to candidate metadata; labels and the
+user's ordinary request are still model-visible. Layout definitions retain the
+128-node, 128 KiB ceiling. Graph reads cap 100 nodes/200 edges/1,000 examined edges
+and total projection bytes at 256 KiB. Dynamic diagram occurrences count against
+the declared render budget. Two local exact image selections reuse existing short
+raster leases. Authoring cannot add scripts, URLs, child releases, governed actions
+or facts. Save/open retains signature/license verification; paid JPL serving is
+unchanged.
+
+**Still gated:** complete tournament format/seeding/standings/advancement,
+family-specific role semantics/gestures, durable multi-device drafts, direct
+manipulation, general action/child composition authoring, broad source adapters,
+live-model quality and deployment acceptance. Existing native Timeline and other
+trusted renderers are not all converted into authored definitions by this slice.
+
 **Deliver:** focused drafts, typed edit algebra, preview/undo, direct layout edits,
 immutable publish, exact child reuse and explicit update selection. Add data-backed
 Tree/Family and one declared bracket format. Roles, names, matches, slots, results,
@@ -701,5 +764,6 @@ Original behavioral evidence and governing references:
 - [DynamoDB item constraints](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Constraints.html)
 - [AWS object-cache guidance](https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-design-patterns.html)
 
-No implementation, performance test, purchase, data conversion or deployment was
-performed by preparing this plan.
+The original preparation of this plan performed no implementation or deployment.
+Subsequent R0–R4 implementation/release evidence is in decision 0203; current local
+R5A work is in decision 0204. Updating the plan is not deployment evidence.
