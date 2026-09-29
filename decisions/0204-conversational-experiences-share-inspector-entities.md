@@ -13,7 +13,7 @@ live synthetic count-authoring check. Follow-up development release
 live check, local 1,474 unit tests and 17 focused browser cases, plus deployed
 health/homepage smoke. It also repairs the separately reproduced pending-RAF
 Timeline reversal race with unchanged continuity tolerances. Full hosted CI for
-that release is pending at this checkpoint. Neither live call reproduced the
+that release subsequently completed successfully. Neither live call reproduced the
 reported adviser rejection; its root cause is not established. Broad model acceptance and live-microphone acceptance remain
 unverified. The linked product test guide owns current release evidence.
 Supersedes the manual template/source-form workflow of 0203, not its storage,
@@ -49,6 +49,19 @@ identities connect Experience geometry to the same Inspector canvas, graph and
 camera. Repeated occurrences retain source identity. Missing/offscreen sources
 fade in place; namesakes never substitute. Reversal retains geometry only, and
 revocation wins immediately. Connector geometry paints after motion settles.
+
+Locally verified follow-up, not yet deployed: data refresh is not navigation.
+A stable UI occurrence keeps its pose and mounted
+content across scalar/provenance revisions, even if the current value entity ID
+changes. Motion depends on geometry/membership and navigation, not data revisions.
+Temporary reads may preserve geometry and inert shells only, never old values,
+source authority or actions. Explicit entry/return still morphs between the
+current admitted Inspector source and Experience geometry. This is a local
+presentation correction, not proof of a millisecond telemetry pipeline.
+Page visibility loss is not Inspector navigation. It still cancels reads and
+pending authoring, clears data and revokes media, but retains disposable scalar
+poses. Return reacquires current data without replaying entry; rapid visibility
+events cannot strand a cancelled lease. Media is not silently re-admitted.
 
 Graph projections extend the existing read primitive: current ordinary owned,
 local, root-connected directed facts, with exact entity/relation version witnesses
