@@ -1,5 +1,25 @@
 # Capability Catalog
 
+System and Entity Experiences are **Partial**: the clean R0–R4 implementation
+adds signed presentation-only releases, a bounded declarative host, exact local
+source selections, Dashboard/Table compositions, ordinary raster leases and
+System/Entity discovery. Integration and deployment evidence is tracked in
+[decision 0203](../decisions/0203-bounded-installable-experiences.md), not inferred
+from this catalog. Inspector remains the default; native Timeline/Column are
+trusted existing renderers. Arbitrary creator code, full original-website parity,
+streaming compositions and games remain **Product intent / Proposed** R5–R7.
+
+Paid JPL acceleration and compact install receipts are **Implemented bounded
+adapters, locally tested**: immutable S3 archive, quota-controlled hash-keyed
+database serving copies, byte/entry-bounded process cache and dual-read historical
+receipts. Cache hits never grant execution. Bounded conditional backfill tooling
+exists but no historical backfill has run. Production acceleration/new Experience
+admission default off. Projections are distinct from complete Context snapshots;
+Journal reference indexes bound pagination without raising Context caps.
+See the [implementation plan](experience-platform-implementation-plan.md).
+Million-user concurrency, distributed cost/SLOs and low-end physical mobile
+capacity remain **Unknown**; local fixtures do not establish those capacities.
+
 Timeline interaction projection is **Implemented as a bounded browser-local source
 slice, locally verified and deployed to development**. The current
 authorized entity view joins Sunburst's exact references into daily occurrences,

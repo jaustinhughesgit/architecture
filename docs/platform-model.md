@@ -1,5 +1,24 @@
 # Platform Model
 
+The bounded R0–R4 Experience implementation is recorded in
+[decision 0203](../decisions/0203-bounded-installable-experiences.md). It adds
+presentation-only signed apps, owner-local read projections, a trusted declarative
+host, ordinary raster leases and paid-code serving/compact receipts. Source facts,
+installation authority and presentation remain distinct. Integration verification
+and development release evidence are recorded separately in the linked product
+guide; this does not complete arbitrary creator, media or game migration.
+
+**Product intent:** installable System Experiences compose entities and their
+Entity Experiences from compact surfaces through full-canvas presentations.
+Inspector remains the default explorer and the Sunburst remains available above
+experience content. The existing entity, data, execution and marketplace authority
+boundaries remain foundational. The [experience proposal](system-and-entity-experiences.md)
+records original UI/streaming/Compute migration evidence plus proposed
+presentation-only package admission, composition, navigation, shell isolation and
+bounded data/runtime work. Existing implementations are distinguished from new
+contracts; neither this proposal nor small concurrency tests prove million-user
+capacity.
+
 Current clean-platform development release: `f6726fb0eefcc28a5826258c767bc51e5f220fc3`,
 published through [workflow 35414923608](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/35414923608).
 Decisions 0199–0201 are included. Local verification passed 1,305 unit tests and

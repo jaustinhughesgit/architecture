@@ -72,6 +72,18 @@ The architecture is available at three levels of detail so the same platform mod
 
 ## How this stays useful
 
+The [System and Entity Experiences proposal](docs/system-and-entity-experiences.md)
+records the next presentation-platform direction: installable compositions and
+entity surfaces, Inspector as default, and a reserved Sunburst control plane.
+Product intent and proposed contracts are distinguished from implemented runtime.
+The bounded R0–R4 slice is implemented in the clean-room monorepo; see
+[decision 0203](decisions/0203-bounded-installable-experiences.md) for its limits
+and linked verification/deployment evidence. Creator language, media composition
+and game runtimes remain later work.
+The [implementation plan](docs/experience-platform-implementation-plan.md) adds
+specific migration releases, paid JPL artifact serving, data/host contracts,
+navigation flows, acceptance tests and rollback gates.
+
 - Update the product-purpose document when the core problem, differentiating outcomes, or architectural consequences change; do not use product intent as evidence of implementation.
 - Update the capability catalog whenever an existing capability is discovered, its maturity changes, or a missing capability is identified.
 - Update the platform model when the meaning or relationship of core primitives changes.

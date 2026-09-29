@@ -1,5 +1,7 @@
 # Architecture Decisions
 
+- [0203: Experience presentation does not own data or execution authority](0203-bounded-installable-experiences.md)
+
 - [0187: Selectable context for failed ordinary requests](0187-selectable-failed-request-review.md)
 
 - [0186: Owner-scoped material references and clarification](0186-owner-scoped-material-references-and-clarification.md)
