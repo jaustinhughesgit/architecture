@@ -79,8 +79,8 @@ Product intent and proposed contracts are distinguished from implemented runtime
 The bounded R0–R4 slice is implemented in the clean-room monorepo; see
 [decision 0203](decisions/0203-bounded-installable-experiences.md) for its limits
 and linked verification/deployment evidence. A subsequent bounded conversational
-responsive authoring/shared-Inspector slice is locally implemented, not deployed
-or live-model verified; see [decision 0204](decisions/0204-conversational-experiences-share-inspector-entities.md).
+responsive authoring/shared-Inspector slice is locally verified and deployed to
+development, but not live-model verified; see [decision 0204](decisions/0204-conversational-experiences-share-inspector-entities.md).
 Remaining creator behavior, media composition and game runtimes remain later work.
 The [implementation plan](docs/experience-platform-implementation-plan.md) adds
 specific migration releases, paid JPL artifact serving, data/host contracts,

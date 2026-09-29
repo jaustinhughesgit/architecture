@@ -1,7 +1,7 @@
 # Platform Model
 
-Conversational responsive Experiences are an **implemented bounded source slice,
-locally verified but not deployed or live-model verified**. Ordinary voice/Convert
+Conversational responsive Experiences are an **implemented bounded slice, locally
+verified and deployed to development, but not live-model verified**. Ordinary voice/Convert
 proposes incremental declarative drafts over symbolic source candidates; trusted
 code rebinds exact current owner-local facts, validates geometry and saves through
 the existing private signed marketplace. Experiences morph the same admitted

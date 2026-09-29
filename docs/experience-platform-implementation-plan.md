@@ -6,7 +6,7 @@ and the [acceptance/evidence guide](../../onevar-platform/docs/testing/experienc
 record the bounded implementation, measured fixtures and actual rollout status.
 The remaining phase text defines targets/gates, not a blanket implementation or
 capacity claim. The subsequent **R5A conversational responsive presentation slice
-is implemented locally, not deployed or live-model verified**; see decision 0204
+is locally verified and deployed to development, but not live-model verified**; see decision 0204
 and [the new test guide](../../onevar-platform/docs/testing/conversational-experiences.md).
 It replaces manual templates/source forms with incremental voice/Convert authoring
 and shared Inspector morphing. The remaining R5 domain behavior and R6–R7 remain
@@ -244,7 +244,7 @@ follow-on, not an assumed benefit of this migration.
 
 ## 5. User flows and navigation
 
-### Current conversational flow (R5A source, not yet deployed)
+### Current conversational flow (R5A, deployed to development)
 
 1. Create ordinary facts through the existing Essence flow. Inspector remains
    the default, with the same graph and camera throughout presentation changes.
@@ -568,7 +568,7 @@ unchanged.
 **Still gated:** complete tournament format/seeding/standings/advancement,
 family-specific role semantics/gestures, durable multi-device drafts, direct
 manipulation, general action/child composition authoring, broad source adapters,
-live-model quality and deployment acceptance. Existing native Timeline and other
+live-model quality and live-authoring deployment acceptance. Existing native Timeline and other
 trusted renderers are not all converted into authored definitions by this slice.
 
 **Deliver:** focused drafts, typed edit algebra, preview/undo, direct layout edits,

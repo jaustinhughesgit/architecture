@@ -3,7 +3,7 @@
 System and Entity Experiences remain **Partial**. The deployed R0–R4 foundation
 has signed presentation-only releases, bounded projection/hosting, private
 installation and ordinary raster leases; see decision 0203. The next conversational
-slice is **Implemented locally, not deployed or live-model verified**: voice/Convert
+slice is **Implemented, locally verified and deployed to development; not live-model verified**: voice/Convert
 incremental drafts, preview undo/private immutable save, semantic responsive
 layout, and exact-identity morphing within Inspector replace manual templates and
 source forms. Bounded owner-local witnessed graphs drive tree/bracket/timeline;

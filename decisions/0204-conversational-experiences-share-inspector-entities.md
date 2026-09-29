@@ -1,7 +1,11 @@
 # 0204 — Conversational Experiences arrange the same Inspector entities
 
-Status: Accepted; bounded source implementation with local deterministic tests.
-Not deployed; live-model authoring and live-microphone acceptance remain unverified.
+Status: Accepted; bounded implementation, locally verified and deployed to development.
+Release `41b3d320e05e46b1eeed37e8e9111c91c40c8cb2` was published through
+[workflow 36560904990](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/36560904990)
+on 2026-09-29. Exact public health and read-only page checks passed; full hosted
+validation is pending at this checkpoint. Live-model authoring and live-microphone
+acceptance remain unverified. The linked product test guide owns release evidence.
 Supersedes the manual template/source-form workflow of 0203, not its storage,
 marketplace, source-authority or execution decisions.
 
@@ -68,8 +72,8 @@ Rejected: manual template factories as the production authoring model, pixel-onl
 mobile copies, model-owned geometry at runtime, display text as facts, invented
 tournament data, arbitrary HTML/JavaScript, and per-node graph scans/model calls.
 Factories move to test fixtures; existing signed definitions/selections remain
-readable without a legacy parser or bulk conversion. No reset or deployment is
-part of this change. Disabling hosting returns to Inspector without deleting
+readable without a legacy parser or bulk conversion. Deployment was separately
+authorized; no reset was performed. Disabling hosting returns to Inspector without deleting
 facts, purchases or releases.
 
 Affected layers: clean contracts/runtime, browser shell/worker/Inspector/host,

@@ -11,8 +11,8 @@ having to describe a finished application in one request.
 **Partial:** the bounded R0–R4 slice is implemented, locally tested and deployed to development;
 [decision 0203](../decisions/0203-bounded-installable-experiences.md) records the
 actual contracts, rollout controls and verification status. A subsequent bounded
-conversational authoring/shared-Inspector slice is **implemented in source, with
-local deterministic verification; not deployed and not live-model verified**.
+conversational authoring/shared-Inspector slice is **implemented, locally verified
+and deployed to development; not live-model verified**.
 [Decision 0204](../decisions/0204-conversational-experiences-share-inspector-entities.md)
 supersedes the manual Dashboard/Table creation forms, not their signed-package,
 projection or paid-code foundations. The broader release
