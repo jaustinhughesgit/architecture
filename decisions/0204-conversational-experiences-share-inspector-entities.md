@@ -8,8 +8,13 @@ validation subsequently failed one native Timeline mid-entry reversal continuity
 test (including its retry); all four Experience browser cases passed. This is a
 validation failure, not a green release gate. Subsequent diagnostic release
 `c3a5d70fe4eadc80fc145c9f94167da7d462aa7d` passed one explicitly authorized
-live synthetic count-authoring check, but did not reproduce the reported adviser
-rejection. Broad model acceptance and live-microphone acceptance remain
+live synthetic count-authoring check. Follow-up development release
+`b3d25a6002ee5fb3d00dd72a4371c1b3c8ce4d4c` passed the second authorized
+live check, local 1,474 unit tests and 17 focused browser cases, plus deployed
+health/homepage smoke. It also repairs the separately reproduced pending-RAF
+Timeline reversal race with unchanged continuity tolerances. Full hosted CI for
+that release is pending at this checkpoint. Neither live call reproduced the
+reported adviser rejection; its root cause is not established. Broad model acceptance and live-microphone acceptance remain
 unverified. The linked product test guide owns current release evidence.
 Supersedes the manual template/source-form workflow of 0203, not its storage,
 marketplace, source-authority or execution decisions.
