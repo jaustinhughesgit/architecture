@@ -16,6 +16,12 @@ Timeline reversal race with unchanged continuity tolerances. Full hosted CI for
 that release subsequently completed successfully. Neither live call reproduced the
 reported adviser rejection; its root cause is not established. Broad model acceptance and live-microphone acceptance remain
 unverified. The linked product test guide owns current release evidence.
+Live-data/tab-visibility continuity was subsequently deployed to development as
+`045384e8b6e40f7b8340e1402b85ec7f75f536d1` through
+[workflow 36597142744](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/36597142744).
+Local verification passed 1,477 unit tests and 17 focused browser cases; exact
+deployed health and read-only homepage smoke passed. Full hosted validation is
+running at this checkpoint. No paid model calls, resets or account changes.
 Supersedes the manual template/source-form workflow of 0203, not its storage,
 marketplace, source-authority or execution decisions.
 
@@ -50,7 +56,7 @@ camera. Repeated occurrences retain source identity. Missing/offscreen sources
 fade in place; namesakes never substitute. Reversal retains geometry only, and
 revocation wins immediately. Connector geometry paints after motion settles.
 
-Locally verified follow-up, not yet deployed: data refresh is not navigation.
+Locally verified follow-up, deployed to development as `045384e`: data refresh is not navigation.
 A stable UI occurrence keeps its pose and mounted
 content across scalar/provenance revisions, even if the current value entity ID
 changes. Motion depends on geometry/membership and navigation, not data revisions.
