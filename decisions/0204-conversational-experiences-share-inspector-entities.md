@@ -3,9 +3,14 @@
 Status: Accepted; bounded implementation, locally verified and deployed to development.
 Release `41b3d320e05e46b1eeed37e8e9111c91c40c8cb2` was published through
 [workflow 36560904990](https://github.com/jaustinhughesgit/onevar-platform/actions/runs/36560904990)
-on 2026-09-29. Exact public health and read-only page checks passed; full hosted
-validation is pending at this checkpoint. Live-model authoring and live-microphone
-acceptance remain unverified. The linked product test guide owns release evidence.
+on 2026-09-29. Exact public health and read-only page checks passed; hosted
+validation subsequently failed one native Timeline mid-entry reversal continuity
+test (including its retry); all four Experience browser cases passed. This is a
+validation failure, not a green release gate. Subsequent diagnostic release
+`c3a5d70fe4eadc80fc145c9f94167da7d462aa7d` passed one explicitly authorized
+live synthetic count-authoring check, but did not reproduce the reported adviser
+rejection. Broad model acceptance and live-microphone acceptance remain
+unverified. The linked product test guide owns current release evidence.
 Supersedes the manual template/source-form workflow of 0203, not its storage,
 marketplace, source-authority or execution decisions.
 
@@ -65,6 +70,13 @@ disclosure, not zero-knowledge authoring. Protected lanes stay excluded. The API
 does not durably retain proposal content and uses `store:false`; its bounded
 five-minute process replay cache is transient. Existing cost meters retain usage
 evidence, not prompts. Provider retention is a separate policy.
+
+Rejection diagnostics distinguish provider completion/refusal, JSON, schema,
+canonical scene and source-binding failures. The existing response message carries
+one trusted rule code and a bounded allowlisted schema coordinate, not raw model
+text, source identities, unknown keys or values. No additional provider calls,
+durable proposal logging, automatic repair template or relaxed authority follows
+from rejection. The browser leaves the current experience and facts unchanged.
 
 ## Alternatives, migration and evidence
 
