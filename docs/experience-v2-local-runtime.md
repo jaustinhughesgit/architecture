@@ -1,7 +1,7 @@
 # Experience v2 local interaction foundation
 
-Status: **Partial**, implemented and independently verified headlessly in
-`onevar-v2`; browser and deployed qualification remain pending. This document
+Status: **Partial**, implemented and independently verified headlessly and in native
+Chromium in `onevar-v2`; deployed qualification remains pending. This document
 describes schema-v1 ordinary numeric interaction, not the full proposed
 Director/Conductor/Object platform. See [decision 0233](../decisions/0233-v2-local-operation-and-working-set-proof.md) and the
 [active plan](../../onevar-v2/PLAN.md).
@@ -82,9 +82,35 @@ calls. Negative scenarios cover forged actor fields, stale/conflicting requests,
 cross-instance substitution, ambiguity and numeric failure. No sibling runtime,
 provider/model, old database or test-only authority bypass is used.
 
-The next M2 boundary is a real browser host, persisted working-set adapter and
-page-reload proof using the same runtime. General graph/results/effects, worker
-containment, Director/Conductor definitions, middleware, Sunburst, audio/media,
-protection, services and marketplace authority remain subsequent milestones.
-Affected CI may pass this exact scope while complete integration/release fail
-for the remaining declared evidence; it must not imply complete M1/M2 parity.
+The native browser M2 seam is implemented under [decision 0234](../decisions/0234-v2-browser-working-set-and-commit-before-exposure.md). A trusted local
+host stages the same operation in detached state and exposes it only after an
+IndexedDB transaction commits. The schema-v1 ordinary envelope is keyed by
+exact actor/workspace with its own positive storage revision. Async validation
+precedes a readwrite transaction that compares the prior record's full bytes
+and revision before put. Stale tabs fail and must explicitly reload. Corrupt or
+foreign rows never trigger automatic reseeding/overwrite. Namespace metadata
+is not account authentication or protection from same-origin scripts.
+
+Inspector/Experience view switching keeps the same instance/occurrences. Native
+Chromium acceptance runs warm UI, typed and transcribed-voice actions offline,
+then reloads fresh JavaScript from actual IndexedDB and retries exact UI/voice
+receipts. Two pages in one context prove conflict denial; native save races,
+owner/workspace scope, corrupt records and aborted transaction rollback/retry
+are checked. The public live host is the UI's operation boundary, not a test-only
+authority hook. Five browser cases accompany owning Node boundary checks.
+
+A local allowlisted server sends CSP denying connection/worker/frame/form
+destinations. Rendering uses static templates and textContent. Pagehide closes
+host/storage; closed reads/actions deny, and persisted pageshow reloads fresh
+state. That recovery signal is tested synthetically, not as native BFCache
+qualification. Desktop/390px layouts are inspected; viewport emulation is not
+native-device qualification. No generated scripts, microphones, protected data
+or providers participate.
+
+The narrow ordinary M2 scenario is complete locally. General graph/results/effects,
+Object definitions/ports, worker containment, Director/Conductor definitions,
+middleware, Sunburst, audio/media, protection, services and marketplace authority
+remain subsequent milestones. Affected CI may pass this exact scope while full
+integration/release fail for the remaining declared evidence; it must not imply
+complete M1/M3/M5 parity. Browser preparation uses the same gate arguments and
+impact selector; docs-only changes do not prepare/run browser acceptance.

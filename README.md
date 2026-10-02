@@ -1,6 +1,6 @@
 # 1var Architecture
 
-The separate v2 repository now has a **Partial M1/M2 local interaction foundation**, independently verified headlessly. Its exact ordinary-number operation and coherent working-set contract are described in [Experience v2 local runtime](docs/experience-v2-local-runtime.md) and [decision 0233](decisions/0233-v2-local-operation-and-working-set-proof.md). Browser and broader framework qualification remain pending.
+The separate v2 repository has a **Partial Experience foundation with the narrow ordinary M2 browser proof complete locally**. Headless and native Chromium checks establish exact numeric operations, shared views, working-set page reload and denied stale/corrupt/aborted saves. Broader frontend, authority and composition remain pending. See [local runtime specification](docs/experience-v2-local-runtime.md), [decision 0234](decisions/0234-v2-browser-working-set-and-commit-before-exposure.md) and the [active plan](../onevar-v2/PLAN.md).
 
 This repository is the canonical, living description of how the 1var platform fits together. It exists because the browser application (`aws`), API boundary (`aws-api`), execution layer (`compute`), and headless acceptance client (`testing`) are separate repositories but form one system.
 
