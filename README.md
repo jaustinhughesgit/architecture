@@ -24,6 +24,7 @@ The architecture is available at three levels of detail so the same platform mod
 
 | Repository | Primary responsibility | Detailed guide |
 | --- | --- | --- |
+| `onevar-v2` | New entity Experience implementation: frontend v2, CLI 2.0, Inspector 3.0, scoped composition and fresh acceptance; bootstrap in progress | `../onevar-v2/PLAN.md` |
 | `onevar-platform` | Clean-room product monorepo for the replacement website, local runtime, contracts, API, application infrastructure, and acceptance | `../onevar-platform/docs/architecture/platform.md` |
 | `onevar-operations` | Production domain attachment, environment promotion, and rollback controls for the replacement platform | `../onevar-operations/README.md` |
 | `aws` | Browser experience, trusted local runtime, Path/Essence processing, ContextDB interaction, `fileWorker` execution, and user-facing controls | `../aws/docs/layer.md` |
@@ -71,6 +72,8 @@ The architecture is available at three levels of detail so the same platform mod
 21. [Architecture decisions](decisions/README.md)
 
 ## How this stays useful
+
+The active [v2 development plan](../onevar-v2/PLAN.md) records the next implementation sequence, complete module inventory, reference preservation, scoped hard reset and fresh affected acceptance. Existing runtime status remains separate from this plan. See [decision 0232](decisions/0232-experience-v2-repository-and-affected-qualification.md).
 
 The [System and Entity Experiences proposal](docs/system-and-entity-experiences.md)
 records the next presentation-platform direction: installable compositions and

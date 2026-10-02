@@ -1,5 +1,7 @@
 # Platform Model
 
+The accepted v2 development direction creates a separate Experience implementation repository with preserved current/legacy references, scoped entity behavior and affected iteration checks. Runtime roles and scale remain Proposed until implemented and qualified; the existing capability statuses below continue to describe their named implementations. See [decision 0232](../decisions/0232-experience-v2-repository-and-affected-qualification.md) and the [active plan](../../onevar-v2/PLAN.md).
+
 Conversational responsive Experiences are an **implemented bounded slice, locally
 verified and deployed to development, but not live-model verified**. Ordinary voice/Convert
 proposes incremental declarative drafts over symbolic source candidates; trusted
