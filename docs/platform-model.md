@@ -1,5 +1,7 @@
 # Platform Model
 
+The v2 M1/M2 foundation is **Partial: ordinary-number contracts and runtime implemented and headlessly verified**. Exact bindings/instances/occurrences and typed/transcribed-voice/UI actions share a local property with immutable history and coherent working-set retries. This does not qualify browser storage, general semantic Paths, remote authority or full Experience roles. See [local runtime specification](experience-v2-local-runtime.md) and [decision 0233](../decisions/0233-v2-local-operation-and-working-set-proof.md).
+
 The accepted v2 development direction creates a separate Experience implementation repository with preserved current/legacy references, scoped entity behavior and affected iteration checks. Runtime roles and scale remain Proposed until implemented and qualified; the existing capability statuses below continue to describe their named implementations. See [decision 0232](../decisions/0232-experience-v2-repository-and-affected-qualification.md) and the [active plan](../../onevar-v2/PLAN.md).
 
 Conversational responsive Experiences are an **implemented bounded slice, locally

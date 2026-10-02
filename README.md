@@ -1,5 +1,7 @@
 # 1var Architecture
 
+The separate v2 repository now has a **Partial M1/M2 local interaction foundation**, independently verified headlessly. Its exact ordinary-number operation and coherent working-set contract are described in [Experience v2 local runtime](docs/experience-v2-local-runtime.md) and [decision 0233](decisions/0233-v2-local-operation-and-working-set-proof.md). Browser and broader framework qualification remain pending.
+
 This repository is the canonical, living description of how the 1var platform fits together. It exists because the browser application (`aws`), API boundary (`aws-api`), execution layer (`compute`), and headless acceptance client (`testing`) are separate repositories but form one system.
 
 The purpose of this documentation is not to freeze the design. It preserves the big picture while leaving room to discover, document, and implement capabilities that have not yet been discussed.
@@ -24,7 +26,7 @@ The architecture is available at three levels of detail so the same platform mod
 
 | Repository | Primary responsibility | Detailed guide |
 | --- | --- | --- |
-| `onevar-v2` | New entity Experience implementation: frontend v2, CLI 2.0, Inspector 3.0, scoped composition and fresh acceptance; bootstrap in progress | `../onevar-v2/PLAN.md` |
+| `onevar-v2` | New entity Experience implementation: frontend v2, CLI 2.0, Inspector 3.0, scoped composition and fresh acceptance; Partial headless M1/M2 foundation | `../onevar-v2/PLAN.md` |
 | `onevar-platform` | Clean-room product monorepo for the replacement website, local runtime, contracts, API, application infrastructure, and acceptance | `../onevar-platform/docs/architecture/platform.md` |
 | `onevar-operations` | Production domain attachment, environment promotion, and rollback controls for the replacement platform | `../onevar-operations/README.md` |
 | `aws` | Browser experience, trusted local runtime, Path/Essence processing, ContextDB interaction, `fileWorker` execution, and user-facing controls | `../aws/docs/layer.md` |

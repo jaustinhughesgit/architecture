@@ -1,5 +1,7 @@
 # Capability Catalog
 
+The separate `onevar-v2` has a **Partial M1/M2 foundation**, implemented and independently verified headlessly: strict ordinary-number wires, exact owner-local dispatch, literal/numeric local Paths, shared occurrences, immutable history and coherent JSON working-set restoration. Browser, general semantic Paths/Essence, remote grants, workers, services and deployment remain pending. Reference-platform statuses below are unchanged. See [local runtime specification](experience-v2-local-runtime.md) and [decision 0233](../decisions/0233-v2-local-operation-and-working-set-proof.md).
+
 System and Entity Experiences remain **Partial**. The deployed R0–R4 foundation
 has signed presentation-only releases, bounded projection/hosting, private
 installation and ordinary raster leases; see decision 0203. The next conversational
