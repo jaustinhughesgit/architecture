@@ -114,3 +114,9 @@ remain subsequent milestones. Affected CI may pass this exact scope while full
 integration/release fail for the remaining declared evidence; it must not imply
 complete M1/M3/M5 parity. Browser preparation uses the same gate arguments and
 impact selector; docs-only changes do not prepare/run browser acceptance.
+
+The explicit planned `framework-integration` gate preserves missing evidence
+for these broader contracts and invariant families. A narrow implemented owning
+suite cannot qualify the complete framework merely because later services or
+infrastructure also pass. Small affected checks keep this gap visible; full
+integration/release require it.
